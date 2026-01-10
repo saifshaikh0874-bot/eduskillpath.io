@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>EduSkillPath | CV Maker (Overleaf Style)</title>
+  <link rel="stylesheet" href="cv-maker.css" />
+  <link rel="stylesheet" href="print.css" media="print" />
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="dot"></span>
+    EduSkillPath CV Maker
+    <span class="mini">Overleaf-style LaTeX Editor</span>
+  </div>
+
+  <div class="actions">
+    <select id="templateSelect" class="select">
+      <option value="t1">Template 1 (Classic ATS)</option>
+      <option value="t2">Template 2 (Fresher)</option>
+      <option value="t3">Template 3 (Modern)</option>
+    </select>
+
+    <button class="btn ghost" id="btnReset">Reset</button>
+    <button class="btn ghost" id="btnSave">Save</button>
+    <button class="btn primary" id="btnDownload">Download PDF</button>
+  </div>
+</header>
+
+<main class="layout">
+  <!-- LEFT -->
+  <section class="panel">
+    <div class="panel-head">
+      <h2>Resume.tex</h2>
+      <p>Write resume using LaTeX-like commands. Preview updates live.</p>
+    </div>
+
+    <div id="editor" class="editor"></div>
+
+    <div class="panel-foot">
+      ✅ Auto-saved • Supports: <code>\name</code>, <code>\email</code>, <code>\phone</code>,
+      <code>\linkedin</code>, <code>\section</code>, <code>\item</code>
+    </div>
+  </section>
+
+  <!-- RIGHT -->
+  <section class="panel">
+    <div class="panel-head">
+      <h2>Preview</h2>
+      <p>ATS friendly + print-ready PDF layout</p>
+    </div>
+
+    <div class="previewWrap">
+      <div id="resumePreview" class="resume"></div>
+    </div>
+
+    <div class="panel-foot">
+      Tip: Click “Download PDF” → Save as PDF.
+    </div>
+  </section>
+</main>
+
+<!-- Monaco Editor -->
+<script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.45.0/min/vs/loader.js"></script>
+
+<script src="latex-mode.js"></script>
+<script src="templates.js"></script>
+<script src="cv-maker.js"></script>
+</body>
+</html>
