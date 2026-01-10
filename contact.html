@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Eduskillpath</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="container nav-content">
+      <div class="logo">Edu<span>skillpath</span></div>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="courses.html">Courses</a>
+        <a href="resume-builder.html">CV Maker</a>
+        <a href="contact.html" class="active">Contact</a>
+      </nav>
+
+      <button class="nav-btn" id="menuBtn">☰</button>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Contact Us</h2>
+      <p class="section-subtitle">We’ll reply within 24 hours.</p>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>Send Message</h3>
+
+          <label>Your Name</label>
+          <input placeholder="Name" />
+
+          <label>Your Email</label>
+          <input placeholder="Email" />
+
+          <label>Message</label>
+          <textarea rows="5" placeholder="Write message..."></textarea>
+
+          <button class="btn primary full" onclick="alert('Message feature coming soon ✅')">Send</button>
+        </div>
+
+        <div class="card">
+          <h3>Quick Support</h3>
+          <p><b>Email:</b> support@eduskillpath.com</p>
+          <p><b>WhatsApp:</b> +91 XXXXX XXXXX</p>
+
+          <a class="btn outline full" target="_blank"
+            href="https://wa.me/91XXXXXXXXXX?text=Hi%20Eduskillpath%20I%20need%20help">
+            WhatsApp Now
+          </a>
+
+          <p class="small-note">
+            Replace XXXXXXXXXX with your real WhatsApp number.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <div class="logo">Edu<span>skillpath</span></div>
+        <p>Learn → Build Resume → Apply Jobs</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <a href="courses.html">Courses</a>
+        <a href="resume-builder.html">CV Maker</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <p>Email: support@eduskillpath.com</p>
+        <p>WhatsApp: +91 XXXXX XXXXX</p>
+      </div>
+    </div>
+    <div class="container copyright">
+      <p>© <span id="year"></span> Eduskillpath. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
