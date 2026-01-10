@@ -1,101 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CV Maker | Eduskillpath</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-
-  <header class="navbar">
-    <div class="container nav-content">
-      <div class="logo">Edu<span>skillpath</span></div>
-
-      <nav class="nav-links" id="navLinks">
-        <a href="index.html">Home</a>
-        <a href="courses.html">Courses</a>
-        <a href="resume-builder.html" class="active">CV Maker</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-
-      <button class="nav-btn" id="menuBtn">☰</button>
+<div class="max-w-[800px] mx-auto my-10 bg-white p-12 shadow-2xl border border-gray-100" id="resume-content">
+  <header class="text-center border-b-2 border-blue-600 pb-6 mb-8">
+    <h1 class="text-4xl font-bold text-gray-800 uppercase tracking-tight">John Doe</h1>
+    <div class="flex justify-center gap-4 text-sm text-gray-600 mt-2">
+      <span>📍 New York, NY</span>
+      <span>•</span>
+      <span>📞 +1 (555) 000-0000</span>
+      <span>•</span>
+      <span>✉️ john.doe@email.com</span>
+    </div>
+    <div class="flex justify-center gap-4 text-blue-600 text-sm font-semibold mt-1">
+      <a href="#">LinkedIn</a>
+      <a href="#">GitHub</a>
+      <a href="#">Portfolio</a>
     </div>
   </header>
 
-  <section class="section">
-    <div class="container">
-      <h2 class="section-title">Free CV Maker</h2>
-      <p class="section-subtitle">Fill details → Preview → Download PDF</p>
+  <section class="mb-8">
+    <h2 class="text-lg font-bold text-blue-700 uppercase border-b border-gray-200 mb-3">Professional Summary</h2>
+    <p class="text-gray-700 leading-relaxed text-sm">
+      Dynamic Web Developer with 3+ years of experience building scalable web applications. Expert in React, Node.js, and Cloud Architecture. Proven track record of improving site performance by 40% and leading cross-functional teams.
+    </p>
+  </section>
 
-      <div class="resume-grid">
-        <!-- FORM -->
-        <div class="card">
-          <h3>Enter Your Details</h3>
-
-          <label>Full Name</label>
-          <input id="name" placeholder="Your Name" />
-
-          <label>Phone</label>
-          <input id="phone" placeholder="+91 XXXXX XXXXX" />
-
-          <label>Email</label>
-          <input id="email" placeholder="example@gmail.com" />
-
-          <label>LinkedIn</label>
-          <input id="linkedin" placeholder="https://linkedin.com/in/..." />
-
-          <label>About / Summary</label>
-          <textarea id="summary" rows="4" placeholder="Write short professional summary..."></textarea>
-
-          <label>Skills (comma separated)</label>
-          <input id="skills" placeholder="HR, MS Excel, Communication" />
-
-          <label>Education</label>
-          <textarea id="education" rows="3" placeholder="BBA, University name, 2026"></textarea>
-
-          <label>Experience</label>
-          <textarea id="experience" rows="4" placeholder="Company name, role, responsibilities..."></textarea>
-
-          <div class="row">
-            <button class="btn primary full" onclick="generateResume()">Generate Preview</button>
-          </div>
-
-          <div class="row">
-            <button class="btn outline full" onclick="downloadPDF()">Download PDF</button>
-          </div>
-
-          <p class="small-note">
-            ✅ Tip: Fill all details, then click Generate Preview.
-          </p>
-        </div>
-
-        <!-- PREVIEW -->
-        <div class="card" id="resumePreview">
-          <h2 id="pName">Your Name</h2>
-          <p class="muted" id="pContact">Phone | Email</p>
-          <p class="muted" id="pLinkedIn">LinkedIn</p>
-
-          <hr/>
-
-          <h3>Summary</h3>
-          <p id="pSummary">Your professional summary will appear here.</p>
-
-          <h3>Skills</h3>
-          <ul id="pSkills"></ul>
-
-          <h3>Education</h3>
-          <p id="pEducation"></p>
-
-          <h3>Experience</h3>
-          <p id="pExperience"></p>
-        </div>
+  <section class="mb-8">
+    <h2 class="text-lg font-bold text-blue-700 uppercase border-b border-gray-200 mb-4">Experience</h2>
+    
+    <div class="mb-5">
+      <div class="flex justify-between items-baseline">
+        <h3 class="font-bold text-gray-800">Senior Software Intern</h3>
+        <span class="text-sm text-gray-500 italic">Jan 2024 – Present</span>
       </div>
+      <p class="text-blue-600 font-medium text-sm">Tech Solutions Inc.</p>
+      <ul class="list-disc ml-5 mt-2 text-sm text-gray-700 space-y-1">
+        <li>Developing responsive user interfaces using React.js and Tailwind CSS.</li>
+        <li>Optimizing API response times by 25% through Redis caching implementation.</li>
+        <li>Collaborating with AI teams to integrate LLM-based features into the core product.</li>
+      </ul>
     </div>
   </section>
 
-  <!-- PDF library -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-  <script src="script.js"></script>
-</body>
-</html>
+  <section class="mb-8">
+    <h2 class="text-lg font-bold text-blue-700 uppercase border-b border-gray-200 mb-3">Technical Skills</h2>
+    <div class="grid grid-cols-2 gap-y-2 text-sm">
+      <p><span class="font-bold text-gray-800">Languages:</span> JavaScript, Python, SQL, HTML/CSS</p>
+      <p><span class="font-bold text-gray-800">Frameworks:</span> React, Next.js, Express, Tailwind</p>
+      <p><span class="font-bold text-gray-800">Tools:</span> Git, Docker, AWS, Firebase</p>
+      <p><span class="font-bold text-gray-800">Soft Skills:</span> Leadership, Agile, Problem Solving</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="text-lg font-bold text-blue-700 uppercase border-b border-gray-200 mb-3">Education</h2>
+    <div class="flex justify-between items-baseline">
+      <div>
+        <h3 class="font-bold text-gray-800">Bachelor of Technology in Computer Science</h3>
+        <p class="text-sm text-gray-600">University of Engineering and Technology</p>
+      </div>
+      <span class="text-sm text-gray-500 italic">Graduated May 2023</span>
+    </div>
+  </section>
+</div>
