@@ -1,130 +1,309 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Eduskillpath | Learn Skills. Build Career.</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>EduSkillPath — Learn Skills. Build Career.</title>
+  <meta name="description" content="EduSkillPath is an edtech platform to learn job-ready skills and build an ATS-friendly resume in minutes." />
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
+  <!-- Top Nav -->
+  <header class="nav">
+    <div class="container nav__inner">
+      <a class="brand" href="#">
+        <span class="brand__logo">E</span>
+        <span class="brand__name">EduSkillPath</span>
+      </a>
 
-  <!-- NAVBAR -->
-  <header class="navbar">
-    <div class="container nav-content">
-      <div class="logo">Edu<span>skillpath</span></div>
-
-      <nav class="nav-links" id="navLinks">
-        <a href="index.html" class="active">Home</a>
-        <a href="courses.html">Courses</a>
-        <a href="resume-builder.html">CV Maker</a>
-        <a href="contact.html">Contact</a>
+      <nav class="nav__links" aria-label="Primary navigation">
+        <a href="#features">Features</a>
+        <a href="#templates">Templates</a>
+        <a href="#how">How it Works</a>
+        <a href="#contact">Contact</a>
       </nav>
 
-      <button class="nav-btn" id="menuBtn">☰</button>
+      <div class="nav__actions">
+        <a class="btn btn--ghost" href="#templates">View Templates</a>
+        <a class="btn btn--primary" href="#contact">Get Started</a>
+
+        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile" id="mobileMenu" aria-hidden="true">
+      <a href="#features">Features</a>
+      <a href="#templates">Templates</a>
+      <a href="#how">How it Works</a>
+      <a href="#contact">Contact</a>
+      <a class="btn btn--primary" href="#contact">Get Started</a>
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="container hero-grid">
-      <div>
-        <h1>Learn Skills. <br/>Build Your Career Faster.</h1>
-        <p>
-          Welcome to <b>Eduskillpath</b> — a modern EdTech platform to learn
-          job-ready skills, get course certificates and build ATS-friendly resumes.
-        </p>
+  <!-- Hero -->
+  <main>
+    <section class="hero">
+      <div class="container hero__grid">
+        <div class="hero__left">
+          <div class="badge">
+            <span class="dot"></span>
+            Premium UI • 100% Free Hosting
+          </div>
 
-        <div class="hero-buttons">
-          <a class="btn primary" href="courses.html">Explore Courses</a>
-          <a class="btn outline" href="resume-builder.html">Create CV</a>
+          <h1 class="hero__title">
+            Learn Skills.<br />
+            Build Your Career.<br />
+            <span class="accent">Create a perfect Resume</span>.
+          </h1>
+
+          <p class="hero__subtitle">
+            EduSkillPath helps students learn job-ready skills and create an
+            <b>ATS-friendly resume</b> with a clean modern design. Perfect for HR, SAP, Admin & Freshers.
+          </p>
+
+          <div class="hero__cta">
+            <a class="btn btn--primary btn--lg" href="#templates">Explore Templates</a>
+            <a class="btn btn--ghost btn--lg" href="#how">How it works</a>
+          </div>
+
+          <div class="hero__stats">
+            <div class="stat">
+              <h3>10+</h3>
+              <p>Resume Templates</p>
+            </div>
+            <div class="stat">
+              <h3>100%</h3>
+              <p>Free Website Hosting</p>
+            </div>
+            <div class="stat">
+              <h3>Fast</h3>
+              <p>Build in Minutes</p>
+            </div>
+          </div>
         </div>
 
-        <div class="stats">
-          <div class="stat-card">
-            <h3>50+</h3>
-            <p>Skill Modules</p>
-          </div>
-          <div class="stat-card">
-            <h3>100%</h3>
-            <p>Free Website Hosting</p>
-          </div>
-          <div class="stat-card">
-            <h3>ATS</h3>
-            <p>Resume Templates</p>
+        <div class="hero__right">
+          <div class="glass">
+            <div class="glass__top">
+              <div class="profile">
+                <div class="avatar">SS</div>
+                <div>
+                  <p class="pname">Saif Shaikh</p>
+                  <p class="prole">BBA Student • HR / Admin</p>
+                </div>
+              </div>
+              <div class="pill">ATS Ready</div>
+            </div>
+
+            <div class="resume">
+              <div class="resume__block">
+                <h4>Summary</h4>
+                <p>
+                  Motivated BBA student eager to gain experience in HR/Admin and Entrepreneurship.
+                  Skilled in communication, MS Office, and process handling.
+                </p>
+              </div>
+
+              <div class="resume__block">
+                <h4>Skills</h4>
+                <div class="tags">
+                  <span>HR Operations</span>
+                  <span>MS Excel</span>
+                  <span>Documentation</span>
+                  <span>Communication</span>
+                  <span>Teamwork</span>
+                </div>
+              </div>
+
+              <div class="resume__block">
+                <h4>Experience</h4>
+                <ul>
+                  <li>Assistant/Admin Support (Internship)</li>
+                  <li>Data Entry + Reporting</li>
+                  <li>Client/Customer coordination</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="glass__bottom">
+              <a class="btn btn--primary w100" href="#contact">Build My Resume Now</a>
+              <p class="note">No payment needed. Just learn + build.</p>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="hero-card">
-        <h2>Career Tools</h2>
-        <p>Everything you need to grow professionally.</p>
+      <div class="glow glow--1"></div>
+      <div class="glow glow--2"></div>
+    </section>
 
-        <div class="feature-list">
-          <div class="feature">
-            ✅ Courses + Learning Path
-          </div>
-          <div class="feature">
-            ✅ Certificates & Internship Support
-          </div>
-          <div class="feature">
-            ✅ CV Maker + PDF Download
-          </div>
+    <!-- Features -->
+    <section class="section" id="features">
+      <div class="container">
+        <div class="section__head">
+          <h2>Why EduSkillPath?</h2>
+          <p>Everything you need to learn skills and create a professional resume.</p>
         </div>
 
-        <a class="btn primary full" href="resume-builder.html">Build Resume Now</a>
-      </div>
-    </div>
-  </section>
+        <div class="grid3">
+          <div class="card">
+            <h3>Modern Design</h3>
+            <p>Premium dark theme + blue accents like top resume builder websites.</p>
+          </div>
 
-  <!-- SECTION: POPULAR -->
-  <section class="section">
-    <div class="container">
-      <h2 class="section-title">Popular Learning Tracks</h2>
-      <p class="section-subtitle">
-        Choose a path and start upgrading your skills today.
-      </p>
+          <div class="card">
+            <h3>ATS Friendly</h3>
+            <p>Clean sections, proper spacing and keyword-ready structure.</p>
+          </div>
 
-      <div class="grid-3">
-        <div class="card">
-          <h3>SAP HCM (HR)</h3>
-          <p>Best for HR & Admin career growth. Learn basics → advanced.</p>
-          <a href="courses.html" class="text-link">View Course →</a>
-        </div>
-        <div class="card">
-          <h3>Digital Marketing</h3>
-          <p>Learn SEO, social media and ads to build online business.</p>
-          <a href="courses.html" class="text-link">View Course →</a>
-        </div>
-        <div class="card">
-          <h3>Interview + Resume</h3>
-          <p>Create ATS resume and prepare for job interviews.</p>
-          <a href="resume-builder.html" class="text-link">Create CV →</a>
+          <div class="card">
+            <h3>For Freshers</h3>
+            <p>Perfect layout for students, internships, HR/Admin and BBA background.</p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- FOOTER -->
+    <!-- Templates -->
+    <section class="section section--alt" id="templates">
+      <div class="container">
+        <div class="section__head">
+          <h2>Resume Templates</h2>
+          <p>Choose a style. Build fast. Download clean PDF (coming soon).</p>
+        </div>
+
+        <div class="grid3">
+          <div class="template">
+            <div class="template__preview">
+              <div class="line w80"></div>
+              <div class="line w60"></div>
+              <div class="line w90"></div>
+              <div class="line w50"></div>
+              <div class="line w70"></div>
+            </div>
+            <div class="template__meta">
+              <h4>Classic ATS</h4>
+              <p>Simple + clean</p>
+            </div>
+          </div>
+
+          <div class="template">
+            <div class="template__preview">
+              <div class="line w70"></div>
+              <div class="line w85"></div>
+              <div class="line w55"></div>
+              <div class="line w90"></div>
+              <div class="line w65"></div>
+            </div>
+            <div class="template__meta">
+              <h4>Modern Blue</h4>
+              <p>Best for freshers</p>
+            </div>
+          </div>
+
+          <div class="template">
+            <div class="template__preview">
+              <div class="line w90"></div>
+              <div class="line w40"></div>
+              <div class="line w75"></div>
+              <div class="line w85"></div>
+              <div class="line w60"></div>
+            </div>
+            <div class="template__meta">
+              <h4>Professional</h4>
+              <p>HR / Admin jobs</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it Works -->
+    <section class="section" id="how">
+      <div class="container">
+        <div class="section__head">
+          <h2>How it works</h2>
+          <p>Simple 3-step process to build your career.</p>
+        </div>
+
+        <div class="grid3">
+          <div class="step">
+            <span class="step__num">1</span>
+            <h3>Choose Skill Path</h3>
+            <p>Select your career track: HR, SAP, Admin, Excel, Communication.</p>
+          </div>
+          <div class="step">
+            <span class="step__num">2</span>
+            <h3>Build Resume</h3>
+            <p>Fill your details and generate ATS friendly resume format.</p>
+          </div>
+          <div class="step">
+            <span class="step__num">3</span>
+            <h3>Apply Jobs</h3>
+            <p>Use resume + skills to apply internships & jobs confidently.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section section--alt" id="contact">
+      <div class="container">
+        <div class="contact">
+          <div>
+            <h2>Want this site as your own?</h2>
+            <p>
+              I can help you customize this homepage (logo, name, links, WhatsApp, course list).
+              Your website is already hosted on GitHub Pages for free.
+            </p>
+
+            <div class="contact__quick">
+              <div class="qcard">
+                <h4>WhatsApp</h4>
+                <p>Add a WhatsApp button for enquiries.</p>
+              </div>
+              <div class="qcard">
+                <h4>Courses</h4>
+                <p>Add course cards, enroll button, certificates.</p>
+              </div>
+            </div>
+          </div>
+
+          <form class="form" onsubmit="event.preventDefault(); alert('Message saved! (Demo)');">
+            <div class="frow">
+              <label>Name</label>
+              <input type="text" placeholder="Your Name" required />
+            </div>
+            <div class="frow">
+              <label>Email</label>
+              <input type="email" placeholder="name@gmail.com" required />
+            </div>
+            <div class="frow">
+              <label>Message</label>
+              <textarea rows="4" placeholder="Tell us what you want to build..."></textarea>
+            </div>
+
+            <button class="btn btn--primary btn--lg w100" type="submit">Send</button>
+            <p class="note">Demo form. You can connect real email later.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
   <footer class="footer">
-    <div class="container footer-grid">
-      <div>
-        <div class="logo">Edu<span>skillpath</span></div>
-        <p>Learn → Build Resume → Apply Jobs</p>
+    <div class="container footer__inner">
+      <p>© <span id="year"></span> EduSkillPath • Built with ❤️ on GitHub Pages</p>
+      <div class="footer__links">
+        <a href="#features">Features</a>
+        <a href="#templates">Templates</a>
+        <a href="#contact">Contact</a>
       </div>
-      <div>
-        <h4>Quick Links</h4>
-        <a href="courses.html">Courses</a>
-        <a href="resume-builder.html">CV Maker</a>
-        <a href="contact.html">Contact</a>
-      </div>
-      <div>
-        <h4>Support</h4>
-        <p>Email: support@eduskillpath.com</p>
-        <p>WhatsApp: +91 XXXXX XXXXX</p>
-      </div>
-    </div>
-    <div class="container copyright">
-      <p>© <span id="year"></span> Eduskillpath. All rights reserved.</p>
     </div>
   </footer>
 
