@@ -1,22 +1,28 @@
+// Mobile menu
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+
+menuBtn.addEventListener("click", () => {
+  navLinks.classList.toggle("show");
+});
+
+// Close menu when clicking a link (mobile)
+document.querySelectorAll("#navLinks a").forEach(link => {
+  link.addEventListener("click", () => navLinks.classList.remove("show"));
+});
+
 // Footer year
 document.getElementById("year").textContent = new Date().getFullYear();
 
-// Mobile menu
-const hamburger = document.getElementById("hamburger");
-const mobileMenu = document.getElementById("mobileMenu");
+// Lead form demo (no backend)
+const leadForm = document.getElementById("leadForm");
+leadForm.addEventListener("submit", (e) => {
+  e.preventDefault();
 
-hamburger.addEventListener("click", () => {
-  const isOpen = mobileMenu.style.display === "grid";
-  mobileMenu.style.display = isOpen ? "none" : "grid";
-  mobileMenu.setAttribute("aria-hidden", isOpen ? "true" : "false");
-  hamburger.setAttribute("aria-expanded", isOpen ? "false" : "true");
-});
+  const name = document.getElementById("name").value.trim();
+  const interest = document.getElementById("interest").value;
 
-// Close menu on click
-mobileMenu.querySelectorAll("a").forEach((a) => {
-  a.addEventListener("click", () => {
-    mobileMenu.style.display = "none";
-    mobileMenu.setAttribute("aria-hidden", "true");
-    hamburger.setAttribute("aria-expanded", "false");
-  });
+  alert(`Thanks ${name}! ✅\nWe received your request for: ${interest}\nOur team will contact you soon.`);
+
+  leadForm.reset();
 });
