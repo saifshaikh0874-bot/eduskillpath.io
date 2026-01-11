@@ -3,279 +3,268 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EduSkillPath | Learn Skills. Build Career.</title>
-  <link rel="stylesheet" href="style.css" />
-  <meta name="description" content="EduSkillPath is a modern EdTech platform offering job-ready programs with mentorship, projects, and certification." />
-</head>
+  <title>Eduskillpath | Learn Data Analytics & AI</title>
 
-<body>
-  <!-- NAVBAR -->
-  <header class="header">
-    <nav class="nav container">
-      <a class="logo" href="#">
-        <span class="logo-dot"></span> EduSkillPath
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100">
+
+  <!-- Navbar -->
+  <header class="sticky top-0 z-50 bg-slate-950/80 backdrop-blur border-b border-slate-800">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-2 font-bold text-lg">
+        <span class="w-9 h-9 rounded-xl bg-indigo-600 grid place-items-center">E</span>
+        <span>Eduskillpath</span>
       </a>
 
-      <button class="menu-btn" id="menuBtn" aria-label="Open Menu">☰</button>
+      <nav class="hidden md:flex items-center gap-6 text-sm text-slate-200">
+        <a href="#programs" class="hover:text-white">Programs</a>
+        <a href="#features" class="hover:text-white">Features</a>
+        <a href="#testimonials" class="hover:text-white">Testimonials</a>
+        <a href="#faq" class="hover:text-white">FAQ</a>
+      </nav>
 
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#programs">Programs</a></li>
-        <li><a href="#why">Why Us</a></li>
-        <li><a href="#testimonials">Reviews</a></li>
-        <li><a href="#faq">FAQ</a></li>
-        <li><a class="nav-cta" href="#contact">Contact</a></li>
-      </ul>
-    </nav>
+      <div class="flex items-center gap-3">
+        <a href="#programs" class="hidden sm:inline-flex px-4 py-2 rounded-xl border border-slate-700 hover:border-slate-500 text-sm">
+          View Programs
+        </a>
+        <a href="#apply" class="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-sm font-semibold">
+          Apply Now
+        </a>
+      </div>
+    </div>
   </header>
 
-  <!-- HERO -->
-  <main id="home" class="hero">
-    <div class="container hero-grid">
-      <div class="hero-left">
-        <div class="badge">🚀 Job-ready Programs • Mentorship • Certification</div>
-        <h1>
-          Learn Skills.<br />
-          Build Your Career With <span class="highlight">EduSkillPath</span>.
-        </h1>
-        <p>
-          We help students and freshers become industry-ready with practical learning,
-          projects, mentorship and career guidance — like a premium EdTech platform.
+  <!-- Hero -->
+  <section class="max-w-6xl mx-auto px-4 pt-14 pb-10">
+    <div class="grid lg:grid-cols-2 gap-10 items-center">
+      <div>
+        <p class="inline-flex items-center gap-2 text-xs px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-slate-200">
+          🔥 Job-focused learning • Mentorship • Projects
         </p>
 
-        <div class="hero-actions">
-          <a href="#programs" class="btn primary">Explore Programs</a>
-          <a href="#contact" class="btn ghost">Get Free Demo</a>
+        <h1 class="mt-5 text-4xl md:text-5xl font-extrabold leading-tight">
+          Build Your Career in <span class="text-indigo-400">Data Analytics</span> & <span class="text-indigo-400">AI</span>
+        </h1>
+
+        <p class="mt-4 text-slate-300 text-lg leading-relaxed">
+          Learn industry tools like <b>SQL</b>, <b>Excel</b>, <b>Power BI</b>, <b>Python</b> and build real-world projects
+          with expert mentorship. Flexible learning for students & working professionals.
+        </p>
+
+        <div class="mt-6 flex flex-col sm:flex-row gap-3">
+          <a href="#apply" class="px-5 py-3 rounded-2xl bg-indigo-600 hover:bg-indigo-500 font-semibold text-center">
+            Enroll / Apply Now
+          </a>
+          <a href="#features" class="px-5 py-3 rounded-2xl border border-slate-700 hover:border-slate-500 text-center">
+            See How It Works
+          </a>
         </div>
 
-        <div class="hero-proof">
-          <div class="proof-card">
-            <h3>🎓 5,000+</h3>
-            <p>Learners</p>
+        <div class="mt-7 grid grid-cols-3 gap-3 text-center">
+          <div class="rounded-2xl bg-slate-900 border border-slate-800 p-4">
+            <p class="text-2xl font-bold">1:1</p>
+            <p class="text-xs text-slate-400 mt-1">Mentorship</p>
           </div>
-          <div class="proof-card">
-            <h3>✅ 25+</h3>
-            <p>Mentors</p>
+          <div class="rounded-2xl bg-slate-900 border border-slate-800 p-4">
+            <p class="text-2xl font-bold">10+</p>
+            <p class="text-xs text-slate-400 mt-1">Projects</p>
           </div>
-          <div class="proof-card">
-            <h3>⭐ 4.7/5</h3>
-            <p>Average Rating</p>
+          <div class="rounded-2xl bg-slate-900 border border-slate-800 p-4">
+            <p class="text-2xl font-bold">90D</p>
+            <p class="text-xs text-slate-400 mt-1">Career Support</p>
           </div>
         </div>
       </div>
 
-      <div class="hero-right">
-        <div class="hero-box">
-          <h3>Get Your Career Roadmap</h3>
-          <p>Fill details & we’ll send a personalized skill path.</p>
+      <!-- Hero card -->
+      <div class="rounded-3xl bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800 p-6">
+        <p class="text-sm text-slate-200 font-semibold">What you get</p>
 
-          <form class="lead-form" id="leadForm">
-            <input required type="text" id="name" placeholder="Full Name" />
-            <input required type="email" id="email" placeholder="Email Address" />
-            <input required type="tel" id="phone" placeholder="Mobile Number" />
-            <select id="interest" required>
-              <option value="">Choose Program</option>
-              <option>Data Analytics</option>
-              <option>Data Science</option>
-              <option>Machine Learning</option>
-              <option>SAP HCM / HR</option>
-              <option>Digital Marketing</option>
-            </select>
-            <button class="btn primary full" type="submit">Submit</button>
-            <small class="form-note">No spam. Only course details & demo call info.</small>
+        <ul class="mt-4 space-y-3 text-slate-300">
+          <li class="flex gap-3"><span class="text-indigo-400">✔</span> Live + recorded classes</li>
+          <li class="flex gap-3"><span class="text-indigo-400">✔</span> SQL + Excel + Power BI + Python</li>
+          <li class="flex gap-3"><span class="text-indigo-400">✔</span> Interview preparation & resume support</li>
+          <li class="flex gap-3"><span class="text-indigo-400">✔</span> Real business case projects</li>
+          <li class="flex gap-3"><span class="text-indigo-400">✔</span> Placement assistance guidance</li>
+        </ul>
+
+        <div id="apply" class="mt-6 rounded-2xl bg-slate-900 border border-slate-800 p-4">
+          <p class="font-semibold">Apply for next batch</p>
+          <p class="text-sm text-slate-400 mt-1">Fill details and our team will contact you.</p>
+
+          <form class="mt-4 grid gap-3">
+            <input class="bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 outline-none focus:border-indigo-500"
+              placeholder="Full Name" />
+            <input class="bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 outline-none focus:border-indigo-500"
+              placeholder="Email" />
+            <input class="bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 outline-none focus:border-indigo-500"
+              placeholder="Phone" />
+            <button type="button"
+              class="mt-1 bg-indigo-600 hover:bg-indigo-500 rounded-xl px-4 py-3 font-semibold">
+              Submit Application
+            </button>
           </form>
         </div>
       </div>
     </div>
-  </main>
+  </section>
 
-  <!-- PROGRAMS -->
-  <section id="programs" class="section">
-    <div class="container">
-      <div class="section-head">
-        <h2>Our Programs</h2>
-        <p>Choose an industry-ready program with live classes, mentorship and projects.</p>
+  <!-- Programs -->
+  <section id="programs" class="max-w-6xl mx-auto px-4 py-12">
+    <div class="flex items-end justify-between gap-6">
+      <div>
+        <h2 class="text-3xl font-extrabold">Programs</h2>
+        <p class="text-slate-400 mt-2">Choose a track that matches your goals.</p>
+      </div>
+      <a class="text-sm text-indigo-400 hover:text-indigo-300" href="#apply">Need guidance? Apply →</a>
+    </div>
+
+    <div class="mt-8 grid md:grid-cols-3 gap-5">
+      <div class="rounded-3xl bg-slate-900 border border-slate-800 p-6 hover:border-slate-600 transition">
+        <p class="text-xs text-slate-400">Beginner</p>
+        <h3 class="mt-2 font-bold text-xl">Data Analytics</h3>
+        <p class="mt-2 text-sm text-slate-300">Excel + SQL + Power BI + projects</p>
+        <ul class="mt-4 space-y-2 text-sm text-slate-300">
+          <li>• Dashboards & reports</li>
+          <li>• Case studies</li>
+          <li>• Interview prep</li>
+        </ul>
+        <a href="#apply" class="mt-5 inline-flex w-full justify-center rounded-2xl bg-indigo-600 hover:bg-indigo-500 px-4 py-3 font-semibold">
+          Enroll
+        </a>
       </div>
 
-      <div class="cards">
-        <article class="card">
-          <div class="card-top">
-            <span class="tag">Beginner → Pro</span>
-            <h3>Data Analytics</h3>
-            <p>Excel • SQL • Power BI • Tableau • Projects</p>
-          </div>
-          <ul class="card-list">
-            <li>✅ 6+ real projects</li>
-            <li>✅ Resume + LinkedIn</li>
-            <li>✅ Interview prep</li>
-          </ul>
-          <a class="btn ghost full" href="#contact">Get Syllabus</a>
-        </article>
+      <div class="rounded-3xl bg-slate-900 border border-indigo-700/60 p-6 hover:border-indigo-500 transition">
+        <p class="text-xs text-indigo-300">Most Popular</p>
+        <h3 class="mt-2 font-bold text-xl">Analytics + AI</h3>
+        <p class="mt-2 text-sm text-slate-300">Python + AI workflows + business projects</p>
+        <ul class="mt-4 space-y-2 text-sm text-slate-300">
+          <li>• Python (Pandas)</li>
+          <li>• GenAI tools</li>
+          <li>• Portfolio projects</li>
+        </ul>
+        <a href="#apply" class="mt-5 inline-flex w-full justify-center rounded-2xl bg-indigo-600 hover:bg-indigo-500 px-4 py-3 font-semibold">
+          Apply
+        </a>
+      </div>
 
-        <article class="card">
-          <div class="card-top">
-            <span class="tag">High Demand</span>
-            <h3>Data Science</h3>
-            <p>Python • Statistics • EDA • ML • Capstone</p>
-          </div>
-          <ul class="card-list">
-            <li>✅ Mentor support</li>
-            <li>✅ Real datasets</li>
-            <li>✅ Certification</li>
-          </ul>
-          <a class="btn ghost full" href="#contact">Get Syllabus</a>
-        </article>
-
-        <article class="card">
-          <div class="card-top">
-            <span class="tag">Advanced</span>
-            <h3>Machine Learning</h3>
-            <p>Regression • Classification • NLP • Deployment</p>
-          </div>
-          <ul class="card-list">
-            <li>✅ Model deployment</li>
-            <li>✅ Kaggle-style tasks</li>
-            <li>✅ Portfolio building</li>
-          </ul>
-          <a class="btn ghost full" href="#contact">Get Syllabus</a>
-        </article>
-
-        <article class="card">
-          <div class="card-top">
-            <span class="tag">For HR Students</span>
-            <h3>SAP HCM / HR</h3>
-            <p>HR Core • Payroll • Admin • SAP Overview</p>
-          </div>
-          <ul class="card-list">
-            <li>✅ HR practical skills</li>
-            <li>✅ Case studies</li>
-            <li>✅ Interview questions</li>
-          </ul>
-          <a class="btn ghost full" href="#contact">Get Syllabus</a>
-        </article>
+      <div class="rounded-3xl bg-slate-900 border border-slate-800 p-6 hover:border-slate-600 transition">
+        <p class="text-xs text-slate-400">Advanced</p>
+        <h3 class="mt-2 font-bold text-xl">Career Accelerator</h3>
+        <p class="mt-2 text-sm text-slate-300">Resume + portfolio + mock interviews</p>
+        <ul class="mt-4 space-y-2 text-sm text-slate-300">
+          <li>• LinkedIn optimization</li>
+          <li>• Mock interviews</li>
+          <li>• Career roadmap</li>
+        </ul>
+        <a href="#apply" class="mt-5 inline-flex w-full justify-center rounded-2xl bg-indigo-600 hover:bg-indigo-500 px-4 py-3 font-semibold">
+          Join
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- WHY -->
-  <section id="why" class="section soft">
-    <div class="container">
-      <div class="section-head">
-        <h2>Why EduSkillPath?</h2>
-        <p>We focus on results: learning + projects + career support.</p>
-      </div>
+  <!-- Features -->
+  <section id="features" class="max-w-6xl mx-auto px-4 py-12">
+    <h2 class="text-3xl font-extrabold">Why learners choose us</h2>
+    <p class="text-slate-400 mt-2">Everything you need to upskill and get hired.</p>
 
-      <div class="why-grid">
-        <div class="why-box">
-          <h3>👨‍🏫 Live Mentorship</h3>
-          <p>Get guidance from mentors and improve faster with weekly feedback.</p>
-        </div>
-        <div class="why-box">
-          <h3>📂 Projects & Portfolio</h3>
-          <p>Build a real portfolio that recruiters can verify.</p>
-        </div>
-        <div class="why-box">
-          <h3>📄 Certification</h3>
-          <p>Get certificate after completing assignments and capstone project.</p>
-        </div>
-        <div class="why-box">
-          <h3>💼 Career Support</h3>
-          <p>Resume, mock interviews, and job-ready training for freshers.</p>
-        </div>
+    <div class="mt-8 grid md:grid-cols-3 gap-5">
+      <div class="rounded-3xl bg-slate-900 border border-slate-800 p-6">
+        <h3 class="font-bold">Job-ready skills</h3>
+        <p class="text-sm text-slate-300 mt-2">Focus on practical learning and industry tasks.</p>
+      </div>
+      <div class="rounded-3xl bg-slate-900 border border-slate-800 p-6">
+        <h3 class="font-bold">Real projects</h3>
+        <p class="text-sm text-slate-300 mt-2">Projects that make your resume & portfolio strong.</p>
+      </div>
+      <div class="rounded-3xl bg-slate-900 border border-slate-800 p-6">
+        <h3 class="font-bold">Mentor support</h3>
+        <p class="text-sm text-slate-300 mt-2">Guidance during learning + interview preparation.</p>
       </div>
     </div>
   </section>
 
-  <!-- TESTIMONIALS -->
-  <section id="testimonials" class="section">
-    <div class="container">
-      <div class="section-head">
-        <h2>Learner Reviews</h2>
-        <p>What students say about learning at EduSkillPath.</p>
-      </div>
+  <!-- Testimonials -->
+  <section id="testimonials" class="max-w-6xl mx-auto px-4 py-12">
+    <h2 class="text-3xl font-extrabold">Testimonials</h2>
+    <p class="text-slate-400 mt-2">Learners love our training style.</p>
 
-      <div class="testimonials">
-        <div class="review">
-          <p>“Amazing mentorship. I learned SQL + Power BI and made 2 projects. Now I’m confident for interviews.”</p>
-          <h4>— Ayesha, BBA Student</h4>
-        </div>
-        <div class="review">
-          <p>“Best for freshers. Their roadmap helped me build resume and LinkedIn professionally.”</p>
-          <h4>— Saif, Fresher</h4>
-        </div>
-        <div class="review">
-          <p>“Clear teaching and practical learning. I liked the assignments and weekly feedback.”</p>
-          <h4>— Rohit, Learner</h4>
-        </div>
+    <div class="mt-8 grid md:grid-cols-3 gap-5">
+      <div class="rounded-3xl bg-slate-900 border border-slate-800 p-6">
+        <p class="text-sm text-slate-300">“Great mentorship and structured program. Helped me build confidence.”</p>
+        <p class="mt-4 font-semibold">— Student</p>
+      </div>
+      <div class="rounded-3xl bg-slate-900 border border-slate-800 p-6">
+        <p class="text-sm text-slate-300">“Projects were practical and improved my resume.”</p>
+        <p class="mt-4 font-semibold">— Learner</p>
+      </div>
+      <div class="rounded-3xl bg-slate-900 border border-slate-800 p-6">
+        <p class="text-sm text-slate-300">“Support team was responsive and helpful during learning.”</p>
+        <p class="mt-4 font-semibold">— Candidate</p>
       </div>
     </div>
   </section>
 
   <!-- FAQ -->
-  <section id="faq" class="section soft">
-    <div class="container">
-      <div class="section-head">
-        <h2>Frequently Asked Questions</h2>
-        <p>Quick answers before you join.</p>
-      </div>
+  <section id="faq" class="max-w-6xl mx-auto px-4 py-12">
+    <h2 class="text-3xl font-extrabold">FAQ</h2>
+    <div class="mt-6 grid gap-4">
+      <details class="rounded-2xl bg-slate-900 border border-slate-800 p-5">
+        <summary class="font-semibold cursor-pointer">Is this beginner-friendly?</summary>
+        <p class="text-slate-300 text-sm mt-2">Yes. We start from basics and then move to advanced topics.</p>
+      </details>
 
-      <div class="faq">
-        <details>
-          <summary>Is this course good for beginners?</summary>
-          <p>Yes ✅ We start from basics and move to advanced with projects.</p>
-        </details>
-        <details>
-          <summary>Do you provide certificates?</summary>
-          <p>Yes ✅ Certificate is provided after completing the course + assignments.</p>
-        </details>
-        <details>
-          <summary>Is there any demo class?</summary>
-          <p>Yes ✅ You can request a free demo from the contact section.</p>
-        </details>
-      </div>
+      <details class="rounded-2xl bg-slate-900 border border-slate-800 p-5">
+        <summary class="font-semibold cursor-pointer">Do you provide projects?</summary>
+        <p class="text-slate-300 text-sm mt-2">Yes. Each program includes guided real-world projects.</p>
+      </details>
+
+      <details class="rounded-2xl bg-slate-900 border border-slate-800 p-5">
+        <summary class="font-semibold cursor-pointer">How can I enroll?</summary>
+        <p class="text-slate-300 text-sm mt-2">Click Apply Now and submit the form.</p>
+      </details>
     </div>
   </section>
 
-  <!-- CONTACT -->
-  <section id="contact" class="section">
-    <div class="container">
-      <div class="section-head">
-        <h2>Contact Us</h2>
-        <p>Want demo class / syllabus / fee details? Message us now.</p>
+  <!-- Footer -->
+  <footer class="border-t border-slate-800 bg-slate-950">
+    <div class="max-w-6xl mx-auto px-4 py-10 grid md:grid-cols-3 gap-8">
+      <div>
+        <p class="font-bold text-lg">Eduskillpath</p>
+        <p class="text-sm text-slate-400 mt-2">Upskill with Data Analytics, AI and career support.</p>
       </div>
 
-      <div class="contact-grid">
-        <div class="contact-card">
-          <h3>📞 Call / WhatsApp</h3>
-          <p>Fastest response on WhatsApp.</p>
-          <a class="btn primary full" target="_blank"
-             href="https://wa.me/91XXXXXXXXXX?text=Hello%20EduSkillPath!%20I%20want%20details%20about%20programs.">
-            WhatsApp Now
-          </a>
-          <small class="form-note">Replace 91XXXXXXXXXX with your number</small>
+      <div>
+        <p class="font-semibold">Quick Links</p>
+        <div class="mt-2 grid gap-2 text-sm text-slate-300">
+          <a href="#programs" class="hover:text-white">Programs</a>
+          <a href="#features" class="hover:text-white">Features</a>
+          <a href="#testimonials" class="hover:text-white">Testimonials</a>
+          <a href="#faq" class="hover:text-white">FAQ</a>
         </div>
+      </div>
 
-        <div class="contact-card">
-          <h3>📩 Email</h3>
-          <p>Send your query on email.</p>
-          <a class="btn ghost full" href="mailto:eduskillpath@gmail.com">eduskillpath@gmail.com</a>
+      <div>
+        <p class="font-semibold">Contact</p>
+        <div class="mt-2 text-sm text-slate-300 grid gap-2">
+          <p>Email: support@eduskillpath.com</p>
+          <p>Phone: +91 00000 00000</p>
+          <p>Location: India</p>
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container footer-flex">
-      <p>© <span id="year"></span> EduSkillPath. All rights reserved.</p>
-      <div class="footer-links">
-        <a href="#programs">Programs</a>
-        <a href="#contact">Contact</a>
-        <a href="#faq">FAQ</a>
-      </div>
+    <div class="text-center text-xs text-slate-500 pb-6">
+      © 2026 Eduskillpath. All rights reserved.
     </div>
   </footer>
 
-  <script src="script.js"></script>
 </body>
 </html>
