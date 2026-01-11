@@ -8,7 +8,139 @@
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <style>/* ===== Global Careers (Edtechinformative style) ===== */
+  <style>//* ===== Certificates Section ===== */
+.cert-card{
+  border-radius: 1.75rem;
+  padding: 18px;
+  background: linear-gradient(180deg, #ffffff, #f0f9ff);
+  border: 1px solid rgb(186 230 253);
+  box-shadow: 0 18px 35px rgba(2, 132, 199, 0.12);
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.cert-card:hover{
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 32px 70px rgba(2, 132, 199, 0.18);
+}
+
+.cert-preview{
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.5rem;
+  padding: 18px;
+  border: 1px solid rgba(79,70,229,0.25);
+  background: linear-gradient(135deg, #e0f2fe, #ffffff);
+}
+
+.cert-preview::after{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  background: radial-gradient(circle at top right, rgba(79,70,229,.22), transparent 60%);
+  opacity:.8;
+  pointer-events:none;
+}
+
+.cert-brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:900;
+  z-index:2;
+  position:relative;
+}
+
+.cert-logo{
+  width:38px;
+  height:38px;
+  border-radius:14px;
+  display:grid;
+  place-items:center;
+  background:#4f46e5;
+  color:white;
+  box-shadow: 0 12px 26px rgba(79,70,229,0.25);
+}
+
+.cert-brandtext{
+  font-weight:900;
+  color:#0f172a;
+}
+
+.cert-title{
+  margin-top: 16px;
+  font-size: 1.15rem;
+  font-weight: 900;
+  color:#0f172a;
+  z-index:2;
+  position:relative;
+}
+
+.cert-subtitle{
+  margin-top: 4px;
+  font-weight: 800;
+  color:#334155;
+  font-size: .95rem;
+  z-index:2;
+  position:relative;
+}
+
+.cert-line{
+  margin: 14px 0;
+  height: 1px;
+  background: rgba(15,23,42,0.15);
+  z-index:2;
+  position:relative;
+}
+
+.cert-name{
+  font-weight: 900;
+  font-size: .9rem;
+  color:#0f172a;
+  z-index:2;
+  position:relative;
+}
+
+.cert-name span{
+  color:#4f46e5;
+}
+
+.cert-desc{
+  margin-top: 6px;
+  font-weight: 700;
+  font-size: .85rem;
+  color:#334155;
+  line-height: 1.35rem;
+  z-index:2;
+  position:relative;
+}
+
+.cert-bottom{
+  margin-top: 14px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  z-index:2;
+  position:relative;
+}
+
+.cert-tag{
+  font-size: .75rem;
+  font-weight: 900;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(79,70,229,0.12);
+  color:#4f46e5;
+  border: 1px solid rgba(79,70,229,0.25);
+}
+
+.cert-id{
+  font-size:.75rem;
+  font-weight:900;
+  color:#0f172a;
+  opacity:.85;
+}
+* ===== Global Careers (Edtechinformative style) ===== */
 .global-card{
   display:flex;
   align-items:flex-start;
@@ -960,6 +1092,157 @@
           </div>
         </div>
 
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Get Your Professional Certificates -->
+<section id="certificates" class="max-w-6xl mx-auto px-4 py-14">
+  <div class="flex items-end justify-between gap-6 flex-wrap">
+    <div class="impact-reveal">
+      <p class="inline-flex items-center gap-2 text-xs px-3 py-1 rounded-full bg-white border border-sky-300 text-slate-800 font-extrabold">
+        🎓 Certificates
+      </p>
+
+      <h2 class="mt-4 text-3xl md:text-4xl font-extrabold text-slate-900">
+        Get Your Professional Certificates
+      </h2>
+      <p class="mt-3 text-slate-700 font-semibold max-w-2xl">
+        After completing tasks and projects, you will receive an Eduskillpath verified certificate to boost your resume & LinkedIn.
+      </p>
+    </div>
+
+    <div class="impact-reveal">
+      <a href="#apply"
+        class="px-5 py-3 rounded-2xl bg-indigo-600 hover:bg-indigo-500 text-white font-extrabold shadow-lg transition">
+        Apply for Internship
+      </a>
+    </div>
+  </div>
+
+  <!-- Certificates Grid -->
+  <div class="mt-8 grid md:grid-cols-3 gap-5">
+
+    <!-- Certificate 1 -->
+    <div class="cert-card impact-reveal delay-1">
+      <div class="cert-preview">
+        <div class="cert-brand">
+          <span class="cert-logo">E</span>
+          <span class="cert-brandtext">Eduskillpath</span>
+        </div>
+
+        <p class="cert-title">Certificate of Completion</p>
+        <p class="cert-subtitle">Data Analytics Internship</p>
+
+        <div class="cert-line"></div>
+
+        <p class="cert-name">Awarded to: <span>Aman Kumar</span></p>
+        <p class="cert-desc">For successful completion of internship tasks & dashboard project.</p>
+
+        <div class="cert-bottom">
+          <div class="cert-tag">Verified</div>
+          <div class="cert-id">ID: ESP-DA-1024</div>
+        </div>
+      </div>
+
+      <div class="mt-4 flex gap-2">
+        <a href="#"
+          class="w-full text-center px-4 py-2 rounded-xl bg-white border border-sky-300 font-extrabold hover:border-sky-500 transition">
+          View Demo
+        </a>
+        <a href="#apply"
+          class="w-full text-center px-4 py-2 rounded-xl bg-indigo-600 text-white font-extrabold hover:bg-indigo-500 transition">
+          Apply
+        </a>
+      </div>
+    </div>
+
+    <!-- Certificate 2 -->
+    <div class="cert-card impact-reveal delay-2">
+      <div class="cert-preview">
+        <div class="cert-brand">
+          <span class="cert-logo">E</span>
+          <span class="cert-brandtext">Eduskillpath</span>
+        </div>
+
+        <p class="cert-title">Certificate of Internship</p>
+        <p class="cert-subtitle">AI Tools & Productivity</p>
+
+        <div class="cert-line"></div>
+
+        <p class="cert-name">Awarded to: <span>Saniya Khan</span></p>
+        <p class="cert-desc">For completing AI tasks, prompt workflows and resume optimization project.</p>
+
+        <div class="cert-bottom">
+          <div class="cert-tag">Verified</div>
+          <div class="cert-id">ID: ESP-AI-2046</div>
+        </div>
+      </div>
+
+      <div class="mt-4 flex gap-2">
+        <a href="#"
+          class="w-full text-center px-4 py-2 rounded-xl bg-white border border-sky-300 font-extrabold hover:border-sky-500 transition">
+          View Demo
+        </a>
+        <a href="#apply"
+          class="w-full text-center px-4 py-2 rounded-xl bg-indigo-600 text-white font-extrabold hover:bg-indigo-500 transition">
+          Apply
+        </a>
+      </div>
+    </div>
+
+    <!-- Certificate 3 -->
+    <div class="cert-card impact-reveal delay-3">
+      <div class="cert-preview">
+        <div class="cert-brand">
+          <span class="cert-logo">E</span>
+          <span class="cert-brandtext">Eduskillpath</span>
+        </div>
+
+        <p class="cert-title">Certificate of Excellence</p>
+        <p class="cert-subtitle">Digital Marketing Internship</p>
+
+        <div class="cert-line"></div>
+
+        <p class="cert-name">Awarded to: <span>Rohit Verma</span></p>
+        <p class="cert-desc">For completing SEO campaign project and marketing analytics report.</p>
+
+        <div class="cert-bottom">
+          <div class="cert-tag">Verified</div>
+          <div class="cert-id">ID: ESP-DM-3099</div>
+        </div>
+      </div>
+
+      <div class="mt-4 flex gap-2">
+        <a href="#"
+          class="w-full text-center px-4 py-2 rounded-xl bg-white border border-sky-300 font-extrabold hover:border-sky-500 transition">
+          View Demo
+        </a>
+        <a href="#apply"
+          class="w-full text-center px-4 py-2 rounded-xl bg-indigo-600 text-white font-extrabold hover:bg-indigo-500 transition">
+          Apply
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- bottom trust line -->
+  <div class="mt-10 impact-reveal">
+    <div class="rounded-[2rem] bg-white border border-sky-300 shadow-xl p-7 md:p-9">
+      <div class="grid md:grid-cols-3 gap-5 text-center">
+        <div>
+          <p class="text-2xl font-extrabold text-indigo-700">✅ Verified</p>
+          <p class="text-sm font-semibold text-slate-700 mt-1">Branded certificate with unique ID</p>
+        </div>
+        <div>
+          <p class="text-2xl font-extrabold text-indigo-700">📌 Resume Ready</p>
+          <p class="text-sm font-semibold text-slate-700 mt-1">Add to resume + LinkedIn</p>
+        </div>
+        <div>
+          <p class="text-2xl font-extrabold text-indigo-700">🚀 Career Boost</p>
+          <p class="text-sm font-semibold text-slate-700 mt-1">Showcase projects & skills</p>
+        </div>
       </div>
     </div>
   </div>
