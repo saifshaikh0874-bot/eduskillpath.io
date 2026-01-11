@@ -11,6 +11,82 @@
   <style>
   html { scroll-behavior: smooth; }
 
+  /* ===== Internship Domains Section ===== */
+  .domain-card{
+    border: 1px solid rgb(186 230 253);
+    background: linear-gradient(180deg, #ffffff, #f0f9ff);
+    border-radius: 1.75rem;
+    padding: 1.4rem;
+    box-shadow: 0 18px 30px rgba(2, 132, 199, 0.12);
+    position: relative;
+    overflow: hidden;
+    transition: transform 260ms ease, box-shadow 260ms ease;
+  }
+
+  .domain-card::after{
+    content:"";
+    position:absolute;
+    inset:-2px;
+    opacity:0;
+    transition: opacity 260ms ease;
+    background: radial-gradient(circle at top right, rgba(56,189,248,.35), transparent 60%);
+  }
+
+  .domain-card:hover{
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 28px 65px rgba(2, 132, 199, 0.22);
+  }
+  .domain-card:hover::after{ opacity:1; }
+
+  .domain-icon{
+    width: 44px;
+    height: 44px;
+    border-radius: 16px;
+    display:grid;
+    place-items:center;
+    font-size: 22px;
+    background: #dbeafe;
+    border: 1px solid #93c5fd;
+    box-shadow: 0 12px 25px rgba(2, 132, 199, 0.15);
+  }
+
+  .domain-title{
+    margin-top: 12px;
+    font-weight: 900;
+    font-size: 1.05rem;
+    color: #0f172a;
+  }
+
+  .domain-desc{
+    margin-top: 6px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #334155;
+    line-height: 1.35rem;
+  }
+
+  .domain-btn{
+    margin-top: 14px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding: 10px 14px;
+    border-radius: 14px;
+    background:#4f46e5;
+    color:white;
+    font-weight: 800;
+    font-size: 0.9rem;
+    width: 100%;
+    transition: transform 150ms ease, background 150ms ease;
+  }
+
+  .domain-btn:hover{
+    background:#4338ca;
+    transform: translateY(-1px);
+  }
+</style>
+ }
+
   /* ==== Global Impact Animations ==== */
   .impact-blob{
     position:absolute;
