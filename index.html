@@ -10,6 +10,26 @@
 
   <style>
     html { scroll-behavior: smooth; }
+/* ===== Logo marquee ===== */
+.logoPill{
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 1px solid rgb(186 230 253);
+  background: linear-gradient(180deg, #f0f9ff, #ffffff);
+  font-weight: 900;
+  color: #0f172a;
+  font-size: 0.9rem;
+  box-shadow: 0 14px 30px rgba(2, 132, 199, 0.10);
+  white-space: nowrap;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-marquee{
+  animation: marquee 18s linear infinite;
+}
 
     /* ===== Internship Domains Section ===== */
     .domain-card{
@@ -574,6 +594,219 @@
 
     </div>
   </section>
+<!-- Success Stories (Carousel like EdtechInformative) -->
+<section id="success" class="max-w-6xl mx-auto px-4 py-14">
+  <div class="flex items-end justify-between gap-6 flex-wrap">
+    <div class="impact-reveal">
+      <p class="inline-flex items-center gap-2 text-xs px-3 py-1 rounded-full bg-white border border-sky-300 text-slate-800 font-extrabold">
+        🏆 Success Stories
+      </p>
+
+      <h2 class="mt-4 text-3xl md:text-4xl font-extrabold text-slate-900">
+        Learner Success Stories
+      </h2>
+      <p class="mt-3 text-slate-700 font-semibold max-w-2xl">
+        Real learner progress with projects, internships and job-ready skills.
+      </p>
+    </div>
+
+    <!-- Controls -->
+    <div class="flex gap-2 impact-reveal">
+      <button id="successPrev"
+        class="px-4 py-2 rounded-xl bg-white border border-sky-300 hover:border-sky-500 font-semibold shadow">
+        ◀
+      </button>
+      <button id="successNext"
+        class="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold shadow">
+        ▶
+      </button>
+    </div>
+  </div>
+
+  <!-- Slider -->
+  <div class="relative mt-8">
+    <div id="successSlider"
+      class="flex gap-5 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-4"
+      style="scrollbar-width:none;">
+
+      <!-- Card 1 -->
+      <div class="min-w-[280px] md:min-w-[360px] snap-start domain-card impact-reveal delay-1">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-2xl bg-indigo-100 border border-indigo-200 grid place-items-center font-extrabold text-indigo-700">
+            A
+          </div>
+          <div>
+            <p class="font-extrabold text-slate-900">Aman Kumar</p>
+            <p class="text-sm font-semibold text-slate-600">Data Analytics</p>
+          </div>
+        </div>
+
+        <p class="mt-4 text-sm font-semibold text-slate-700 leading-relaxed">
+          “I learned Excel + SQL + Power BI and created dashboards. My resume became strong and I got internship.”
+        </p>
+
+        <div class="mt-4 flex flex-wrap gap-2">
+          <span class="text-xs font-bold px-3 py-1 rounded-full bg-sky-100 border border-sky-200">SQL</span>
+          <span class="text-xs font-bold px-3 py-1 rounded-full bg-sky-100 border border-sky-200">Power BI</span>
+          <span class="text-xs font-bold px-3 py-1 rounded-full bg-sky-100 border border-sky-200">Dashboard</span>
+        </div>
+
+        <div class="mt-5 flex items-center justify-between">
+          <span class="text-xs font-extrabold text-indigo-700 bg-indigo-50 border border-indigo-200 px-3 py-1 rounded-full">
+            Internship Achieved
+          </span>
+          <span class="text-xs font-bold text-slate-600">⭐⭐⭐⭐⭐</span>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="min-w-[280px] md:min-w-[360px] snap-start domain-card impact-reveal delay-2">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-2xl bg-indigo-100 border border-indigo-200 grid place-items-center font-extrabold text-indigo-700">
+            S
+          </div>
+          <div>
+            <p class="font-extrabold text-slate-900">Saniya Khan</p>
+            <p class="text-sm font-semibold text-slate-600">AI Tools + Resume</p>
+          </div>
+        </div>
+
+        <p class="mt-4 text-sm font-semibold text-slate-700 leading-relaxed">
+          “AI tools program helped me optimize resume + LinkedIn. I cracked interviews confidently.”
+        </p>
+
+        <div class="mt-4 flex flex-wrap gap-2">
+          <span class="text-xs font-bold px-3 py-1 rounded-full bg-sky-100 border border-sky-200">LinkedIn</span>
+          <span class="text-xs font-bold px-3 py-1 rounded-full bg-sky-100 border border-sky-200">Interview</span>
+          <span class="text-xs font-bold px-3 py-1 rounded-full bg-sky-100 border border-sky-200">AI Tools</span>
+        </div>
+
+        <div class="mt-5 flex items-center justify-between">
+          <span class="text-xs font-extrabold text-indigo-700 bg-indigo-50 border border-indigo-200 px-3 py-1 rounded-full">
+            Hired Outcome
+          </span>
+          <span class="text-xs font-bold text-slate-600">⭐⭐⭐⭐⭐</span>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="min-w-[280px] md:min-w-[360px] snap-start domain-card impact-reveal delay-3">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-2xl bg-indigo-100 border border-indigo-200 grid place-items-center font-extrabold text-indigo-700">
+            R
+          </div>
+          <div>
+            <p class="font-extrabold text-slate-900">Rohit Verma</p>
+            <p class="text-sm font-semibold text-slate-600">Web Development</p>
+          </div>
+        </div>
+
+        <p class="mt-4 text-sm font-semibold text-slate-700 leading-relaxed">
+          “I created my portfolio website and learned Tailwind. Now I’m doing freelance + internship projects.”
+        </p>
+
+        <div class="mt-4 flex flex-wrap gap-2">
+          <span class="text-xs font-bold px-3 py-1 rounded-full bg-sky-100 border border-sky-200">Tailwind</span>
+          <span class="text-xs font-bold px-3 py-1 rounded-full bg-sky-100 border border-sky-200">Portfolio</span>
+          <span class="text-xs font-bold px-3 py-1 rounded-full bg-sky-100 border border-sky-200">Freelance</span>
+        </div>
+
+        <div class="mt-5 flex items-center justify-between">
+          <span class="text-xs font-extrabold text-indigo-700 bg-indigo-50 border border-indigo-200 px-3 py-1 rounded-full">
+            Freelance Started
+          </span>
+          <span class="text-xs font-bold text-slate-600">⭐⭐⭐⭐⭐</span>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="min-w-[280px] md:min-w-[360px] snap-start domain-card impact-reveal delay-1">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-2xl bg-indigo-100 border border-indigo-200 grid place-items-center font-extrabold text-indigo-700">
+            M
+          </div>
+          <div>
+            <p class="font-extrabold text-slate-900">Mehak Sharma</p>
+            <p class="text-sm font-semibold text-slate-600">Digital Marketing</p>
+          </div>
+        </div>
+
+        <p class="mt-4 text-sm font-semibold text-slate-700 leading-relaxed">
+          “I learned SEO, content strategy and campaign reporting. I got a marketing internship quickly.”
+        </p>
+
+        <div class="mt-4 flex flex-wrap gap-2">
+          <span class="text-xs font-bold px-3 py-1 rounded-full bg-sky-100 border border-sky-200">SEO</span>
+          <span class="text-xs font-bold px-3 py-1 rounded-full bg-sky-100 border border-sky-200">Content</span>
+          <span class="text-xs font-bold px-3 py-1 rounded-full bg-sky-100 border border-sky-200">Campaigns</span>
+        </div>
+
+        <div class="mt-5 flex items-center justify-between">
+          <span class="text-xs font-extrabold text-indigo-700 bg-indigo-50 border border-indigo-200 px-3 py-1 rounded-full">
+            Internship Achieved
+          </span>
+          <span class="text-xs font-bold text-slate-600">⭐⭐⭐⭐⭐</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- right fade -->
+    <div class="pointer-events-none absolute top-0 right-0 h-full w-16 bg-gradient-to-l from-sky-200 to-transparent"></div>
+  </div>
+
+  <!-- dots -->
+  <div class="mt-6 flex justify-center gap-2 impact-reveal" id="successDots">
+    <span class="successDot w-2.5 h-2.5 rounded-full bg-indigo-600"></span>
+    <span class="successDot w-2.5 h-2.5 rounded-full bg-sky-400"></span>
+    <span class="successDot w-2.5 h-2.5 rounded-full bg-sky-400"></span>
+    <span class="successDot w-2.5 h-2.5 rounded-full bg-sky-400"></span>
+  </div>
+</section>
+
+<!-- Hiring Partners / Logos (Animated strip) -->
+<section class="max-w-6xl mx-auto px-4 pb-14">
+  <div class="rounded-[2rem] bg-white border border-sky-300 shadow-xl overflow-hidden p-7 md:p-9">
+    <div class="impact-reveal">
+      <h3 class="text-xl md:text-2xl font-extrabold text-slate-900">Hiring Partners & Brands</h3>
+      <p class="mt-2 text-slate-700 font-semibold text-sm">
+        Learners target companies using skill training + portfolio building.
+      </p>
+    </div>
+
+    <div class="mt-6 relative">
+      <div class="flex gap-3 overflow-hidden">
+        <div id="logoMarquee" class="flex gap-3 animate-marquee">
+          <!-- repeat logos twice for smooth loop -->
+          <div class="logoPill">Google</div>
+          <div class="logoPill">Microsoft</div>
+          <div class="logoPill">Deloitte</div>
+          <div class="logoPill">Accenture</div>
+          <div class="logoPill">TCS</div>
+          <div class="logoPill">Infosys</div>
+          <div class="logoPill">Wipro</div>
+          <div class="logoPill">Amazon</div>
+          <div class="logoPill">Capgemini</div>
+          <div class="logoPill">Cognizant</div>
+
+          <div class="logoPill">Google</div>
+          <div class="logoPill">Microsoft</div>
+          <div class="logoPill">Deloitte</div>
+          <div class="logoPill">Accenture</div>
+          <div class="logoPill">TCS</div>
+          <div class="logoPill">Infosys</div>
+          <div class="logoPill">Wipro</div>
+          <div class="logoPill">Amazon</div>
+          <div class="logoPill">Capgemini</div>
+          <div class="logoPill">Cognizant</div>
+        </div>
+      </div>
+
+      <div class="pointer-events-none absolute top-0 left-0 h-full w-16 bg-gradient-to-r from-white to-transparent"></div>
+      <div class="pointer-events-none absolute top-0 right-0 h-full w-16 bg-gradient-to-l from-white to-transparent"></div>
+    </div>
+  </div>
+</section>
 
   <!-- Footer -->
   <footer class="border-t border-sky-500 bg-sky-300">
@@ -678,6 +911,51 @@
       animateCounters();
     }
   </script>
+<script>
+  // ===== Success Stories Carousel =====
+  const successSlider = document.getElementById("successSlider");
+  const successNext = document.getElementById("successNext");
+  const successPrev = document.getElementById("successPrev");
+  const dots = document.querySelectorAll(".successDot");
+
+  if (successSlider && successNext && successPrev) {
+    const getCardWidth = () => {
+      const card = successSlider.querySelector("div");
+      return card ? card.offsetWidth + 20 : 380;
+    };
+
+    const scrollToIndex = (index) => {
+      const cardWidth = getCardWidth();
+      successSlider.scrollTo({ left: index * cardWidth, behavior: "smooth" });
+      dots.forEach((d, i) => {
+        d.classList.toggle("bg-indigo-600", i === index);
+        d.classList.toggle("bg-sky-400", i !== index);
+      });
+    };
+
+    let index = 0;
+    const max = dots.length - 1;
+
+    successNext.addEventListener("click", () => {
+      index = index >= max ? 0 : index + 1;
+      scrollToIndex(index);
+    });
+
+    successPrev.addEventListener("click", () => {
+      index = index <= 0 ? max : index - 1;
+      scrollToIndex(index);
+    });
+
+    // auto slide
+    setInterval(() => {
+      index = index >= max ? 0 : index + 1;
+      scrollToIndex(index);
+    }, 3000);
+  }
+</script>
+<script>
+ 
+</script>
 
 </body>
 </html>
