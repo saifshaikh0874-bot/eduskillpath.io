@@ -22,7 +22,6 @@
       overflow: hidden;
       transition: transform 260ms ease, box-shadow 260ms ease;
     }
-
     .domain-card::after{
       content:"";
       position:absolute;
@@ -31,7 +30,6 @@
       transition: opacity 260ms ease;
       background: radial-gradient(circle at top right, rgba(56,189,248,.35), transparent 60%);
     }
-
     .domain-card:hover{
       transform: translateY(-8px) scale(1.02);
       box-shadow: 0 28px 65px rgba(2, 132, 199, 0.22);
@@ -49,14 +47,12 @@
       border: 1px solid #93c5fd;
       box-shadow: 0 12px 25px rgba(2, 132, 199, 0.15);
     }
-
     .domain-title{
       margin-top: 12px;
       font-weight: 900;
       font-size: 1.05rem;
       color: #0f172a;
     }
-
     .domain-desc{
       margin-top: 6px;
       font-size: 0.88rem;
@@ -64,7 +60,6 @@
       color: #334155;
       line-height: 1.35rem;
     }
-
     .domain-btn{
       margin-top: 14px;
       display:inline-flex;
@@ -79,7 +74,6 @@
       width: 100%;
       transition: transform 150ms ease, background 150ms ease;
     }
-
     .domain-btn:hover{
       background:#4338ca;
       transform: translateY(-1px);
@@ -164,7 +158,6 @@
     .delay-3{ transition-delay: 240ms; }
     .delay-4{ transition-delay: 320ms; }
   </style>
-
 </head>
 
 <body class="bg-sky-200 text-slate-900">
@@ -180,13 +173,11 @@
   <!-- Navbar -->
   <header class="sticky top-0 z-50 bg-sky-300/90 backdrop-blur border-b border-sky-500">
     <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-      <!-- Logo -->
       <a href="#" class="flex items-center gap-2 font-extrabold text-lg">
         <span class="w-10 h-10 rounded-2xl bg-indigo-600 grid place-items-center text-white shadow-md">E</span>
         <span>Eduskillpath</span>
       </a>
 
-      <!-- Desktop Menu -->
       <nav class="hidden md:flex items-center gap-7 text-sm text-slate-900 font-semibold">
         <a href="#programs" class="hover:text-indigo-700">Programs</a>
         <a href="#different" class="hover:text-indigo-700">Why Us</a>
@@ -194,14 +185,11 @@
         <a href="#domains" class="hover:text-indigo-700">Internships</a>
       </nav>
 
-      <!-- CTA -->
       <div class="flex items-center gap-3">
-        <a href="#programs"
-          class="hidden sm:inline-flex px-4 py-2 rounded-xl border border-sky-600 hover:border-sky-800 text-sm font-semibold">
+        <a href="#programs" class="hidden sm:inline-flex px-4 py-2 rounded-xl border border-sky-600 hover:border-sky-800 text-sm font-semibold">
           View Programs
         </a>
-        <a href="#apply"
-          class="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-sm font-semibold text-white shadow-md">
+        <a href="#apply" class="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-sm font-semibold text-white shadow-md">
           Apply Now
         </a>
       </div>
@@ -235,26 +223,21 @@
         </div>
       </div>
 
-      <!-- Apply Card -->
       <div id="apply" class="rounded-3xl bg-white border border-sky-300 p-6 shadow-xl">
         <p class="text-sm text-slate-900 font-extrabold">Apply for next batch</p>
         <p class="text-sm text-slate-600 mt-1 font-medium">Submit your details. Our team will contact you.</p>
 
         <form class="mt-5 grid gap-3">
-          <input required class="bg-sky-50 border border-sky-300 rounded-xl px-4 py-3 outline-none focus:border-indigo-500"
-            placeholder="Full Name" />
-          <input required type="email" class="bg-sky-50 border border-sky-300 rounded-xl px-4 py-3 outline-none focus:border-indigo-500"
-            placeholder="Email Address" />
-          <input required class="bg-sky-50 border border-sky-300 rounded-xl px-4 py-3 outline-none focus:border-indigo-500"
-            placeholder="Phone Number" />
+          <input required class="bg-sky-50 border border-sky-300 rounded-xl px-4 py-3 outline-none focus:border-indigo-500" placeholder="Full Name" />
+          <input required type="email" class="bg-sky-50 border border-sky-300 rounded-xl px-4 py-3 outline-none focus:border-indigo-500" placeholder="Email Address" />
+          <input required class="bg-sky-50 border border-sky-300 rounded-xl px-4 py-3 outline-none focus:border-indigo-500" placeholder="Phone Number" />
           <select class="bg-sky-50 border border-sky-300 rounded-xl px-4 py-3 outline-none focus:border-indigo-500">
             <option>Choose Program</option>
             <option>Data Analytics</option>
             <option>AI Tools + Productivity</option>
             <option>Resume & Interview Prep</option>
           </select>
-          <button type="button"
-            class="mt-1 bg-indigo-600 hover:bg-indigo-500 rounded-xl px-4 py-3 font-semibold text-white shadow-md">
+          <button type="button" class="mt-1 bg-indigo-600 hover:bg-indigo-500 rounded-xl px-4 py-3 font-semibold text-white shadow-md">
             Submit Application
           </button>
         </form>
@@ -268,71 +251,45 @@
     <p class="text-slate-700 mt-2 font-medium">Choose a roadmap that matches your goal.</p>
 
     <div class="mt-8 grid md:grid-cols-3 gap-5">
-
       <div class="rounded-3xl bg-white border border-sky-300 p-6 hover:border-indigo-400 transition shadow-lg">
         <p class="text-xs text-slate-600 font-semibold">Beginner</p>
         <h3 class="mt-2 font-extrabold text-xl text-indigo-700">Data Analytics</h3>
         <p class="mt-2 text-sm text-slate-700 font-medium">Excel + SQL + Power BI + Projects</p>
-        <ul class="mt-4 space-y-2 text-sm text-slate-800 font-medium">
-          <li>• Dashboards</li>
-          <li>• Case Studies</li>
-          <li>• Portfolio</li>
-        </ul>
-        <a href="#apply" class="mt-5 inline-flex w-full justify-center rounded-2xl bg-indigo-600 hover:bg-indigo-500 px-4 py-3 font-semibold text-white shadow-md">
-          Enroll
-        </a>
+        <a href="#apply" class="mt-5 inline-flex w-full justify-center rounded-2xl bg-indigo-600 hover:bg-indigo-500 px-4 py-3 font-semibold text-white shadow-md">Enroll</a>
       </div>
 
       <div class="rounded-3xl bg-white border-2 border-indigo-400 p-6 hover:border-indigo-600 transition shadow-xl">
         <p class="text-xs text-indigo-700 font-bold">Most Popular</p>
         <h3 class="mt-2 font-extrabold text-xl text-indigo-700">AI Tools + Productivity</h3>
         <p class="mt-2 text-sm text-slate-700 font-medium">AI tools to work faster + smarter</p>
-        <ul class="mt-4 space-y-2 text-sm text-slate-800 font-medium">
-          <li>• Prompting Skills</li>
-          <li>• AI Resume Builder</li>
-          <li>• Automation Basics</li>
-        </ul>
-        <a href="#apply" class="mt-5 inline-flex w-full justify-center rounded-2xl bg-indigo-600 hover:bg-indigo-500 px-4 py-3 font-semibold text-white shadow-md">
-          Apply
-        </a>
+        <a href="#apply" class="mt-5 inline-flex w-full justify-center rounded-2xl bg-indigo-600 hover:bg-indigo-500 px-4 py-3 font-semibold text-white shadow-md">Apply</a>
       </div>
 
       <div class="rounded-3xl bg-white border border-sky-300 p-6 hover:border-indigo-400 transition shadow-lg">
         <p class="text-xs text-slate-600 font-semibold">Career</p>
         <h3 class="mt-2 font-extrabold text-xl text-indigo-700">Resume + Interview Prep</h3>
         <p class="mt-2 text-sm text-slate-700 font-medium">CV, LinkedIn + Interview training</p>
-        <ul class="mt-4 space-y-2 text-sm text-slate-800 font-medium">
-          <li>• Resume Improvement</li>
-          <li>• LinkedIn Optimization</li>
-          <li>• Mock Interviews</li>
-        </ul>
-        <a href="#apply" class="mt-5 inline-flex w-full justify-center rounded-2xl bg-indigo-600 hover:bg-indigo-500 px-4 py-3 font-semibold text-white shadow-md">
-          Join
-        </a>
+        <a href="#apply" class="mt-5 inline-flex w-full justify-center rounded-2xl bg-indigo-600 hover:bg-indigo-500 px-4 py-3 font-semibold text-white shadow-md">Join</a>
       </div>
-
     </div>
   </section>
 
   <!-- What Makes Us Different (Slider) -->
-  <!-- (Your slider section stays same - no changes needed) -->
+  (PASTE YOUR SAME slider section here)
 
-  <!-- Global Impact (Animated) -->
-  <!-- (Your global impact section stays same - no changes needed) -->
+  <!-- Global Impact -->
+  (PASTE YOUR SAME global impact section here)
 
   <!-- Internship Domains -->
-  <!-- (Your internship section stays same - no changes needed) -->
+  (PASTE YOUR SAME internship domains section here)
 
   <!-- Footer -->
   <footer class="border-t border-sky-500 bg-sky-300">
     <div class="max-w-6xl mx-auto px-4 py-10 grid md:grid-cols-3 gap-8 text-slate-900">
       <div>
         <p class="font-extrabold text-lg">Eduskillpath</p>
-        <p class="text-sm mt-2 font-medium">
-          Learn skills, build portfolio and grow your career.
-        </p>
+        <p class="text-sm mt-2 font-medium">Learn skills, build portfolio and grow your career.</p>
       </div>
-
       <div>
         <p class="font-extrabold">Quick Links</p>
         <div class="mt-2 grid gap-2 text-sm font-semibold">
@@ -340,7 +297,6 @@
           <a href="#apply" class="hover:text-indigo-700">Apply</a>
         </div>
       </div>
-
       <div>
         <p class="font-extrabold">Contact</p>
         <div class="mt-2 text-sm grid gap-2 font-semibold">
@@ -350,7 +306,6 @@
         </div>
       </div>
     </div>
-
     <div class="text-center text-xs text-slate-800 pb-6 font-semibold">
       © 2026 Eduskillpath. All rights reserved.
     </div>
@@ -368,18 +323,16 @@
         const cardWidth = card ? card.offsetWidth : 320;
         slider.scrollBy({ left: direction * (cardWidth + 20), behavior: "smooth" });
       }
-
       nextBtn.addEventListener("click", () => scrollByCard(1));
       prevBtn.addEventListener("click", () => scrollByCard(-1));
     }
   </script>
 
   <script>
-    // ===== Reveal ALL + Counter (Impact + Domains) =====
+    // Reveal + counter
     const allReveal = document.querySelectorAll(".impact-reveal");
     const impactSection = document.getElementById("impact");
     const counters = document.querySelectorAll(".impactCounter");
-
     let counterStarted = false;
 
     function animateCounters() {
@@ -399,12 +352,10 @@
           if (progress < 1) requestAnimationFrame(update);
           else counter.textContent = target;
         }
-
         requestAnimationFrame(update);
       });
     }
 
-    // Observer reveals everything inside viewport
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) entry.target.classList.add("show");
@@ -413,7 +364,6 @@
 
     allReveal.forEach(el => revealObserver.observe(el));
 
-    // Counter trigger when impact section appears
     if (impactSection) {
       const counterObserver = new IntersectionObserver((entries) => {
         if (entries[0].isIntersecting) {
@@ -424,7 +374,6 @@
 
       counterObserver.observe(impactSection);
     } else {
-      // fallback
       animateCounters();
     }
   </script>
