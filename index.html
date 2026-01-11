@@ -314,6 +314,23 @@
       © 2026 Eduskillpath. All rights reserved.
     </div>
   </footer>
+<script>
+  const slider = document.getElementById("diffSlider");
+  const nextBtn = document.getElementById("diffNext");
+  const prevBtn = document.getElementById("diffPrev");
+
+  function scrollByCard(direction) {
+    const card = slider.querySelector("div");
+    const cardWidth = card ? card.offsetWidth : 320;
+    slider.scrollBy({ left: direction * (cardWidth + 20), behavior: "smooth" });
+  }
+
+  nextBtn.addEventListener("click", () => scrollByCard(1));
+  prevBtn.addEventListener("click", () => scrollByCard(-1));
+</script>
+
+</body>
+</html>
 
 </body>
 </html>
