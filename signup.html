@@ -51,8 +51,7 @@
 
   <script>
     // ✅ Replace this with your Google Apps Script Web App URL
-    const SCRIPT_URL  = "https://script.google.com/macros/s/AKfycbxLtZmAvJdq-n4liWb4oJsRCA0x_ALcrW9a4tw1MN-97SkglvOrkc9FFrfx1iVW_FJuA/exec";
-
+   const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw_7-bJQI2zZYzfeCjnwCI0Ob9yzYnDH9VeMPjGzhAIL-4M1z6jE6AAGC8Eu46Kvz7uA/exec";
 
 
     const form = document.getElementById("signupForm");
@@ -66,13 +65,23 @@
       const data = Object.fromEntries(new FormData(form).entries());
 
       try {
-        const res = await fetch(SCRIPT_URL, {
-          method: "POST",
-          body: JSON.stringify({ type: "signup", ...data }),
-          headers: { "Content-Type": "application/json" }
-        });
+       const formData = new FormData();
+formData.append("type", "signup");
+formData.append("name", data.name);
+formData.append("email", data.email);
+formData.append("phone", data.phone);
+formData.append("program", data.program);
+formData.append("password", data.password);
 
-        const result = await res.json();
+const res = await fetch(SCRIPT_URL, {
+  method: "POST",
+  body: formData
+});
+
+msg.textContent = "✅ Signup Successful!";
+msg.className = "text-center text-sm font-extrabold mt-4 text-green-600";
+form.reset();
+return;
 
         if (result.status === "success") {
           msg.textContent = "✅ Signup Successful!";
