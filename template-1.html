@@ -10,7 +10,7 @@
     /* ===== Resume Paper ===== */
     body { background:#dbeafe; }
     .paper{
-      width: 794px; /* A4 width in px */
+      width: 794px; /* A4 width */
       min-height: 1123px;
       margin:auto;
       background:white;
@@ -24,6 +24,7 @@
       font-weight:800;
       letter-spacing: 1px;
       text-align:center;
+      text-transform:uppercase;
     }
     .title{
       text-align:center;
@@ -37,6 +38,7 @@
       font-size:14px;
       margin-top:10px;
       color:#111827;
+      font-weight:600;
     }
     .section-title{
       font-size:18px;
@@ -49,7 +51,7 @@
     }
     .para{
       font-size:14px;
-      line-height: 1.4rem;
+      line-height: 1.45rem;
       margin-top:8px;
       color:#111827;
     }
@@ -64,36 +66,12 @@
       font-size:14px;
       margin-top:2px;
       font-style:italic;
+      font-weight:600;
     }
     .skills{
       font-size:14px;
       margin-top:8px;
-      line-height:1.45rem;
-    }
-    .job{
-      display:flex;
-      justify-content:space-between;
-      margin-top:10px;
-      font-size:15px;
-      font-weight:800;
-    }
-    .company{
-      font-style:italic;
-      font-size:14px;
-      margin-top:3px;
-      font-weight:600;
-    }
-    ul{
-      font-size:14px;
-      margin-top:6px;
-      padding-left:18px;
-      list-style:disc;
-      line-height: 1.45rem;
-    }
-    .proj-title{
-      font-size:15px;
-      font-weight:900;
-      margin-top:10px;
+      line-height:1.5rem;
     }
     .certs{
       font-size:14px;
@@ -102,9 +80,9 @@
       font-weight:700;
     }
 
-    /* form box */
+    /* ===== Builder Layout ===== */
     .builder-wrap{
-      max-width: 1200px;
+      max-width: 1300px;
       margin: 30px auto;
       display:grid;
       gap:20px;
@@ -141,6 +119,14 @@
       color:white;
       font-weight:800;
     }
+
+    /* ===== Print Mode ===== */
+    @media print {
+      body { background: white; }
+      .formbox { display:none !important; }
+      .builder-wrap { display:block !important; }
+      .paper { box-shadow:none !important; margin:0 !important; width:auto !important; }
+    }
   </style>
 </head>
 
@@ -148,7 +134,7 @@
 
   <div class="builder-wrap">
 
-    <!-- Left Form -->
+    <!-- ===================== LEFT EDITOR ===================== -->
     <div class="formbox">
       <h2 class="text-xl font-extrabold text-indigo-700">Template 1 Editor</h2>
       <p class="text-xs font-semibold text-slate-600 mt-1">Fill details → resume updates live</p>
@@ -157,68 +143,67 @@
       <input id="inTitle" placeholder="Role Title" />
       <input id="inPhone" placeholder="Phone" />
       <input id="inEmail" placeholder="Email" />
+      <input id="inLinkedin" placeholder="LinkedIn URL" />
       <input id="inLocation" placeholder="Location" />
-<!-- Skills -->
-<label class="text-sm font-bold mt-2 block">Key Skills</label>
-<textarea id="skillsInput" rows="5"
-  class="w-full border rounded-xl p-3 text-sm"
-  placeholder="Example:
+
+      <label class="text-sm font-bold mt-3 block">Professional Summary</label>
+      <textarea id="inSummary" rows="5" placeholder="Write your professional summary..."></textarea>
+
+      <label class="text-sm font-bold mt-3 block">Key Skills</label>
+      <textarea id="skillsInput" rows="6"
+        placeholder="Example:
 Talent Management: ...
 HR Operations: ...
+Administrative Excellence: ...
 Technical: ..."></textarea>
 
-<!-- Experience -->
-<label class="text-sm font-bold mt-2 block">Professional Experience</label>
-<textarea id="expInput" rows="7"
-  class="w-full border rounded-xl p-3 text-sm"
-  placeholder="Example:
-HR & Administration Support Assistant (Aug 2025 - Present)
+      <label class="text-sm font-bold mt-3 block">Professional Experience</label>
+      <textarea id="expInput" rows="8"
+        placeholder="Example:
+HR & Admin Support Assistant (Aug 2025 - Present)
+EdTech Informative
 • Point 1
-• Point 2"></textarea>
+• Point 2
+• Point 3"></textarea>
 
-<!-- Projects -->
-<label class="text-sm font-bold mt-2 block">Projects</label>
-<textarea id="projInput" rows="6"
-  class="w-full border rounded-xl p-3 text-sm"
-  placeholder="Example:
+      <label class="text-sm font-bold mt-3 block">Projects</label>
+      <textarea id="projInput" rows="6"
+        placeholder="Example:
 AI-Enabled Recruitment...
 • Point 1
 • Point 2"></textarea>
 
-<!-- Certifications -->
-<label class="text-sm font-bold mt-2 block">Certifications</label>
-<textarea id="certInput" rows="5"
-  class="w-full border rounded-xl p-3 text-sm"
-  placeholder="Example:
+      <label class="text-sm font-bold mt-3 block">Certifications</label>
+      <textarea id="certInput" rows="5"
+        placeholder="Example:
 Diploma in HR — Alison — 2025
 MOS — Microsoft — 2024"></textarea>
-
-      <textarea id="inSummary" rows="5" placeholder="Professional Summary"></textarea>
 
       <button class="btn" onclick="window.print()">Download / Print PDF</button>
 
       <p class="text-xs font-bold text-slate-500 mt-3">✅ This resume matches your uploaded CV style.</p>
     </div>
 
-    <!-- Resume Paper -->
+
+    <!-- ===================== RESUME PAPER ===================== -->
     <div class="paper" id="resumePaper">
 
       <!-- Header -->
-      <div class="name" id="name">saif alam</div>
+      <div class="name" id="name">SAIF ALAM</div>
       <div class="title" id="role">Human Resources & Administration Professional</div>
 
       <div class="contact">
-        <span id="phone">+91-7263478945</span> &nbsp;&nbsp;|&nbsp;&nbsp;
-        <span id="email">eduskillpath@gmail.com</span> &nbsp;&nbsp;|&nbsp;&nbsp;
-        <span id="location">siwan, Bihar, India</span>
+        <span id="phone">+91-7250720874</span> &nbsp; | &nbsp;
+        <span id="email">saifshaikh0874@gmail.com</span> &nbsp; | &nbsp;
+        <span id="linkedin">linkedin.com/in/your-profile</span> &nbsp; | &nbsp;
+        <span id="location">Gopalganj, Bihar, India</span>
       </div>
 
       <!-- Summary -->
       <div class="section-title">Professional Summary</div>
       <div class="para" id="summary">
         Detail-oriented HR and Administration professional with hands-on experience supporting recruitment activities,
-        employee onboarding, and day-to-day administrative operations. Skilled in CV screening, interview coordination,
-        employee record management, payroll and attendance support, documentation, and office coordination.
+        employee onboarding, and day-to-day administrative operations.
       </div>
 
       <!-- Education -->
@@ -231,7 +216,7 @@ MOS — Microsoft — 2024"></textarea>
 
       <!-- Skills -->
       <div class="section-title">Key Skills</div>
-      <div class="skills" id="skills">
+      <div class="skills" id="skillsPreview">
         <b>Talent Management:</b> Talent Acquisition, Employee Onboarding, Performance Management <br/>
         <b>HR Operations:</b> Payroll Administration, HR Compliance, Employee Relations <br/>
         <b>Administrative Excellence:</b> Office Management, Documentation, Data Entry <br/>
@@ -240,73 +225,86 @@ MOS — Microsoft — 2024"></textarea>
 
       <!-- Experience -->
       <div class="section-title">Professional Experience</div>
-
-      <div class="job">
-        <div id="job1">HR & Administration Support Assistant</div>
-        <div id="job1date">Aug 2025 – Present</div>
+      <div class="para" id="expPreview">
+        HR & Administration Support Assistant (Aug 2025 - Present)<br/>
+        <b>EdTech Informative</b><br/>
+        • Provided HR and administrative support including scheduling, data management, documentation for 100+ employees.<br/>
+        • Assisted in recruitment process, onboarding, payroll administration and attendance tracking systems.<br/>
+        • Maintained accurate HR records and filing systems.
       </div>
-      <div class="company" id="job1comp">EdTech Informative</div>
-      <ul id="job1points">
-        <li>Provided HR and administrative support including scheduling, data management, documentation for 100+ employees.</li>
-        <li>Assisted in recruitment process, onboarding, payroll administration and attendance tracking systems.</li>
-        <li>Maintained accurate HR records and filing systems.</li>
-      </ul>
 
       <!-- Projects -->
       <div class="section-title">Projects</div>
-      <div class="proj-title">AI-Enabled Recruitment & Onboarding Process Optimization</div>
-      <ul>
-        <li>Automated screening of 1,000+ CVs using AI algorithms, improving recruitment efficiency.</li>
-        <li>Reduced time-to-hire by improving candidate matching and selection processes.</li>
-      </ul>
+      <div class="para" id="projPreview">
+        AI-Enabled Recruitment & Onboarding Process Optimization<br/>
+        • Automated screening of 1,000+ CVs using AI algorithms, improving recruitment efficiency.<br/>
+        • Reduced time-to-hire by improving candidate matching and selection processes.
+      </div>
 
       <!-- Certifications -->
       <div class="section-title">Certifications</div>
-      <div class="certs">
+      <div class="certs" id="certPreview">
         Diploma in Human Resources — Alison — 2025 <br/>
         Microsoft Office Specialist (MOS) — Microsoft — 2024 <br/>
         Advanced Diploma in Computer Applications (ADCA) — 2023
       </div>
 
     </div>
-
   </div>
 
+
+  <!-- ===================== JAVASCRIPT ===================== -->
   <script>
-    const bind = (idInput, idPreview, fallback) => {
-      const el = document.getElementById(idInput);
-      const out = document.getElementById(idPreview);
-      el.addEventListener("input", () => out.textContent = el.value || fallback);
-    };
+    // Simple bind for single-line fields
+    function bind(inputId, previewId, fallback) {
+      const input = document.getElementById(inputId);
+      const preview = document.getElementById(previewId);
+      if (!input || !preview) return;
+      input.addEventListener("input", () => {
+        preview.textContent = input.value.trim() || fallback;
+      });
+    }
 
     bind("inName", "name", "SAIF ALAM");
     bind("inTitle", "role", "Human Resources & Administration Professional");
     bind("inPhone", "phone", "+91-7250720874");
     bind("inEmail", "email", "saifshaikh0874@gmail.com");
+    bind("inLinkedin", "linkedin", "linkedin.com/in/your-profile");
     bind("inLocation", "location", "Gopalganj, Bihar, India");
 
+    // Summary bind
     const inSummary = document.getElementById("inSummary");
     const summary = document.getElementById("summary");
-    inSummary.addEventListener("input", () => {
-      summary.textContent = inSummary.value || summary.textContent;
-    });
-  </script>
-function formatText(txt) {
-  return (txt || "").replace(/\n/g, "<br>");
-}
+    if (inSummary && summary) {
+      inSummary.addEventListener("input", () => {
+        summary.textContent = inSummary.value.trim() || "";
+      });
+    }
 
-document.getElementById("skillsInput").addEventListener("input", (e) => {
-  document.getElementById("skillsPreview").innerHTML = formatText(e.target.value);
-});
-document.getElementById("expInput").addEventListener("input", (e) => {
-  document.getElementById("expPreview").innerHTML = formatText(e.target.value);
-});
-document.getElementById("projInput").addEventListener("input", (e) => {
-  document.getElementById("projPreview").innerHTML = formatText(e.target.value);
-});
-document.getElementById("certInput").addEventListener("input", (e) => {
-  document.getElementById("certPreview").innerHTML = formatText(e.target.value);
-});
+    // Formatting for multiline text areas (safe)
+    function formatText(txt) {
+      return (txt || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/\n/g, "<br>");
+    }
+
+    // Connect multi-line sections
+    const connectMultiLine = (inputId, previewId) => {
+      const input = document.getElementById(inputId);
+      const preview = document.getElementById(previewId);
+      if (!input || !preview) return;
+      input.addEventListener("input", (e) => {
+        preview.innerHTML = formatText(e.target.value);
+      });
+    };
+
+    connectMultiLine("skillsInput", "skillsPreview");
+    connectMultiLine("expInput", "expPreview");
+    connectMultiLine("projInput", "projPreview");
+    connectMultiLine("certInput", "certPreview");
+  </script>
 
 </body>
 </html>
