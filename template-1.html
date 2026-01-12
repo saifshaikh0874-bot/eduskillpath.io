@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resume Template 1 | EduSkillPath</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* ===== Resume Paper ===== */
+    body { background:#dbeafe; }
+    .paper{
+      width: 794px; /* A4 width in px */
+      min-height: 1123px;
+      margin:auto;
+      background:white;
+      padding: 42px 55px;
+      color:#111827;
+      font-family: "Times New Roman", serif;
+      box-shadow: 0 10px 40px rgba(0,0,0,.10);
+    }
+    .name{
+      font-size:42px;
+      font-weight:800;
+      letter-spacing: 1px;
+      text-align:center;
+    }
+    .title{
+      text-align:center;
+      font-size:16px;
+      margin-top:6px;
+      font-weight:600;
+      color:#374151;
+    }
+    .contact{
+      text-align:center;
+      font-size:14px;
+      margin-top:10px;
+      color:#111827;
+    }
+    .section-title{
+      font-size:18px;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.5px;
+      margin-top:18px;
+      border-bottom: 2px solid #111827;
+      padding-bottom:4px;
+    }
+    .para{
+      font-size:14px;
+      line-height: 1.4rem;
+      margin-top:8px;
+      color:#111827;
+    }
+    .edu-row{
+      display:flex;
+      justify-content:space-between;
+      font-size:15px;
+      margin-top:8px;
+      font-weight:700;
+    }
+    .edu-sub{
+      font-size:14px;
+      margin-top:2px;
+      font-style:italic;
+    }
+    .skills{
+      font-size:14px;
+      margin-top:8px;
+      line-height:1.45rem;
+    }
+    .job{
+      display:flex;
+      justify-content:space-between;
+      margin-top:10px;
+      font-size:15px;
+      font-weight:800;
+    }
+    .company{
+      font-style:italic;
+      font-size:14px;
+      margin-top:3px;
+      font-weight:600;
+    }
+    ul{
+      font-size:14px;
+      margin-top:6px;
+      padding-left:18px;
+      list-style:disc;
+      line-height: 1.45rem;
+    }
+    .proj-title{
+      font-size:15px;
+      font-weight:900;
+      margin-top:10px;
+    }
+    .certs{
+      font-size:14px;
+      margin-top:8px;
+      line-height:1.5rem;
+      font-weight:700;
+    }
+
+    /* form box */
+    .builder-wrap{
+      max-width: 1200px;
+      margin: 30px auto;
+      display:grid;
+      gap:20px;
+      grid-template-columns: 1fr 860px;
+      align-items:flex-start;
+      padding: 0 16px;
+    }
+    .formbox{
+      background:white;
+      border:1px solid #93c5fd;
+      border-radius:24px;
+      padding:16px;
+      box-shadow:0 10px 35px rgba(2,132,199,.15);
+      position:sticky;
+      top:20px;
+      font-family:system-ui, Arial;
+    }
+    .formbox input,.formbox textarea{
+      width:100%;
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid #93c5fd;
+      background:#f0f9ff;
+      outline:none;
+      margin-top:8px;
+      font-size:14px;
+    }
+    .btn{
+      margin-top:12px;
+      width:100%;
+      padding:12px;
+      border-radius:14px;
+      background:#4f46e5;
+      color:white;
+      font-weight:800;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="builder-wrap">
+
+    <!-- Left Form -->
+    <div class="formbox">
+      <h2 class="text-xl font-extrabold text-indigo-700">Template 1 Editor</h2>
+      <p class="text-xs font-semibold text-slate-600 mt-1">Fill details → resume updates live</p>
+
+      <input id="inName" placeholder="Full Name" />
+      <input id="inTitle" placeholder="Role Title" />
+      <input id="inPhone" placeholder="Phone" />
+      <input id="inEmail" placeholder="Email" />
+      <input id="inLocation" placeholder="Location" />
+
+      <textarea id="inSummary" rows="5" placeholder="Professional Summary"></textarea>
+
+      <button class="btn" onclick="window.print()">Download / Print PDF</button>
+
+      <p class="text-xs font-bold text-slate-500 mt-3">✅ This resume matches your uploaded CV style.</p>
+    </div>
+
+    <!-- Resume Paper -->
+    <div class="paper" id="resumePaper">
+
+      <!-- Header -->
+      <div class="name" id="name">SAIF ALAM</div>
+      <div class="title" id="role">Human Resources & Administration Professional</div>
+
+      <div class="contact">
+        <span id="phone">+91-7250720874</span> &nbsp;&nbsp;|&nbsp;&nbsp;
+        <span id="email">saifshaikh0874@gmail.com</span> &nbsp;&nbsp;|&nbsp;&nbsp;
+        <span id="location">Gopalganj, Bihar, India</span>
+      </div>
+
+      <!-- Summary -->
+      <div class="section-title">Professional Summary</div>
+      <div class="para" id="summary">
+        Detail-oriented HR and Administration professional with hands-on experience supporting recruitment activities,
+        employee onboarding, and day-to-day administrative operations. Skilled in CV screening, interview coordination,
+        employee record management, payroll and attendance support, documentation, and office coordination.
+      </div>
+
+      <!-- Education -->
+      <div class="section-title">Education</div>
+      <div class="edu-row">
+        <div id="eduCollege">Maharishi Markandeshwar University (MMDU)</div>
+        <div id="eduPlace">Mullana, Haryana</div>
+      </div>
+      <div class="edu-sub" id="eduDegree">Bachelor of Business Administration (BBA) - HR Specialization (2023 - 2026)</div>
+
+      <!-- Skills -->
+      <div class="section-title">Key Skills</div>
+      <div class="skills" id="skills">
+        <b>Talent Management:</b> Talent Acquisition, Employee Onboarding, Performance Management <br/>
+        <b>HR Operations:</b> Payroll Administration, HR Compliance, Employee Relations <br/>
+        <b>Administrative Excellence:</b> Office Management, Documentation, Data Entry <br/>
+        <b>Technical:</b> MS Office (Excel, Word, PowerPoint), AI Recruitment Tools
+      </div>
+
+      <!-- Experience -->
+      <div class="section-title">Professional Experience</div>
+
+      <div class="job">
+        <div id="job1">HR & Administration Support Assistant</div>
+        <div id="job1date">Aug 2025 – Present</div>
+      </div>
+      <div class="company" id="job1comp">EdTech Informative</div>
+      <ul id="job1points">
+        <li>Provided HR and administrative support including scheduling, data management, documentation for 100+ employees.</li>
+        <li>Assisted in recruitment process, onboarding, payroll administration and attendance tracking systems.</li>
+        <li>Maintained accurate HR records and filing systems.</li>
+      </ul>
+
+      <!-- Projects -->
+      <div class="section-title">Projects</div>
+      <div class="proj-title">AI-Enabled Recruitment & Onboarding Process Optimization</div>
+      <ul>
+        <li>Automated screening of 1,000+ CVs using AI algorithms, improving recruitment efficiency.</li>
+        <li>Reduced time-to-hire by improving candidate matching and selection processes.</li>
+      </ul>
+
+      <!-- Certifications -->
+      <div class="section-title">Certifications</div>
+      <div class="certs">
+        Diploma in Human Resources — Alison — 2025 <br/>
+        Microsoft Office Specialist (MOS) — Microsoft — 2024 <br/>
+        Advanced Diploma in Computer Applications (ADCA) — 2023
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+    const bind = (idInput, idPreview, fallback) => {
+      const el = document.getElementById(idInput);
+      const out = document.getElementById(idPreview);
+      el.addEventListener("input", () => out.textContent = el.value || fallback);
+    };
+
+    bind("inName", "name", "SAIF ALAM");
+    bind("inTitle", "role", "Human Resources & Administration Professional");
+    bind("inPhone", "phone", "+91-7250720874");
+    bind("inEmail", "email", "saifshaikh0874@gmail.com");
+    bind("inLocation", "location", "Gopalganj, Bihar, India");
+
+    const inSummary = document.getElementById("inSummary");
+    const summary = document.getElementById("summary");
+    inSummary.addEventListener("input", () => {
+      summary.textContent = inSummary.value || summary.textContent;
+    });
+  </script>
+
+</body>
+</html>
