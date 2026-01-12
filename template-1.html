@@ -4,7 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Resume Template 1 | EduSkillPath</title>
+
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- PDF Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
   <style>
     /* ===== Resume Paper ===== */
@@ -118,14 +123,18 @@
       background:#4f46e5;
       color:white;
       font-weight:800;
+      transition:.2s;
+    }
+    .btn:hover{
+      background:#4338ca;
     }
 
-    /* ===== Print Mode ===== */
+    /* Print mode not used but safe */
     @media print {
-      body { background: white; }
       .formbox { display:none !important; }
+      body { background:white; }
       .builder-wrap { display:block !important; }
-      .paper { box-shadow:none !important; margin:0 !important; width:auto !important; }
+      .paper { box-shadow:none !important; margin:0 !important; }
     }
   </style>
 </head>
@@ -139,6 +148,7 @@
       <h2 class="text-xl font-extrabold text-indigo-700">Template 1 Editor</h2>
       <p class="text-xs font-semibold text-slate-600 mt-1">Fill details → resume updates live</p>
 
+      <!-- Basic -->
       <input id="inName" placeholder="Full Name" />
       <input id="inTitle" placeholder="Role Title" />
       <input id="inPhone" placeholder="Phone" />
@@ -146,9 +156,17 @@
       <input id="inLinkedin" placeholder="LinkedIn URL" />
       <input id="inLocation" placeholder="Location" />
 
+      <!-- Summary -->
       <label class="text-sm font-bold mt-3 block">Professional Summary</label>
       <textarea id="inSummary" rows="5" placeholder="Write your professional summary..."></textarea>
 
+      <!-- Education -->
+      <label class="text-sm font-bold mt-3 block">Education</label>
+      <input id="eduCollegeInput" placeholder="College / University Name" />
+      <input id="eduLocationInput" placeholder="College Location" />
+      <input id="eduDegreeInput" placeholder="Degree + Year (example: BBA - HR (2023-2026))" />
+
+      <!-- Skills -->
       <label class="text-sm font-bold mt-3 block">Key Skills</label>
       <textarea id="skillsInput" rows="6"
         placeholder="Example:
@@ -157,6 +175,7 @@ HR Operations: ...
 Administrative Excellence: ...
 Technical: ..."></textarea>
 
+      <!-- Experience -->
       <label class="text-sm font-bold mt-3 block">Professional Experience</label>
       <textarea id="expInput" rows="8"
         placeholder="Example:
@@ -166,6 +185,7 @@ EdTech Informative
 • Point 2
 • Point 3"></textarea>
 
+      <!-- Projects -->
       <label class="text-sm font-bold mt-3 block">Projects</label>
       <textarea id="projInput" rows="6"
         placeholder="Example:
@@ -173,15 +193,17 @@ AI-Enabled Recruitment...
 • Point 1
 • Point 2"></textarea>
 
+      <!-- Certifications -->
       <label class="text-sm font-bold mt-3 block">Certifications</label>
       <textarea id="certInput" rows="5"
         placeholder="Example:
 Diploma in HR — Alison — 2025
 MOS — Microsoft — 2024"></textarea>
 
-      <button class="btn" onclick="window.print()">Download / Print PDF</button>
+      <!-- PDF Button -->
+      <button class="btn" id="downloadBtn">Save as PDF</button>
 
-      <p class="text-xs font-bold text-slate-500 mt-3">✅ This resume matches your uploaded CV style.</p>
+      <p class="text-xs font-bold text-slate-500 mt-3">✅ Professional ATS-style resume template</p>
     </div>
 
 
@@ -255,7 +277,7 @@ MOS — Microsoft — 2024"></textarea>
 
   <!-- ===================== JAVASCRIPT ===================== -->
   <script>
-    // Simple bind for single-line fields
+    // Bind for single line values
     function bind(inputId, previewId, fallback) {
       const input = document.getElementById(inputId);
       const preview = document.getElementById(previewId);
@@ -265,12 +287,18 @@ MOS — Microsoft — 2024"></textarea>
       });
     }
 
+    // Basic binds
     bind("inName", "name", "SAIF ALAM");
     bind("inTitle", "role", "Human Resources & Administration Professional");
     bind("inPhone", "phone", "+91-7250720874");
     bind("inEmail", "email", "saifshaikh0874@gmail.com");
     bind("inLinkedin", "linkedin", "linkedin.com/in/your-profile");
     bind("inLocation", "location", "Gopalganj, Bihar, India");
+
+    // Education binds
+    bind("eduCollegeInput", "eduCollege", "Maharishi Markandeshwar University (MMDU)");
+    bind("eduLocationInput", "eduPlace", "Mullana, Haryana");
+    bind("eduDegreeInput", "eduDegree", "Bachelor of Business Administration (BBA) - HR Specialization (2023 - 2026)");
 
     // Summary bind
     const inSummary = document.getElementById("inSummary");
@@ -281,7 +309,7 @@ MOS — Microsoft — 2024"></textarea>
       });
     }
 
-    // Formatting for multiline text areas (safe)
+    // Safe formatting for multiline sections
     function formatText(txt) {
       return (txt || "")
         .replace(/&/g, "&amp;")
@@ -290,20 +318,37 @@ MOS — Microsoft — 2024"></textarea>
         .replace(/\n/g, "<br>");
     }
 
-    // Connect multi-line sections
-    const connectMultiLine = (inputId, previewId) => {
+    function connectMultiLine(inputId, previewId) {
       const input = document.getElementById(inputId);
       const preview = document.getElementById(previewId);
       if (!input || !preview) return;
       input.addEventListener("input", (e) => {
         preview.innerHTML = formatText(e.target.value);
       });
-    };
+    }
 
     connectMultiLine("skillsInput", "skillsPreview");
     connectMultiLine("expInput", "expPreview");
     connectMultiLine("projInput", "projPreview");
     connectMultiLine("certInput", "certPreview");
+
+    // ✅ Save PDF Download (No Print)
+    document.getElementById("downloadBtn").addEventListener("click", () => {
+      const element = document.getElementById("resumePaper");
+
+      const name = document.getElementById("inName").value.trim() || "Resume";
+      const fileName = name.replace(/\s+/g, "_") + "_EduSkillPath.pdf";
+
+      const opt = {
+        margin:       [0.2, 0.2, 0.2, 0.2],
+        filename:     fileName,
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { scale: 2, useCORS: true },
+        jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
+      };
+
+      html2pdf().set(opt).from(element).save();
+    });
   </script>
 
 </body>
