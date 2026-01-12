@@ -158,6 +158,40 @@
       <input id="inPhone" placeholder="Phone" />
       <input id="inEmail" placeholder="Email" />
       <input id="inLocation" placeholder="Location" />
+<!-- Skills -->
+<label class="text-sm font-bold mt-2 block">Key Skills</label>
+<textarea id="skillsInput" rows="5"
+  class="w-full border rounded-xl p-3 text-sm"
+  placeholder="Example:
+Talent Management: ...
+HR Operations: ...
+Technical: ..."></textarea>
+
+<!-- Experience -->
+<label class="text-sm font-bold mt-2 block">Professional Experience</label>
+<textarea id="expInput" rows="7"
+  class="w-full border rounded-xl p-3 text-sm"
+  placeholder="Example:
+HR & Administration Support Assistant (Aug 2025 - Present)
+• Point 1
+• Point 2"></textarea>
+
+<!-- Projects -->
+<label class="text-sm font-bold mt-2 block">Projects</label>
+<textarea id="projInput" rows="6"
+  class="w-full border rounded-xl p-3 text-sm"
+  placeholder="Example:
+AI-Enabled Recruitment...
+• Point 1
+• Point 2"></textarea>
+
+<!-- Certifications -->
+<label class="text-sm font-bold mt-2 block">Certifications</label>
+<textarea id="certInput" rows="5"
+  class="w-full border rounded-xl p-3 text-sm"
+  placeholder="Example:
+Diploma in HR — Alison — 2025
+MOS — Microsoft — 2024"></textarea>
 
       <textarea id="inSummary" rows="5" placeholder="Professional Summary"></textarea>
 
@@ -170,13 +204,13 @@
     <div class="paper" id="resumePaper">
 
       <!-- Header -->
-      <div class="name" id="name">SAIF ALAM</div>
+      <div class="name" id="name">saif alam</div>
       <div class="title" id="role">Human Resources & Administration Professional</div>
 
       <div class="contact">
-        <span id="phone">+91-7250720874</span> &nbsp;&nbsp;|&nbsp;&nbsp;
-        <span id="email">saifshaikh0874@gmail.com</span> &nbsp;&nbsp;|&nbsp;&nbsp;
-        <span id="location">Gopalganj, Bihar, India</span>
+        <span id="phone">+91-7263478945</span> &nbsp;&nbsp;|&nbsp;&nbsp;
+        <span id="email">eduskillpath@gmail.com</span> &nbsp;&nbsp;|&nbsp;&nbsp;
+        <span id="location">siwan, Bihar, India</span>
       </div>
 
       <!-- Summary -->
@@ -257,6 +291,22 @@
       summary.textContent = inSummary.value || summary.textContent;
     });
   </script>
+function formatText(txt) {
+  return (txt || "").replace(/\n/g, "<br>");
+}
+
+document.getElementById("skillsInput").addEventListener("input", (e) => {
+  document.getElementById("skillsPreview").innerHTML = formatText(e.target.value);
+});
+document.getElementById("expInput").addEventListener("input", (e) => {
+  document.getElementById("expPreview").innerHTML = formatText(e.target.value);
+});
+document.getElementById("projInput").addEventListener("input", (e) => {
+  document.getElementById("projPreview").innerHTML = formatText(e.target.value);
+});
+document.getElementById("certInput").addEventListener("input", (e) => {
+  document.getElementById("certPreview").innerHTML = formatText(e.target.value);
+});
 
 </body>
 </html>
