@@ -8,82 +8,11 @@
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- PDF Library -->
+  <!-- PDF Download Library -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
   <style>
-    /* ===== Resume Paper ===== */
     body { background:#dbeafe; }
-    .paper{
-      width: 794px; /* A4 width */
-      min-height: 1123px;
-      margin:auto;
-      background:white;
-      padding: 42px 55px;
-      color:#111827;
-      font-family: "Times New Roman", serif;
-      box-shadow: 0 10px 40px rgba(0,0,0,.10);
-    }
-    .name{
-      font-size:42px;
-      font-weight:800;
-      letter-spacing: 1px;
-      text-align:center;
-      text-transform:uppercase;
-    }
-    .title{
-      text-align:center;
-      font-size:16px;
-      margin-top:6px;
-      font-weight:600;
-      color:#374151;
-    }
-    .contact{
-      text-align:center;
-      font-size:14px;
-      margin-top:10px;
-      color:#111827;
-      font-weight:600;
-    }
-    .section-title{
-      font-size:18px;
-      font-weight:800;
-      text-transform:uppercase;
-      letter-spacing:.5px;
-      margin-top:18px;
-      border-bottom: 2px solid #111827;
-      padding-bottom:4px;
-    }
-    .para{
-      font-size:14px;
-      line-height: 1.45rem;
-      margin-top:8px;
-      color:#111827;
-    }
-    .edu-row{
-      display:flex;
-      justify-content:space-between;
-      font-size:15px;
-      margin-top:8px;
-      font-weight:700;
-    }
-    .edu-sub{
-      font-size:14px;
-      margin-top:2px;
-      font-style:italic;
-      font-weight:600;
-    }
-    .skills{
-      font-size:14px;
-      margin-top:8px;
-      line-height:1.5rem;
-    }
-    .certs{
-      font-size:14px;
-      margin-top:8px;
-      line-height:1.5rem;
-      font-weight:700;
-    }
 
     /* ===== Builder Layout ===== */
     .builder-wrap{
@@ -95,6 +24,7 @@
       align-items:flex-start;
       padding: 0 16px;
     }
+
     .formbox{
       background:white;
       border:1px solid #93c5fd;
@@ -104,7 +34,12 @@
       position:sticky;
       top:20px;
       font-family:system-ui, Arial;
+
+      /* ✅ IMPORTANT: makes editor scroll */
+      max-height: calc(100vh - 40px);
+      overflow-y: auto;
     }
+
     .formbox input,.formbox textarea{
       width:100%;
       padding:10px 12px;
@@ -115,6 +50,7 @@
       margin-top:8px;
       font-size:14px;
     }
+
     .btn{
       margin-top:12px;
       width:100%;
@@ -125,16 +61,104 @@
       font-weight:800;
       transition:.2s;
     }
-    .btn:hover{
-      background:#4338ca;
+    .btn:hover{ background:#4338ca; }
+
+    /* ===== Resume Paper ===== */
+    .paper{
+      width: 794px; /* A4 width */
+      min-height: 1123px;
+      margin:auto;
+      background:white;
+      padding: 42px 55px;
+      color:#111827;
+      font-family: "Times New Roman", serif;
+      box-shadow: 0 10px 40px rgba(0,0,0,.10);
     }
 
-    /* Print mode not used but safe */
-    @media print {
-      .formbox { display:none !important; }
-      body { background:white; }
-      .builder-wrap { display:block !important; }
-      .paper { box-shadow:none !important; margin:0 !important; }
+    .name{
+      font-size:42px;
+      font-weight:800;
+      letter-spacing: 1px;
+      text-align:center;
+      text-transform:uppercase;
+    }
+
+    .title{
+      text-align:center;
+      font-size:16px;
+      margin-top:6px;
+      font-weight:600;
+      color:#374151;
+    }
+
+    .contact{
+      text-align:center;
+      font-size:14px;
+      margin-top:10px;
+      color:#111827;
+      font-weight:600;
+    }
+
+    .section-title{
+      font-size:18px;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.5px;
+      margin-top:18px;
+      border-bottom: 2px solid #111827;
+      padding-bottom:4px;
+    }
+
+    .para{
+      font-size:14px;
+      line-height: 1.45rem;
+      margin-top:8px;
+      color:#111827;
+    }
+
+    .edu-row{
+      display:flex;
+      justify-content:space-between;
+      font-size:15px;
+      margin-top:8px;
+      font-weight:700;
+      gap: 10px;
+    }
+
+    .edu-sub{
+      font-size:14px;
+      margin-top:2px;
+      font-style:italic;
+      font-weight:600;
+    }
+
+    .skills{
+      font-size:14px;
+      margin-top:8px;
+      line-height:1.5rem;
+    }
+
+    .certs{
+      font-size:14px;
+      margin-top:8px;
+      line-height:1.5rem;
+      font-weight:700;
+    }
+
+    /* ===== Responsive for mobile ===== */
+    @media (max-width: 1024px){
+      .builder-wrap{
+        grid-template-columns: 1fr;
+      }
+      .paper{
+        width: 100%;
+        padding: 26px 20px;
+      }
+      .formbox{
+        position:relative;
+        top:auto;
+        max-height:none;
+      }
     }
   </style>
 </head>
@@ -160,11 +184,11 @@
       <label class="text-sm font-bold mt-3 block">Professional Summary</label>
       <textarea id="inSummary" rows="5" placeholder="Write your professional summary..."></textarea>
 
-      <!-- Education -->
+      <!-- ✅ EDUCATION (AFTER SUMMARY) -->
       <label class="text-sm font-bold mt-3 block">Education</label>
       <input id="eduCollegeInput" placeholder="College / University Name" />
       <input id="eduLocationInput" placeholder="College Location" />
-      <input id="eduDegreeInput" placeholder="Degree + Year (example: BBA - HR (2023-2026))" />
+      <input id="eduDegreeInput" placeholder="Degree + Year (Example: BBA HR (2022-2025))" />
 
       <!-- Skills -->
       <label class="text-sm font-bold mt-3 block">Key Skills</label>
@@ -200,10 +224,10 @@ AI-Enabled Recruitment...
 Diploma in HR — Alison — 2025
 MOS — Microsoft — 2024"></textarea>
 
-      <!-- PDF Button -->
+      <!-- PDF -->
       <button class="btn" id="downloadBtn">Save as PDF</button>
 
-      <p class="text-xs font-bold text-slate-500 mt-3">✅ Professional ATS-style resume template</p>
+      <p class="text-xs font-bold text-slate-500 mt-3">✅ Professional ATS style Template</p>
     </div>
 
 
@@ -228,13 +252,15 @@ MOS — Microsoft — 2024"></textarea>
         employee onboarding, and day-to-day administrative operations.
       </div>
 
-      <!-- Education -->
+      <!-- ✅ Education (AFTER SUMMARY) -->
       <div class="section-title">Education</div>
       <div class="edu-row">
         <div id="eduCollege">Maharishi Markandeshwar University (MMDU)</div>
         <div id="eduPlace">Mullana, Haryana</div>
       </div>
-      <div class="edu-sub" id="eduDegree">Bachelor of Business Administration (BBA) - HR Specialization (2023 - 2026)</div>
+      <div class="edu-sub" id="eduDegree">
+        Bachelor of Business Administration (BBA) - HR Specialization (2023 - 2026)
+      </div>
 
       <!-- Skills -->
       <div class="section-title">Key Skills</div>
@@ -277,7 +303,6 @@ MOS — Microsoft — 2024"></textarea>
 
   <!-- ===================== JAVASCRIPT ===================== -->
   <script>
-    // Bind for single line values
     function bind(inputId, previewId, fallback) {
       const input = document.getElementById(inputId);
       const preview = document.getElementById(previewId);
@@ -295,7 +320,7 @@ MOS — Microsoft — 2024"></textarea>
     bind("inLinkedin", "linkedin", "linkedin.com/in/your-profile");
     bind("inLocation", "location", "Gopalganj, Bihar, India");
 
-    // Education binds
+    // ✅ Education binds
     bind("eduCollegeInput", "eduCollege", "Maharishi Markandeshwar University (MMDU)");
     bind("eduLocationInput", "eduPlace", "Mullana, Haryana");
     bind("eduDegreeInput", "eduDegree", "Bachelor of Business Administration (BBA) - HR Specialization (2023 - 2026)");
@@ -309,7 +334,7 @@ MOS — Microsoft — 2024"></textarea>
       });
     }
 
-    // Safe formatting for multiline sections
+    // Multiline format safe
     function formatText(txt) {
       return (txt || "")
         .replace(/&/g, "&amp;")
@@ -332,7 +357,7 @@ MOS — Microsoft — 2024"></textarea>
     connectMultiLine("projInput", "projPreview");
     connectMultiLine("certInput", "certPreview");
 
-    // ✅ Save PDF Download (No Print)
+    // ✅ Save as PDF (No Print)
     document.getElementById("downloadBtn").addEventListener("click", () => {
       const element = document.getElementById("resumePaper");
 
