@@ -390,7 +390,21 @@
         <a href="#different" class="hover:text-indigo-700">Why Us</a>
         <a href="#impact" class="hover:text-indigo-700">Impact</a>
         <a href="#domains" class="hover:text-indigo-700">Internships</a>
+        <a href="resume-builder.html" class="hover:text-indigo-700">CV Maker</a>
       </nav>
+<!-- Mobile menu button -->
+<button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg border border-sky-400 text-slate-900">
+  ☰
+</button>
+
+<!-- Mobile menu dropdown -->
+<div id="mobileMenu" class="hidden md:hidden mt-3 bg-white rounded-xl shadow-lg border border-sky-200 p-4">
+  <a href="#programs" class="block py-2 font-semibold hover:text-indigo-700">Programs</a>
+  <a href="#different" class="block py-2 font-semibold hover:text-indigo-700">Why Us</a>
+  <a href="#impact" class="block py-2 font-semibold hover:text-indigo-700">Impact</a>
+  <a href="#domains" class="block py-2 font-semibold hover:text-indigo-700">Internships</a>
+  <a href="resume-builder.html" class="block py-2 font-semibold hover:text-indigo-700">CV Maker</a>
+</div>
 
       <!-- CTA -->
       <!-- CTA -->
@@ -1412,6 +1426,14 @@
 </script>
 <script>
  
+</script>
+<script>
+  const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+  const mobileMenu = document.getElementById("mobileMenu");
+
+  mobileMenuBtn.addEventListener("click", () => {
+    mobileMenu.classList.toggle("hidden");
+  });
 </script>
 
 </body>
