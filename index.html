@@ -9,449 +9,363 @@
   <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <!-- Three.js (3D Globe) -->
+  <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
 
   <style>
+    html { scroll-behavior: smooth; }
+
+    /* ===== EdtechInformative color theme ===== */
+    :root{
+      --blue1:#071a6a;
+      --blue2:#0b2a9c;
+      --blue3:#0a2fbd;
+      --yellow:#d6f000;
+      --yellow2:#c6ef00;
+    }
+
     body{
-      margin:0;
-      overflow-x:hidden;
-      font-family: system-ui, Arial;
-      background: radial-gradient(circle at 30% 40%, #0c1dff 0%, #050b5b 40%, #020642 100%);
-      color: white;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: #fff;
+      color: #0f172a;
     }
 
-    /* globe canvas */
-    #globeBox canvas{
-      position:absolute;
-      inset:0;
-      width:100%!important;
-      height:100%!important;
-      z-index:0;
-      pointer-events:none;
-      opacity: 0.95;
+    /* Top strip like EdTechInformative */
+    .top-strip{
+      background: var(--yellow);
+      color:#0b0b0b;
+      font-weight:800;
+      font-size: 13px;
+      text-align:center;
+      padding: 8px 12px;
+    }
+    .top-strip a{
+      text-decoration: underline;
+      font-weight: 900;
     }
 
-    .glow { text-shadow: 0 0 25px rgba(255,255,255,0.25); }
-
-    /* Funnel animation */
-    @keyframes floatUp{
-      0%{ transform: translateY(0px); opacity: 0.75;}
-      50%{ transform: translateY(-12px); opacity: 1;}
-      100%{ transform: translateY(0px); opacity: 0.75;}
-    }
-    .float{ animation: floatUp 3s ease-in-out infinite; }
-
-    /* section background */
-    .sectionBg{
-      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
-      border: 1px solid rgba(255,255,255,0.10);
-      backdrop-filter: blur(10px);
+    /* Navbar */
+    .navwrap{
+      background: #091c74;
+      border-bottom: 1px solid rgba(255,255,255,.12);
     }
 
-    /* smooth scroll */
-    html{ scroll-behavior:smooth; }
-
-    /* dropdown */
-    .dropdown:hover .dropdown-menu{
-      display:block;
+    /* Hero background gradient */
+    .hero{
+      background: radial-gradient(circle at 20% 50%, #0a2fb8 0%, #06155a 60%, #040c34 100%);
+      color:#fff;
+      position: relative;
+      overflow:hidden;
     }
 
-    /* mobile menu animate */
-    .mobile-open{
-      display:block !important;
-      animation: drop 0.25s ease;
+    /* Globe container */
+    #globeCanvas{
+      width: 100%;
+      height: 420px;
+      max-width: 520px;
+      margin: 0 auto;
     }
-    @keyframes drop {
-      from { transform: translateY(-10px); opacity:0; }
-      to { transform: translateY(0); opacity:1; }
+    @media(max-width:1024px){
+      #globeCanvas{ height: 320px; }
     }
+
+    /* Button style like EdTechInformative */
+    .btn-yellow{
+      background: var(--yellow2);
+      color:#0b0b0b;
+      font-weight: 900;
+      border-radius: 12px;
+      padding: 12px 18px;
+      box-shadow: 0 14px 35px rgba(0,0,0,.25);
+      transition: transform .15s ease;
+    }
+    .btn-yellow:hover{ transform: translateY(-2px); }
+
+    .btn-outline{
+      border: 1px solid rgba(255,255,255,.25);
+      padding: 12px 18px;
+      border-radius: 12px;
+      font-weight: 800;
+      color:#fff;
+      transition: all .15s ease;
+    }
+    .btn-outline:hover{ border-color:#fff; background: rgba(255,255,255,.08); }
+
+    /* Right career stack (like their UI) */
+    .stack{
+      width: 100%;
+      max-width: 420px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .stack .layer{
+      height: 50px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.15);
+      margin: 12px 0;
+      opacity:.35;
+    }
+    .stack .main{
+      height: 58px;
+      border-radius: 12px;
+      background: linear-gradient(90deg, #ea5b3a, #d9462b);
+      box-shadow: 0 14px 40px rgba(0,0,0,.25);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight: 900;
+      font-size: 18px;
+    }
+
+    /* Card section (white area) */
+    .soft-card{
+      border-radius: 18px;
+      border: 1px solid #e2e8f0;
+      background: #fff;
+      box-shadow: 0 18px 45px rgba(2,6,23,.08);
+      transition: transform .18s ease;
+    }
+    .soft-card:hover{ transform: translateY(-4px); }
+
   </style>
 </head>
 
 <body>
 
   <!-- ✅ TOP STRIP -->
-  <div class="bg-yellow-300 text-black text-center py-2 text-sm font-bold px-4">
-    ✨ Ready to level up? Master in-demand tech skills & fast-track your career 🚀 —
-    <a href="#contact" class="underline font-extrabold">Claim your FREE strategy call now!</a> →
+  <div class="top-strip">
+    ✨ Ready to level up? Master in-demand tech skills & fast-track your career 🚀
+    &nbsp;&nbsp; <a href="#apply">Claim your FREE strategy call now!</a> →
   </div>
 
   <!-- ✅ NAVBAR -->
-  <header class="sticky top-0 z-50 bg-[#0A0E66]/90 backdrop-blur border-b border-white/10">
-    <div class="max-w-7xl mx-auto flex items-center justify-between px-6 md:px-10 py-4">
+  <header class="navwrap sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between gap-5">
 
-      <!-- Logo -->
-      <a href="#" class="flex items-center gap-2 font-extrabold text-xl">
-        <span class="bg-yellow-300 text-black w-9 h-9 rounded-xl flex items-center justify-center font-black">E</span>
-        <span><span class="text-yellow-300">edu</span>skillpath</span>
+      <!-- Brand -->
+      <a href="#" class="flex items-center gap-3">
+        <div class="w-11 h-11 rounded-xl bg-white/10 grid place-items-center border border-white/10">
+          <span class="text-[22px] font-black text-white">e</span>
+        </div>
+        <div class="leading-tight">
+          <p class="font-black text-white text-lg">eduskillpath</p>
+          <p class="text-[12px] text-white/70 font-semibold -mt-1">Skill • Resume • Career</p>
+        </div>
       </a>
 
-      <!-- Desktop Nav -->
-      <nav class="hidden md:flex gap-8 font-semibold text-sm items-center">
+      <!-- Desktop nav -->
+      <nav class="hidden lg:flex items-center gap-8 text-white font-bold text-sm">
+        <a class="hover:text-yellow-200" href="#">Home</a>
 
-        <a href="#home" class="hover:text-yellow-300 transition">Home</a>
-
-        <!-- Dropdown -->
-        <div class="relative dropdown">
-          <button class="hover:text-yellow-300 transition flex items-center gap-1">
-            Programs <span class="text-yellow-300">▾</span>
+        <div class="relative group">
+          <button class="hover:text-yellow-200 flex items-center gap-2">
+            Programs <i class="fa-solid fa-chevron-down text-[12px]"></i>
           </button>
-          <div class="dropdown-menu hidden absolute mt-3 w-64 rounded-2xl sectionBg p-3 shadow-xl">
-            <a href="#programs" class="block px-4 py-2 rounded-xl hover:bg-white/10 transition">Generative AI Master Class</a>
-            <a href="#programs" class="block px-4 py-2 rounded-xl hover:bg-white/10 transition">Data Science Bootcamp</a>
-            <a href="#programs" class="block px-4 py-2 rounded-xl hover:bg-white/10 transition">Web Development Pro</a>
-            <a href="#programs" class="block px-4 py-2 rounded-xl hover:bg-white/10 transition">Career Coaching</a>
+          <div class="absolute top-full left-0 mt-3 hidden group-hover:block min-w-[220px] bg-white text-slate-900 rounded-xl shadow-xl border border-slate-200 overflow-hidden">
+            <a href="#programs" class="block px-4 py-3 font-bold hover:bg-slate-50">Data Analytics</a>
+            <a href="#programs" class="block px-4 py-3 font-bold hover:bg-slate-50">AI Tools & Prompting</a>
+            <a href="#programs" class="block px-4 py-3 font-bold hover:bg-slate-50">Resume + Interview</a>
           </div>
         </div>
 
-        <a href="#pricing" class="hover:text-yellow-300 transition">Pricing</a>
-        <a href="#about" class="hover:text-yellow-300 transition">About</a>
-        <a href="#contact" class="hover:text-yellow-300 transition">Contact Us</a>
-
-        <a href="#contact" class="bg-yellow-300 text-black px-5 py-2 rounded-xl font-extrabold hover:scale-105 transition">
-          Book FREE Strategy Call →
-        </a>
+        <a class="hover:text-yellow-200" href="#pricing">Pricing</a>
+        <a class="hover:text-yellow-200" href="#about">About</a>
+        <a class="hover:text-yellow-200" href="contact.html">Contact Us</a>
+        <a class="hover:text-yellow-200" href="resume-builder.html">CV Maker</a>
       </nav>
 
-      <!-- Mobile menu button -->
-      <button id="menuBtn" class="md:hidden bg-white/10 border border-white/10 px-3 py-2 rounded-xl font-bold">
-        ☰
+      <!-- CTA -->
+      <a href="#apply" class="hidden sm:inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-black"
+         style="background: var(--yellow2); color:#0b0b0b;">
+        Book FREE Strategy Call <i class="fa-solid fa-arrow-right"></i>
+      </a>
+
+      <!-- Mobile btn -->
+      <button id="mobileBtn" class="lg:hidden w-11 h-11 rounded-xl bg-white/10 border border-white/10 text-white">
+        <i class="fa-solid fa-bars"></i>
       </button>
     </div>
 
-    <!-- ✅ Mobile dropdown -->
-    <div id="mobileMenu" class="hidden md:hidden px-6 pb-5">
-      <div class="sectionBg rounded-2xl p-4 space-y-3">
-        <a href="#home" class="block py-2 px-3 rounded-xl hover:bg-white/10">Home</a>
-        <a href="#programs" class="block py-2 px-3 rounded-xl hover:bg-white/10">Programs</a>
-        <a href="#pricing" class="block py-2 px-3 rounded-xl hover:bg-white/10">Pricing</a>
-        <a href="#about" class="block py-2 px-3 rounded-xl hover:bg-white/10">About</a>
-        <a href="#contact" class="block py-2 px-3 rounded-xl hover:bg-white/10">Contact</a>
-        <a href="#contact" class="block bg-yellow-300 text-black text-center py-3 rounded-xl font-extrabold">
-          Book FREE Strategy Call →
-        </a>
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="hidden lg:hidden px-4 pb-4">
+      <div class="rounded-2xl bg-white/5 border border-white/10 p-4 text-white font-bold grid gap-3">
+        <a href="#">Home</a>
+        <a href="#programs">Programs</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#about">About</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="resume-builder.html">CV Maker</a>
+        <a href="#apply" class="mt-2 inline-flex justify-center px-4 py-3 rounded-xl font-black"
+           style="background: var(--yellow2); color:#0b0b0b;">Book FREE Strategy Call</a>
       </div>
     </div>
   </header>
 
   <!-- ✅ HERO -->
-  <section id="home" class="relative min-h-[86vh] overflow-hidden">
-    <div id="globeBox" class="absolute inset-0"></div>
+  <section class="hero">
+    <div class="max-w-7xl mx-auto px-4 py-16 lg:py-20 grid lg:grid-cols-2 gap-12 items-center">
 
-    <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-10 py-14 grid md:grid-cols-2 gap-12 items-center">
+      <!-- Left text -->
       <div>
-        <h1 class="text-white text-5xl md:text-7xl font-extrabold leading-tight glow">
-          Generative AI <br /> Master Class
+        <h1 class="text-5xl md:text-6xl font-black leading-[1.05]">
+          Agentic AI with <br/>
+          Automation
         </h1>
 
-        <p class="mt-6 text-lg md:text-xl text-white/80 font-semibold">
-          🌍 <span class="text-yellow-300 font-extrabold">Learn what matters</span>,
-          <span class="text-orange-400 font-extrabold">achieve what you dream</span>
-          — your future in tech starts here.
+        <p class="mt-6 text-xl text-white/90 font-semibold max-w-xl">
+          <span class="text-yellow-200 font-black">Learn what matters</span>,
+          <span class="text-orange-300 font-black">achieve what you dream</span> —
+          your future in tech starts here.
         </p>
 
-        <div class="mt-10 flex flex-wrap gap-4">
-          <a href="#programs" class="bg-yellow-300 text-black px-7 py-3 rounded-xl font-extrabold hover:scale-105 transition">
+        <div class="mt-8 flex flex-col sm:flex-row gap-4">
+          <a href="#apply" class="btn-yellow inline-flex items-center justify-center gap-2">
             Get Started
           </a>
-
-          <a href="#contact" class="border border-white/40 text-white px-7 py-3 rounded-xl font-extrabold hover:bg-white hover:text-black transition">
+          <a href="#contact" class="btn-outline inline-flex items-center justify-center gap-2">
             Talk to us
           </a>
         </div>
-
-        <div class="mt-10 flex gap-6 text-white/80 font-bold">
-          <div class="sectionBg rounded-2xl px-5 py-4">
-            ⭐ 4.9/5 <div class="text-xs font-semibold text-white/70 mt-1">Learner rating</div>
-          </div>
-          <div class="sectionBg rounded-2xl px-5 py-4">
-            👨‍🎓 10K+ <div class="text-xs font-semibold text-white/70 mt-1">Students</div>
-          </div>
-          <div class="sectionBg rounded-2xl px-5 py-4">
-            💼 350+ <div class="text-xs font-semibold text-white/70 mt-1">Placements</div>
-          </div>
-        </div>
       </div>
 
-      <!-- Funnel -->
-      <div class="relative hidden md:flex justify-center">
-        <div class="relative w-[520px] h-[380px]">
-          <div class="absolute inset-x-0 top-4 mx-auto w-[380px] h-[70px] rounded-2xl border border-white/15 bg-white/5 backdrop-blur float"></div>
-          <div class="absolute inset-x-0 top-16 mx-auto w-[400px] h-[70px] rounded-2xl border border-white/15 bg-white/5 backdrop-blur float" style="animation-delay:0.5s"></div>
-          <div class="absolute inset-x-0 top-28 mx-auto w-[420px] h-[70px] rounded-2xl border border-white/15 bg-white/5 backdrop-blur float" style="animation-delay:1s"></div>
+      <!-- Right: globe + stack -->
+      <div class="grid md:grid-cols-2 gap-8 items-center">
 
-          <div class="absolute inset-x-0 top-[148px] mx-auto w-[450px] h-[82px] rounded-2xl border border-yellow-300/40 bg-orange-500/25 backdrop-blur float flex items-center justify-center"
-               style="animation-delay:0.3s">
-            <div class="text-white font-black text-lg tracking-wide">Data Scientist</div>
-          </div>
+        <!-- 3D Globe -->
+        <div class="flex justify-center">
+          <div id="globeCanvas"></div>
+        </div>
 
-          <div class="absolute inset-x-0 top-[244px] mx-auto w-[420px] h-[70px] rounded-2xl border border-white/15 bg-white/5 backdrop-blur float" style="animation-delay:1.4s"></div>
-          <div class="absolute inset-x-0 top-[304px] mx-auto w-[380px] h-[55px] rounded-2xl border border-white/10 bg-white/5 backdrop-blur float" style="animation-delay:1.8s"></div>
+        <!-- Career Stack -->
+        <div class="stack">
+          <div class="layer"></div>
+          <div class="layer"></div>
+          <div class="main">Data Scientist</div>
+          <div class="layer"></div>
+          <div class="layer"></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ✅ PROGRAMS -->
-  <section id="programs" class="py-20">
-    <div class="max-w-7xl mx-auto px-6 md:px-10">
-      <h2 class="text-4xl font-black glow">Programs</h2>
-      <p class="text-white/70 font-semibold mt-3 max-w-2xl">
-        Choose your path. Build premium skills. Get job-ready with real projects.
-      </p>
+  <!-- ✅ NEXT SECTION EXAMPLE -->
+  <section id="programs" class="max-w-7xl mx-auto px-4 py-16">
+    <div class="text-center">
+      <h2 class="text-4xl font-black">Next-Gen Skills for Next-Level Success</h2>
+      <p class="mt-3 font-semibold text-slate-600">Programs designed for resume + internship + job.</p>
+    </div>
 
-      <div class="mt-12 grid md:grid-cols-3 gap-6">
-        <div class="sectionBg rounded-3xl p-6 hover:scale-[1.02] transition">
-          <div class="text-yellow-300 font-black text-xl">Generative AI</div>
-          <p class="text-white/70 mt-2 font-semibold">Prompting, AI Tools, Automation & Portfolio Projects.</p>
-          <a href="#contact" class="inline-block mt-5 bg-yellow-300 text-black px-5 py-2 rounded-xl font-extrabold">Enroll Now →</a>
-        </div>
-
-        <div class="sectionBg rounded-3xl p-6 hover:scale-[1.02] transition">
-          <div class="text-yellow-300 font-black text-xl">Data Science</div>
-          <p class="text-white/70 mt-2 font-semibold">Python, SQL, PowerBI, Portfolio + Career support.</p>
-          <a href="#contact" class="inline-block mt-5 bg-yellow-300 text-black px-5 py-2 rounded-xl font-extrabold">Enroll Now →</a>
-        </div>
-
-        <div class="sectionBg rounded-3xl p-6 hover:scale-[1.02] transition">
-          <div class="text-yellow-300 font-black text-xl">Web Dev Pro</div>
-          <p class="text-white/70 mt-2 font-semibold">Modern web dev + real job projects + freelancing.</p>
-          <a href="#contact" class="inline-block mt-5 bg-yellow-300 text-black px-5 py-2 rounded-xl font-extrabold">Enroll Now →</a>
-        </div>
+    <div class="mt-10 grid md:grid-cols-3 gap-6">
+      <div class="soft-card p-7">
+        <p class="text-indigo-700 font-black">Data Analytics</p>
+        <p class="mt-2 text-slate-600 font-semibold text-sm">Excel • SQL • Power BI • Projects</p>
+        <a href="#apply" class="mt-6 inline-flex w-full justify-center btn-yellow">Explore</a>
+      </div>
+      <div class="soft-card p-7">
+        <p class="text-indigo-700 font-black">AI Tools + Prompting</p>
+        <p class="mt-2 text-slate-600 font-semibold text-sm">Prompting • Automation • Productivity</p>
+        <a href="#apply" class="mt-6 inline-flex w-full justify-center btn-yellow">Explore</a>
+      </div>
+      <div class="soft-card p-7">
+        <p class="text-indigo-700 font-black">Resume + Interview</p>
+        <p class="mt-2 text-slate-600 font-semibold text-sm">ATS Resume • LinkedIn • Mock Interviews</p>
+        <a href="resume-builder.html" class="mt-6 inline-flex w-full justify-center btn-yellow">CV Maker</a>
       </div>
     </div>
   </section>
 
-  <!-- ✅ PRICING -->
-  <section id="pricing" class="py-20">
-    <div class="max-w-7xl mx-auto px-6 md:px-10">
-      <h2 class="text-4xl font-black glow">Pricing</h2>
-      <p class="text-white/70 font-semibold mt-3 max-w-2xl">
-        Transparent pricing. Premium mentorship. No confusion.
-      </p>
+  <!-- Apply -->
+  <section id="apply" class="max-w-7xl mx-auto px-4 pb-20">
+    <div class="rounded-[2rem] p-8 md:p-10 soft-card">
+      <h3 class="text-3xl font-black text-slate-900">Book your FREE strategy call</h3>
+      <p class="mt-2 text-slate-600 font-semibold">Fill form — we will contact you.</p>
 
-      <div class="mt-12 grid md:grid-cols-3 gap-6">
-        <div class="sectionBg rounded-3xl p-7">
-          <h3 class="font-black text-xl">Starter</h3>
-          <p class="text-white/70 mt-2 font-semibold">Best for students</p>
-          <div class="text-4xl font-black mt-5 text-yellow-300">₹999</div>
-          <ul class="mt-5 text-white/80 font-semibold space-y-2">
-            <li>✅ Template CV Maker</li>
-            <li>✅ Weekly Live Sessions</li>
-            <li>✅ Basic Mentorship</li>
-          </ul>
-          <a href="#contact" class="block text-center mt-6 bg-yellow-300 text-black py-3 rounded-xl font-extrabold">Choose Plan</a>
-        </div>
-
-        <div class="sectionBg rounded-3xl p-7 border border-yellow-300/40">
-          <h3 class="font-black text-xl">Pro</h3>
-          <p class="text-white/70 mt-2 font-semibold">Most popular</p>
-          <div class="text-4xl font-black mt-5 text-yellow-300">₹2,999</div>
-          <ul class="mt-5 text-white/80 font-semibold space-y-2">
-            <li>✅ Resume Builder + Templates</li>
-            <li>✅ 1:1 Weekly Mentorship</li>
-            <li>✅ Internship Support</li>
-          </ul>
-          <a href="#contact" class="block text-center mt-6 bg-yellow-300 text-black py-3 rounded-xl font-extrabold">Choose Plan</a>
-        </div>
-
-        <div class="sectionBg rounded-3xl p-7">
-          <h3 class="font-black text-xl">Premium</h3>
-          <p class="text-white/70 mt-2 font-semibold">Job-focused</p>
-          <div class="text-4xl font-black mt-5 text-yellow-300">₹5,999</div>
-          <ul class="mt-5 text-white/80 font-semibold space-y-2">
-            <li>✅ Full Career Roadmap</li>
-            <li>✅ Interview Preparation</li>
-            <li>✅ Placement Assistance</li>
-          </ul>
-          <a href="#contact" class="block text-center mt-6 bg-yellow-300 text-black py-3 rounded-xl font-extrabold">Choose Plan</a>
-        </div>
+      <div class="mt-7 grid md:grid-cols-3 gap-4">
+        <input class="border rounded-xl px-4 py-3 font-semibold" placeholder="Full Name" />
+        <input class="border rounded-xl px-4 py-3 font-semibold" placeholder="Email" />
+        <input class="border rounded-xl px-4 py-3 font-semibold" placeholder="Phone" />
       </div>
+
+      <button class="mt-6 btn-yellow w-full md:w-auto">
+        Submit Application
+      </button>
     </div>
   </section>
 
-  <!-- ✅ ABOUT -->
-  <section id="about" class="py-20">
-    <div class="max-w-7xl mx-auto px-6 md:px-10 grid md:grid-cols-2 gap-10 items-center">
-      <div class="sectionBg rounded-3xl p-8">
-        <h2 class="text-4xl font-black glow">About EduSkillPath</h2>
-        <p class="text-white/75 font-semibold mt-4 leading-relaxed">
-          EduSkillPath helps students and freshers build premium tech skills and become job-ready.
-          We provide mentorship, projects, internships and career guidance.
-        </p>
-
-        <div class="mt-6 grid grid-cols-2 gap-4 text-white/80 font-bold">
-          <div class="sectionBg rounded-2xl p-5">
-            🎯 Career-first Learning
-          </div>
-          <div class="sectionBg rounded-2xl p-5">
-            💼 Real Industry Projects
-          </div>
-          <div class="sectionBg rounded-2xl p-5">
-            👨‍🏫 Mentor Support
-          </div>
-          <div class="sectionBg rounded-2xl p-5">
-            🚀 Internships + Placement
-          </div>
-        </div>
-      </div>
-
-      <div class="sectionBg rounded-3xl p-8">
-        <h3 class="text-2xl font-black">Why we are different?</h3>
-        <ul class="mt-5 text-white/80 font-semibold space-y-3">
-          <li>✅ We focus on skill + proof (portfolio)</li>
-          <li>✅ Resume builder integrated</li>
-          <li>✅ Practical mentorship based learning</li>
-          <li>✅ Affordable pricing</li>
-        </ul>
-        <a href="#programs" class="inline-block mt-8 bg-yellow-300 text-black px-7 py-3 rounded-xl font-extrabold hover:scale-105 transition">
-          Explore Programs →
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ✅ TESTIMONIAL -->
-  <section class="py-20">
-    <div class="max-w-7xl mx-auto px-6 md:px-10">
-      <h2 class="text-4xl font-black glow">Testimonials</h2>
-      <p class="text-white/70 font-semibold mt-3 max-w-xl">
-        Learners love the mentorship + projects.
-      </p>
-
-      <div class="mt-12 grid md:grid-cols-3 gap-6">
-        <div class="sectionBg rounded-3xl p-6">
-          <div class="font-black text-lg">Akhlaq Ahmad</div>
-          <p class="text-white/70 font-semibold mt-2">“Resume builder is crazy good! It looks like paid websites.”</p>
-          <div class="text-yellow-300 font-black mt-4">⭐⭐⭐⭐⭐</div>
-        </div>
-
-        <div class="sectionBg rounded-3xl p-6">
-          <div class="font-black text-lg">Saif Alam</div>
-          <p class="text-white/70 font-semibold mt-2">“Mentorship helped me improve and apply confidently.”</p>
-          <div class="text-yellow-300 font-black mt-4">⭐⭐⭐⭐⭐</div>
-        </div>
-
-        <div class="sectionBg rounded-3xl p-6">
-          <div class="font-black text-lg">Rahul Kumar</div>
-          <p class="text-white/70 font-semibold mt-2">“Programs are practical. Projects feel real.”</p>
-          <div class="text-yellow-300 font-black mt-4">⭐⭐⭐⭐⭐</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ✅ CONTACT -->
-  <section id="contact" class="py-20">
-    <div class="max-w-7xl mx-auto px-6 md:px-10">
-      <div class="sectionBg rounded-3xl p-10 grid md:grid-cols-2 gap-8 items-center">
-        <div>
-          <h2 class="text-4xl font-black glow">Contact Us</h2>
-          <p class="text-white/75 font-semibold mt-3">
-            Want the best learning + career guidance? Fill your details and we will contact you.
-          </p>
-        </div>
-
-        <form class="space-y-4">
-          <input placeholder="Full Name" class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/10 outline-none font-semibold text-white placeholder:text-white/60" />
-          <input placeholder="Email" class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/10 outline-none font-semibold text-white placeholder:text-white/60" />
-          <input placeholder="Phone" class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/10 outline-none font-semibold text-white placeholder:text-white/60" />
-          <button type="button" class="w-full bg-yellow-300 text-black py-3 rounded-xl font-extrabold hover:scale-105 transition">
-            Submit →
-          </button>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- ✅ FOOTER -->
-  <footer class="border-t border-white/10 py-10">
-    <div class="max-w-7xl mx-auto px-6 md:px-10 flex flex-col md:flex-row items-center justify-between gap-6">
-      <div class="font-extrabold text-lg">
-        <span class="text-yellow-300">edu</span>skillpath
-      </div>
-      <div class="text-white/70 font-semibold text-sm">
-        © 2026 EduSkillPath. All rights reserved.
-      </div>
-    </div>
+  <!-- Footer -->
+  <footer class="py-10 text-center text-sm font-semibold text-slate-600 border-t">
+    © 2026 EduSkillPath. All rights reserved.
   </footer>
 
-  <!-- ✅ WhatsApp floating -->
-  <a href="#" class="fixed bottom-6 right-6 bg-green-500 p-4 rounded-full shadow-xl hover:scale-105 transition z-50">
-    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="white" viewBox="0 0 24 24">
-      <path d="M12.04 2C6.58 2 2.13 6.39 2.13 11.84c0 1.76.46 3.48 1.33 4.99L2 22l5.32-1.39c1.46.8 3.1 1.22 4.72 1.22 5.46 0 9.91-4.39 9.91-9.84C21.95 6.39 17.5 2 12.04 2zm5.73 14.27c-.24.67-1.39 1.27-1.92 1.35-.5.08-1.15.12-1.85-.12-.43-.14-.99-.32-1.71-.62-3.01-1.27-4.97-4.4-5.12-4.6-.14-.2-1.21-1.6-1.21-3.05 0-1.45.75-2.16 1.02-2.45.27-.3.59-.37.79-.37.2 0 .39 0 .56.01.18.01.42-.07.66.5.24.57.83 2 0 2.16-.2.04-.45.2-.7.39-.07.06-.15.14-.07.3.08.16.38.62.82 1 .57.5 1.05.66 1.2.74.15.07.24.06.33-.04.09-.1.37-.45.47-.6.1-.15.2-.12.33-.07.14.05.87.41 1.02.48.15.07.25.11.29.17.03.05.03.31-.08.62z"/>
-    </svg>
-  </a>
 
-  <!-- ✅ 3D Globe -->
-  <script type="module">
-    import * as THREE from "https://unpkg.com/three@0.160.0/build/three.module.js";
+  <!-- ✅ Mobile menu script -->
+  <script>
+    const mobileBtn = document.getElementById("mobileBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+    mobileBtn.addEventListener("click", () => mobileMenu.classList.toggle("hidden"));
+  </script>
 
-    const container = document.getElementById("globeBox");
+  <!-- ✅ 3D Globe Script -->
+  <script>
+    const container = document.getElementById("globeCanvas");
+
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
-    camera.position.z = 6;
+    const camera = new THREE.PerspectiveCamera(40, 1, 0.1, 1000);
+    camera.position.z = 3.2;
 
-    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setPixelRatio(window.devicePixelRatio);
     container.appendChild(renderer.domElement);
 
-    scene.add(new THREE.AmbientLight(0xffffff, 0.9));
-    const light = new THREE.PointLight(0xffffff, 1.6);
-    light.position.set(8, 4, 10);
-    scene.add(light);
+    const ambient = new THREE.AmbientLight(0xffffff, 0.9);
+    scene.add(ambient);
 
-    const geometry = new THREE.SphereGeometry(2.35, 64, 64);
-    const loader = new THREE.TextureLoader();
+    const dir = new THREE.DirectionalLight(0xffffff, 0.9);
+    dir.position.set(3, 2, 4);
+    scene.add(dir);
 
-    const earthTexture = loader.load("https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-dashboard-pro/assets/img/earth.jpg");
+    // Globe sphere
+    const geometry = new THREE.SphereGeometry(1.15, 64, 64);
 
+    const texture = new THREE.TextureLoader().load("https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-dashboard/assets/img/earth.jpg");
     const material = new THREE.MeshStandardMaterial({
-      map: earthTexture,
+      map: texture,
       metalness: 0.2,
-      roughness: 0.7
+      roughness: 0.8
     });
 
     const globe = new THREE.Mesh(geometry, material);
-    globe.position.set(-2.5, 0, 0);
     scene.add(globe);
 
-    const ringGeo = new THREE.RingGeometry(2.5, 2.9, 64);
-    const ringMat = new THREE.MeshBasicMaterial({ color: 0xffff00, transparent: true, opacity: 0.08, side: THREE.DoubleSide });
-    const ring = new THREE.Mesh(ringGeo, ringMat);
-    ring.position.set(-2.5, 0, 0);
-    ring.rotation.x = Math.PI / 2.5;
-    scene.add(ring);
+    // Glow effect
+    const glowGeo = new THREE.SphereGeometry(1.22, 64, 64);
+    const glowMat = new THREE.MeshBasicMaterial({
+      color: 0x1e40ff,
+      transparent: true,
+      opacity: 0.18
+    });
+    const glow = new THREE.Mesh(glowGeo, glowMat);
+    scene.add(glow);
+
+    function resize(){
+      const w = container.clientWidth;
+      const h = container.clientHeight;
+      renderer.setSize(w, h);
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+    }
+    resize();
+    window.addEventListener("resize", resize);
 
     function animate(){
       requestAnimationFrame(animate);
-      globe.rotation.y += 0.0025;
-      ring.rotation.z += 0.0015;
+      globe.rotation.y += 0.0035;
+      glow.rotation.y += 0.0018;
       renderer.render(scene, camera);
     }
     animate();
-
-    window.addEventListener("resize", () => {
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth, window.innerHeight);
-    });
-  </script>
-
-  <!-- Mobile menu JS -->
-  <script>
-    const menuBtn = document.getElementById("menuBtn");
-    const mobileMenu = document.getElementById("mobileMenu");
-
-    menuBtn.addEventListener("click", () => {
-      if (mobileMenu.classList.contains("mobile-open")) {
-        mobileMenu.classList.remove("mobile-open");
-        mobileMenu.classList.add("hidden");
-      } else {
-        mobileMenu.classList.remove("hidden");
-        mobileMenu.classList.add("mobile-open");
-      }
-    });
   </script>
 
 </body>
