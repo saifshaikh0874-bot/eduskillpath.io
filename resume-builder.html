@@ -4,129 +4,123 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Resume Builder | EduSkillPath</title>
+
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body { background:#eaf4ff; }
+  </style>
 </head>
 
-<body class="bg-sky-200 text-slate-900">
-<body class="bg-sky-200 text-slate-900">
+<body>
 
-  <!-- ✅ PASTE TEMPLATE SECTION HERE -->
-  <div class="max-w-6xl mx-auto px-4 py-10">
-    <h1 class="text-3xl font-extrabold text-slate-900">Choose Resume Template</h1>
-    <p class="text-slate-700 font-semibold mt-2">Click any template to start editing.</p>
-
-    <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-
-      <a href="template-1.html"
-         class="rounded-3xl bg-white border border-sky-300 p-5 shadow-xl hover:shadow-2xl transition">
-        <img src="assets/template1.png" class="w-full rounded-2xl border border-sky-200" alt="Template 1 Preview">
-        <h3 class="mt-4 font-extrabold text-lg text-indigo-700">Template 1</h3>
-        <p class="text-sm font-semibold text-slate-700">Professional (HR style)</p>
-        <button class="mt-4 w-full bg-indigo-600 hover:bg-indigo-500 text-white font-extrabold rounded-2xl py-3">
-          Use Template
-        </button>
-      </a>
-
-    </div>
-  </div>
-
-  <!-- Existing content below -->
-  <div class="max-w-6xl mx-auto px-4 py-10 grid lg:grid-cols-2 gap-8">
-
-  <div class="max-w-6xl mx-auto px-4 py-10 grid lg:grid-cols-2 gap-8">
-
-    <!-- Left Form -->
-    <div class="bg-white rounded-3xl shadow-xl border border-sky-300 p-6">
-      <h2 class="text-2xl font-extrabold text-indigo-700">Fill Your Details</h2>
-      <p class="text-sm font-semibold text-slate-600 mt-1">Your resume updates live</p>
-
-      <form class="mt-6 grid gap-3">
-        <input id="fullName" placeholder="Full Name"
-          class="bg-sky-50 border border-sky-300 rounded-xl px-4 py-3 outline-none focus:border-indigo-500" />
-
-        <input id="jobTitle" placeholder="Job Title (e.g. HR Executive)"
-          class="bg-sky-50 border border-sky-300 rounded-xl px-4 py-3 outline-none focus:border-indigo-500" />
-
-        <input id="phone" placeholder="Phone Number"
-          class="bg-sky-50 border border-sky-300 rounded-xl px-4 py-3 outline-none focus:border-indigo-500" />
-
-        <input id="email" placeholder="Email Address"
-          class="bg-sky-50 border border-sky-300 rounded-xl px-4 py-3 outline-none focus:border-indigo-500" />
-
-        <input id="location" placeholder="Location"
-          class="bg-sky-50 border border-sky-300 rounded-xl px-4 py-3 outline-none focus:border-indigo-500" />
-
-        <textarea id="summary" placeholder="Professional Summary" rows="4"
-          class="bg-sky-50 border border-sky-300 rounded-xl px-4 py-3 outline-none focus:border-indigo-500"></textarea>
-
-        <button type="button" onclick="window.print()"
-          class="mt-2 bg-indigo-600 hover:bg-indigo-500 rounded-xl px-4 py-3 font-semibold text-white shadow-md">
-          Download / Print PDF
-        </button>
-      </form>
-    </div>
-
-    <!-- Right Resume Preview -->
-    <div id="resumePreview" class="bg-white rounded-3xl shadow-xl border border-sky-300 p-8">
-      <h1 id="previewName" class="text-3xl font-extrabold text-slate-900">Your Name</h1>
-      <p id="previewTitle" class="text-indigo-700 font-bold mt-1">Job Title</p>
-
-      <div class="mt-3 text-sm font-semibold text-slate-700 space-y-1">
-        <p id="previewPhone">📞 Phone</p>
-        <p id="previewEmail">✉️ Email</p>
-        <p id="previewLocation">📍 Location</p>
+  <!-- Header -->
+  <header class="sticky top-0 z-50 backdrop-blur bg-white/70 border-b border-sky-200">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-2xl bg-indigo-600 text-white grid place-items-center font-black">E</div>
+        <div>
+          <div class="font-black text-slate-900 leading-4">EduSkillPath</div>
+          <div class="text-xs font-bold text-slate-500">Resume Builder</div>
+        </div>
       </div>
 
-      <hr class="my-6 border-slate-300">
-
-      <h2 class="text-lg font-extrabold text-indigo-700 border-b pb-1">Professional Summary</h2>
-      <p id="previewSummary" class="text-sm mt-3 text-slate-800 leading-relaxed font-medium">
-        Write your professional summary here.
-      </p>
-
-      <hr class="my-6 border-slate-300">
-
-      <h2 class="text-lg font-extrabold text-indigo-700 border-b pb-1">Experience</h2>
-      <p class="text-sm mt-3 text-slate-800 font-semibold">
-        (Next step: we will add experience section form)
-      </p>
+      <a href="index.html" class="text-sm font-extrabold text-indigo-700 hover:underline">
+        ← Back to Home
+      </a>
     </div>
+  </header>
 
-  </div>
 
-  <script>
-    const fullName = document.getElementById("fullName");
-    const jobTitle = document.getElementById("jobTitle");
-    const phone = document.getElementById("phone");
-    const email = document.getElementById("email");
-    const location = document.getElementById("location");
-    const summary = document.getElementById("summary");
+  <!-- Hero -->
+  <section class="max-w-6xl mx-auto px-4 pt-10 pb-6">
+    <h1 class="text-4xl md:text-5xl font-black text-slate-900">
+      Choose Resume Template
+    </h1>
+    <p class="mt-2 text-slate-600 font-semibold">
+      Pick a professional ATS friendly template — customize it and download PDF.
+    </p>
+  </section>
 
-    fullName.addEventListener("input", () => {
-      document.getElementById("previewName").innerText = fullName.value || "Your Name";
-    });
 
-    jobTitle.addEventListener("input", () => {
-      document.getElementById("previewTitle").innerText = jobTitle.value || "Job Title";
-    });
+  <!-- Templates Grid -->
+  <section class="max-w-6xl mx-auto px-4 pb-16">
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-    phone.addEventListener("input", () => {
-      document.getElementById("previewPhone").innerText = "📞 " + (phone.value || "Phone");
-    });
+      <!-- Template Card -->
+      <div class="bg-white rounded-3xl shadow-xl border border-sky-100 overflow-hidden">
+        <!-- Screenshot -->
+        <div class="p-4">
+          <div class="rounded-2xl overflow-hidden border border-slate-200 bg-slate-50">
+            <!-- ✅ IMPORTANT: screenshot -->
+            <img
+              src="assets/templates/template-1.jpg"
+              alt="Template 1 Preview"
+              class="w-full h-[280px] object-cover"
+              onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=&quot;p-8 text-center text-slate-500 font-bold&quot;>Upload template image<br/>assets/templates/template-1.jpg</div>';"
+            />
+          </div>
+        </div>
 
-    email.addEventListener("input", () => {
-      document.getElementById("previewEmail").innerText = "✉️ " + (email.value || "Email");
-    });
+        <!-- Content -->
+        <div class="px-5 pb-5">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <h2 class="text-xl font-black text-slate-900">Template 1</h2>
+              <p class="text-sm font-bold text-slate-500 mt-1">Professional HR / Corporate</p>
+            </div>
 
-    location.addEventListener("input", () => {
-      document.getElementById("previewLocation").innerText = "📍 " + (location.value || "Location");
-    });
+            <span class="text-[11px] font-black bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full">
+              ATS
+            </span>
+          </div>
 
-    summary.addEventListener("input", () => {
-      document.getElementById("previewSummary").innerText =
-        summary.value || "Write your professional summary here.";
-    });
-  </script>
+          <!-- Features -->
+          <ul class="mt-4 text-sm font-semibold text-slate-700 space-y-1">
+            <li>✅ Live Editor + Preview</li>
+            <li>✅ Skills / Projects / Certificates</li>
+            <li>✅ Education + LinkedIn</li>
+            <li>✅ One-click PDF Download</li>
+          </ul>
+
+          <!-- Button -->
+          <a href="template-1.html"
+             class="mt-5 block text-center w-full py-3 rounded-2xl bg-indigo-600 hover:bg-indigo-700 text-white font-black">
+            Use Template
+          </a>
+        </div>
+      </div>
+
+
+      <!-- Locked Templates (future) -->
+      <div class="bg-white/70 rounded-3xl border border-slate-200 p-6 flex flex-col justify-between">
+        <div>
+          <h2 class="text-xl font-black text-slate-700">Template 2</h2>
+          <p class="text-sm font-bold text-slate-500 mt-1">Modern clean layout</p>
+          <div class="mt-4 h-[280px] rounded-2xl bg-slate-100 border border-slate-200 grid place-items-center text-slate-500 font-extrabold">
+            Coming soon...
+          </div>
+        </div>
+        <button disabled class="mt-5 w-full py-3 rounded-2xl bg-slate-300 text-white font-black cursor-not-allowed">
+          Locked
+        </button>
+      </div>
+
+      <div class="bg-white/70 rounded-3xl border border-slate-200 p-6 flex flex-col justify-between">
+        <div>
+          <h2 class="text-xl font-black text-slate-700">Template 3</h2>
+          <p class="text-sm font-bold text-slate-500 mt-1">Creative premium</p>
+          <div class="mt-4 h-[280px] rounded-2xl bg-slate-100 border border-slate-200 grid place-items-center text-slate-500 font-extrabold">
+            Coming soon...
+          </div>
+        </div>
+        <button disabled class="mt-5 w-full py-3 rounded-2xl bg-slate-300 text-white font-black cursor-not-allowed">
+          Locked
+        </button>
+      </div>
+
+    </div>
+  </section>
 
 </body>
 </html>
