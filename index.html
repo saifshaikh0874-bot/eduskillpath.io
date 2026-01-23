@@ -367,6 +367,9 @@
 </head>
 
 <body class="bg-sky-200 text-slate-900">
+<!-- 3D Globe Background -->
+<div id="globe-container"></div>
+<div class="globe-overlay"></div>
 
   <!-- Top Bar -->
   <div class="bg-sky-400 border-b border-sky-500">
@@ -384,6 +387,17 @@
         <span class="w-10 h-10 rounded-2xl bg-indigo-600 grid place-items-center text-white shadow-md">E</span>
         <span>Eduskillpath</span>
       </a>
+<section class="edtech-landing">
+  <div class="landing-content">
+    <h1>Agentic AI with Automation</h1>
+    <p>Learn what matters, achieve what you dream — your future in tech starts here.</p>
+
+    <div class="landing-buttons">
+      <a href="courses.html" class="landing-btn primary">Get Started</a>
+      <a href="contact.html" class="landing-btn secondary">Talk to us</a>
+    </div>
+  </div>
+</section>
 
       <!-- Menu -->
       <nav class="hidden md:flex items-center gap-7 text-sm text-slate-900 font-semibold">
@@ -570,6 +584,90 @@
       <div id="diffSlider"
         class="flex gap-5 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-4"
         style="scrollbar-width:none;">
+/* ===== PREMIUM 3D GLOBE LANDING ===== */
+#globe-container{
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+}
+
+.globe-overlay{
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at center, rgba(0,0,0,0) 0%, rgba(0,0,0,0.75) 68%),
+    linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0.75));
+}
+
+/* Landing hero section */
+.edtech-landing{
+  position: relative;
+  z-index: 5;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.landing-content{
+  max-width: 900px;
+}
+
+.edtech-landing h1{
+  color: #fff;
+  font-size: 56px;
+  font-weight: 900;
+  line-height: 1.05;
+}
+
+.edtech-landing p{
+  margin-top: 16px;
+  color: rgba(255,255,255,0.85);
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.landing-buttons{
+  margin-top: 28px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.landing-btn{
+  padding: 14px 30px;
+  border-radius: 16px;
+  font-weight: 900;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.landing-btn.primary{
+  background: #b8ff3b;
+  color: #041025;
+  box-shadow: 0 12px 35px rgba(184,255,59,0.25);
+}
+
+.landing-btn.secondary{
+  border: 2px solid rgba(255,255,255,0.7);
+  background: rgba(255,255,255,0.05);
+  color: white;
+  backdrop-filter: blur(14px);
+}
+
+.landing-btn:hover{
+  transform: translateY(-3px);
+}
+
+@media(max-width:650px){
+  .edtech-landing h1{ font-size: 36px; }
+  .landing-btn{ width: 100%; text-align:center; }
+}
 
         <div class="min-w-[280px] md:min-w-[360px] snap-start rounded-3xl bg-white border border-sky-300 p-6 shadow-lg">
           <p class="text-indigo-700 font-extrabold text-lg">01</p>
@@ -1434,6 +1532,9 @@
     mobileMenu.classList.toggle("hidden");
   });
 </script>
+<script src="https://unpkg.com/three@0.152.2/build/three.min.js"></script>
+<script src="https://unpkg.com/three-globe"></script>
+<script src="globe.js"></script>
 
 </body>
 </html>
