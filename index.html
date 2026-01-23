@@ -8,7 +8,139 @@
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <style>/
+  <style>
+    /* ===== PREMIUM 3D GLOBE LANDING ===== */
+#globe-container{
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+}
+
+.globe-overlay{
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at center, rgba(0,0,0,0) 0%, rgba(0,0,0,0.80) 70%),
+    linear-gradient(180deg, rgba(0,0,0,0.05), rgba(0,0,0,0.78));
+}
+
+/* Landing section */
+.edtech-landing{
+  position: relative;
+  z-index: 5;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 18px;
+  text-align: center;
+}
+
+.landing-content{
+  max-width: 920px;
+}
+
+.landing-pill{
+  display: inline-flex;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-weight: 900;
+  font-size: 12px;
+  color: #0f172a;
+  background: rgba(255,255,255,0.92);
+  border: 1px solid rgba(255,255,255,0.6);
+  backdrop-filter: blur(12px);
+}
+
+.edtech-landing h1{
+  margin-top: 18px;
+  font-size: 60px;
+  font-weight: 900;
+  line-height: 1.04;
+  color: #ffffff;
+  text-shadow: 0 20px 60px rgba(0,0,0,0.45);
+}
+
+.edtech-landing p{
+  margin-top: 14px;
+  color: rgba(255,255,255,0.86);
+  font-size: 18px;
+  line-height: 1.75;
+  font-weight: 600;
+}
+
+.landing-buttons{
+  margin-top: 26px;
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.landing-btn{
+  padding: 14px 30px;
+  border-radius: 18px;
+  font-weight: 900;
+  text-decoration: none;
+  transition: 0.18s ease;
+}
+
+.landing-btn.primary{
+  background: #b8ff3b;
+  color: #041025;
+  box-shadow: 0 16px 45px rgba(184,255,59,0.25);
+}
+
+.landing-btn.secondary{
+  border: 2px solid rgba(255,255,255,0.70);
+  background: rgba(255,255,255,0.06);
+  color: #fff;
+  backdrop-filter: blur(14px);
+}
+
+.landing-btn:hover{
+  transform: translateY(-3px);
+}
+
+.landing-stats{
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.stat{
+  padding: 14px 12px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.22);
+  backdrop-filter: blur(18px);
+}
+
+.stat .num{
+  color: #fff;
+  font-size: 22px;
+  font-weight: 900;
+}
+
+.stat .lab{
+  color: rgba(255,255,255,0.78);
+  font-size: 12px;
+  font-weight: 800;
+  margin-top: 2px;
+}
+
+@media(max-width:650px){
+  .edtech-landing h1{ font-size: 38px; }
+  .landing-btn{ width: 100%; text-align:center; }
+  .landing-stats{ grid-template-columns: 1fr; max-width: 360px; }
+}
+
    / * ===== Certificates Section ===== */
 .cert-card{
   border-radius: 1.75rem;
@@ -367,12 +499,49 @@
 </head>
 
 <body class="bg-sky-200 text-slate-900">
+<!-- ===== 3D Globe Background ===== -->
+<div id="globe-container"></div>
+<div class="globe-overlay"></div>
+<div class="relative z-10">
+
+<!-- ===== LANDING HERO SECTION ===== -->
+<section class="edtech-landing">
+  <div class="landing-content">
+    <p class="landing-pill">🚀 Agentic AI + Automation</p>
+
+    <h1>Learn. Build. Get Hired.</h1>
+    <p>
+      Learn what matters, build real projects, and grow your career with Eduskillpath.
+      Structured roadmaps + mentorship + internship support.
+    </p>
+
+    <div class="landing-buttons">
+      <a href="#programs" class="landing-btn primary">Explore Programs</a>
+      <a href="#apply" class="landing-btn secondary">Apply Now</a>
+    </div>
+
+    <div class="landing-stats">
+      <div class="stat">
+        <p class="num">100+</p>
+        <p class="lab">Learners</p>
+      </div>
+      <div class="stat">
+        <p class="num">10+</p>
+        <p class="lab">Projects</p>
+      </div>
+      <div class="stat">
+        <p class="num">1:1</p>
+        <p class="lab">Support</p>
+      </div>
+    </div>
+  </div>
+</section>
 
   <!-- Top Bar -->
   <div class="bg-sky-400 border-b border-sky-500">
     <div class="max-w-6xl mx-auto px-4 py-2 text-xs text-slate-900 flex items-center justify-between font-semibold">
       <p>🚀 New Batch Started • Limited Seats</p>
-      <p>Email: support@eduskillpath.com</p>
+      <p>Email: eduskillpath@gmail.com</p>
     </div>
   </div>
 
@@ -1433,6 +1602,69 @@
   mobileMenuBtn.addEventListener("click", () => {
     mobileMenu.classList.toggle("hidden");
   });
+</script>
+<!-- ===== THREE JS + GLOBE ===== -->
+<script src="https://unpkg.com/three@0.152.2/build/three.min.js"></script>
+<script src="https://unpkg.com/three-globe"></script>
+
+<script>
+  // === 3D Globe init ===
+  const container = document.getElementById("globe-container");
+
+  if (container) {
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(
+      50,
+      window.innerWidth / window.innerHeight,
+      0.1,
+      1000
+    );
+
+    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    container.appendChild(renderer.domElement);
+
+    // lighting
+    const ambient = new THREE.AmbientLight(0xffffff, 1.2);
+    scene.add(ambient);
+
+    const dirLight = new THREE.DirectionalLight(0xffffff, 1);
+    dirLight.position.set(5, 3, 5);
+    scene.add(dirLight);
+
+    // globe
+    const Globe = new ThreeGlobe()
+      .globeImageUrl("https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg")
+      .bumpImageUrl("https://unpkg.com/three-globe/example/img/earth-topology.png")
+      .showAtmosphere(true)
+      .atmosphereColor("#7dd3fc")
+      .atmosphereAltitude(0.22);
+
+    scene.add(Globe);
+
+    camera.position.z = 280;
+
+    // globe glow material feel
+    Globe.globeMaterial().emissive = new THREE.Color(0x0ea5e9);
+    Globe.globeMaterial().emissiveIntensity = 0.15;
+    Globe.globeMaterial().shininess = 0.9;
+
+    // auto rotate
+    function animate() {
+      Globe.rotation.y += 0.0018;
+      renderer.render(scene, camera);
+      requestAnimationFrame(animate);
+    }
+    animate();
+
+    // responsive
+    window.addEventListener("resize", () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+  }
 </script>
 
 </body>
