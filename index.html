@@ -27,6 +27,14 @@
       }
     }
   </script>
+@keyframes logoMarquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-logo-marquee {
+  animation: logoMarquee 25s linear infinite;
+}
 
   <style>
     body {
@@ -694,6 +702,32 @@
       <div class="card-premium p-6">Automation Workflow Certificate</div>
       <div class="card-premium p-6">Technical Writing Internship Certificate</div>
 
+    </div>
+  </div>
+</section>
+<!-- ================= HIRING PARTNERS LOGO WALL ================= -->
+<section class="section-light py-20 border-t border-slate-200 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 text-center">
+    <p class="text-sm font-semibold text-slate-500">Learners prepared for opportunities at</p>
+
+    <div class="mt-12 relative">
+      <div class="flex gap-16 items-center animate-logo-marquee whitespace-nowrap">
+
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" class="h-12 opacity-70 hover:opacity-100 transition">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" class="h-12 opacity-70 hover:opacity-100 transition">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoft/microsoft-original.svg" class="h-12 opacity-70 hover:opacity-100 transition">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" class="h-12 opacity-70 hover:opacity-100 transition">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/slack/slack-original.svg" class="h-12 opacity-70 hover:opacity-100 transition">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" class="h-12 opacity-70 hover:opacity-100 transition">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" class="h-12 opacity-70 hover:opacity-100 transition">
+
+        <!-- Repeat for smooth loop -->
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" class="h-12 opacity-70">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" class="h-12 opacity-70">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoft/microsoft-original.svg" class="h-12 opacity-70">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" class="h-12 opacity-70">
+
+      </div>
     </div>
   </div>
 </section>
