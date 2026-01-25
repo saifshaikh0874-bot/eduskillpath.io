@@ -35,16 +35,6 @@
 .animate-logo-marquee {
   animation: logoMarquee 25s linear infinite;
 }
-.reveal {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 1s cubic-bezier(.2,.65,.3,1);
-}
-
-.reveal.show {
-  opacity: 1;
-  transform: translateY(0);
-}
 
   <style>
     body {
@@ -221,29 +211,6 @@
 }
 
 .domain-cta:hover { transform: translateY(-2px); }
-.glass-card {
-  background: rgba(255,255,255,0.6);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255,255,255,0.4);
-  box-shadow: 0 25px 60px rgba(0,0,0,0.08);
-}
-.btn-glow {
-  position: relative;
-  overflow: hidden;
-}
-
-.btn-glow::before {
-  content:"";
-  position:absolute;
-  inset:0;
-  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent);
-  transform: translateX(-100%);
-  transition: 0.6s;
-}
-
-.btn-glow:hover::before {
-  transform: translateX(100%);
-}
 
   </style>
 </head>
@@ -317,9 +284,7 @@
 
     <!-- Right Side Card -->
     <div class="card-premium p-8 backdrop-blur relative">
-      <a href="#apply" class="btn-glow px-6 py-3 bg-indigo-600 text-white rounded-xl font-extrabold">
-  Apply Now
-</a>
+      <h3 class="font-extrabold text-xl">Apply for Next Batch</h3>
       <p class="text-sm text-slate-600 mt-1">Limited seats. Our team will contact you.</p>
 
       <form class="mt-6 grid gap-4">
@@ -365,8 +330,7 @@
 </section>
 
 <!-- ================= PROGRAMS ================= -->
-<section id="programs" class="max-w-6xl mx-auto px-4 py-12 reveal">
-
+<section id="programs" class="section-light py-24">
   <div class="max-w-7xl mx-auto px-6">
 
     <div class="text-center max-w-2xl mx-auto">
@@ -605,7 +569,7 @@
 </section>
 
 <!-- ================= CERTIFICATES ================= -->
-<section id="certificates" class="max-w-6xl mx-auto px-4 py-14 reveal">
+<section id="certificates" class="section-light py-24">
   <div class="max-w-7xl mx-auto px-6">
     <div class="text-center max-w-2xl mx-auto">
       <h2 class="text-4xl font-extrabold">Professional Certificates</h2>
@@ -863,19 +827,6 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.6 });
 
 counters.forEach(counter => observer.observe(counter));
-</script>
-<script>
-const reveals = document.querySelectorAll(".reveal");
-
-const revealObserver = new IntersectionObserver((entries)=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      entry.target.classList.add("show");
-    }
-  });
-},{ threshold: 0.15 });
-
-reveals.forEach(el => revealObserver.observe(el));
 </script>
 
 </body>
