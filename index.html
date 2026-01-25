@@ -1,489 +1,489 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Eduskillpath | Learn Skills. Build Career.</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eduskillpath | Learn Skills. Build Career.</title>
 
-<!-- Tailwind CDN -->
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-tailwind.config = {
-  theme: {
-    extend: {
-      colors: {
-        brand: {
-          50:"#eff6ff",100:"#dbeafe",200:"#bfdbfe",300:"#93c5fd",
-          400:"#60a5fa",500:"#3b82f6",600:"#2563eb",
-          700:"#1d4ed8",800:"#1e40af",900:"#1e3a8a"
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              500: "#2563eb",
+              600: "#1d4ed8",
+              700: "#1e40af"
+            }
+          },
+          boxShadow: {
+            soft: "0 10px 40px rgba(0,0,0,.08)",
+            glow: "0 20px 60px rgba(37,99,235,.25)"
+          }
         }
-      },
-      boxShadow:{
-        glow:"0 25px 60px rgba(37,99,235,.25)",
-        soft:"0 18px 45px rgba(2,132,199,.18)"
       }
     }
-  }
-}
-</script>
+  </script>
 
-<style>
+  <style>
+    body {
+      background: #f8fafc;
+      color: #0f172a;
+      scroll-behavior: smooth;
+    }
 
-/* ===== GLOBAL PREMIUM THEME ===== */
-body{
-  font-family: ui-sans-serif, system-ui, -apple-system;
-  background: linear-gradient(to bottom,#e0f2fe,#f8fafc 30%,#ffffff);
-}
+    .section-light { background: #ffffff; }
+    .section-soft  { background: linear-gradient(to bottom,#f0f9ff,#ffffff); }
 
-/* ===== 3D GLOBE BACKGROUND ===== */
-#globe-container{
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-}
+    .card-premium {
+      border-radius: 1.5rem;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+      transition: .25s ease;
+    }
+    .card-premium:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 45px rgba(0,0,0,0.08);
+    }
 
-.globe-overlay{
-  position: fixed;
-  inset: 0;
-  z-index: 1;
-  pointer-events:none;
-  background:
-    radial-gradient(circle at 25% 40%, rgba(37,99,235,.25), transparent 55%),
-    radial-gradient(circle at 70% 60%, rgba(14,165,233,.22), transparent 55%),
-    linear-gradient(180deg, rgba(255,255,255,0), rgba(255,255,255,.7));
-}
+    /* ===== HERO GLOBE (ONLY HERO) ===== */
+    #globe-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      z-index: 0;
+    }
 
-/* ===== HERO ===== */
-.edtech-landing{
-  position:relative;
-  z-index:5;
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:0 20px;
-}
+    .globe-overlay {
+      position: absolute;
+      width: 100%;
+      height: 100vh;
+      z-index: 1;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 30% 40%, rgba(37,99,235,.25), transparent 55%),
+        linear-gradient(180deg, rgba(0,0,0,.25), rgba(255,255,255,.9));
+    }
 
-.landing-pill{
-  display:inline-flex;
-  padding:10px 18px;
-  border-radius:999px;
-  font-weight:800;
-  font-size:12px;
-  background:rgba(255,255,255,.85);
-  border:1px solid rgba(255,255,255,.7);
-  backdrop-filter:blur(14px);
-}
+    .hero-section {
+      position: relative;
+      z-index: 2;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+    }
 
-.edtech-landing h1{
-  margin-top:20px;
-  font-size:64px;
-  font-weight:900;
-  line-height:1.05;
-  background:linear-gradient(90deg,#ffffff,#dbeafe);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  text-shadow:0 15px 40px rgba(37,99,235,.35);
-}
+    .btn-primary {
+      background: linear-gradient(90deg,#2563eb,#4f46e5);
+      color: white;
+      padding: 14px 26px;
+      border-radius: 14px;
+      font-weight: 700;
+      box-shadow: 0 15px 40px rgba(37,99,235,.25);
+      transition: .2s ease;
+    }
+    .btn-primary:hover { transform: translateY(-2px); }
 
-.edtech-landing p{
-  margin-top:16px;
-  font-size:18px;
-  font-weight:600;
-  color:#e2e8f0;
-  max-width:760px;
-  margin-left:auto;
-  margin-right:auto;
-}
-
-.landing-btn{
-  padding:14px 28px;
-  border-radius:18px;
-  font-weight:800;
-  transition:.2s ease;
-}
-
-.landing-btn.primary{
-  background:linear-gradient(90deg,#2563eb,#4f46e5);
-  color:white;
-  box-shadow:0 20px 50px rgba(37,99,235,.35);
-}
-
-.landing-btn.secondary{
-  border:2px solid rgba(255,255,255,.7);
-  color:white;
-  backdrop-filter:blur(10px);
-}
-
-.landing-btn:hover{ transform:translateY(-3px); }
-
-.stat{
-  padding:14px 16px;
-  border-radius:20px;
-  background:rgba(255,255,255,.12);
-  border:1px solid rgba(255,255,255,.25);
-  backdrop-filter:blur(18px);
-}
-
-/* Premium cards */
-.card-premium{
-  border-radius:1.75rem;
-  background:linear-gradient(180deg,#ffffff,#f0f9ff);
-  border:1px solid rgb(186 230 253);
-  box-shadow:0 18px 45px rgba(2,132,199,.14);
-  transition:all .25s ease;
-}
-.card-premium:hover{
-  transform:translateY(-8px) scale(1.02);
-  box-shadow:0 35px 75px rgba(2,132,199,.18);
-}
-
-/* Section spacing */
-.section-space{ padding:5rem 1rem; }
-
-/* Scroll smooth */
-html{ scroll-behavior:smooth; }
-
-@media(max-width:650px){
-  .edtech-landing h1{ font-size:38px; }
-}
-</style>
+    .btn-outline {
+      border: 2px solid rgba(37,99,235,.35);
+      padding: 14px 26px;
+      border-radius: 14px;
+      font-weight: 700;
+      transition: .2s ease;
+    }
+    .btn-outline:hover { background:#e0f2fe; }
+  </style>
 </head>
-
-<body class="text-slate-900">
-
-<div id="globe-container"></div>
-<div class="globe-overlay"></div>
-<div class="relative z-10">
-<!-- ===== LANDING HERO SECTION ===== -->
-<section class="edtech-landing">
-  <div class="max-w-5xl mx-auto">
-
-    <p class="landing-pill">🌍 Global Career-Focused Learning Platform</p>
-
-    <h1>Learn. Build. Get Hired.</h1>
-
-    <p>
-      Master in-demand skills, build real-world projects, and grow your career with
-      Eduskillpath. Structured roadmaps, mentorship, and internship support —
-      designed to make you job-ready.
-    </p>
-
-    <div class="mt-8 flex flex-col sm:flex-row justify-center gap-4">
-      <a href="#programs" class="landing-btn primary">Explore Programs</a>
-      <a href="#apply" class="landing-btn secondary">Apply for Internship</a>
+<body>
+<!-- ================= NAVBAR ================= -->
+<header class="fixed w-full top-0 z-50 bg-white/80 backdrop-blur border-b border-slate-200">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-xl bg-brand-600 text-white grid place-items-center font-bold">E</div>
+      <span class="font-extrabold text-lg">Eduskillpath</span>
     </div>
 
-    <div class="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-xl mx-auto">
-      <div class="stat">
-        <p class="text-white text-xl font-extrabold">100+</p>
-        <p class="text-sky-100 text-xs font-bold">Active Learners</p>
-      </div>
-      <div class="stat">
-        <p class="text-white text-xl font-extrabold">10+</p>
-        <p class="text-sky-100 text-xs font-bold">Industry Projects</p>
-      </div>
-      <div class="stat">
-        <p class="text-white text-xl font-extrabold">1:1</p>
-        <p class="text-sky-100 text-xs font-bold">Mentor Support</p>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ===== TOP INFO BAR ===== -->
-<div class="bg-gradient-to-r from-indigo-600 to-sky-500 text-white text-xs font-semibold">
-  <div class="max-w-6xl mx-auto px-4 py-2 flex justify-between">
-    <p>🚀 New Internship Batch Open • Limited Seats</p>
-    <p>Support: eduskillpath@gmail.com</p>
-  </div>
-</div>
-
-<!-- ===== NAVBAR ===== -->
-<header class="sticky top-0 z-50 backdrop-blur-xl bg-white/80 border-b border-sky-200">
-  <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-
-    <!-- Logo -->
-    <a href="#" class="flex items-center gap-2 font-extrabold text-lg">
-      <span class="w-10 h-10 rounded-2xl bg-indigo-600 grid place-items-center text-white shadow-glow">E</span>
-      <span>Eduskillpath</span>
-    </a>
-
-    <!-- Desktop Menu -->
-    <nav class="hidden md:flex gap-8 text-sm font-semibold text-slate-800">
-      <a href="#programs" class="hover:text-indigo-700">Programs</a>
-      <a href="#different" class="hover:text-indigo-700">Why Us</a>
-      <a href="#impact" class="hover:text-indigo-700">Impact</a>
-      <a href="#domains" class="hover:text-indigo-700">Internships</a>
-      <a href="#success" class="hover:text-indigo-700">Success</a>
+    <nav class="hidden md:flex gap-8 font-semibold text-sm">
+      <a href="#programs" class="hover:text-brand-600">Programs</a>
+      <a href="#internships" class="hover:text-brand-600">Internships</a>
+      <a href="#certificates" class="hover:text-brand-600">Certificates</a>
+      <a href="#success" class="hover:text-brand-600">Success Stories</a>
+      <a href="#cvbuilder" class="hover:text-brand-600">CV Builder</a>
     </nav>
 
-    <!-- CTA Buttons -->
-    <div class="hidden md:flex items-center gap-3">
-      <a href="login.html" class="px-4 py-2 rounded-xl border border-sky-600 font-semibold hover:border-sky-800">
-        Login
-      </a>
-      <a href="#apply" class="px-5 py-2 rounded-xl bg-indigo-600 text-white font-semibold shadow-glow hover:bg-indigo-500">
-        Apply Now
-      </a>
+    <div class="flex items-center gap-3">
+      <a href="#" class="hidden sm:block font-semibold">Login</a>
+      <a href="#" class="btn-primary text-sm">Apply Now</a>
     </div>
-
-    <!-- Mobile Menu Button -->
-    <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg border border-sky-400">☰</button>
-
-  </div>
-
-  <!-- Mobile Dropdown -->
-  <div id="mobileMenu" class="hidden md:hidden px-4 pb-4 space-y-2 text-sm font-semibold">
-    <a href="#programs" class="block">Programs</a>
-    <a href="#different" class="block">Why Us</a>
-    <a href="#impact" class="block">Impact</a>
-    <a href="#domains" class="block">Internships</a>
-    <a href="#success" class="block">Success</a>
-    <a href="#apply" class="block text-indigo-700 font-extrabold">Apply Now</a>
   </div>
 </header>
-<!-- ===== PROGRAMS SECTION ===== -->
-<section id="programs" class="section-space max-w-6xl mx-auto">
-  <h2 class="text-3xl md:text-4xl font-extrabold text-center">Career-Focused Programs</h2>
-  <p class="text-center text-slate-600 mt-3 font-medium max-w-2xl mx-auto">
-    Choose a structured roadmap designed to make you job-ready with real skills and portfolio projects.
-  </p>
 
-  <div class="mt-12 grid md:grid-cols-3 gap-8">
+<!-- Spacer -->
+<div class="h-24"></div>
 
-    <!-- Card -->
-    <div class="card-premium p-7">
-      <p class="text-xs font-bold text-slate-500">Beginner Friendly</p>
-      <h3 class="mt-2 text-xl font-extrabold text-indigo-700">Data Analytics</h3>
-      <p class="mt-2 text-sm font-medium text-slate-700">Excel, SQL, Power BI & real dashboards</p>
-      <ul class="mt-4 space-y-2 text-sm font-semibold text-slate-800">
-        <li>• Business Case Studies</li>
-        <li>• Portfolio Dashboards</li>
-        <li>• Resume Projects</li>
+<!-- ================= HERO WITH GLOBE ================= -->
+<section class="hero-section overflow-hidden">
+
+  <!-- Globe Background -->
+  <div id="globe-container"></div>
+  <div class="globe-overlay"></div>
+
+  <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10">
+
+    <div>
+      <p class="text-sm font-semibold text-brand-600">🚀 Future-Ready Skills Platform</p>
+      <h1 class="mt-4 text-5xl md:text-6xl font-extrabold leading-tight">
+        Learn Skills That <span class="text-brand-600">Build Careers</span>
+      </h1>
+      <p class="mt-6 text-lg text-slate-700 leading-relaxed">
+        Eduskillpath helps students and freshers become job-ready with
+        structured learning, real-world projects, internships, and
+        professional career support.
+      </p>
+
+      <div class="mt-8 flex flex-wrap gap-4">
+        <a href="#programs" class="btn-primary">Explore Programs</a>
+        <a href="#internships" class="btn-outline">Browse Internships</a>
+      </div>
+
+      <div class="mt-10 grid grid-cols-3 gap-6 max-w-md">
+        <div>
+          <p class="text-3xl font-extrabold text-brand-600">500+</p>
+          <p class="text-sm text-slate-600 font-semibold">Learners</p>
+        </div>
+        <div>
+          <p class="text-3xl font-extrabold text-brand-600">40+</p>
+          <p class="text-sm text-slate-600 font-semibold">Domains</p>
+        </div>
+        <div>
+          <p class="text-3xl font-extrabold text-brand-600">120+</p>
+          <p class="text-sm text-slate-600 font-semibold">Certificates Issued</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Side Card -->
+    <div class="card-premium p-8 backdrop-blur relative">
+      <h3 class="font-extrabold text-xl">Apply for Next Batch</h3>
+      <p class="text-sm text-slate-600 mt-1">Limited seats. Our team will contact you.</p>
+
+      <form class="mt-6 grid gap-4">
+        <input class="border rounded-lg px-4 py-3" placeholder="Full Name" />
+        <input class="border rounded-lg px-4 py-3" placeholder="Email Address" />
+        <input class="border rounded-lg px-4 py-3" placeholder="Phone Number" />
+        <select class="border rounded-lg px-4 py-3">
+          <option>Select Program</option>
+          <option>Data Analytics</option>
+          <option>AI & Automation</option>
+          <option>Digital Marketing</option>
+        </select>
+        <button class="btn-primary">Submit Application</button>
+      </form>
+    </div>
+
+  </div>
+</section>
+<!-- ================= PROGRAMS ================= -->
+<section id="programs" class="section-light py-24">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <div class="text-center max-w-2xl mx-auto">
+      <h2 class="text-4xl font-extrabold">Industry-Focused Programs</h2>
+      <p class="mt-4 text-slate-600 font-medium">
+        Learn practical, job-ready skills designed with real career outcomes in mind.
+      </p>
+    </div>
+
+    <div class="mt-16 grid md:grid-cols-3 gap-8">
+
+      <div class="card-premium p-8">
+        <h3 class="font-extrabold text-xl text-brand-600">Data Analytics</h3>
+        <p class="mt-3 text-slate-600">Excel, SQL, Power BI, dashboards and business case studies.</p>
+        <ul class="mt-5 space-y-2 text-sm font-semibold text-slate-700">
+          <li>✔ Real datasets</li>
+          <li>✔ Portfolio dashboards</li>
+          <li>✔ Interview prep</li>
+        </ul>
+      </div>
+
+      <div class="card-premium p-8 border-2 border-brand-600">
+        <p class="text-xs font-bold text-brand-600">MOST POPULAR</p>
+        <h3 class="font-extrabold text-xl mt-1">AI & Automation</h3>
+        <p class="mt-3 text-slate-600">Prompt engineering, AI tools, automation workflows.</p>
+        <ul class="mt-5 space-y-2 text-sm font-semibold text-slate-700">
+          <li>✔ AI productivity tools</li>
+          <li>✔ Resume AI optimization</li>
+          <li>✔ Workflow automation</li>
+        </ul>
+      </div>
+
+      <div class="card-premium p-8">
+        <h3 class="font-extrabold text-xl text-brand-600">Career Accelerator</h3>
+        <p class="mt-3 text-slate-600">Resume, LinkedIn, mock interviews and placement support.</p>
+        <ul class="mt-5 space-y-2 text-sm font-semibold text-slate-700">
+          <li>✔ ATS resume</li>
+          <li>✔ LinkedIn branding</li>
+          <li>✔ HR mock interviews</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHY CHOOSE US ================= -->
+<section class="section-soft py-24">
+  <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+
+    <div>
+      <h2 class="text-4xl font-extrabold">Why Learners Choose Eduskillpath</h2>
+      <p class="mt-5 text-slate-600 font-medium leading-relaxed">
+        We combine structured learning, real-world practice, and career support
+        to help you transition from student to professional with confidence.
+      </p>
+
+      <div class="mt-10 space-y-6">
+        <div class="flex gap-4">
+          <div class="w-12 h-12 bg-brand-600 text-white rounded-xl grid place-items-center font-bold">1</div>
+          <div>
+            <h4 class="font-bold">Structured Career Roadmaps</h4>
+            <p class="text-sm text-slate-600">Step-by-step learning paths designed for job roles.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-4">
+          <div class="w-12 h-12 bg-brand-600 text-white rounded-xl grid place-items-center font-bold">2</div>
+          <div>
+            <h4 class="font-bold">Project-Based Learning</h4>
+            <p class="text-sm text-slate-600">Build portfolio-ready projects recruiters value.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-4">
+          <div class="w-12 h-12 bg-brand-600 text-white rounded-xl grid place-items-center font-bold">3</div>
+          <div>
+            <h4 class="font-bold">Internship & Career Support</h4>
+            <p class="text-sm text-slate-600">Mentorship, resume help, and interview preparation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-premium p-10 text-center">
+      <p class="text-sm text-slate-500 font-semibold">PLACEMENT SUPPORT</p>
+      <p class="text-5xl font-extrabold text-brand-600 mt-2">92%</p>
+      <p class="mt-3 text-slate-600 font-medium">
+        of active learners completed projects and improved their job opportunities.
+      </p>
+      <div class="mt-8 grid grid-cols-3 gap-6 text-sm font-semibold text-slate-700">
+        <div>
+          <p class="text-2xl font-extrabold text-brand-600">40+</p>
+          Domains
+        </div>
+        <div>
+          <p class="text-2xl font-extrabold text-brand-600">150+</p>
+          Projects
+        </div>
+        <div>
+          <p class="text-2xl font-extrabold text-brand-600">24/7</p>
+          Support
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<!-- ================= INTERNSHIP DOMAINS ================= -->
+<section id="internships" class="section-light py-24">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center max-w-2xl mx-auto">
+      <h2 class="text-4xl font-extrabold">Explore Internship Domains</h2>
+      <p class="mt-4 text-slate-600 font-medium">
+        Choose from a wide range of high-demand domains and gain real-world experience.
+      </p>
+    </div>
+
+    <div class="mt-16 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 text-sm font-semibold text-slate-700">
+
+      <div class="card-premium p-5">Data Analytics</div>
+      <div class="card-premium p-5">AI & Prompt Engineering</div>
+      <div class="card-premium p-5">Web Development</div>
+      <div class="card-premium p-5">Digital Marketing</div>
+      <div class="card-premium p-5">Finance & Accounting</div>
+      <div class="card-premium p-5">HR & Recruitment</div>
+      <div class="card-premium p-5">Graphic Design</div>
+      <div class="card-premium p-5">Video Editing</div>
+      <div class="card-premium p-5">Content Writing</div>
+      <div class="card-premium p-5">Social Media Management</div>
+      <div class="card-premium p-5">Business Development</div>
+      <div class="card-premium p-5">Sales & Lead Generation</div>
+      <div class="card-premium p-5">Product Management</div>
+      <div class="card-premium p-5">UI/UX Design</div>
+      <div class="card-premium p-5">Cybersecurity Basics</div>
+      <div class="card-premium p-5">Cloud Fundamentals</div>
+      <div class="card-premium p-5">Python Programming</div>
+      <div class="card-premium p-5">SQL & Databases</div>
+      <div class="card-premium p-5">Power BI</div>
+      <div class="card-premium p-5">Excel Advanced</div>
+      <div class="card-premium p-5">Operations Management</div>
+      <div class="card-premium p-5">Customer Support</div>
+      <div class="card-premium p-5">Research & Documentation</div>
+      <div class="card-premium p-5">E-commerce Management</div>
+      <div class="card-premium p-5">Startup Strategy</div>
+      <div class="card-premium p-5">Business Analytics</div>
+      <div class="card-premium p-5">Automation Tools</div>
+      <div class="card-premium p-5">Technical Writing</div>
+      <div class="card-premium p-5">Mobile App Basics</div>
+      <div class="card-premium p-5">No-Code Development</div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= CV BUILDER SECTION ================= -->
+<section id="cvbuilder" class="section-soft py-24">
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+
+    <div>
+      <h2 class="text-4xl font-extrabold">Build a Job-Winning CV</h2>
+      <p class="mt-5 text-slate-600 font-medium leading-relaxed">
+        Use our smart CV tools to create ATS-friendly resumes that stand out to recruiters.
+      </p>
+
+      <ul class="mt-8 space-y-3 text-sm font-semibold text-slate-700">
+        <li>✔ ATS Optimized Resume Templates</li>
+        <li>✔ AI-Powered Bullet Suggestions</li>
+        <li>✔ LinkedIn Profile Optimization</li>
+        <li>✔ Role-Specific Resume Guidance</li>
       </ul>
-      <a href="#apply" class="mt-6 block text-center landing-btn primary">Enroll Now</a>
+
+      <a href="resume-builder.html" class="btn-primary inline-block mt-8">Open CV Builder</a>
     </div>
 
-    <div class="card-premium p-7 border-2 border-indigo-400">
-      <p class="text-xs font-bold text-indigo-700">Most Popular</p>
-      <h3 class="mt-2 text-xl font-extrabold text-indigo-700">AI Tools & Productivity</h3>
-      <p class="mt-2 text-sm font-medium text-slate-700">Work smarter using modern AI tools</p>
-      <ul class="mt-4 space-y-2 text-sm font-semibold text-slate-800">
-        <li>• Prompt Engineering</li>
-        <li>• AI Resume Builder</li>
-        <li>• Automation Basics</li>
-      </ul>
-      <a href="#apply" class="mt-6 block text-center landing-btn primary">Apply Now</a>
-    </div>
-
-    <div class="card-premium p-7">
-      <p class="text-xs font-bold text-slate-500">Career Booster</p>
-      <h3 class="mt-2 text-xl font-extrabold text-indigo-700">Resume & Interview Prep</h3>
-      <p class="mt-2 text-sm font-medium text-slate-700">Build a strong profile & crack interviews</p>
-      <ul class="mt-4 space-y-2 text-sm font-semibold text-slate-800">
-        <li>• ATS Resume Guidance</li>
-        <li>• LinkedIn Optimization</li>
-        <li>• Mock Interviews</li>
-      </ul>
-      <a href="#apply" class="mt-6 block text-center landing-btn primary">Join Program</a>
+    <div class="card-premium p-8">
+      <h3 class="font-extrabold text-brand-600 text-lg">Popular CV Types</h3>
+      <div class="mt-6 grid grid-cols-2 gap-4 text-sm font-semibold">
+        <div class="bg-sky-50 p-3 rounded-lg">Data Analyst CV</div>
+        <div class="bg-sky-50 p-3 rounded-lg">AI Fresher CV</div>
+        <div class="bg-sky-50 p-3 rounded-lg">Marketing CV</div>
+        <div class="bg-sky-50 p-3 rounded-lg">Web Developer CV</div>
+        <div class="bg-sky-50 p-3 rounded-lg">HR Executive CV</div>
+        <div class="bg-sky-50 p-3 rounded-lg">Finance CV</div>
+      </div>
     </div>
 
   </div>
 </section>
 
-<!-- ===== WHY US SLIDER ===== -->
-<section id="different" class="section-space max-w-6xl mx-auto">
-  <div class="flex justify-between items-end flex-wrap gap-6">
+<!-- ================= CERTIFICATES ================= -->
+<section id="certificates" class="section-light py-24">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center max-w-2xl mx-auto">
+      <h2 class="text-4xl font-extrabold">Professional Certificates</h2>
+      <p class="mt-4 text-slate-600 font-medium">
+        Earn verified certificates after completing projects and internship tasks.
+      </p>
+    </div>
+
+    <div class="mt-16 grid md:grid-cols-3 gap-8 text-sm font-semibold text-slate-700">
+
+      <div class="card-premium p-6">Data Analytics Internship Certificate</div>
+      <div class="card-premium p-6">AI & Automation Certificate</div>
+      <div class="card-premium p-6">Digital Marketing Internship Certificate</div>
+      <div class="card-premium p-6">Web Development Certificate</div>
+      <div class="card-premium p-6">Finance & Accounting Certificate</div>
+      <div class="card-premium p-6">HR & Recruitment Certificate</div>
+      <div class="card-premium p-6">Graphic Design Internship Certificate</div>
+      <div class="card-premium p-6">SQL & Database Certificate</div>
+      <div class="card-premium p-6">Power BI Dashboard Certificate</div>
+
+    </div>
+  </div>
+</section>
+<!-- ================= SUCCESS STORIES ================= -->
+<section id="success" class="section-soft py-24">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center max-w-2xl mx-auto">
+      <h2 class="text-4xl font-extrabold">Learner Success Stories</h2>
+      <p class="mt-4 text-slate-600 font-medium">
+        Real learners. Real progress. Real career growth.
+      </p>
+    </div>
+
+    <div class="mt-16 grid md:grid-cols-3 gap-8 text-sm font-semibold text-slate-700">
+
+      <div class="card-premium p-6">Aman — Data Analytics → Internship</div>
+      <div class="card-premium p-6">Saniya — AI Tools → Hired</div>
+      <div class="card-premium p-6">Rohit — Web Dev → Freelancing</div>
+      <div class="card-premium p-6">Mehak — Marketing → Internship</div>
+      <div class="card-premium p-6">Arjun — SQL → Job Offer</div>
+      <div class="card-premium p-6">Priya — HR → Placement</div>
+      <div class="card-premium p-6">Neha — Finance → Internship</div>
+      <div class="card-premium p-6">Zaid — Graphic Design → Clients</div>
+      <div class="card-premium p-6">Karan — Power BI → Dashboard Projects</div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= HIRING PARTNERS ================= -->
+<section class="section-light py-20 border-t border-slate-200">
+  <div class="max-w-6xl mx-auto px-6 text-center">
+    <p class="text-sm font-semibold text-slate-500">Learners prepare for opportunities at</p>
+    <div class="mt-8 flex flex-wrap justify-center gap-8 text-lg font-extrabold text-slate-400">
+      <span>Google</span>
+      <span>Microsoft</span>
+      <span>Deloitte</span>
+      <span>Accenture</span>
+      <span>Infosys</span>
+      <span>TCS</span>
+      <span>Amazon</span>
+      <span>Wipro</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="bg-slate-900 text-white py-16">
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-10 text-sm">
+
     <div>
-      <h2 class="text-3xl md:text-4xl font-extrabold">What Makes Us Different</h2>
-      <p class="text-slate-600 mt-2 font-medium">Industry-focused learning with real outcomes.</p>
-    </div>
-    <div class="flex gap-2">
-      <button id="diffPrev" class="px-4 py-2 rounded-xl border border-sky-300 bg-white">◀</button>
-      <button id="diffNext" class="px-4 py-2 rounded-xl bg-indigo-600 text-white">▶</button>
-    </div>
-  </div>
-
-  <div class="relative mt-10">
-    <div id="diffSlider" class="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-4">
-
-      <div class="min-w-[300px] snap-start card-premium p-6">
-        <h3 class="font-extrabold text-indigo-700">Job-Focused Roadmaps</h3>
-        <p class="mt-2 text-sm font-medium text-slate-700">Learn only the skills companies actually hire for.</p>
-      </div>
-
-      <div class="min-w-[300px] snap-start card-premium p-6">
-        <h3 class="font-extrabold text-indigo-700">Real Portfolio Projects</h3>
-        <p class="mt-2 text-sm font-medium text-slate-700">Build dashboards, resumes, case studies & more.</p>
-      </div>
-
-      <div class="min-w-[300px] snap-start card-premium p-6">
-        <h3 class="font-extrabold text-indigo-700">Mentorship Support</h3>
-        <p class="mt-2 text-sm font-medium text-slate-700">Get 1:1 guidance, doubt support & career help.</p>
-      </div>
-
-      <div class="min-w-[300px] snap-start card-premium p-6">
-        <h3 class="font-extrabold text-indigo-700">Interview Preparation</h3>
-        <p class="mt-2 text-sm font-medium text-slate-700">Mock interviews + resume review support.</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-<!-- ===== GLOBAL IMPACT ===== -->
-<section id="impact" class="section-space max-w-6xl mx-auto">
-  <div class="rounded-[2rem] p-10 bg-gradient-to-r from-sky-200 via-white to-indigo-100 shadow-soft border border-sky-200">
-    <h2 class="text-3xl md:text-4xl font-extrabold text-center">Our Learning Impact</h2>
-    <p class="text-center mt-3 text-slate-600 font-medium max-w-2xl mx-auto">
-      We focus on real skills, portfolio projects and career outcomes for learners worldwide.
-    </p>
-
-    <div class="mt-10 grid sm:grid-cols-2 md:grid-cols-4 gap-6 text-center">
-      <div class="card-premium p-6">
-        <p class="text-3xl font-extrabold text-indigo-700">100+</p>
-        <p class="text-sm font-semibold text-slate-700 mt-1">Learners Trained</p>
-      </div>
-      <div class="card-premium p-6">
-        <p class="text-3xl font-extrabold text-indigo-700">20+</p>
-        <p class="text-sm font-semibold text-slate-700 mt-1">Mentors</p>
-      </div>
-      <div class="card-premium p-6">
-        <p class="text-3xl font-extrabold text-indigo-700">10+</p>
-        <p class="text-sm font-semibold text-slate-700 mt-1">Projects</p>
-      </div>
-      <div class="card-premium p-6">
-        <p class="text-3xl font-extrabold text-indigo-700">5+</p>
-        <p class="text-sm font-semibold text-slate-700 mt-1">Countries</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== INTERNSHIP DOMAINS ===== -->
-<section id="domains" class="section-space max-w-6xl mx-auto">
-  <h2 class="text-3xl md:text-4xl font-extrabold text-center">Internship Domains</h2>
-  <p class="text-center text-slate-600 mt-2 font-medium">Choose your domain and gain hands-on experience.</p>
-
-  <div class="mt-12 grid sm:grid-cols-2 md:grid-cols-3 gap-6">
-    <div class="card-premium p-6"><h3 class="font-extrabold text-indigo-700">📊 Data Analytics</h3><p class="mt-2 text-sm font-medium text-slate-700">Excel, SQL, dashboards</p></div>
-    <div class="card-premium p-6"><h3 class="font-extrabold text-indigo-700">🤖 AI & Prompting</h3><p class="mt-2 text-sm font-medium text-slate-700">AI tools & workflows</p></div>
-    <div class="card-premium p-6"><h3 class="font-extrabold text-indigo-700">💻 Web Development</h3><p class="mt-2 text-sm font-medium text-slate-700">HTML, CSS, JS</p></div>
-    <div class="card-premium p-6"><h3 class="font-extrabold text-indigo-700">📈 Digital Marketing</h3><p class="mt-2 text-sm font-medium text-slate-700">SEO, content, ads</p></div>
-    <div class="card-premium p-6"><h3 class="font-extrabold text-indigo-700">🧾 Finance</h3><p class="mt-2 text-sm font-medium text-slate-700">Reporting & models</p></div>
-    <div class="card-premium p-6"><h3 class="font-extrabold text-indigo-700">🧠 HR & Recruitment</h3><p class="mt-2 text-sm font-medium text-slate-700">Hiring & sourcing</p></div>
-  </div>
-</section>
-
-<!-- ===== SUCCESS STORIES ===== -->
-<section id="success" class="section-space max-w-6xl mx-auto">
-  <h2 class="text-3xl md:text-4xl font-extrabold text-center">Learner Success Stories</h2>
-  <p class="text-center mt-2 text-slate-600 font-medium">Real outcomes from our learners</p>
-
-  <div class="mt-10 grid md:grid-cols-3 gap-6">
-
-    <div class="card-premium p-6">
-      <p class="font-extrabold text-slate-900">Aman Kumar</p>
-      <p class="text-sm font-semibold text-indigo-700">Data Analytics</p>
-      <p class="mt-3 text-sm text-slate-700">“Built dashboards and landed internship.”</p>
-    </div>
-
-    <div class="card-premium p-6">
-      <p class="font-extrabold text-slate-900">Saniya Khan</p>
-      <p class="text-sm font-semibold text-indigo-700">AI Tools</p>
-      <p class="mt-3 text-sm text-slate-700">“Improved resume and cracked interviews.”</p>
-    </div>
-
-    <div class="card-premium p-6">
-      <p class="font-extrabold text-slate-900">Rohit Verma</p>
-      <p class="text-sm font-semibold text-indigo-700">Web Dev</p>
-      <p class="mt-3 text-sm text-slate-700">“Built portfolio and started freelancing.”</p>
-    </div>
-
-  </div>
-</section>
-<!-- ===== CERTIFICATES SECTION ===== -->
-<section id="certificates" class="section-space max-w-6xl mx-auto">
-  <h2 class="text-3xl md:text-4xl font-extrabold text-center">Professional Certificates</h2>
-  <p class="text-center mt-2 text-slate-600 font-medium max-w-2xl mx-auto">
-    Earn verified certificates to showcase your skills on resume and LinkedIn.
-  </p>
-
-  <div class="mt-12 grid md:grid-cols-3 gap-6">
-    <div class="card-premium p-6 text-center">
-      <p class="font-extrabold text-indigo-700">Data Analytics Internship</p>
-      <p class="text-sm mt-2 text-slate-600">Dashboard & reporting project</p>
-    </div>
-    <div class="card-premium p-6 text-center">
-      <p class="font-extrabold text-indigo-700">AI Tools & Productivity</p>
-      <p class="text-sm mt-2 text-slate-600">Prompt workflows & automation</p>
-    </div>
-    <div class="card-premium p-6 text-center">
-      <p class="font-extrabold text-indigo-700">Digital Marketing</p>
-      <p class="text-sm mt-2 text-slate-600">SEO & campaign analytics</p>
-    </div>
-  </div>
-</section>
-
-<!-- ===== GLOBAL CAREERS CTA ===== -->
-<section class="section-space max-w-6xl mx-auto">
-  <div class="rounded-[2rem] p-10 bg-gradient-to-r from-indigo-600 via-sky-500 to-sky-400 text-white shadow-glow text-center">
-    <h2 class="text-3xl md:text-5xl font-extrabold">Your Gateway to Global Careers</h2>
-    <p class="mt-4 font-semibold max-w-2xl mx-auto">
-      Learn in-demand skills, build strong projects, and become ready for internships and remote jobs.
-    </p>
-    <div class="mt-6 flex flex-col sm:flex-row justify-center gap-4">
-      <a href="#apply" class="landing-btn primary bg-white text-indigo-700">Start Your Journey</a>
-      <a href="#domains" class="landing-btn secondary border-white text-white">Explore Domains</a>
-    </div>
-  </div>
-</section>
-
-<!-- ===== FOOTER ===== -->
-<footer class="bg-sky-300 border-t border-sky-400 mt-10">
-  <div class="max-w-6xl mx-auto px-4 py-10 grid md:grid-cols-3 gap-8 text-slate-900">
-    <div>
-      <p class="font-extrabold text-lg">Eduskillpath</p>
-      <p class="text-sm mt-2 font-medium">Learn skills, build portfolio, grow your career.</p>
+      <h3 class="font-extrabold text-lg">Eduskillpath</h3>
+      <p class="mt-3 text-slate-400">
+        Learn skills, build projects, and grow your career with structured training and mentorship.
+      </p>
     </div>
 
     <div>
-      <p class="font-extrabold">Quick Links</p>
-      <div class="mt-2 grid gap-2 text-sm font-semibold">
-        <a href="#programs">Programs</a>
-        <a href="#domains">Internships</a>
-        <a href="#success">Success Stories</a>
+      <h4 class="font-bold mb-3">Quick Links</h4>
+      <div class="space-y-2 text-slate-400">
+        <a href="#programs">Programs</a><br>
+        <a href="#internships">Internships</a><br>
+        <a href="#certificates">Certificates</a><br>
+        <a href="#cvbuilder">CV Builder</a>
       </div>
     </div>
 
     <div>
-      <p class="font-extrabold">Contact</p>
-      <div class="mt-2 text-sm grid gap-2 font-semibold">
-        <p>Email: support@eduskillpath.com</p>
-        <p>Location: India</p>
-      </div>
+      <h4 class="font-bold mb-3">Contact</h4>
+      <p class="text-slate-400">Email: support@eduskillpath.com</p>
+      <p class="text-slate-400">Location: India</p>
     </div>
+
   </div>
 
-  <div class="text-center text-xs text-slate-800 pb-6 font-semibold">
+  <p class="text-center text-slate-500 text-xs mt-10">
     © 2026 Eduskillpath. All rights reserved.
-  </div>
+  </p>
 </footer>
 
-</div> <!-- END relative z-10 wrapper -->
-
-<!-- ===== MOBILE MENU SCRIPT ===== -->
-<script>
-const mobileMenuBtn = document.getElementById("mobileMenuBtn");
-const mobileMenu = document.getElementById("mobileMenu");
-mobileMenuBtn.addEventListener("click", () => {
-  mobileMenu.classList.toggle("hidden");
-});
-</script>
-
-<!-- ===== THREE JS + PREMIUM GLOBE ===== -->
+<!-- ================= THREE JS GLOBE (FIXED TO HERO ONLY) ================= -->
 <script src="https://unpkg.com/three@0.152.2/build/three.min.js"></script>
 <script src="https://unpkg.com/three-globe"></script>
 
@@ -495,40 +495,34 @@ if (container) {
   const camera = new THREE.PerspectiveCamera(50, window.innerWidth/window.innerHeight, 0.1, 1000);
   const renderer = new THREE.WebGLRenderer({ alpha:true, antialias:true });
   renderer.setSize(window.innerWidth, window.innerHeight);
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
   container.appendChild(renderer.domElement);
 
-  scene.add(new THREE.AmbientLight(0xffffff,1.2));
-
-  const dirLight = new THREE.DirectionalLight(0xffffff,1);
+  scene.add(new THREE.AmbientLight(0xffffff, 1.2));
+  const dirLight = new THREE.DirectionalLight(0xffffff, 1);
   dirLight.position.set(5,3,5);
   scene.add(dirLight);
 
   const Globe = new ThreeGlobe()
-    .globeImageUrl("https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg")
-    .bumpImageUrl("https://unpkg.com/three-globe/example/img/earth-topology.png")
+    .globeImageUrl("//unpkg.com/three-globe/example/img/earth-blue-marble.jpg")
+    .bumpImageUrl("//unpkg.com/three-globe/example/img/earth-topology.png")
     .showAtmosphere(true)
     .atmosphereColor("#60a5fa")
-    .atmosphereAltitude(0.28);
-
-  Globe.globeMaterial().emissive = new THREE.Color(0x2563eb);
-  Globe.globeMaterial().emissiveIntensity = 0.25;
-  Globe.globeMaterial().shininess = 1;
+    .atmosphereAltitude(0.22);
 
   scene.add(Globe);
   camera.position.z = 280;
 
-  function animate(){
-    Globe.rotation.y += 0.0012;
-    renderer.render(scene,camera);
+  function animate() {
+    Globe.rotation.y += 0.0015;
+    renderer.render(scene, camera);
     requestAnimationFrame(animate);
   }
   animate();
 
-  window.addEventListener("resize",()=>{
+  window.addEventListener("resize", () => {
     camera.aspect = window.innerWidth/window.innerHeight;
     camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth,window.innerHeight);
+    renderer.setSize(window.innerWidth, window.innerHeight);
   });
 }
 </script>
