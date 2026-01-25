@@ -98,6 +98,112 @@
       transition: .2s ease;
     }
     .btn-outline:hover { background:#e0f2fe; }
+    /* ===== REAL LOGO 3D INTERNSHIP DOMAINS ===== */
+.domains-grid {
+  display: grid;
+  gap: 28px;
+}
+
+@media (min-width: 768px) {
+  .domains-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1024px) {
+  .domains-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+.domain-card-pro {
+  position: relative;
+  padding: 26px;
+  border-radius: 26px;
+  background: linear-gradient(180deg,#ffffff,#f0f9ff);
+  border: 1px solid rgba(37,99,235,.15);
+  box-shadow: 0 20px 55px rgba(37,99,235,.12);
+  transition: transform .45s cubic-bezier(.2,.8,.2,1),
+              box-shadow .45s cubic-bezier(.2,.8,.2,1);
+  transform-style: preserve-3d;
+}
+
+.domain-card-pro:hover {
+  transform: translateY(-10px) rotateX(6deg) rotateY(-6deg);
+  box-shadow: 0 40px 90px rgba(37,99,235,.28);
+}
+
+.domain-card-pro::after {
+  content:"";
+  position:absolute;
+  inset:-1px;
+  border-radius: inherit;
+  background: radial-gradient(circle at top right,
+    rgba(99,102,241,.28),
+    transparent 60%);
+  opacity:0;
+  transition:.4s;
+}
+
+.domain-card-pro:hover::after { opacity:1; }
+
+.domain-logo-real {
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+  background: #ffffff;
+  border: 1px solid rgba(37,99,235,.18);
+  box-shadow: 0 14px 35px rgba(37,99,235,.25);
+  display: grid;
+  place-items: center;
+}
+
+.domain-logo-real img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+.domain-title-pro {
+  margin-top: 16px;
+  font-size: 1.15rem;
+  font-weight: 900;
+  color: #0f172a;
+}
+
+.domain-desc-pro {
+  margin-top: 6px;
+  font-size: .9rem;
+  font-weight: 600;
+  color: #475569;
+  line-height: 1.45rem;
+}
+
+.domain-footer {
+  margin-top: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.domain-tag {
+  font-size: .7rem;
+  font-weight: 900;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(79,70,229,.12);
+  color: #4f46e5;
+  border: 1px solid rgba(79,70,229,.25);
+}
+
+.domain-cta {
+  padding: 8px 14px;
+  border-radius: 12px;
+  background: linear-gradient(90deg,#2563eb,#4f46e5);
+  color: white;
+  font-weight: 800;
+  font-size: .8rem;
+  text-decoration: none;
+  transition: .2s;
+}
+
+.domain-cta:hover { transform: translateY(-2px); }
+
   </style>
 </head>
 <body>
@@ -325,91 +431,99 @@
 
   </div>
 </section>
-<!-- ================= INTERNSHIP DOMAINS ================= -->
-<section id="internships" class="section-light py-24">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="text-center max-w-2xl mx-auto">
-      <h2 class="text-4xl font-extrabold">Explore Internship Domains</h2>
-      <p class="mt-4 text-slate-600 font-medium">
-        Choose from a wide range of high-demand domains and gain real-world experience.
-      </p>
+<div class="domains-grid mt-12">
+
+  <!-- Data Analytics -->
+  <div class="domain-card-pro">
+    <div class="domain-logo-real">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg">
     </div>
-
-    <div class="mt-16 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 text-sm font-semibold text-slate-700">
-
-      <div class="card-premium p-5">Data Analytics</div>
-      <div class="card-premium p-5">AI & Prompt Engineering</div>
-      <div class="card-premium p-5">Web Development</div>
-      <div class="card-premium p-5">Digital Marketing</div>
-      <div class="card-premium p-5">Finance & Accounting</div>
-      <div class="card-premium p-5">HR & Recruitment</div>
-      <div class="card-premium p-5">Graphic Design</div>
-      <div class="card-premium p-5">Video Editing</div>
-      <div class="card-premium p-5">Content Writing</div>
-      <div class="card-premium p-5">Social Media Management</div>
-      <div class="card-premium p-5">Business Development</div>
-      <div class="card-premium p-5">Sales & Lead Generation</div>
-      <div class="card-premium p-5">Product Management</div>
-      <div class="card-premium p-5">UI/UX Design</div>
-      <div class="card-premium p-5">Cybersecurity Basics</div>
-      <div class="card-premium p-5">Cloud Fundamentals</div>
-      <div class="card-premium p-5">Python Programming</div>
-      <div class="card-premium p-5">SQL & Databases</div>
-      <div class="card-premium p-5">Power BI</div>
-      <div class="card-premium p-5">Excel Advanced</div>
-      <div class="card-premium p-5">Operations Management</div>
-      <div class="card-premium p-5">Customer Support</div>
-      <div class="card-premium p-5">Research & Documentation</div>
-      <div class="card-premium p-5">E-commerce Management</div>
-      <div class="card-premium p-5">Startup Strategy</div>
-      <div class="card-premium p-5">Business Analytics</div>
-      <div class="card-premium p-5">Automation Tools</div>
-      <div class="card-premium p-5">Technical Writing</div>
-      <div class="card-premium p-5">Mobile App Basics</div>
-      <div class="card-premium p-5">No-Code Development</div>
-
+    <div class="domain-title-pro">Data Analytics</div>
+    <div class="domain-desc-pro">
+      Excel, SQL, Power BI, dashboards & business insights
+    </div>
+    <div class="domain-footer">
+      <span class="domain-tag">High Demand</span>
+      <a href="#apply" class="domain-cta">Apply</a>
     </div>
   </div>
-</section>
-<section class="section-soft py-24">
-  <div class="max-w-7xl mx-auto px-6">
-    <h2 class="text-4xl font-extrabold text-center">Internship Program Highlights</h2>
 
-    <div class="mt-16 grid md:grid-cols-3 gap-8">
-
-      <div class="card-premium p-6">
-        <h3 class="font-extrabold text-brand-600">Data Analytics Internship</h3>
-        <p class="mt-3 text-sm text-slate-600">Work on real datasets, build dashboards, and present insights.</p>
-        <ul class="mt-4 text-sm text-slate-700 font-semibold space-y-1">
-          <li>• Excel & SQL tasks</li>
-          <li>• Power BI dashboards</li>
-          <li>• Case study presentation</li>
-        </ul>
-      </div>
-
-      <div class="card-premium p-6">
-        <h3 class="font-extrabold text-brand-600">AI & Automation Internship</h3>
-        <p class="mt-3 text-sm text-slate-600">Build AI workflows and automation use cases.</p>
-        <ul class="mt-4 text-sm text-slate-700 font-semibold space-y-1">
-          <li>• Prompt engineering</li>
-          <li>• AI tools practice</li>
-          <li>• Workflow automation</li>
-        </ul>
-      </div>
-
-      <div class="card-premium p-6">
-        <h3 class="font-extrabold text-brand-600">Digital Marketing Internship</h3>
-        <p class="mt-3 text-sm text-slate-600">Hands-on SEO, content strategy and campaign analytics.</p>
-        <ul class="mt-4 text-sm text-slate-700 font-semibold space-y-1">
-          <li>• SEO tasks</li>
-          <li>• Campaign analysis</li>
-          <li>• Marketing reports</li>
-        </ul>
-      </div>
-
+  <!-- AI & Automation -->
+  <div class="domain-card-pro">
+    <div class="domain-logo-real">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/openai/openai-original.svg">
+    </div>
+    <div class="domain-title-pro">AI & Automation</div>
+    <div class="domain-desc-pro">
+      Prompt engineering, AI workflows, productivity tools
+    </div>
+    <div class="domain-footer">
+      <span class="domain-tag">Trending</span>
+      <a href="#apply" class="domain-cta">Apply</a>
     </div>
   </div>
-</section>
+
+  <!-- Web Development -->
+  <div class="domain-card-pro">
+    <div class="domain-logo-real">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg">
+    </div>
+    <div class="domain-title-pro">Web Development</div>
+    <div class="domain-desc-pro">
+      HTML, CSS, Tailwind, JavaScript, real projects
+    </div>
+    <div class="domain-footer">
+      <span class="domain-tag">Core Skill</span>
+      <a href="#apply" class="domain-cta">Apply</a>
+    </div>
+  </div>
+
+  <!-- Digital Marketing -->
+  <div class="domain-card-pro">
+    <div class="domain-logo-real">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg">
+    </div>
+    <div class="domain-title-pro">Digital Marketing</div>
+    <div class="domain-desc-pro">
+      SEO, paid ads, growth analytics & campaigns
+    </div>
+    <div class="domain-footer">
+      <span class="domain-tag">Growth</span>
+      <a href="#apply" class="domain-cta">Apply</a>
+    </div>
+  </div>
+
+  <!-- Graphic Design -->
+  <div class="domain-card-pro">
+    <div class="domain-logo-real">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Canva_Logo.png">
+    </div>
+    <div class="domain-title-pro">Graphic Design</div>
+    <div class="domain-desc-pro">
+      Branding, UI creatives, Canva & Figma
+    </div>
+    <div class="domain-footer">
+      <span class="domain-tag">Creative</span>
+      <a href="#apply" class="domain-cta">Apply</a>
+    </div>
+  </div>
+
+  <!-- Cyber Security -->
+  <div class="domain-card-pro">
+    <div class="domain-logo-real">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg">
+    </div>
+    <div class="domain-title-pro">Cyber Security</div>
+    <div class="domain-desc-pro">
+      Security basics, ethical hacking & tools
+    </div>
+    <div class="domain-footer">
+      <span class="domain-tag">Advanced</span>
+      <a href="#apply" class="domain-cta">Apply</a>
+    </div>
+  </div>
+
+</div>
 
 <!-- ================= CV BUILDER SECTION ================= -->
 <section id="cvbuilder" class="section-soft py-24">
