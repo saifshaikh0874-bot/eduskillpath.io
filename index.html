@@ -1,219 +1,833 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Eduskillpath | Learn Skills. Build Career.</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eduskillpath | Learn Skills. Build Career.</title>
 
-<script src="https://cdn.tailwindcss.com"></script>
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
-<script>
-tailwind.config = {
-  theme: {
-    extend: {
-      colors: {
-        brand: { 500:"#2563eb", 600:"#1d4ed8", 700:"#1e40af" }
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              500: "#2563eb",
+              600: "#1d4ed8",
+              700: "#1e40af"
+            }
+          },
+          boxShadow: {
+            soft: "0 10px 40px rgba(0,0,0,.08)",
+            glow: "0 20px 60px rgba(37,99,235,.25)"
+          }
+        }
       }
     }
-  }
-}
-</script>
-
-<style>
-body { background:#f8fafc; color:#0f172a; scroll-behavior:smooth; }
-.section-light{background:#fff}
-.section-soft{background:linear-gradient(to bottom,#f0f9ff,#ffffff)}
-
-.card-premium{
-  border-radius:1.5rem;
-  background:#fff;
-  border:1px solid #e2e8f0;
-  box-shadow:0 10px 30px rgba(0,0,0,.06);
-  transition:.25s ease;
-}
-.card-premium:hover{
-  transform:translateY(-6px);
-  box-shadow:0 20px 45px rgba(0,0,0,.08);
+  </script>
+@keyframes logoMarquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
-.btn-primary{
-  background:linear-gradient(90deg,#2563eb,#4f46e5);
-  color:#fff;
-  padding:14px 26px;
-  border-radius:14px;
-  font-weight:700;
-  box-shadow:0 15px 40px rgba(37,99,235,.25);
-}
-.btn-outline{
-  border:2px solid rgba(37,99,235,.35);
-  padding:14px 26px;
-  border-radius:14px;
-  font-weight:700;
+.animate-logo-marquee {
+  animation: logoMarquee 25s linear infinite;
 }
 
-/* HERO GLOBE */
-#globe-container{position:absolute;top:0;left:0;width:100%;height:100vh;z-index:0;}
-.globe-overlay{
-  position:absolute;width:100%;height:100vh;z-index:1;pointer-events:none;
-  background:radial-gradient(circle at 30% 40%, rgba(37,99,235,.25), transparent 55%),
-             linear-gradient(180deg, rgba(0,0,0,.25), rgba(255,255,255,.9));
+  <style>
+    body {
+      background: #f8fafc;
+      color: #0f172a;
+      scroll-behavior: smooth;
+    }
+
+    .section-light { background: #ffffff; }
+    .section-soft  { background: linear-gradient(to bottom,#f0f9ff,#ffffff); }
+
+    .card-premium {
+      border-radius: 1.5rem;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+      transition: .25s ease;
+    }
+    .card-premium:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 45px rgba(0,0,0,0.08);
+    }
+
+    /* ===== HERO GLOBE (ONLY HERO) ===== */
+    #globe-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      z-index: 0;
+    }
+
+    .globe-overlay {
+      position: absolute;
+      width: 100%;
+      height: 100vh;
+      z-index: 1;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 30% 40%, rgba(37,99,235,.25), transparent 55%),
+        linear-gradient(180deg, rgba(0,0,0,.25), rgba(255,255,255,.9));
+    }
+
+    .hero-section {
+      position: relative;
+      z-index: 2;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg,#2563eb,#4f46e5);
+      color: white;
+      padding: 14px 26px;
+      border-radius: 14px;
+      font-weight: 700;
+      box-shadow: 0 15px 40px rgba(37,99,235,.25);
+      transition: .2s ease;
+    }
+    .btn-primary:hover { transform: translateY(-2px); }
+
+    .btn-outline {
+      border: 2px solid rgba(37,99,235,.35);
+      padding: 14px 26px;
+      border-radius: 14px;
+      font-weight: 700;
+      transition: .2s ease;
+    }
+    .btn-outline:hover { background:#e0f2fe; }
+    /* ===== REAL LOGO 3D INTERNSHIP DOMAINS ===== */
+.domains-grid {
+  display: grid;
+  gap: 28px;
 }
-.hero-section{position:relative;z-index:2;min-height:100vh;display:flex;align-items:center}
 
-/* DOMAIN CARDS */
-.domains-grid{display:grid;gap:28px}
-@media(min-width:768px){.domains-grid{grid-template-columns:repeat(2,1fr)}}
-@media(min-width:1024px){.domains-grid{grid-template-columns:repeat(3,1fr)}}
-
-.domain-card-pro{
-  padding:26px;border-radius:26px;
-  background:linear-gradient(180deg,#ffffff,#f0f9ff);
-  border:1px solid rgba(37,99,235,.15);
-  box-shadow:0 20px 55px rgba(37,99,235,.12);
-  transition:.45s;
+@media (min-width: 768px) {
+  .domains-grid { grid-template-columns: repeat(2, 1fr); }
 }
-.domain-card-pro:hover{
-  transform:translateY(-10px);
-  box-shadow:0 40px 90px rgba(37,99,235,.28);
+@media (min-width: 1024px) {
+  .domains-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
-/* LOGO MARQUEE */
-@keyframes logoMarquee { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
-.animate-logo-marquee{animation:logoMarquee 25s linear infinite}
+.domain-card-pro {
+  position: relative;
+  padding: 26px;
+  border-radius: 26px;
+  background: linear-gradient(180deg,#ffffff,#f0f9ff);
+  border: 1px solid rgba(37,99,235,.15);
+  box-shadow: 0 20px 55px rgba(37,99,235,.12);
+  transition: transform .45s cubic-bezier(.2,.8,.2,1),
+              box-shadow .45s cubic-bezier(.2,.8,.2,1);
+  transform-style: preserve-3d;
+}
 
-/* COUNTER */
-.counter{transition:.3s}
-</style>
+.domain-card-pro:hover {
+  transform: translateY(-10px) rotateX(6deg) rotateY(-6deg);
+  box-shadow: 0 40px 90px rgba(37,99,235,.28);
+}
+
+.domain-card-pro::after {
+  content:"";
+  position:absolute;
+  inset:-1px;
+  border-radius: inherit;
+  background: radial-gradient(circle at top right,
+    rgba(99,102,241,.28),
+    transparent 60%);
+  opacity:0;
+  transition:.4s;
+}
+
+.domain-card-pro:hover::after { opacity:1; }
+
+.domain-logo-real {
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+  background: #ffffff;
+  border: 1px solid rgba(37,99,235,.18);
+  box-shadow: 0 14px 35px rgba(37,99,235,.25);
+  display: grid;
+  place-items: center;
+}
+
+.domain-logo-real img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+.domain-title-pro {
+  margin-top: 16px;
+  font-size: 1.15rem;
+  font-weight: 900;
+  color: #0f172a;
+}
+
+.domain-desc-pro {
+  margin-top: 6px;
+  font-size: .9rem;
+  font-weight: 600;
+  color: #475569;
+  line-height: 1.45rem;
+}
+
+.domain-footer {
+  margin-top: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.domain-tag {
+  font-size: .7rem;
+  font-weight: 900;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(79,70,229,.12);
+  color: #4f46e5;
+  border: 1px solid rgba(79,70,229,.25);
+}
+
+.domain-cta {
+  padding: 8px 14px;
+  border-radius: 12px;
+  background: linear-gradient(90deg,#2563eb,#4f46e5);
+  color: white;
+  font-weight: 800;
+  font-size: .8rem;
+  text-decoration: none;
+  transition: .2s;
+}
+
+.domain-cta:hover { transform: translateY(-2px); }
+
+  </style>
 </head>
-
 <body>
+<!-- ================= NAVBAR ================= -->
+<header class="fixed w-full top-0 z-50 bg-white/80 backdrop-blur border-b border-slate-200">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-xl bg-brand-600 text-white grid place-items-center font-bold">E</div>
+      <span class="font-extrabold text-lg">Eduskillpath</span>
+    </div>
 
-<!-- NAVBAR -->
-<header class="fixed w-full top-0 z-50 bg-white/80 backdrop-blur border-b">
-<div class="max-w-7xl mx-auto px-6 py-4 flex justify-between">
-<div class="font-extrabold">Eduskillpath</div>
-<nav class="hidden md:flex gap-8 text-sm font-semibold">
-<a href="#programs">Programs</a>
-<a href="#internships">Internships</a>
-<a href="#certificates">Certificates</a>
-<a href="#cvbuilder">CV Builder</a>
-</nav>
-<a href="#applyForm" class="btn-primary text-sm">Apply Now</a>
-</div>
+    <nav class="hidden md:flex gap-8 font-semibold text-sm">
+      <a href="#programs" class="hover:text-brand-600">Programs</a>
+      <a href="#internships" class="hover:text-brand-600">Internships</a>
+      <a href="#certificates" class="hover:text-brand-600">Certificates</a>
+      <a href="#success" class="hover:text-brand-600">Success Stories</a>
+      <a href="#cvbuilder" class="hover:text-brand-600">CV Builder</a>
+    </nav>
+
+    <div class="flex items-center gap-3">
+      <a href="#" class="hidden sm:block font-semibold">Login</a>
+      <a href="#" class="btn-primary text-sm">Apply Now</a>
+    </div>
+  </div>
 </header>
 
+<!-- Spacer -->
 <div class="h-24"></div>
 
-<!-- HERO -->
+<!-- ================= HERO WITH GLOBE ================= -->
 <section class="hero-section overflow-hidden">
-<div id="globe-container"></div>
-<div class="globe-overlay"></div>
 
-<div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 relative z-10">
-<div>
-<p class="text-sm font-semibold text-brand-600">🚀 Future-Ready Skills Platform</p>
-<h1 class="mt-4 text-5xl font-extrabold">Learn Skills That <span class="text-brand-600">Build Careers</span></h1>
-<p class="mt-6 text-lg text-slate-700">Trusted by 500+ learners across 40+ domains with real projects and career support.</p>
-<div class="mt-8 flex gap-4">
-<a href="#programs" class="btn-primary">Explore Programs</a>
-<a href="#internships" class="btn-outline">Browse Internships</a>
-</div>
-</div>
+  <!-- Globe Background -->
+  <div id="globe-container"></div>
+  <div class="globe-overlay"></div>
 
-<div id="applyForm" class="card-premium p-8">
-<h3 class="font-extrabold text-xl">Apply for Next Batch</h3>
-<form class="mt-6 grid gap-4">
-<input class="border rounded-lg px-4 py-3" placeholder="Full Name" />
-<input class="border rounded-lg px-4 py-3" placeholder="Email Address" />
-<input class="border rounded-lg px-4 py-3" placeholder="Phone Number" />
-<select class="border rounded-lg px-4 py-3">
-<option>Select Program</option>
-<option>Data Analytics</option>
-<option>AI & Automation</option>
-<option>Digital Marketing</option>
-</select>
-<button class="btn-primary">Submit Application</button>
-</form>
-</div>
-</div>
+  <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10">
+
+    <div>
+      <p class="text-sm font-semibold text-brand-600">🚀 Future-Ready Skills Platform</p>
+      <h1 class="mt-4 text-5xl md:text-6xl font-extrabold leading-tight">
+        Learn Skills That <span class="text-brand-600">Build Careers</span>
+      </h1>
+      <p class="mt-6 text-lg text-slate-700 leading-relaxed">
+        Eduskillpath helps students and freshers become job-ready with
+        structured learning, real-world projects, internships, and
+        professional career support.
+      </p>
+
+      <div class="mt-8 flex flex-wrap gap-4">
+        <a href="#programs" class="btn-primary">Explore Programs</a>
+        <a href="#internships" class="btn-outline">Browse Internships</a>
+      </div>
+
+      <div class="mt-10 grid grid-cols-3 gap-6 max-w-md">
+        <div>
+          <p class="text-3xl font-extrabold text-brand-600">500+</p>
+          <p class="text-sm text-slate-600 font-semibold">Learners</p>
+        </div>
+        <div>
+          <p class="text-3xl font-extrabold text-brand-600">40+</p>
+          <p class="text-sm text-slate-600 font-semibold">Domains</p>
+        </div>
+        <div>
+          <p class="text-3xl font-extrabold text-brand-600">120+</p>
+          <p class="text-sm text-slate-600 font-semibold">Certificates Issued</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Side Card -->
+    <div class="card-premium p-8 backdrop-blur relative">
+      <h3 class="font-extrabold text-xl">Apply for Next Batch</h3>
+      <p class="text-sm text-slate-600 mt-1">Limited seats. Our team will contact you.</p>
+
+      <form class="mt-6 grid gap-4">
+        <input class="border rounded-lg px-4 py-3" placeholder="Full Name" />
+        <input class="border rounded-lg px-4 py-3" placeholder="Email Address" />
+        <input class="border rounded-lg px-4 py-3" placeholder="Phone Number" />
+        <select class="border rounded-lg px-4 py-3">
+          <option>Select Program</option>
+          <option>Data Analytics</option>
+          <option>AI & Automation</option>
+          <option>Digital Marketing</option>
+        </select>
+        <button class="btn-primary">Submit Application</button>
+      </form>
+    </div>
+
+  </div>
+</section>
+  <section class="section-light py-20 border-t border-slate-200">
+  <div class="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-10 text-center">
+
+    <div>
+      <p class="text-4xl font-extrabold text-brand-600 counter" data-target="500">0</p>
+      <p class="text-sm font-semibold text-slate-600 mt-2">Active Learners</p>
+    </div>
+
+    <div>
+      <p class="text-4xl font-extrabold text-brand-600 counter" data-target="40">0</p>
+      <p class="text-sm font-semibold text-slate-600 mt-2">Internship Domains</p>
+    </div>
+
+    <div>
+      <p class="text-4xl font-extrabold text-brand-600 counter" data-target="120">0</p>
+      <p class="text-sm font-semibold text-slate-600 mt-2">Certificates Issued</p>
+    </div>
+
+    <div>
+      <p class="text-4xl font-extrabold text-brand-600 counter" data-target="92">0</p>
+      <p class="text-sm font-semibold text-slate-600 mt-2">Success Rate (%)</p>
+    </div>
+
+  </div>
 </section>
 
-<!-- PROGRAMS -->
+<!-- ================= PROGRAMS ================= -->
 <section id="programs" class="section-light py-24">
-<div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8">
-<div class="card-premium p-8"><h3 class="font-bold text-brand-600">Data Analytics</h3></div>
-<div class="card-premium p-8 border-2 border-brand-600"><h3 class="font-bold">AI & Automation</h3></div>
-<div class="card-premium p-8"><h3 class="font-bold text-brand-600">Career Accelerator</h3></div>
-</div>
+  <div class="max-w-7xl mx-auto px-6">
+
+    <div class="text-center max-w-2xl mx-auto">
+      <h2 class="text-4xl font-extrabold">Industry-Focused Programs</h2>
+      <p class="mt-4 text-slate-600 font-medium">
+        Learn practical, job-ready skills designed with real career outcomes in mind.
+      </p>
+    </div>
+
+    <div class="mt-16 grid md:grid-cols-3 gap-8">
+
+      <div class="card-premium p-8">
+        <h3 class="font-extrabold text-xl text-brand-600">Data Analytics</h3>
+        <p class="mt-3 text-slate-600">Excel, SQL, Power BI, dashboards and business case studies.</p>
+        <ul class="mt-5 space-y-2 text-sm font-semibold text-slate-700">
+          <li>✔ Real datasets</li>
+          <li>✔ Portfolio dashboards</li>
+          <li>✔ Interview prep</li>
+        </ul>
+      </div>
+
+      <div class="card-premium p-8 border-2 border-brand-600">
+        <p class="text-xs font-bold text-brand-600">MOST POPULAR</p>
+        <h3 class="font-extrabold text-xl mt-1">AI & Automation</h3>
+        <p class="mt-3 text-slate-600">Prompt engineering, AI tools, automation workflows.</p>
+        <ul class="mt-5 space-y-2 text-sm font-semibold text-slate-700">
+          <li>✔ AI productivity tools</li>
+          <li>✔ Resume AI optimization</li>
+          <li>✔ Workflow automation</li>
+        </ul>
+      </div>
+
+      <div class="card-premium p-8">
+        <h3 class="font-extrabold text-xl text-brand-600">Career Accelerator</h3>
+        <p class="mt-3 text-slate-600">Resume, LinkedIn, mock interviews and placement support.</p>
+        <ul class="mt-5 space-y-2 text-sm font-semibold text-slate-700">
+          <li>✔ ATS resume</li>
+          <li>✔ LinkedIn branding</li>
+          <li>✔ HR mock interviews</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
 </section>
 
-<!-- INTERNSHIPS / DOMAINS -->
-<section id="internships" class="section-light py-24">
-<div class="max-w-7xl mx-auto px-6">
-<h2 class="text-4xl font-extrabold text-center">Internship Domains</h2>
+<!-- ================= WHY CHOOSE US ================= -->
+<section class="section-soft py-24">
+  <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+
+    <div>
+      <h2 class="text-4xl font-extrabold">Why Learners Choose Eduskillpath</h2>
+      <p class="mt-5 text-slate-600 font-medium leading-relaxed">
+        We combine structured learning, real-world practice, and career support
+        to help you transition from student to professional with confidence.
+      </p>
+
+      <div class="mt-10 space-y-6">
+        <div class="flex gap-4">
+          <div class="w-12 h-12 bg-brand-600 text-white rounded-xl grid place-items-center font-bold">1</div>
+          <div>
+            <h4 class="font-bold">Structured Career Roadmaps</h4>
+            <p class="text-sm text-slate-600">Step-by-step learning paths designed for job roles.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-4">
+          <div class="w-12 h-12 bg-brand-600 text-white rounded-xl grid place-items-center font-bold">2</div>
+          <div>
+            <h4 class="font-bold">Project-Based Learning</h4>
+            <p class="text-sm text-slate-600">Build portfolio-ready projects recruiters value.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-4">
+          <div class="w-12 h-12 bg-brand-600 text-white rounded-xl grid place-items-center font-bold">3</div>
+          <div>
+            <h4 class="font-bold">Internship & Career Support</h4>
+            <p class="text-sm text-slate-600">Mentorship, resume help, and interview preparation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-premium p-10 text-center">
+      <p class="text-sm text-slate-500 font-semibold">PLACEMENT SUPPORT</p>
+      <p class="text-5xl font-extrabold text-brand-600 mt-2">92%</p>
+      <p class="mt-3 text-slate-600 font-medium">
+        of active learners completed projects and improved their job opportunities.
+      </p>
+      <div class="mt-8 grid grid-cols-3 gap-6 text-sm font-semibold text-slate-700">
+        <div>
+          <p class="text-2xl font-extrabold text-brand-600">40+</p>
+          Domains
+        </div>
+        <div>
+          <p class="text-2xl font-extrabold text-brand-600">150+</p>
+          Projects
+        </div>
+        <div>
+          <p class="text-2xl font-extrabold text-brand-600">24/7</p>
+          Support
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
 <div class="domains-grid mt-12">
 
-<div class="domain-card-pro"><div class="font-bold">Data Analytics</div></div>
-<div class="domain-card-pro"><div class="font-bold">AI & Automation</div></div>
-<div class="domain-card-pro"><div class="font-bold">Web Development</div></div>
-<div class="domain-card-pro"><div class="font-bold">Digital Marketing</div></div>
-<div class="domain-card-pro"><div class="font-bold">Graphic Design</div></div>
-<div class="domain-card-pro"><div class="font-bold">Cyber Security</div></div>
+  <!-- Data Analytics -->
+  <div class="domain-card-pro">
+    <div class="domain-logo-real">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg">
+    </div>
+    <div class="domain-title-pro">Data Analytics</div>
+    <div class="domain-desc-pro">
+      Excel, SQL, Power BI, dashboards & business insights
+    </div>
+    <div class="domain-footer">
+      <span class="domain-tag">High Demand</span>
+      <a href="#apply" class="domain-cta">Apply</a>
+    </div>
+  </div>
+
+  <!-- AI & Automation -->
+  <div class="domain-card-pro">
+    <div class="domain-logo-real">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/openai/openai-original.svg">
+    </div>
+    <div class="domain-title-pro">AI & Automation</div>
+    <div class="domain-desc-pro">
+      Prompt engineering, AI workflows, productivity tools
+    </div>
+    <div class="domain-footer">
+      <span class="domain-tag">Trending</span>
+      <a href="#apply" class="domain-cta">Apply</a>
+    </div>
+  </div>
+
+  <!-- Web Development -->
+  <div class="domain-card-pro">
+    <div class="domain-logo-real">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg">
+    </div>
+    <div class="domain-title-pro">Web Development</div>
+    <div class="domain-desc-pro">
+      HTML, CSS, Tailwind, JavaScript, real projects
+    </div>
+    <div class="domain-footer">
+      <span class="domain-tag">Core Skill</span>
+      <a href="#apply" class="domain-cta">Apply</a>
+    </div>
+  </div>
+
+  <!-- Digital Marketing -->
+  <div class="domain-card-pro">
+    <div class="domain-logo-real">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg">
+    </div>
+    <div class="domain-title-pro">Digital Marketing</div>
+    <div class="domain-desc-pro">
+      SEO, paid ads, growth analytics & campaigns
+    </div>
+    <div class="domain-footer">
+      <span class="domain-tag">Growth</span>
+      <a href="#apply" class="domain-cta">Apply</a>
+    </div>
+  </div>
+
+  <!-- Graphic Design -->
+  <div class="domain-card-pro">
+    <div class="domain-logo-real">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Canva_Logo.png">
+    </div>
+    <div class="domain-title-pro">Graphic Design</div>
+    <div class="domain-desc-pro">
+      Branding, UI creatives, Canva & Figma
+    </div>
+    <div class="domain-footer">
+      <span class="domain-tag">Creative</span>
+      <a href="#apply" class="domain-cta">Apply</a>
+    </div>
+  </div>
+
+  <!-- Cyber Security -->
+  <div class="domain-card-pro">
+    <div class="domain-logo-real">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg">
+    </div>
+    <div class="domain-title-pro">Cyber Security</div>
+    <div class="domain-desc-pro">
+      Security basics, ethical hacking & tools
+    </div>
+    <div class="domain-footer">
+      <span class="domain-tag">Advanced</span>
+      <a href="#apply" class="domain-cta">Apply</a>
+    </div>
+  </div>
 
 </div>
-</div>
+
+<!-- ================= CV BUILDER SECTION ================= -->
+<section id="cvbuilder" class="section-soft py-24">
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+
+    <div>
+      <h2 class="text-4xl font-extrabold">Build a Job-Winning CV</h2>
+      <p class="mt-5 text-slate-600 font-medium leading-relaxed">
+        Use our smart CV tools to create ATS-friendly resumes that stand out to recruiters.
+      </p>
+
+      <ul class="mt-8 space-y-3 text-sm font-semibold text-slate-700">
+        <li>✔ ATS Optimized Resume Templates</li>
+        <li>✔ AI-Powered Bullet Suggestions</li>
+        <li>✔ LinkedIn Profile Optimization</li>
+        <li>✔ Role-Specific Resume Guidance</li>
+      </ul>
+
+      <a href="resume-builder.html" class="btn-primary inline-block mt-8">Open CV Builder</a>
+    </div>
+
+    <div class="card-premium p-8">
+      <h3 class="font-extrabold text-brand-600 text-lg">Popular CV Types</h3>
+      <div class="mt-6 grid grid-cols-2 gap-4 text-sm font-semibold">
+        <div class="bg-sky-50 p-3 rounded-lg">Data Analyst CV</div>
+        <div class="bg-sky-50 p-3 rounded-lg">AI Fresher CV</div>
+        <div class="bg-sky-50 p-3 rounded-lg">Marketing CV</div>
+        <div class="bg-sky-50 p-3 rounded-lg">Web Developer CV</div>
+        <div class="bg-sky-50 p-3 rounded-lg">HR Executive CV</div>
+        <div class="bg-sky-50 p-3 rounded-lg">Finance CV</div>
+      </div>
+    </div>
+
+  </div>
 </section>
 
-<!-- CV BUILDER -->
-<section id="cvbuilder" class="section-soft py-24 text-center">
-<h2 class="text-4xl font-extrabold">Build a Job-Winning CV</h2>
-<a href="resume-builder.html" class="btn-primary mt-8 inline-block">Open CV Builder</a>
-</section>
-
-<!-- CERTIFICATES -->
+<!-- ================= CERTIFICATES ================= -->
 <section id="certificates" class="section-light py-24">
-<div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8">
-<div class="card-premium p-6">Data Analytics Internship Certificate</div>
-<div class="card-premium p-6">AI & Automation Certificate</div>
-<div class="card-premium p-6">Web Development Certificate</div>
-</div>
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center max-w-2xl mx-auto">
+      <h2 class="text-4xl font-extrabold">Professional Certificates</h2>
+      <p class="mt-4 text-slate-600 font-medium">
+        Earn verified certificates after completing projects and internship tasks.
+      </p>
+    </div>
+
+    <div class="mt-16 grid md:grid-cols-3 gap-8 text-sm font-semibold text-slate-700">
+
+      <div class="card-premium p-6">Data Analytics Internship Certificate</div>
+      <div class="card-premium p-6">AI & Automation Certificate</div>
+      <div class="card-premium p-6">Digital Marketing Internship Certificate</div>
+      <div class="card-premium p-6">Web Development Certificate</div>
+      <div class="card-premium p-6">Finance & Accounting Certificate</div>
+      <div class="card-premium p-6">HR & Recruitment Certificate</div>
+      <div class="card-premium p-6">Graphic Design Internship Certificate</div>
+      <div class="card-premium p-6">SQL & Database Certificate</div>
+      <div class="card-premium p-6">Power BI Dashboard Certificate</div>
+
+    </div>
+  </div>
+</section>
+<!-- ================= REALISTIC SUCCESS STORIES ================= -->
+<section class="section-light py-24">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="text-4xl font-extrabold text-center">What Learners Say</h2>
+
+    <div class="mt-16 grid md:grid-cols-3 gap-10">
+
+      <div class="card-premium p-6">
+        <div class="flex items-center gap-4">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-14 h-14 rounded-full">
+          <div>
+            <p class="font-bold">David </p>
+            <p class="text-xs text-slate-500">Data Analytics Intern</p>
+          </div>
+        </div>
+        <p class="mt-4 text-slate-600 text-sm">“The structured roadmap helped me build dashboards and crack my first internship.”</p>
+      </div>
+
+      <div class="card-premium p-6">
+        <div class="flex items-center gap-4">
+          <img src="https://randomuser.me/api/portraits/women/44.jpg" class="w-14 h-14 rounded-full">
+          <div>
+            <p class="font-bold">Noemi</p>
+            <p class="text-xs text-slate-500">AI Tools Learner</p>
+          </div>
+        </div>
+        <p class="mt-4 text-slate-600 text-sm">“AI tools training helped me optimize my resume and prepare for interviews.”</p>
+      </div>
+
+      <div class="card-premium p-6">
+        <div class="flex items-center gap-4">
+          <img src="https://randomuser.me/api/portraits/men/75.jpg" class="w-14 h-14 rounded-full">
+          <div>
+            <p class="font-bold">Hasan</p>
+            <p class="text-xs text-slate-500">Web Dev Intern</p>
+          </div>
+        </div>
+        <p class="mt-4 text-slate-600 text-sm">“I built my portfolio and started freelancing while still learning.”</p>
+      </div>
+
+    </div>
+  </div>
 </section>
 
-<!-- HIRING PARTNERS LOGO MARQUEE -->
-<section class="section-light py-20 border-t overflow-hidden text-center">
-<p class="text-sm font-semibold text-slate-500">Learners prepared for opportunities at</p>
-<div class="mt-12 flex gap-16 items-center animate-logo-marquee whitespace-nowrap">
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" class="h-12 opacity-70">
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoft/microsoft-original.svg" class="h-12 opacity-70">
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" class="h-12 opacity-70">
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" class="h-12 opacity-70">
-</div>
+<!-- ================= ANIMATED HIRING PARTNERS ================= -->
+<section class="section-light py-20 border-t border-slate-200 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 text-center">
+    <p class="text-sm font-semibold text-slate-500">Learners prepare for opportunities at</p>
+
+    <div class="mt-10 relative">
+      <div class="flex gap-16 animate-marquee whitespace-nowrap text-slate-400 font-extrabold text-xl">
+        <span>Google</span>
+        <span>Microsoft</span>
+        <span>Amazon</span>
+        <span>Deloitte</span>
+        <span>Accenture</span>
+        <span>Infosys</span>
+        <span>TCS</span>
+        <span>Wipro</span>
+        <span>Capgemini</span>
+        <span>Cognizant</span>
+        <!-- repeat for smooth loop -->
+        <span>Google</span>
+        <span>Microsoft</span>
+        <span>Amazon</span>
+        <span>Deloitte</span>
+        <span>Accenture</span>
+        <span>Infosys</span>
+        <span>TCS</span>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- FOOTER -->
-<footer class="bg-slate-900 text-white py-16 text-center">
-<p>© 2026 Eduskillpath. All rights reserved.</p>
+<style>
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 25s linear infinite;
+}
+</style>
+
+<!-- ================= EXPANDED CERTIFICATES ================= -->
+<section id="certificates" class="section-soft py-24">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center max-w-2xl mx-auto">
+      <h2 class="text-4xl font-extrabold">Professional Certificates</h2>
+      <p class="mt-4 text-slate-600 font-medium">
+        Verified certificates awarded after completing internship projects and assessments.
+      </p>
+    </div>
+
+    <div class="mt-16 grid md:grid-cols-3 gap-8 text-sm font-semibold text-slate-700">
+
+      <div class="card-premium p-6">Data Analytics Internship Certificate</div>
+      <div class="card-premium p-6">AI & Automation Tools Certificate</div>
+      <div class="card-premium p-6">Digital Marketing Internship Certificate</div>
+      <div class="card-premium p-6">Web Development Project Certificate</div>
+      <div class="card-premium p-6">Finance & Excel Analytics Certificate</div>
+      <div class="card-premium p-6">HR & Recruitment Internship Certificate</div>
+      <div class="card-premium p-6">Graphic Design Practical Certificate</div>
+      <div class="card-premium p-6">SQL & Database Reporting Certificate</div>
+      <div class="card-premium p-6">Power BI Dashboard Certificate</div>
+      <div class="card-premium p-6">Business Analytics Internship Certificate</div>
+      <div class="card-premium p-6">Automation Workflow Certificate</div>
+      <div class="card-premium p-6">Technical Writing Internship Certificate</div>
+
+    </div>
+  </div>
+</section>
+<!-- ================= HIRING PARTNERS LOGO WALL ================= -->
+<section class="section-light py-20 border-t border-slate-200 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 text-center">
+    <p class="text-sm font-semibold text-slate-500">Learners prepared for opportunities at</p>
+
+    <div class="mt-12 relative">
+      <div class="flex gap-16 items-center animate-logo-marquee whitespace-nowrap">
+
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" class="h-12 opacity-70 hover:opacity-100 transition">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" class="h-12 opacity-70 hover:opacity-100 transition">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoft/microsoft-original.svg" class="h-12 opacity-70 hover:opacity-100 transition">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" class="h-12 opacity-70 hover:opacity-100 transition">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/slack/slack-original.svg" class="h-12 opacity-70 hover:opacity-100 transition">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" class="h-12 opacity-70 hover:opacity-100 transition">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" class="h-12 opacity-70 hover:opacity-100 transition">
+
+        <!-- Repeat for smooth loop -->
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" class="h-12 opacity-70">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" class="h-12 opacity-70">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoft/microsoft-original.svg" class="h-12 opacity-70">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" class="h-12 opacity-70">
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="bg-slate-900 text-white py-16">
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-10 text-sm">
+    <div>
+      <h3 class="font-extrabold text-lg">Eduskillpath</h3>
+      <p class="mt-3 text-slate-400">Learn skills, build projects, and grow your career with structured training.</p>
+    </div>
+
+    <div>
+      <h4 class="font-bold mb-3">Quick Links</h4>
+      <a href="#programs" class="block text-slate-400">Programs</a>
+      <a href="#internships" class="block text-slate-400">Internships</a>
+      <a href="#cvbuilder" class="block text-slate-400">CV Builder</a>
+    </div>
+
+    <div>
+      <h4 class="font-bold mb-3">Contact</h4>
+      <p class="text-slate-400">support@eduskillpath.com</p>
+      <p class="text-slate-400">India</p>
+    </div>
+  </div>
+  <p class="text-center text-slate-500 text-xs mt-10">© 2026 Eduskillpath. All rights reserved.</p>
 </footer>
 
-<!-- GLOBE LOAD ONLY DESKTOP -->
+<!-- ================= FIXED HERO GLOBE SCRIPT ================= -->
 <script src="https://unpkg.com/three@0.152.2/build/three.min.js"></script>
 <script src="https://unpkg.com/three-globe"></script>
+
 <script>
-if (window.innerWidth > 768) {
-const container=document.getElementById("globe-container");
-const scene=new THREE.Scene();
-const camera=new THREE.PerspectiveCamera(50,window.innerWidth/window.innerHeight,0.1,1000);
-const renderer=new THREE.WebGLRenderer({alpha:true});
-renderer.setSize(window.innerWidth,window.innerHeight);
-container.appendChild(renderer.domElement);
-scene.add(new THREE.AmbientLight(0xffffff,1.2));
-const Globe=new ThreeGlobe().globeImageUrl("//unpkg.com/three-globe/example/img/earth-blue-marble.jpg");
-scene.add(Globe);
-camera.position.z=280;
-(function animate(){Globe.rotation.y+=0.0015;renderer.render(scene,camera);requestAnimationFrame(animate)})();
+const container = document.getElementById("globe-container");
+
+if (container) {
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(50, window.innerWidth/window.innerHeight, 0.1, 1000);
+  const renderer = new THREE.WebGLRenderer({ alpha:true, antialias:true });
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  container.appendChild(renderer.domElement);
+
+  scene.add(new THREE.AmbientLight(0xffffff, 1.2));
+  const dirLight = new THREE.DirectionalLight(0xffffff, 1);
+  dirLight.position.set(5,3,5);
+  scene.add(dirLight);
+
+  const Globe = new ThreeGlobe()
+    .globeImageUrl("//unpkg.com/three-globe/example/img/earth-blue-marble.jpg")
+    .bumpImageUrl("//unpkg.com/three-globe/example/img/earth-topology.png")
+    .showAtmosphere(true)
+    .atmosphereColor("#60a5fa")
+    .atmosphereAltitude(0.22);
+
+  scene.add(Globe);
+  camera.position.z = 280;
+
+  function animate() {
+    Globe.rotation.y += 0.0015;
+    renderer.render(scene, camera);
+    requestAnimationFrame(animate);
+  }
+  animate();
+
+  window.addEventListener("resize", () => {
+    camera.aspect = window.innerWidth/window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  });
 }
+</script>
+<script>
+const counters = document.querySelectorAll('.counter');
+
+const animateCounter = (counter) => {
+  const target = +counter.getAttribute('data-target');
+  const duration = 1500;
+  const start = performance.now();
+
+  function update(now) {
+    const progress = Math.min((now - start) / duration, 1);
+    counter.innerText = Math.floor(progress * target);
+    if (progress < 1) requestAnimationFrame(update);
+    else counter.innerText = target + "+";
+  }
+
+  requestAnimationFrame(update);
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      animateCounter(entry.target);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.6 });
+
+counters.forEach(counter => observer.observe(counter));
 </script>
 
 </body>
 </html>
-
