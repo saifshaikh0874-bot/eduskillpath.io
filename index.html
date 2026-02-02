@@ -13,10 +13,17 @@
       theme: {
         extend: {
           colors: {
-            brand: {
-              500: "#2563eb",
-              600: "#1d4ed8",
-              700: "#1e40af"
+           brand: {
+  50:  "#eef2ff",
+  100: "#e0e7ff",
+  200: "#c7d2fe",
+  300: "#a5b4fc",
+  400: "#818cf8",
+  500: "#4f46e5",   // New premium primary
+  600: "#4338ca",
+  700: "#3730a3"
+}
+f"
             }
           },
           boxShadow: {
@@ -260,10 +267,10 @@
 
     <div>
       <p class="text-sm font-semibold text-brand-600">🚀 Future-Ready Skills Platform</p>
-      <h1 class="mt-4 text-5xl md:text-6xl font-extrabold leading-tight">
+     <h1 class="mt-4 text-5xl md:text-6xl font-extrabold leading-tight text-white drop-shadow-lg">
         Learn Skills That <span class="text-brand-600">Build Careers</span>
       </h1>
-      <p class="mt-6 text-lg text-slate-700 leading-relaxed">
+     <p class="mt-6 text-lg text-slate-200 leading-relaxed">
         Eduskillpath helps students and freshers become job-ready with
         structured learning, real-world projects, internships, and
         professional career support.
@@ -1190,17 +1197,17 @@ if (container) {
   scene.add(dirLight);
 
   const Globe = new ThreeGlobe()
-    .globeImageUrl("//unpkg.com/three-globe/example/img/earth-blue-marble.jpg")
+   .globeImageUrl("//unpkg.com/three-globe/example/img/earth-night.jpg")
     .bumpImageUrl("//unpkg.com/three-globe/example/img/earth-topology.png")
     .showAtmosphere(true)
-    .atmosphereColor("#60a5fa")
-    .atmosphereAltitude(0.22);
+   .atmosphereColor("#6366f1")
+.atmosphereAltitude(0.28);
 
   scene.add(Globe);
   camera.position.z = 280;
 
   function animate() {
-    Globe.rotation.y += 0.0015;
+   Globe.rotation.y += 0.0008;
     renderer.render(scene, camera);
     requestAnimationFrame(animate);
   }
