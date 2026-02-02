@@ -37,6 +37,14 @@
 }
 
   <style>
+    #certificateContent {
+  background: linear-gradient(to bottom right, #ffffff, #f8fbff);
+  border: 6px double #dbeafe;
+}
+
+    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+.font-signature { font-family: 'Great Vibes', cursive; }
+
     body {
       background: #f8fafc;
       color: #0f172a;
@@ -226,7 +234,7 @@
     <nav class="hidden md:flex gap-8 font-semibold text-sm">
       <a href="#programs" class="hover:text-brand-600">Programs</a>
       <a href="#internships" class="hover:text-brand-600">Internships</a>
-      <a href="#certificates" class="hover:text-brand-600">Certificates</a>
+      <a href="#projects" class="hover:text-brand-600">Projects</a>
       <a href="#success" class="hover:text-brand-600">Success Stories</a>
       <a href="#cvbuilder" class="hover:text-brand-600">CV Builder</a>
     </nav>
@@ -288,7 +296,7 @@
       <p class="text-sm text-slate-600 mt-1">Limited seats. Our team will contact you.</p>
 
       <form class="mt-6 grid gap-4">
-        <input class="border rounded-lg px-4 py-3" placeholder="Full Name" />
+        <input id="studentNameInput" class="border rounded-lg px-4 py-3" placeholder="Full Name" />
         <input class="border rounded-lg px-4 py-3" placeholder="Email Address" />
         <input class="border rounded-lg px-4 py-3" placeholder="Phone Number" />
         <select class="border rounded-lg px-4 py-3">
@@ -568,31 +576,60 @@
   </div>
 </section>
 
-<!-- ================= CERTIFICATES ================= -->
-<section id="certificates" class="section-light py-24">
+<!-- ================= PROJECTS YOU'LL BUILD ================= -->
+<section id="projects" class="section-light py-24">
   <div class="max-w-7xl mx-auto px-6">
+
     <div class="text-center max-w-2xl mx-auto">
-      <h2 class="text-4xl font-extrabold">Professional Certificates</h2>
+      <h2 class="text-4xl font-extrabold">Projects You'll Build</h2>
       <p class="mt-4 text-slate-600 font-medium">
-        Earn verified certificates after completing projects and internship tasks.
+        Gain real-world experience by working on practical projects that strengthen your portfolio and job readiness.
       </p>
     </div>
 
-    <div class="mt-16 grid md:grid-cols-3 gap-8 text-sm font-semibold text-slate-700">
+    <div class="mt-16 grid md:grid-cols-2 lg:grid-cols-4 gap-8">
 
-      <div class="card-premium p-6">Data Analytics Internship Certificate</div>
-      <div class="card-premium p-6">AI & Automation Certificate</div>
-      <div class="card-premium p-6">Digital Marketing Internship Certificate</div>
-      <div class="card-premium p-6">Web Development Certificate</div>
-      <div class="card-premium p-6">Finance & Accounting Certificate</div>
-      <div class="card-premium p-6">HR & Recruitment Certificate</div>
-      <div class="card-premium p-6">Graphic Design Internship Certificate</div>
-      <div class="card-premium p-6">SQL & Database Certificate</div>
-      <div class="card-premium p-6">Power BI Dashboard Certificate</div>
+      <!-- Project 1 -->
+      <div class="card-premium overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71" class="w-full h-40 object-cover">
+        <div class="p-6">
+          <h3 class="font-extrabold text-brand-600">Sales Dashboard (Power BI)</h3>
+          <p class="mt-2 text-sm text-slate-600">Analyze business data and build an interactive dashboard used in real companies.</p>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="card-premium overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1677442135136-760c813028c0" class="w-full h-40 object-cover">
+        <div class="p-6">
+          <h3 class="font-extrabold text-brand-600">AI Resume Analyzer</h3>
+          <p class="mt-2 text-sm text-slate-600">Use AI tools to evaluate resumes and suggest improvements like recruiters do.</p>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="card-premium overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f" class="w-full h-40 object-cover">
+        <div class="p-6">
+          <h3 class="font-extrabold text-brand-600">Personal Portfolio Website</h3>
+          <p class="mt-2 text-sm text-slate-600">Design and deploy your own professional portfolio website to showcase your skills.</p>
+        </div>
+      </div>
+
+      <!-- Project 4 -->
+      <div class="card-premium overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1557838923-2985c318be48" class="w-full h-40 object-cover">
+        <div class="p-6">
+          <h3 class="font-extrabold text-brand-600">Marketing Campaign Report</h3>
+          <p class="mt-2 text-sm text-slate-600">Create a digital marketing performance report using analytics and ad campaign data.</p>
+        </div>
+      </div>
 
     </div>
+
   </div>
 </section>
+
 <!-- ================= REALISTIC SUCCESS STORIES ================= -->
 <section class="section-light py-24">
   <div class="max-w-7xl mx-auto px-6">
@@ -677,34 +714,70 @@
 }
 </style>
 
-<!-- ================= EXPANDED CERTIFICATES ================= -->
+<!-- ================= PREMIUM CERTIFICATES ================= -->
 <section id="certificates" class="section-soft py-24">
   <div class="max-w-7xl mx-auto px-6">
+
     <div class="text-center max-w-2xl mx-auto">
-      <h2 class="text-4xl font-extrabold">Professional Certificates</h2>
+      <h2 class="text-4xl font-extrabold">Earn Industry-Ready Certificates</h2>
       <p class="mt-4 text-slate-600 font-medium">
-        Verified certificates awarded after completing internship projects and assessments.
+        Showcase your verified skills with professional certificates awarded after completing real projects and internship work.
       </p>
     </div>
 
-    <div class="mt-16 grid md:grid-cols-3 gap-8 text-sm font-semibold text-slate-700">
+    <div class="mt-16 grid md:grid-cols-2 lg:grid-cols-3 gap-10">
 
-      <div class="card-premium p-6">Data Analytics Internship Certificate</div>
-      <div class="card-premium p-6">AI & Automation Tools Certificate</div>
-      <div class="card-premium p-6">Digital Marketing Internship Certificate</div>
-      <div class="card-premium p-6">Web Development Project Certificate</div>
-      <div class="card-premium p-6">Finance & Excel Analytics Certificate</div>
-      <div class="card-premium p-6">HR & Recruitment Internship Certificate</div>
-      <div class="card-premium p-6">Graphic Design Practical Certificate</div>
-      <div class="card-premium p-6">SQL & Database Reporting Certificate</div>
-      <div class="card-premium p-6">Power BI Dashboard Certificate</div>
-      <div class="card-premium p-6">Business Analytics Internship Certificate</div>
-      <div class="card-premium p-6">Automation Workflow Certificate</div>
-      <div class="card-premium p-6">Technical Writing Internship Certificate</div>
+      <!-- Certificate Card -->
+      <div class="card-premium p-6 hover:shadow-xl transition">
+        <div class="bg-white border border-slate-200 rounded-xl p-4 shadow-sm">
+          <div class="h-40 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-lg flex items-center justify-center text-brand-600 font-bold text-lg">
+            Data Analytics Internship
+          </div>
+        </div>
+        <div class="mt-4 flex justify-between items-center">
+          <span class="text-sm font-semibold text-slate-700">Verified Credential</span>
+          <span class="text-xs bg-green-100 text-green-700 px-3 py-1 rounded-full font-bold">✔ Verified</span>
+        </div>
+        <button onclick="openCertModal()" class="mt-4 w-full bg-brand-600 text-white py-2 rounded-lg font-semibold hover:bg-brand-700 transition">
+          View Sample Certificate
+        </button>
+      </div>
+
+      <!-- Copy this block to make more certificates -->
+      <div class="card-premium p-6 hover:shadow-xl transition">
+        <div class="bg-white border border-slate-200 rounded-xl p-4 shadow-sm">
+          <div class="h-40 bg-gradient-to-br from-purple-100 to-indigo-100 rounded-lg flex items-center justify-center text-brand-600 font-bold text-lg">
+            AI & Automation Tools
+          </div>
+        </div>
+        <div class="mt-4 flex justify-between items-center">
+          <span class="text-sm font-semibold text-slate-700">Project Completion</span>
+          <span class="text-xs bg-green-100 text-green-700 px-3 py-1 rounded-full font-bold">✔ Verified</span>
+        </div>
+        <button onclick="openCertModal()" class="mt-4 w-full bg-brand-600 text-white py-2 rounded-lg font-semibold hover:bg-brand-700 transition">
+          View Sample Certificate
+        </button>
+      </div>
+
+      <div class="card-premium p-6 hover:shadow-xl transition">
+        <div class="bg-white border border-slate-200 rounded-xl p-4 shadow-sm">
+          <div class="h-40 bg-gradient-to-br from-pink-100 to-rose-100 rounded-lg flex items-center justify-center text-brand-600 font-bold text-lg">
+            Digital Marketing Internship
+          </div>
+        </div>
+        <div class="mt-4 flex justify-between items-center">
+          <span class="text-sm font-semibold text-slate-700">Campaign Analysis</span>
+          <span class="text-xs bg-green-100 text-green-700 px-3 py-1 rounded-full font-bold">✔ Verified</span>
+        </div>
+        <button onclick="openCertModal()" class="mt-4 w-full bg-brand-600 text-white py-2 rounded-lg font-semibold hover:bg-brand-700 transition">
+          View Sample Certificate
+        </button>
+      </div>
 
     </div>
   </div>
 </section>
+
 <!-- ================= HIRING PARTNERS LOGO WALL ================= -->
 <section class="section-light py-20 border-t border-slate-200 overflow-hidden">
   <div class="max-w-7xl mx-auto px-6 text-center">
@@ -827,6 +900,131 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.6 });
 
 counters.forEach(counter => observer.observe(counter));
+</script>
+<!-- ================= CERTIFICATE MODAL ================= -->
+<div id="certModal" class="fixed inset-0 bg-black/60 hidden items-center justify-center z-50">
+  <div class="bg-white rounded-2xl shadow-2xl max-w-3xl w-full mx-4 p-6 relative animate-fadeIn">
+
+    <button onclick="closeCertModal()" class="absolute top-4 right-4 text-slate-500 hover:text-black text-xl font-bold">&times;</button>
+
+    <h3 class="text-xl font-extrabold text-center mb-4">Sample Internship Certificate</h3>
+
+    <div id="certificateContent" class="border-4 border-slate-200 rounded-xl p-8 text-center bg-gradient-to-br from-white to-slate-50">
+
+      <div class="flex flex-col items-center">
+  <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" class="w-12 mb-2 opacity-80">
+  <h4 class="text-3xl font-extrabold tracking-wide text-brand-600">Eduskillpath</h4>
+  <p class="text-xs tracking-widest text-slate-400">PROFESSIONAL SKILL DEVELOPMENT INSTITUTE</p>
+</div>
+
+      <p class="mt-2 text-sm text-slate-500">Certificate of Completion</p>
+
+      <p class="mt-6 text-lg font-semibold">This is to certify that</p>
+      <input id="certificateStudentName"    class="text-2xl font-extrabold mt-1 text-center bg-transparent border-b-2 border-dashed border-slate-300 focus:outline-none"   value="Student Name" />
+
+      <p class="mt-4 text-slate-600 text-sm">has successfully completed the internship program in</p>
+      <p class="text-lg font-bold text-brand-600 mt-1">Data Analytics</p>
+      <p class="mt-3 text-xs text-slate-500 tracking-wide">
+  Program aligned with industry standards & tools used by companies like Google, Microsoft & Amazon
+</p>
+
+
+      <div class="mt-6 text-xs text-slate-500 flex justify-between px-6">
+        <span id="certificateID">Certificate ID: ESP-000000</span>
+        <span id="certificateDate">Issued: --/--/----</span>
+      </div>
+
+      <div class="flex justify-center mt-8">
+        <div class="relative w-24 h-24">
+          <div class="absolute inset-0 rounded-full bg-yellow-400 blur-md opacity-40"></div>
+          <div class="relative w-24 h-24 rounded-full bg-gradient-to-br from-yellow-400 via-yellow-500 to-amber-600 flex items-center justify-center shadow-lg border-4 border-yellow-300">
+            <div class="text-center text-white text-[10px] font-bold leading-tight">
+              VERIFIED<br>CERTIFICATE
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-10 flex justify-between items-end px-10 text-sm">
+        <div class="text-center">
+          <span class="font-signature text-3xl text-slate-700">Saif Alam</span>
+<div class="border-t border-slate-400 w-44 mt-2"></div>
+<p class="mt-1 text-xs text-slate-500 font-semibold tracking-wide">
+  Director – Eduskillpath Skill Development Program
+</p>
+
+        <div class="text-center">
+          <span class="font-semibold text-slate-700">Eduskillpath</span>
+          <div class="border-t border-slate-400 w-40 mt-2"></div>
+          <p class="mt-1 text-xs text-slate-500 font-semibold">Authorized Issuer</p>
+        </div>
+      </div>
+
+      <div class="flex justify-end mt-6 px-10">
+        <div class="text-center">
+          <img id="certificateQR" src="" class="w-20 h-20 border rounded-md shadow-sm">
+          <p class="text-[10px] text-slate-400 mt-1">Scan to verify</p>
+        </div>
+      </div>
+
+     <div class="mt-6 text-[11px] text-slate-400 leading-relaxed">
+  Issued by <strong>Eduskillpath</strong> • Internship & Project Program<br>
+  Registered under MSME India • Skill Development & Training Initiative<br>
+  Operating in accordance with applicable Indian education & training guidelines
+</div>
+
+    </div>
+
+    <button onclick="downloadCertificate()" class="mt-6 w-full bg-green-600 text-white py-3 rounded-lg font-bold hover:bg-green-700 transition">
+      Download Certificate (PDF)
+    </button>
+
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+function generateCertificateID() {
+  return "ESP-" + Math.floor(100000 + Math.random() * 900000);
+}
+
+function getTodayDate() {
+  return new Date().toLocaleDateString("en-GB");
+}
+
+function openCertModal() {
+  const nameInput = document.getElementById("studentNameInput").value.trim();
+  const displayName = nameInput || "Student Name";
+  const certID = generateCertificateID();
+  const issueDate = getTodayDate();
+
+  document.getElementById("certificateStudentName").innerText = displayName;
+  document.getElementById("certificateID").innerText = "Certificate ID: " + certID;
+  document.getElementById("certificateDate").innerText = "Issued: " + issueDate;
+
+  const qrData = `Eduskillpath Certificate\nName: ${displayName}\nCertificate ID: ${certID}\nIssued: ${issueDate}`;
+  document.getElementById("certificateQR").src =
+    "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=" + encodeURIComponent(qrData);
+
+  document.getElementById("certModal").classList.remove("hidden");
+  document.getElementById("certModal").classList.add("flex");
+}
+
+function closeCertModal() {
+  document.getElementById("certModal").classList.add("hidden");
+  document.getElementById("certModal").classList.remove("flex");
+}
+
+async function downloadCertificate() {
+  const { jsPDF } = window.jspdf;
+  const cert = document.getElementById("certificateContent");
+  const canvas = await html2canvas(cert, { scale: 2 });
+  const imgData = canvas.toDataURL("image/png");
+
+  const pdf = new jsPDF({ orientation: "landscape", unit: "px", format: [canvas.width, canvas.height] });
+  pdf.addImage(imgData, "PNG", 0, 0, canvas.width, canvas.height);
+  pdf.save("Eduskillpath-Certificate.pdf");
+}
 </script>
 
 </body>
