@@ -37,6 +37,29 @@
 }
 
   <style>
+    /* Silicon Valley Style Logo Marquee */
+@keyframes siliconMarquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-silicon-marquee {
+  animation: siliconMarquee 40s linear infinite;
+}
+
+.silicon-logo {
+  height: 48px;
+  opacity: 0.55;
+  filter: grayscale(100%);
+  transition: all 0.35s ease;
+}
+
+.silicon-logo:hover {
+  opacity: 1;
+  filter: grayscale(0%);
+  transform: scale(1.08);
+}
+
     #certificateContent {
   background: linear-gradient(to bottom right, #ffffff, #f8fbff);
   border: 6px double #dbeafe;
@@ -674,45 +697,40 @@
   </div>
 </section>
 
-<!-- ================= ANIMATED HIRING PARTNERS ================= -->
-<section class="section-light py-20 border-t border-slate-200 overflow-hidden">
-  <div class="max-w-7xl mx-auto px-6 text-center">
-    <p class="text-sm font-semibold text-slate-500">Learners prepare for opportunities at</p>
+<!-- ================= ELITE HIRING PARTNERS ================= -->
+<section class="relative section-light py-24 border-t border-slate-200 overflow-hidden">
 
-    <div class="mt-10 relative">
-      <div class="flex gap-16 animate-marquee whitespace-nowrap text-slate-400 font-extrabold text-xl">
-        <span>Google</span>
-        <span>Microsoft</span>
-        <span>Amazon</span>
-        <span>Deloitte</span>
-        <span>Accenture</span>
-        <span>Infosys</span>
-        <span>TCS</span>
-        <span>Wipro</span>
-        <span>Capgemini</span>
-        <span>Cognizant</span>
-        <!-- repeat for smooth loop -->
-        <span>Google</span>
-        <span>Microsoft</span>
-        <span>Amazon</span>
-        <span>Deloitte</span>
-        <span>Accenture</span>
-        <span>Infosys</span>
-        <span>TCS</span>
+  <!-- EDGE FADE GRADIENTS -->
+  <div class="pointer-events-none absolute left-0 top-0 h-full w-32 bg-gradient-to-r from-white to-transparent z-10"></div>
+  <div class="pointer-events-none absolute right-0 top-0 h-full w-32 bg-gradient-to-l from-white to-transparent z-10"></div>
+
+  <div class="max-w-7xl mx-auto px-6 text-center">
+    <p class="text-sm font-semibold text-slate-500 tracking-widest uppercase">
+      Skills aligned with global tech standards
+    </p>
+
+    <div class="mt-14 relative overflow-hidden">
+      <div class="flex items-center gap-24 animate-silicon-marquee whitespace-nowrap">
+
+        <!-- LOGOS -->
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" class="silicon-logo">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoft/microsoft-original.svg" class="silicon-logo">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" class="silicon-logo">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apple/apple-original.svg" class="silicon-logo">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/meta/meta-original.svg" class="silicon-logo">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/netflix/netflix-original.svg" class="silicon-logo">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" class="silicon-logo">
+
+        <!-- DUPLICATES FOR SMOOTH LOOP -->
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" class="silicon-logo">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoft/microsoft-original.svg" class="silicon-logo">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" class="silicon-logo">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apple/apple-original.svg" class="silicon-logo">
+
       </div>
     </div>
   </div>
 </section>
-
-<style>
-@keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-.animate-marquee {
-  animation: marquee 25s linear infinite;
-}
-</style>
 
 <!-- ================= PREMIUM CERTIFICATES ================= -->
 <section id="certificates" class="section-soft py-24">
