@@ -602,24 +602,28 @@
 
 
 <!-- ================= ELITE CV BUILDER SECTION ================= -->
-<section id="cvbuilder" class="py-32 bg-gradient-to-br from-slate-50 via-white to-blue-50">
+<section id="cvbuilder" class="py-32 bg-gradient-to-br from-slate-50 via-white to-blue-50 relative overflow-hidden">
 
-  <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-24 items-center">
+  <!-- Background Glow Effects -->
+  <div class="absolute -top-24 -left-24 w-96 h-96 bg-blue-200 rounded-full blur-3xl opacity-30"></div>
+  <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-indigo-200 rounded-full blur-3xl opacity-30"></div>
 
-    <!-- LEFT SIDE -->
+  <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-24 items-center relative">
+
+    <!-- LEFT SIDE CONTENT -->
     <div>
       <span class="inline-block bg-blue-100 text-blue-700 text-xs font-bold px-4 py-1 rounded-full mb-6 shadow-sm">
-        🚀 Resume Builder
+        🚀 Smart Resume Builder
       </span>
 
       <h2 class="text-5xl md:text-6xl font-extrabold leading-tight">
         Build a <span class="text-brand-600">Professional CV</span><br>
-        That Recruiters Notice
+        That Gets You Interviews
       </h2>
 
       <p class="mt-6 text-lg text-slate-600 leading-relaxed max-w-xl">
-        Create job-winning resumes using recruiter-approved templates,
-        AI-powered writing help, and modern layouts designed for ATS systems.
+        Create recruiter-approved resumes with AI guidance, modern templates,
+        and industry-ready formatting built for ATS systems.
       </p>
 
       <!-- FEATURE POINTS -->
@@ -636,14 +640,14 @@
           <div class="w-11 h-11 bg-white rounded-lg shadow flex items-center justify-center">
             <img src="https://cdn-icons-png.flaticon.com/512/4712/4712035.png" class="w-6 h-6">
           </div>
-          <p class="font-semibold text-slate-700">AI-Powered Skill & Content Suggestions</p>
+          <p class="font-semibold text-slate-700">AI-Powered Writing Assistance</p>
         </div>
 
         <div class="flex items-center gap-4">
           <div class="w-11 h-11 bg-white rounded-lg shadow flex items-center justify-center">
             <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" class="w-6 h-6">
           </div>
-          <p class="font-semibold text-slate-700">Designed with Hiring Expert Input</p>
+          <p class="font-semibold text-slate-700">Designed with Hiring Experts</p>
         </div>
 
       </div>
@@ -652,16 +656,25 @@
       <div class="mt-14 grid grid-cols-3 gap-8 text-center max-w-md">
         <div>
           <p class="text-3xl font-extrabold text-brand-600">1,200+</p>
-          <p class="text-xs text-slate-500 font-semibold">Resumes Created</p>
+          <p class="text-xs text-slate-500 font-semibold">Resumes Built</p>
         </div>
         <div>
           <p class="text-3xl font-extrabold text-brand-600">85%</p>
-          <p class="text-xs text-slate-500 font-semibold">Interview Rate</p>
+          <p class="text-xs text-slate-500 font-semibold">Interview Success</p>
         </div>
         <div>
           <p class="text-3xl font-extrabold text-brand-600">40+</p>
-          <p class="text-xs text-slate-500 font-semibold">Industries Covered</p>
+          <p class="text-xs text-slate-500 font-semibold">Career Domains</p>
         </div>
+      </div>
+
+      <!-- TESTIMONIAL -->
+      <div class="mt-12 bg-white p-5 rounded-xl shadow border">
+        <p class="text-sm text-slate-600 italic">
+          “I used the CV builder to redesign my resume and got interview calls within a week. 
+          The format really matches what recruiters expect.”
+        </p>
+        <p class="mt-3 text-xs font-bold text-slate-700">— Recent Graduate, Placed in Tech Role</p>
       </div>
 
       <a href="resume-builder.html"
@@ -670,29 +683,29 @@
       </a>
     </div>
 
-    <!-- RIGHT SIDE PREMIUM IMAGE LAYOUT -->
-    <div class="relative h-[540px] flex items-center justify-center">
+    <!-- RIGHT SIDE PREMIUM VISUAL LAYOUT -->
+    <div class="relative h-[560px] flex items-center justify-center">
 
       <!-- BACK IMAGE -->
-      <div class="absolute left-0 top-10 w-[250px] rounded-2xl shadow-xl overflow-hidden hidden md:block">
-        <img src="https://images.unsplash.com/photo-1586281380117-5a60ae2050cc?q=80&w=800&auto=format&fit=crop"
+      <div class="absolute left-0 top-14 w-[260px] rounded-2xl shadow-xl overflow-hidden hidden md:block">
+        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=800&auto=format&fit=crop"
              class="w-full h-full object-cover">
       </div>
 
-      <!-- MAIN CENTER IMAGE -->
-      <div class="relative z-10 w-[320px] md:w-[360px] rounded-3xl shadow-2xl overflow-hidden border-4 border-white">
-        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=900&auto=format&fit=crop"
-             class="w-full h-[480px] object-cover">
+      <!-- MAIN IMAGE -->
+      <div class="relative z-10 w-[340px] md:w-[380px] rounded-3xl shadow-2xl overflow-hidden border-4 border-white">
+        <img src="https://images.unsplash.com/photo-1586281380117-5a60ae2050cc?q=80&w=900&auto=format&fit=crop"
+             class="w-full h-[500px] object-cover">
       </div>
 
       <!-- FRONT IMAGE -->
-      <div class="absolute right-0 bottom-6 w-[220px] rounded-2xl shadow-xl overflow-hidden hidden md:block">
+      <div class="absolute right-0 bottom-8 w-[230px] rounded-2xl shadow-xl overflow-hidden hidden md:block">
         <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=800&auto=format&fit=crop"
              class="w-full h-full object-cover">
       </div>
 
-      <!-- Soft Glow -->
-      <div class="absolute -z-10 w-[420px] h-[420px] bg-blue-200 rounded-full blur-3xl opacity-30"></div>
+      <!-- Glow Base -->
+      <div class="absolute -z-10 w-[450px] h-[450px] bg-blue-200 rounded-full blur-3xl opacity-30"></div>
 
     </div>
 
