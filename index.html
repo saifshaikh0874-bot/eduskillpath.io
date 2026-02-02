@@ -37,6 +37,11 @@
 }
 
   <style>
+    #certificateContent {
+  background: linear-gradient(to bottom right, #ffffff, #f8fbff);
+  border: 6px double #dbeafe;
+}
+
     @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 .font-signature { font-family: 'Great Vibes', cursive; }
 
@@ -906,14 +911,23 @@ counters.forEach(counter => observer.observe(counter));
 
     <div id="certificateContent" class="border-4 border-slate-200 rounded-xl p-8 text-center bg-gradient-to-br from-white to-slate-50">
 
-      <h4 class="text-2xl font-extrabold text-brand-600">Eduskillpath</h4>
+      <div class="flex flex-col items-center">
+  <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" class="w-12 mb-2 opacity-80">
+  <h4 class="text-3xl font-extrabold tracking-wide text-brand-600">Eduskillpath</h4>
+  <p class="text-xs tracking-widest text-slate-400">PROFESSIONAL SKILL DEVELOPMENT INSTITUTE</p>
+</div>
+
       <p class="mt-2 text-sm text-slate-500">Certificate of Completion</p>
 
       <p class="mt-6 text-lg font-semibold">This is to certify that</p>
-      <p id="certificateStudentName" class="text-2xl font-extrabold mt-1">Student Name</p>
+      <input id="certificateStudentName"    class="text-2xl font-extrabold mt-1 text-center bg-transparent border-b-2 border-dashed border-slate-300 focus:outline-none"   value="Student Name" />
 
       <p class="mt-4 text-slate-600 text-sm">has successfully completed the internship program in</p>
       <p class="text-lg font-bold text-brand-600 mt-1">Data Analytics</p>
+      <p class="mt-3 text-xs text-slate-500 tracking-wide">
+  Program aligned with industry standards & tools used by companies like Google, Microsoft & Amazon
+</p>
+
 
       <div class="mt-6 text-xs text-slate-500 flex justify-between px-6">
         <span id="certificateID">Certificate ID: ESP-000000</span>
@@ -952,7 +966,12 @@ counters.forEach(counter => observer.observe(counter));
         </div>
       </div>
 
-      <p class="mt-6 text-xs text-slate-400">Issued by Eduskillpath • Internship & Project Program</p>
+     <div class="mt-6 text-[11px] text-slate-400 leading-relaxed">
+  Issued by <strong>Eduskillpath</strong> • Internship & Project Program<br>
+  Registered under MSME India • Skill Development & Training Initiative<br>
+  Operating in accordance with applicable Indian education & training guidelines
+</div>
+
     </div>
 
     <button onclick="downloadCertificate()" class="mt-6 w-full bg-green-600 text-white py-3 rounded-lg font-bold hover:bg-green-700 transition">
