@@ -37,29 +37,6 @@
 }
 
   <style>
-    /* Silicon Valley Style Logo Marquee */
-@keyframes siliconMarquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-.animate-silicon-marquee {
-  animation: siliconMarquee 40s linear infinite;
-}
-
-.silicon-logo {
-  height: 48px;
-  opacity: 0.55;
-  filter: grayscale(100%);
-  transition: all 0.35s ease;
-}
-
-.silicon-logo:hover {
-  opacity: 1;
-  filter: grayscale(0%);
-  transform: scale(1.08);
-}
-
     #certificateContent {
   background: linear-gradient(to bottom right, #ffffff, #f8fbff);
   border: 6px double #dbeafe;
@@ -471,107 +448,98 @@
   </div>
 </section>
 <div class="domains-grid mt-12">
-Internship Domains
-<div class="mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
 
   <!-- Data Analytics -->
-  <div class="card-premium overflow-hidden group relative">
-    <div class="overflow-hidden">
-      <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71"
-           class="w-full h-44 object-cover group-hover:scale-110 transition duration-500">
+  <div class="domain-card-pro">
+    <div class="domain-logo-real">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg">
     </div>
-    <div class="p-6">
-      <h3 class="font-extrabold text-brand-600">Data Analytics</h3>
-      <p class="mt-2 text-sm text-slate-600">Excel, SQL, Power BI, dashboards & business insights.</p>
-      <button class="mt-4 w-full bg-brand-600 text-white py-2 rounded-lg font-semibold hover:bg-brand-700 transition">
-        Apply
-      </button>
+    <div class="domain-title-pro">Data Analytics</div>
+    <div class="domain-desc-pro">
+      Excel, SQL, Power BI, dashboards & business insights
+    </div>
+    <div class="domain-footer">
+      <span class="domain-tag">High Demand</span>
+      <a href="#apply" class="domain-cta">Apply</a>
     </div>
   </div>
 
-  <!-- AI & Automation (TRENDING) -->
-  <div class="card-premium overflow-hidden group relative border-2 border-brand-600">
-    <div class="absolute top-3 left-3 bg-purple-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow">
-      🔥 Trending
+  <!-- AI & Automation -->
+  <div class="domain-card-pro">
+    <div class="domain-logo-real">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/openai/openai-original.svg">
     </div>
-    <div class="overflow-hidden">
-      <img src="https://images.unsplash.com/photo-1677442135136-760c813028c0"
-           class="w-full h-44 object-cover group-hover:scale-110 transition duration-500">
+    <div class="domain-title-pro">AI & Automation</div>
+    <div class="domain-desc-pro">
+      Prompt engineering, AI workflows, productivity tools
     </div>
-    <div class="p-6">
-      <h3 class="font-extrabold text-brand-600">AI & Automation</h3>
-      <p class="mt-2 text-sm text-slate-600">Prompt engineering, AI tools, and workflow automation.</p>
-      <button class="mt-4 w-full bg-brand-600 text-white py-2 rounded-lg font-semibold hover:bg-brand-700 transition">
-        Apply
-      </button>
+    <div class="domain-footer">
+      <span class="domain-tag">Trending</span>
+      <a href="#apply" class="domain-cta">Apply</a>
     </div>
   </div>
 
   <!-- Web Development -->
-  <div class="card-premium overflow-hidden group relative">
-    <div class="overflow-hidden">
-      <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f"
-           class="w-full h-44 object-cover group-hover:scale-110 transition duration-500">
+  <div class="domain-card-pro">
+    <div class="domain-logo-real">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg">
     </div>
-    <div class="p-6">
-      <h3 class="font-extrabold text-brand-600">Web Development</h3>
-      <p class="mt-2 text-sm text-slate-600">HTML, CSS, Tailwind, JavaScript & real-world projects.</p>
-      <button class="mt-4 w-full bg-brand-600 text-white py-2 rounded-lg font-semibold hover:bg-brand-700 transition">
-        Apply
-      </button>
+    <div class="domain-title-pro">Web Development</div>
+    <div class="domain-desc-pro">
+      HTML, CSS, Tailwind, JavaScript, real projects
+    </div>
+    <div class="domain-footer">
+      <span class="domain-tag">Core Skill</span>
+      <a href="#apply" class="domain-cta">Apply</a>
     </div>
   </div>
 
-  <!-- Digital Marketing (POPULAR) -->
-  <div class="card-premium overflow-hidden group relative">
-    <div class="absolute top-3 left-3 bg-yellow-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow">
-      ⭐ Most Popular
+  <!-- Digital Marketing -->
+  <div class="domain-card-pro">
+    <div class="domain-logo-real">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg">
     </div>
-    <div class="overflow-hidden">
-      <img src="https://images.unsplash.com/photo-1557838923-2985c318be48"
-           class="w-full h-44 object-cover group-hover:scale-110 transition duration-500">
+    <div class="domain-title-pro">Digital Marketing</div>
+    <div class="domain-desc-pro">
+      SEO, paid ads, growth analytics & campaigns
     </div>
-    <div class="p-6">
-      <h3 class="font-extrabold text-brand-600">Digital Marketing</h3>
-      <p class="mt-2 text-sm text-slate-600">SEO, paid ads, campaign analytics & growth marketing.</p>
-      <button class="mt-4 w-full bg-brand-600 text-white py-2 rounded-lg font-semibold hover:bg-brand-700 transition">
-        Apply
-      </button>
+    <div class="domain-footer">
+      <span class="domain-tag">Growth</span>
+      <a href="#apply" class="domain-cta">Apply</a>
     </div>
   </div>
 
   <!-- Graphic Design -->
-  <div class="card-premium overflow-hidden group relative">
-    <div class="overflow-hidden">
-      <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0"
-           class="w-full h-44 object-cover group-hover:scale-110 transition duration-500">
+  <div class="domain-card-pro">
+    <div class="domain-logo-real">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Canva_Logo.png">
     </div>
-    <div class="p-6">
-      <h3 class="font-extrabold text-brand-600">Graphic Design</h3>
-      <p class="mt-2 text-sm text-slate-600">Branding, UI creatives, Canva & Figma tools.</p>
-      <button class="mt-4 w-full bg-brand-600 text-white py-2 rounded-lg font-semibold hover:bg-brand-700 transition">
-        Apply
-      </button>
+    <div class="domain-title-pro">Graphic Design</div>
+    <div class="domain-desc-pro">
+      Branding, UI creatives, Canva & Figma
+    </div>
+    <div class="domain-footer">
+      <span class="domain-tag">Creative</span>
+      <a href="#apply" class="domain-cta">Apply</a>
     </div>
   </div>
 
   <!-- Cyber Security -->
-  <div class="card-premium overflow-hidden group relative">
-    <div class="overflow-hidden">
-      <img src="https://images.unsplash.com/photo-1518770660439-4636190af475"
-           class="w-full h-44 object-cover group-hover:scale-110 transition duration-500">
+  <div class="domain-card-pro">
+    <div class="domain-logo-real">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg">
     </div>
-    <div class="p-6">
-      <h3 class="font-extrabold text-brand-600">Cyber Security</h3>
-      <p class="mt-2 text-sm text-slate-600">Security fundamentals, ethical hacking & tools.</p>
-      <button class="mt-4 w-full bg-brand-600 text-white py-2 rounded-lg font-semibold hover:bg-brand-700 transition">
-        Apply
-      </button>
+    <div class="domain-title-pro">Cyber Security</div>
+    <div class="domain-desc-pro">
+      Security basics, ethical hacking & tools
+    </div>
+    <div class="domain-footer">
+      <span class="domain-tag">Advanced</span>
+      <a href="#apply" class="domain-cta">Apply</a>
     </div>
   </div>
 
 </div>
-
 
 <!-- ================= CV BUILDER SECTION ================= -->
 <section id="cvbuilder" class="section-soft py-24">
@@ -706,40 +674,45 @@ Internship Domains
   </div>
 </section>
 
-<!-- ================= ELITE HIRING PARTNERS ================= -->
-<section class="relative section-light py-24 border-t border-slate-200 overflow-hidden">
-
-  <!-- EDGE FADE GRADIENTS -->
-  <div class="pointer-events-none absolute left-0 top-0 h-full w-32 bg-gradient-to-r from-white to-transparent z-10"></div>
-  <div class="pointer-events-none absolute right-0 top-0 h-full w-32 bg-gradient-to-l from-white to-transparent z-10"></div>
-
+<!-- ================= ANIMATED HIRING PARTNERS ================= -->
+<section class="section-light py-20 border-t border-slate-200 overflow-hidden">
   <div class="max-w-7xl mx-auto px-6 text-center">
-    <p class="text-sm font-semibold text-slate-500 tracking-widest uppercase">
-      Skills aligned with global tech standards
-    </p>
+    <p class="text-sm font-semibold text-slate-500">Learners prepare for opportunities at</p>
 
-    <div class="mt-14 relative overflow-hidden">
-      <div class="flex items-center gap-24 animate-silicon-marquee whitespace-nowrap">
-
-        <!-- LOGOS -->
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" class="silicon-logo">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoft/microsoft-original.svg" class="silicon-logo">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" class="silicon-logo">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apple/apple-original.svg" class="silicon-logo">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/meta/meta-original.svg" class="silicon-logo">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/netflix/netflix-original.svg" class="silicon-logo">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" class="silicon-logo">
-
-        <!-- DUPLICATES FOR SMOOTH LOOP -->
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" class="silicon-logo">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoft/microsoft-original.svg" class="silicon-logo">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" class="silicon-logo">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apple/apple-original.svg" class="silicon-logo">
-
+    <div class="mt-10 relative">
+      <div class="flex gap-16 animate-marquee whitespace-nowrap text-slate-400 font-extrabold text-xl">
+        <span>Google</span>
+        <span>Microsoft</span>
+        <span>Amazon</span>
+        <span>Deloitte</span>
+        <span>Accenture</span>
+        <span>Infosys</span>
+        <span>TCS</span>
+        <span>Wipro</span>
+        <span>Capgemini</span>
+        <span>Cognizant</span>
+        <!-- repeat for smooth loop -->
+        <span>Google</span>
+        <span>Microsoft</span>
+        <span>Amazon</span>
+        <span>Deloitte</span>
+        <span>Accenture</span>
+        <span>Infosys</span>
+        <span>TCS</span>
       </div>
     </div>
   </div>
 </section>
+
+<style>
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 25s linear infinite;
+}
+</style>
 
 <!-- ================= PREMIUM CERTIFICATES ================= -->
 <section id="certificates" class="section-soft py-24">
