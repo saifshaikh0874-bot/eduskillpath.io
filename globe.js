@@ -19,11 +19,12 @@ const camera = new THREE.PerspectiveCamera(
 camera.position.z = 430;
 
 // Softer, clean lighting
-scene.add(new THREE.AmbientLight(0xffffff, 0.9));
+scene.add(new THREE.AmbientLight(0xffffff, 1.6));
 
-const dir = new THREE.DirectionalLight(0x6ea8ff, 0.6);
-dir.position.set(200, 150, 300);
+const dir = new THREE.DirectionalLight(0x3da5ff, 1.2);
+dir.position.set(300, 200, 400);
 scene.add(dir);
+
 
 // 🌍 Dark professional globe
 const Globe = new ThreeGlobe()
