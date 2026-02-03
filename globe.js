@@ -7,9 +7,6 @@ container.appendChild(renderer.domElement);
 
 const scene = new THREE.Scene();
 
-// Deep navy background tone (important)
-scene.background = null;
-
 const camera = new THREE.PerspectiveCamera(
   45,
   window.innerWidth / window.innerHeight,
@@ -18,44 +15,36 @@ const camera = new THREE.PerspectiveCamera(
 );
 camera.position.z = 430;
 
-// Softer, clean lighting
-scene.add(new THREE.AmbientLight(0xffffff, 1.6));
-
-const dir = new THREE.DirectionalLight(0x3da5ff, 1.2);
-dir.position.set(300, 200, 400);
+scene.add(new THREE.AmbientLight(0xffffff, 1.25));
+const dir = new THREE.DirectionalLight(0xffffff, 0.55);
+dir.position.set(250, 200, 400);
 scene.add(dir);
 
-
-// 🌍 Dark professional globe
 const Globe = new ThreeGlobe()
   .globeImageUrl("https://unpkg.com/three-globe/example/img/earth-night.jpg")
   .showAtmosphere(true)
-  .atmosphereColor("#3b82f6")   // Soft professional blue glow
-  .atmosphereAltitude(0.22);
+  .atmosphereColor("#3da5ff")
+  .atmosphereAltitude(0.30);
 
 Globe.scale.set(190, 190, 190);
 scene.add(Globe);
 
-
-
-// ================= SOFT EDUCATION-STYLE DATA POINTS =================
-const DOTS = 420;
+// Points
+const DOTS = 520;
 const pointsData = [...Array(DOTS)].map(() => ({
   lat: (Math.random() - 0.5) * 180,
   lng: (Math.random() - 0.5) * 360,
-  size: Math.random() * 0.5 + 0.2,
-  color: ["#93c5fd", "#ffffff"][Math.floor(Math.random() * 2)] // light blue + white
+  size: Math.random() * 0.7 + 0.15,
+  color: ["#3da5ff", "#b8ff3b", "#ffffff"][Math.floor(Math.random() * 3)]
 }));
 
 Globe.pointsData(pointsData)
-  .pointAltitude(0.018)
+  .pointAltitude(0.02)
   .pointRadius(d => d.size)
   .pointColor(d => d.color);
 
-
-
-// ================= CLEAN BLUE CONNECTION LINES =================
-const arcs = [...Array(36)].map(() => {
+// Arcs
+const arcs = [...Array(42)].map(() => {
   const s = pointsData[Math.floor(Math.random() * pointsData.length)];
   const e = pointsData[Math.floor(Math.random() * pointsData.length)];
   return {
@@ -63,31 +52,26 @@ const arcs = [...Array(36)].map(() => {
     startLng: s.lng,
     endLat: e.lat,
     endLng: e.lng,
-    color: "#60a5fa" // soft blue only
+    color: ["#3da5ff", "#b8ff3b"]
   };
 });
 
 Globe.arcsData(arcs)
   .arcColor(d => d.color)
-  .arcAltitude(0.22)
-  .arcStroke(0.6)
-  .arcDashLength(0.5)
+  .arcAltitude(0.24)
+  .arcStroke(0.75)
+  .arcDashLength(0.55)
   .arcDashGap(3)
-  .arcDashAnimateTime(2600);
+  .arcDashAnimateTime(2400);
 
-
-
-// ================= SLOW PROFESSIONAL ROTATION =================
+// Animate
 function animate() {
-  Globe.rotation.y += 0.0015; // slower, smoother
+  Globe.rotation.y += 0.0021;
   renderer.render(scene, camera);
   requestAnimationFrame(animate);
 }
 animate();
 
-
-
-// ================= RESPONSIVE =================
 window.addEventListener("resize", () => {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
