@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://saifshaikh0874-bot.github.io/eduskillpath.io/sitemap.xml
