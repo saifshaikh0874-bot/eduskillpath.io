@@ -7,6 +7,9 @@ container.appendChild(renderer.domElement);
 
 const scene = new THREE.Scene();
 
+// Dark luxury background tone
+scene.background = null;
+
 const camera = new THREE.PerspectiveCamera(
   45,
   window.innerWidth / window.innerHeight,
@@ -15,27 +18,32 @@ const camera = new THREE.PerspectiveCamera(
 );
 camera.position.z = 430;
 
-scene.add(new THREE.AmbientLight(0xffffff, 1.25));
-const dir = new THREE.DirectionalLight(0xffffff, 0.55);
-dir.position.set(250, 200, 400);
+// Softer premium lighting
+scene.add(new THREE.AmbientLight(0xffffff, 0.9));
+
+const dir = new THREE.DirectionalLight(0x88ccff, 0.6);
+dir.position.set(200, 150, 300);
 scene.add(dir);
 
+// 🌍 Globe with darker premium night texture
 const Globe = new ThreeGlobe()
   .globeImageUrl("https://unpkg.com/three-globe/example/img/earth-night.jpg")
   .showAtmosphere(true)
-  .atmosphereColor("#3da5ff")
-  .atmosphereAltitude(0.30);
+  .atmosphereColor("#2563eb")   // deep brand blue glow
+  .atmosphereAltitude(0.28);
 
 Globe.scale.set(190, 190, 190);
 scene.add(Globe);
 
-// Points
+
+
+// ================= PREMIUM GLOWING DATA POINTS =================
 const DOTS = 520;
 const pointsData = [...Array(DOTS)].map(() => ({
   lat: (Math.random() - 0.5) * 180,
   lng: (Math.random() - 0.5) * 360,
-  size: Math.random() * 0.7 + 0.15,
-  color: ["#3da5ff", "#b8ff3b", "#ffffff"][Math.floor(Math.random() * 3)]
+  size: Math.random() * 0.6 + 0.2,
+  color: ["#60a5fa", "#ffffff", "#38bdf8"][Math.floor(Math.random() * 3)]
 }));
 
 Globe.pointsData(pointsData)
@@ -43,7 +51,9 @@ Globe.pointsData(pointsData)
   .pointRadius(d => d.size)
   .pointColor(d => d.color);
 
-// Arcs
+
+
+// ================= LUXURY GOLD CONNECTION ARCS =================
 const arcs = [...Array(42)].map(() => {
   const s = pointsData[Math.floor(Math.random() * pointsData.length)];
   const e = pointsData[Math.floor(Math.random() * pointsData.length)];
@@ -52,29 +62,33 @@ const arcs = [...Array(42)].map(() => {
     startLng: s.lng,
     endLat: e.lat,
     endLng: e.lng,
-    color: ["#3da5ff", "#b8ff3b"]
+    color: ["#facc15", "#fde68a"] // gold tones
   };
 });
 
 Globe.arcsData(arcs)
   .arcColor(d => d.color)
-  .arcAltitude(0.24)
-  .arcStroke(0.75)
-  .arcDashLength(0.55)
+  .arcAltitude(0.26)
+  .arcStroke(0.9)
+  .arcDashLength(0.6)
   .arcDashGap(3)
-  .arcDashAnimateTime(2400);
+  .arcDashAnimateTime(2800);
 
-// Animate
+
+
+// ================= SLOW LUXURY ROTATION =================
 function animate() {
-  Globe.rotation.y += 0.0021;
+  Globe.rotation.y += 0.0014;   // slower = more premium feel
   renderer.render(scene, camera);
   requestAnimationFrame(animate);
 }
 animate();
 
+
+
+// ================= RESPONSIVE =================
 window.addEventListener("resize", () => {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
   renderer.setSize(window.innerWidth, window.innerHeight);
 });
-
