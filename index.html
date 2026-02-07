@@ -1,24 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
   <!-- BASIC -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- SEO -->
   <title>Eduskillpath | Internships, Job Ready Skills & AI Resume Builder</title>
   <meta name="description" content="Eduskillpath helps students and freshers become job-ready through internships, real-world projects, and AI-powered resume tools.">
-  <meta name="keywords" content="Eduskillpath, online internships, AI resume builder, job ready skills, student internships, career training">
-  <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#0f172a">
 
-  <!-- CANONICAL -->
   <link rel="canonical" href="https://eduskillpath.info/">
-
-  <!-- VERIFICATION -->
   <meta name="google-site-verification" content="9e0aHx59NbAGAdFYOY96I3XIk2WIFYU-J_DQd_hRs5I">
-
-  <!-- ICON -->
   <link rel="icon" href="https://eduskillpath.info/logo.png">
 
   <!-- OPEN GRAPH -->
@@ -34,19 +23,18 @@
   <meta name="twitter:description" content="Gain job-ready skills with internships, projects and AI-powered CV tools.">
   <meta name="twitter:image" content="https://eduskillpath.info/logo.png">
 
-  <!-- SCHEMA: ORGANIZATION -->
+  <!-- STRUCTURED DATA: ORGANIZATION -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "EducationalOrganization",
     "name": "Eduskillpath",
     "url": "https://eduskillpath.info/",
-    "logo": "https://eduskillpath.info/logo.png",
-    "description": "Online learning platform providing internships, real projects, and AI-powered resume building tools for students and freshers."
+    "logo": "https://eduskillpath.info/logo.png"
   }
   </script>
 
-  <!-- SCHEMA: WEBSITE SEARCH -->
+  <!-- STRUCTURED DATA: WEBSITE SEARCH -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -61,23 +49,28 @@
   }
   </script>
 
-  <!-- TAILWIND (ONCE ONLY) -->
+  <!-- TAILWIND -->
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- TAILWIND CONFIG -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              500: "#2563eb",
+              600: "#1d4ed8",
+              700: "#1e40af"
+            }
+          }
+        }
+      }
+    }
+  </script>
 
   <!-- CUSTOM CSS -->
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
-
-    body {
-      background: #f8fafc;
-      color: #0f172a;
-      scroll-behavior: smooth;
-    }
-
-    .font-signature {
-      font-family: 'Great Vibes', cursive;
-    }
-
     @keyframes logoMarquee {
       0% { transform: translateX(0); }
       100% { transform: translateX(-50%); }
@@ -88,7 +81,6 @@
     }
   </style>
 </head>
-
     /* ===== REAL LOGO 3D INTERNSHIP DOMAINS ===== */
 .domains-grid {
   display: grid;
