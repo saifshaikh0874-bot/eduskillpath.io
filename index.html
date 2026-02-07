@@ -1,58 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <!-- BASIC -->
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Eduskillpath | Internships, Job Ready Skills & AI Resume Builder</title>
-  <meta name="description" content="Eduskillpath helps students and freshers become job-ready through internships, real-world projects, and AI-powered resume tools.">
-
-  <link rel="canonical" href="https://eduskillpath.info/">
-  <meta name="google-site-verification" content="9e0aHx59NbAGAdFYOY96I3XIk2WIFYU-J_DQd_hRs5I">
-  <link rel="icon" href="https://eduskillpath.info/logo.png">
-
-  <!-- OPEN GRAPH -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://eduskillpath.info/">
-  <meta property="og:title" content="Eduskillpath | Learn Skills & Get Internships">
-  <meta property="og:description" content="Real-world projects, internships and AI resume tools to make you job-ready.">
-  <meta property="og:image" content="https://eduskillpath.info/logo.png">
-
-  <!-- TWITTER -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Eduskillpath | Learn Skills & Build Your Career">
-  <meta name="twitter:description" content="Gain job-ready skills with internships, projects and AI-powered CV tools.">
-  <meta name="twitter:image" content="https://eduskillpath.info/logo.png">
-
-  <!-- STRUCTURED DATA: ORGANIZATION -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "EducationalOrganization",
-    "name": "Eduskillpath",
-    "url": "https://eduskillpath.info/",
-    "logo": "https://eduskillpath.info/logo.png"
-  }
-  </script>
-
-  <!-- STRUCTURED DATA: WEBSITE SEARCH -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Eduskillpath",
-    "url": "https://eduskillpath.info/",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://eduskillpath.info/?q={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
-  }
-  </script>
-
-  <!-- TAILWIND -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eduskillpath | Learn Skills. Build Career.</title>
+<link rel="icon" type="image/png" href="logo.png">
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- TAILWIND CONFIG -->
   <script>
     tailwind.config = {
       theme: {
@@ -63,24 +18,102 @@
               600: "#1d4ed8",
               700: "#1e40af"
             }
+          },
+          boxShadow: {
+            soft: "0 10px 40px rgba(0,0,0,.08)",
+            glow: "0 20px 60px rgba(37,99,235,.25)"
           }
         }
       }
     }
   </script>
+@keyframes logoMarquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
 
-  <!-- CUSTOM CSS -->
+.animate-logo-marquee {
+  animation: logoMarquee 25s linear infinite;
+}
+
   <style>
-    @keyframes logoMarquee {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
+    #certificateContent {
+  background: linear-gradient(to bottom right, #ffffff, #f8fbff);
+  border: 6px double #dbeafe;
+}
+
+    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+.font-signature { font-family: 'Great Vibes', cursive; }
+
+    body {
+      background: #f8fafc;
+      color: #0f172a;
+      scroll-behavior: smooth;
     }
 
-    .animate-logo-marquee {
-      animation: logoMarquee 25s linear infinite;
+    .section-light { background: #ffffff; }
+    .section-soft  { background: linear-gradient(to bottom,#f0f9ff,#ffffff); }
+
+    .card-premium {
+      border-radius: 1.5rem;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+      transition: .25s ease;
     }
-  </style>
-</head>
+    .card-premium:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 45px rgba(0,0,0,0.08);
+    }
+
+    /* ===== HERO GLOBE (ONLY HERO) ===== */
+    #globe-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      z-index: 0;
+    }
+
+    .globe-overlay {
+      position: absolute;
+      width: 100%;
+      height: 100vh;
+      z-index: 1;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 30% 40%, rgba(37,99,235,.25), transparent 55%),
+        linear-gradient(180deg, rgba(0,0,0,.25), rgba(255,255,255,.9));
+    }
+
+    .hero-section {
+      position: relative;
+      z-index: 2;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg,#2563eb,#4f46e5);
+      color: white;
+      padding: 14px 26px;
+      border-radius: 14px;
+      font-weight: 700;
+      box-shadow: 0 15px 40px rgba(37,99,235,.25);
+      transition: .2s ease;
+    }
+    .btn-primary:hover { transform: translateY(-2px); }
+
+    .btn-outline {
+      border: 2px solid rgba(37,99,235,.35);
+      padding: 14px 26px;
+      border-radius: 14px;
+      font-weight: 700;
+      transition: .2s ease;
+    }
+    .btn-outline:hover { background:#e0f2fe; }
     /* ===== REAL LOGO 3D INTERNSHIP DOMAINS ===== */
 .domains-grid {
   display: grid;
