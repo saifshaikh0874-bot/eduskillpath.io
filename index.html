@@ -37,6 +37,33 @@
 }
 
   <style>
+    #whatsapp-widget {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.whatsapp-text {
+  background: #ffffff;
+  color: #000;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.whatsapp-btn img {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  cursor: pointer;
+}
+
     #certificateContent {
   background: linear-gradient(to bottom right, #ffffff, #f8fbff);
   border: 6px double #dbeafe;
@@ -1384,6 +1411,24 @@ async function downloadCertificate() {
   pdf.save("Eduskillpath-Certificate.pdf");
 }
 </script>
+<!-- WhatsApp Floating Chat Button -->
+<div id="whatsapp-widget">
+  <div class="whatsapp-text">
+    👋 Need help? <br>
+    Chat with EduSkillPath
+  </div>
+
+  <a 
+    href="https://wa.me/917250720874?text=Hi%20👋%20Thanks%20for%20contacting%20EduSkillPath!%0APlease%20tell%20us%20what%20you’re%20interested%20in:%0A1️⃣%20Courses%0A2️⃣%20Internships%0A3️⃣%20CV%20Build"
+    target="_blank"
+    class="whatsapp-btn"
+  >
+    <img 
+      src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
+      alt="Chat on WhatsApp"
+    />
+  </a>
+</div>
 
 </body>
 </html>
