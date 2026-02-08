@@ -37,33 +37,6 @@
 }
 
   <style>
-    #whatsapp-widget {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.whatsapp-text {
-  background: #ffffff;
-  color: #000;
-  padding: 8px 12px;
-  border-radius: 8px;
-  font-size: 14px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
-
-.whatsapp-btn img {
-  width: 55px;
-  height: 55px;
-  border-radius: 50%;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-  cursor: pointer;
-}
-
     #certificateContent {
   background: linear-gradient(to bottom right, #ffffff, #f8fbff);
   border: 6px double #dbeafe;
@@ -1411,7 +1384,7 @@ async function downloadCertificate() {
   pdf.save("Eduskillpath-Certificate.pdf");
 }
 </script>
-<!-- WhatsApp Floating Chat Button -->
+<!-- WhatsApp Widget -->
 <div id="whatsapp-widget">
   <div class="whatsapp-text">
     👋 Need help? <br>
@@ -1423,35 +1396,12 @@ async function downloadCertificate() {
     target="_blank"
     class="whatsapp-btn"
   >
-    <img 
-      src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
-      alt="Chat on WhatsApp"
-    />
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
   </a>
 </div>
-<!-- WhatsApp Floating Button -->
-<div style="
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 99999;
-">
-  <a 
-    href="https://wa.me/917250720874"
-    target="_blank"
-  >
-    <img 
-      src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
-      alt="WhatsApp"
-      style="
-        width:60px;
-        height:60px;
-        border-radius:50%;
-        box-shadow:0 4px 12px rgba(0,0,0,0.3);
-      "
-    />
-  </a>
-</div>
+
+<!-- Connect JS file -->
+<script src="js/whatsapp.js"></script>
 
 </body>
 </html>
