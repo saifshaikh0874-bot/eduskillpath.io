@@ -37,20 +37,65 @@
   animation: logoMarquee 25s linear infinite;
 }
 
-  <style>
-    #certificateContent {
+ <style>
+
+@keyframes logoMarquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-logo-marquee {
+  animation: logoMarquee 25s linear infinite;
+}
+
+/* Certificate */
+#certificateContent {
   background: linear-gradient(to bottom right, #ffffff, #f8fbff);
   border: 6px double #dbeafe;
 }
 
-    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 .font-signature { font-family: 'Great Vibes', cursive; }
 
-    body {
-      background: #f8fafc;
-      color: #0f172a;
-      scroll-behavior: smooth;
-    }
+body {
+  background: #f8fafc;
+  color: #0f172a;
+  scroll-behavior: smooth;
+}
+/* WhatsApp Floating Button */
+.whatsapp-float {
+  position: fixed;
+  bottom: 22px;
+  right: 22px;
+  width: 62px;
+  height: 62px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 15px 40px rgba(37, 211, 102, 0.45);
+  z-index: 9999;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  animation: whatsapp-pulse 2.2s infinite;
+}
+
+.whatsapp-float img {
+  width: 34px;
+  height: 34px;
+}
+
+.whatsapp-float:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 25px 60px rgba(37, 211, 102, 0.6);
+}
+
+@keyframes whatsapp-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+  70% { box-shadow: 0 0 0 18px rgba(37, 211, 102, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+</style>
 
     .section-light { background: #ffffff; }
     .section-soft  { background: linear-gradient(to bottom,#f0f9ff,#ffffff); }
@@ -1385,6 +1430,17 @@ async function downloadCertificate() {
   pdf.save("Eduskillpath-Certificate.pdf");
 }
 </script>
-
+<!-- WhatsApp Floating Button -->
+<a
+  href="https://wa.me/917250720874?text=Hello%20Eduskillpath%2C%20I%20want%20to%20know%20more%20about%20your%20programs"
+  target="_blank"
+  class="whatsapp-float"
+  aria-label="Chat on WhatsApp"
+>
+  <img
+    src="https://cdn-icons-png.flaticon.com/512/733/733585.png"
+    alt="WhatsApp"
+  />
+</a>
 </body>
 </html>
