@@ -28,7 +28,6 @@
       }
     }
   </script>
-<style>
 @keyframes logoMarquee {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
@@ -37,7 +36,8 @@
 .animate-logo-marquee {
   animation: logoMarquee 25s linear infinite;
 }
-</style>
+
+  <style>
     #certificateContent {
   background: linear-gradient(to bottom right, #ffffff, #f8fbff);
   border: 6px double #dbeafe;
@@ -1311,7 +1311,7 @@ counters.forEach(counter => observer.observe(counter));
 <p class="mt-1 text-xs text-slate-500 font-semibold tracking-wide">
   Director – Eduskillpath Skill Development Program
 </p>
-<div class="text-center">
+
         <div class="text-center">
           <span class="font-semibold text-slate-700">Eduskillpath</span>
           <div class="border-t border-slate-400 w-40 mt-2"></div>
@@ -1385,34 +1385,6 @@ async function downloadCertificate() {
   pdf.save("Eduskillpath-Certificate.pdf");
 }
 </script>
-<!-- WhatsApp Floating Button -->
-<a href="https://wa.me/917250720874"
-   target="_blank"
-   aria-label="Chat on WhatsApp"
-   style="
-     position: fixed;
-     bottom: 20px;
-     right: 20px;
-     z-index: 99999;
-     background: #25D366;
-     color: white;
-     padding: 14px 18px;
-     border-radius: 50px;
-     box-shadow: 0 12px 30px rgba(0,0,0,.3);
-     display: flex;
-     align-items: center;
-     gap: 10px;
-     font-weight: 600;
-     text-decoration: none;
-     font-family: Arial, sans-serif;
-   ">
-  
-  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
-       alt="WhatsApp"
-       width="24"
-       height="24">
-  Chat on WhatsApp
-</a>
 
 </body>
 </html>
