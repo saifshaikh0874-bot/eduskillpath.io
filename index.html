@@ -1,1390 +1,1384 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta name="description" content="Eduskillpath provides ATS-optimized resume writing, cover letters, LinkedIn profile optimization, portfolio websites, and career support to help you get hired faster.">
-
-<meta name="keywords" content="ATS resume writing, resume builder, LinkedIn optimization, professional CV, portfolio website, job-ready skills, career support">
-  <link rel="stylesheet" href="css/whatsapp.css">
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Eduskillpath | Learn Skills. Build Career.</title>
-<link rel="icon" type="image/png" href="logo.png">
-  <!-- Tailwind -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brand: {
-              500: "#2563eb",
-              600: "#1d4ed8",
-              700: "#1e40af"
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta name="description" content="Eduskillpath provides ATS-optimized resume writing, cover letters, LinkedIn profile optimization, portfolio websites, and career support to help you get hired faster.">
+  
+  <meta name="keywords" content="ATS resume writing, resume builder, LinkedIn optimization, professional CV, portfolio website, job-ready skills, career support">
+    <link rel="stylesheet" href="css/whatsapp.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eduskillpath | Learn Skills. Build Career.</title>
+  <link rel="icon" type="image/png" href="logo.png">
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                500: "#2563eb",
+                600: "#1d4ed8",
+                700: "#1e40af"
+              }
+            },
+            boxShadow: {
+              soft: "0 10px 40px rgba(0,0,0,.08)",
+              glow: "0 20px 60px rgba(37,99,235,.25)"
             }
-          },
-          boxShadow: {
-            soft: "0 10px 40px rgba(0,0,0,.08)",
-            glow: "0 20px 60px rgba(37,99,235,.25)"
           }
         }
       }
-    }
-  </script>
-@keyframes logoMarquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-.animate-logo-marquee {
-  animation: logoMarquee 25s linear infinite;
-}
-
-  <style>
-    #certificateContent {
-  background: linear-gradient(to bottom right, #ffffff, #f8fbff);
-  border: 6px double #dbeafe;
-}
-
-    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
-.font-signature { font-family: 'Great Vibes', cursive; }
-
-    body {
-      background: #f8fafc;
-      color: #0f172a;
-      scroll-behavior: smooth;
-    }
-
-    .section-light { background: #ffffff; }
-    .section-soft  { background: linear-gradient(to bottom,#f0f9ff,#ffffff); }
-
-    .card-premium {
-      border-radius: 1.5rem;
-      background: #ffffff;
-      border: 1px solid #e2e8f0;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-      transition: .25s ease;
-    }
-    .card-premium:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 45px rgba(0,0,0,0.08);
-    }
-
-    /* ===== HERO GLOBE (ONLY HERO) ===== */
-    #globe-container {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100vh;
-      z-index: 0;
-    }
-
-.globe-overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  background:
-    radial-gradient(circle at 30% 40%, rgba(37,99,235,.18), transparent 60%),
-    linear-gradient(
-      90deg,
-      rgba(15,23,42,.85),
-      rgba(15,23,42,.55),
-      rgba(15,23,42,.15)
-    );
-}
-    .hero-section {
-      position: relative;
-      z-index: 2;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-    }
-
-    .btn-primary {
-      background: linear-gradient(90deg,#2563eb,#4f46e5);
-      color: white;
-      padding: 14px 26px;
-      border-radius: 14px;
-      font-weight: 700;
-      box-shadow: 0 15px 40px rgba(37,99,235,.25);
-      transition: .2s ease;
-    }
-    .btn-primary:hover { transform: translateY(-2px); }
-
-    .btn-outline {
-      border: 2px solid rgba(37,99,235,.35);
-      padding: 14px 26px;
-      border-radius: 14px;
-      font-weight: 700;
-      transition: .2s ease;
-    }
-    .btn-outline:hover { background:#e0f2fe; }
-    /* ===== REAL LOGO 3D INTERNSHIP DOMAINS ===== */
-.domains-grid {
-  display: grid;
-  gap: 28px;
-}
-
-@media (min-width: 768px) {
-  .domains-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (min-width: 1024px) {
-  .domains-grid { grid-template-columns: repeat(3, 1fr); }
-}
-
-.domain-card-pro {
-  position: relative;
-  padding: 26px;
-  border-radius: 26px;
-  background: linear-gradient(180deg,#ffffff,#f0f9ff);
-  border: 1px solid rgba(37,99,235,.15);
-  box-shadow: 0 20px 55px rgba(37,99,235,.12);
-  transition: transform .45s cubic-bezier(.2,.8,.2,1),
-              box-shadow .45s cubic-bezier(.2,.8,.2,1);
-  transform-style: preserve-3d;
-}
-
-.domain-card-pro:hover {
-  transform: translateY(-10px) rotateX(6deg) rotateY(-6deg);
-  box-shadow: 0 40px 90px rgba(37,99,235,.28);
-}
-
-.domain-card-pro::after {
-  content:"";
-  position:absolute;
-  inset:-1px;
-  border-radius: inherit;
-  background: radial-gradient(circle at top right,
-    rgba(99,102,241,.28),
-    transparent 60%);
-  opacity:0;
-  transition:.4s;
-}
-
-.domain-card-pro:hover::after { opacity:1; }
-
-.domain-logo-real {
-  width: 64px;
-  height: 64px;
-  border-radius: 18px;
-  background: #ffffff;
-  border: 1px solid rgba(37,99,235,.18);
-  box-shadow: 0 14px 35px rgba(37,99,235,.25);
-  display: grid;
-  place-items: center;
-}
-
-.domain-logo-real img {
-  width: 36px;
-  height: 36px;
-  object-fit: contain;
-}
-
-.domain-title-pro {
-  margin-top: 16px;
-  font-size: 1.15rem;
-  font-weight: 900;
-  color: #0f172a;
-}
-
-.domain-desc-pro {
-  margin-top: 6px;
-  font-size: .9rem;
-  font-weight: 600;
-  color: #475569;
-  line-height: 1.45rem;
-}
-
-.domain-footer {
-  margin-top: 18px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.domain-tag {
-  font-size: .7rem;
-  font-weight: 900;
-  padding: 6px 10px;
-  border-radius: 999px;
-  background: rgba(79,70,229,.12);
-  color: #4f46e5;
-  border: 1px solid rgba(79,70,229,.25);
-}
-
-.domain-cta {
-  padding: 8px 14px;
-  border-radius: 12px;
-  background: linear-gradient(90deg,#2563eb,#4f46e5);
-  color: white;
-  font-weight: 800;
-  font-size: .8rem;
-  text-decoration: none;
-  transition: .2s;
-}
-
-.domain-cta:hover { transform: translateY(-2px); }
-
-  </style>
-</head>
-<body>
-<!-- ================= NAVBAR ================= -->
-<header class="fixed w-full top-0 z-50 bg-white/80 backdrop-blur border-b border-slate-200">
-  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-   <div class="flex items-center gap-3">
-  <img src="logo.png" alt="EduSkillPath Logo" class="h-14 w-auto">
-<span class="font-extrabold tracking-tight text-[21px] flex items-center gap-2">
+    </script>
+  @keyframes logoMarquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
   
-<span class="font-extrabold tracking-tight text-[22px]
-             bg-gradient-to-r from-indigo-600 to-blue-500 
-             bg-clip-text text-transparent">
-  eduskillpath
-</span>
-</div>
-
-    <nav class="hidden md:flex gap-8 font-semibold text-sm">
-      <a href="#programs" class="hover:text-brand-600">Programs</a>
-      <a href="ats-resume-writing.html" class="hover:text-brand-600 font-bold">
-    Resume Services
-  </a>
-      <a href="#internships" class="hover:text-brand-600">Internships</a>
-      <a href="#projects" class="hover:text-brand-600">Projects</a>
-      <a href="#success" class="hover:text-brand-600">Success Stories</a>
-      <a href="#cvbuilder" class="hover:text-brand-600">CV Builder</a>
-    </nav>
-<!-- Right actions -->
-<div class="flex items-center gap-2 md:gap-3">
+  .animate-logo-marquee {
+    animation: logoMarquee 25s linear infinite;
+  }
   
-  <!-- Login -->
-  <a href="login.html"
-     class="text-sm font-semibold text-slate-700 hover:text-indigo-600 transition">
-    Login
-  </a>
-
-  <!-- Sign up -->
-  <a href="signup.html"
-     class="text-sm font-bold px-4 py-2 rounded-full
-            bg-indigo-600 text-white hover:bg-indigo-500 transition">
-    Sign Up
-  </a>
-
-</div>
-</header>
-
-<!-- Spacer -->
-<div class="h-24"></div>
-
-<!-- ================= HERO WITH GLOBE ================= -->
-<section class="hero-section overflow-hidden">
-
-  <!-- Globe Background -->
-  <div id="globe-container"></div>
-  <div class="globe-overlay"></div>
-
-  <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10">
-
-<h1 class="sr-only">
-ATS Resume Writing & LinkedIn Optimization Platform
-</h1>
-   <p class="mt-6 text-lg text-slate-300 leading-relaxed">
- Eduskillpath helps students, freshers, and professionals get hired faster with
-ATS-optimized resumes, cover letters, LinkedIn optimization, and career support.
-</p>
-
-      <div class="mt-8 flex flex-wrap gap-4">
-  <a href="ats-resume-writing.html" class="btn-primary">
-    ATS Resume Writing Services
-  </a>
-
-  <a href="#programs" class="btn-outline">
-    Explore Programs
-  </a>
-</div>
-      <div class="mt-10 grid grid-cols-3 gap-6 max-w-md">
-        <div>
-          <p class="text-3xl font-extrabold text-brand-600">500+</p>
-          <p class="text-sm text-slate-600 font-semibold">Learners</p>
-        </div>
-        <div>
-          <p class="text-3xl font-extrabold text-brand-600">40+</p>
-          <p class="text-sm text-slate-600 font-semibold">Domains</p>
-        </div>
-        <div>
-          <p class="text-3xl font-extrabold text-brand-600">120+</p>
-          <p class="text-sm text-slate-600 font-semibold">Certificates Issued</p>
-        </div>
-      </div>
-    </div>
-
+    <style>
+      #certificateContent {
+    background: linear-gradient(to bottom right, #ffffff, #f8fbff);
+    border: 6px double #dbeafe;
+  }
+  
+      @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+  .font-signature { font-family: 'Great Vibes', cursive; }
+  
+      body {
+        background: #f8fafc;
+        color: #0f172a;
+        scroll-behavior: smooth;
+      }
+  
+      .section-light { background: #ffffff; }
+      .section-soft  { background: linear-gradient(to bottom,#f0f9ff,#ffffff); }
+  
+      .card-premium {
+        border-radius: 1.5rem;
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+        transition: .25s ease;
+      }
+      .card-premium:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 45px rgba(0,0,0,0.08);
+      }
+  
+      /* ===== HERO GLOBE (ONLY HERO) ===== */
+      #globe-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        z-index: 0;
+      }
+  
+  .globe-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background:
+      radial-gradient(circle at 30% 40%, rgba(37,99,235,.18), transparent 60%),
+      linear-gradient(
+        90deg,
+        rgba(15,23,42,.85),
+        rgba(15,23,42,.55),
+        rgba(15,23,42,.15)
+      );
+  }
+      .hero-section {
+        position: relative;
+        z-index: 2;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+      }
+  
+      .btn-primary {
+        background: linear-gradient(90deg,#2563eb,#4f46e5);
+        color: white;
+        padding: 14px 26px;
+        border-radius: 14px;
+        font-weight: 700;
+        box-shadow: 0 15px 40px rgba(37,99,235,.25);
+        transition: .2s ease;
+      }
+      .btn-primary:hover { transform: translateY(-2px); }
+  
+      .btn-outline {
+        border: 2px solid rgba(37,99,235,.35);
+        padding: 14px 26px;
+        border-radius: 14px;
+        font-weight: 700;
+        transition: .2s ease;
+      }
+      .btn-outline:hover { background:#e0f2fe; }
+      /* ===== REAL LOGO 3D INTERNSHIP DOMAINS ===== */
+  .domains-grid {
+    display: grid;
+    gap: 28px;
+  }
+  
+  @media (min-width: 768px) {
+    .domains-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (min-width: 1024px) {
+    .domains-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  
+  .domain-card-pro {
+    position: relative;
+    padding: 26px;
+    border-radius: 26px;
+    background: linear-gradient(180deg,#ffffff,#f0f9ff);
+    border: 1px solid rgba(37,99,235,.15);
+    box-shadow: 0 20px 55px rgba(37,99,235,.12);
+    transition: transform .45s cubic-bezier(.2,.8,.2,1),
+                box-shadow .45s cubic-bezier(.2,.8,.2,1);
+    transform-style: preserve-3d;
+  }
+  
+  .domain-card-pro:hover {
+    transform: translateY(-10px) rotateX(6deg) rotateY(-6deg);
+    box-shadow: 0 40px 90px rgba(37,99,235,.28);
+  }
+  
+  .domain-card-pro::after {
+    content:"";
+    position:absolute;
+    inset:-1px;
+    border-radius: inherit;
+    background: radial-gradient(circle at top right,
+      rgba(99,102,241,.28),
+      transparent 60%);
+    opacity:0;
+    transition:.4s;
+  }
+  
+  .domain-card-pro:hover::after { opacity:1; }
+  
+  .domain-logo-real {
+    width: 64px;
+    height: 64px;
+    border-radius: 18px;
+    background: #ffffff;
+    border: 1px solid rgba(37,99,235,.18);
+    box-shadow: 0 14px 35px rgba(37,99,235,.25);
+    display: grid;
+    place-items: center;
+  }
+  
+  .domain-logo-real img {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+  }
+  
+  .domain-title-pro {
+    margin-top: 16px;
+    font-size: 1.15rem;
+    font-weight: 900;
+    color: #0f172a;
+  }
+  
+  .domain-desc-pro {
+    margin-top: 6px;
+    font-size: .9rem;
+    font-weight: 600;
+    color: #475569;
+    line-height: 1.45rem;
+  }
+  
+  .domain-footer {
+    margin-top: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .domain-tag {
+    font-size: .7rem;
+    font-weight: 900;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: rgba(79,70,229,.12);
+    color: #4f46e5;
+    border: 1px solid rgba(79,70,229,.25);
+  }
+  
+  .domain-cta {
+    padding: 8px 14px;
+    border-radius: 12px;
+    background: linear-gradient(90deg,#2563eb,#4f46e5);
+    color: white;
+    font-weight: 800;
+    font-size: .8rem;
+    text-decoration: none;
+    transition: .2s;
+  }
+  
+  .domain-cta:hover { transform: translateY(-2px); }
+  
+    </style>
+  </head>
+  <body>
+  <!-- ================= NAVBAR ================= -->
+  <header class="fixed w-full top-0 z-50 bg-white/80 backdrop-blur border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+     <div class="flex items-center gap-3">
+    <img src="logo.png" alt="EduSkillPath Logo" class="h-14 w-auto">
+  <span class="font-extrabold tracking-tight text-[21px] flex items-center gap-2">
+    
+  <span class="font-extrabold tracking-tight text-[22px]
+               bg-gradient-to-r from-indigo-600 to-blue-500 
+               bg-clip-text text-transparent">
+    eduskillpath
+  </span>
   </div>
-</section>
-  <section class="section-light py-20 border-t border-slate-200">
-  <div class="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-10 text-center">
-
-    <div>
-      <p class="text-4xl font-extrabold text-brand-600 counter" data-target="500">0</p>
-      <p class="text-sm font-semibold text-slate-600 mt-2">Active Learners</p>
-    </div>
-
-    <div>
-      <p class="text-4xl font-extrabold text-brand-600 counter" data-target="40">0</p>
-      <p class="text-sm font-semibold text-slate-600 mt-2">Internship Domains</p>
-    </div>
-
-    <div>
-      <p class="text-4xl font-extrabold text-brand-600 counter" data-target="120">0</p>
-      <p class="text-sm font-semibold text-slate-600 mt-2">Certificates Issued</p>
-    </div>
-
-    <div>
-      <p class="text-4xl font-extrabold text-brand-600 counter" data-target="92">0</p>
-      <p class="text-sm font-semibold text-slate-600 mt-2">Success Rate (%)</p>
-    </div>
-
+  
+      <nav class="hidden md:flex gap-8 font-semibold text-sm">
+        <a href="#programs" class="hover:text-brand-600">Programs</a>
+        <a href="ats-resume-writing.html" class="hover:text-brand-600 font-bold">
+      Resume Services
+    </a>
+        <a href="#internships" class="hover:text-brand-600">Internships</a>
+        <a href="#projects" class="hover:text-brand-600">Projects</a>
+        <a href="#success" class="hover:text-brand-600">Success Stories</a>
+        <a href="#cvbuilder" class="hover:text-brand-600">CV Builder</a>
+      </nav>
+  <!-- Right actions -->
+  <div class="flex items-center gap-2 md:gap-3">
+    
+    <!-- Login -->
+    <a href="login.html"
+       class="text-sm font-semibold text-slate-700 hover:text-indigo-600 transition">
+      Login
+    </a>
+  
+    <!-- Sign up -->
+    <a href="signup.html"
+       class="text-sm font-bold px-4 py-2 rounded-full
+              bg-indigo-600 text-white hover:bg-indigo-500 transition">
+      Sign Up
+    </a>
+  
   </div>
-</section>
+  </header>
+  
+  <!-- Spacer -->
+  <div class="h-24"></div>
+  
+  <!-- ================= HERO WITH GLOBE ================= -->
+  <section class="relative bg-[#0B1220] overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-br from-indigo-900/40 via-slate-900 to-black"></div>
 
-<!-- ================= PROGRAMS ================= -->
-<section id="programs" class="section-light py-24">
-  <div class="max-w-7xl mx-auto px-6">
+  <div class="relative max-w-7xl mx-auto px-6 py-32 grid lg:grid-cols-2 gap-20 items-center">
 
-    <div class="text-center max-w-2xl mx-auto">
-      <h2 class="text-4xl font-extrabold">Industry-Focused Programs</h2>
-      <p class="mt-4 text-slate-600 font-medium">
-        Learn practical, job-ready skills designed with real career outcomes in mind.
-      </p>
-    </div>
-
-    <div class="mt-16 grid md:grid-cols-3 gap-10">
-
-      <!-- Data Analytics -->
-      <div class="card-premium overflow-hidden group">
-        <div class="relative overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d"
-               class="w-full h-44 object-cover group-hover:scale-110 transition duration-500">
-          <div class="absolute top-4 left-4 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow">
-            In Demand
-          </div>
-        </div>
-
-        <div class="p-8">
-          <h3 class="font-extrabold text-xl text-brand-600">Data Analytics</h3>
-          <p class="mt-3 text-slate-600">Excel, SQL, Power BI, dashboards and business case studies.</p>
-          <ul class="mt-5 space-y-2 text-sm font-semibold text-slate-700">
-            <li>✔ Real datasets</li>
-            <li>✔ Portfolio dashboards</li>
-            <li>✔ Interview prep</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- AI & Automation -->
-      <div class="card-premium overflow-hidden group border-2 border-brand-600 relative">
-        <div class="relative overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1677442135136-760c813028c0"
-               class="w-full h-44 object-cover group-hover:scale-110 transition duration-500">
-          <div class="absolute top-4 left-4 bg-purple-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow">
-            Most Popular
-          </div>
-        </div>
-
-        <div class="p-8">
-          <h3 class="font-extrabold text-xl mt-1">AI & Automation</h3>
-          <p class="mt-3 text-slate-600">Prompt engineering, AI tools, automation workflows.</p>
-          <ul class="mt-5 space-y-2 text-sm font-semibold text-slate-700">
-            <li>✔ AI productivity tools</li>
-            <li>✔ Resume AI optimization</li>
-            <li>✔ Workflow automation</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Career Accelerator -->
-      <div class="card-premium overflow-hidden group">
-        <div class="relative overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d"
-               class="w-full h-44 object-cover group-hover:scale-110 transition duration-500">
-          <div class="absolute top-4 left-4 bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow">
-            Career Boost
-          </div>
-        </div>
-
-        <div class="p-8">
-          <h3 class="font-extrabold text-xl text-brand-600">Career Accelerator</h3>
-          <p class="mt-3 text-slate-600">Resume, LinkedIn, mock interviews and placement support.</p>
-          <ul class="mt-5 space-y-2 text-sm font-semibold text-slate-700">
-            <li>✔ ATS resume</li>
-            <li>✔ LinkedIn branding</li>
-            <li>✔ HR mock interviews</li>
-          </ul>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ================= WHY CHOOSE US ================= -->
-<section class="section-soft py-24">
-  <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
-
-    <!-- LEFT CONTENT -->
-    <div>
-      <h2 class="text-4xl font-extrabold">Why Learners Choose Eduskillpath</h2>
-      <p class="mt-5 text-slate-600 font-medium leading-relaxed max-w-xl">
-        We combine structured learning, real-world practice, and career support
-        to help you transition from student to professional with confidence.
-      </p>
-
-      <div class="mt-12 space-y-8">
-
-        <div class="flex gap-5 items-start">
-          <div class="w-14 h-14 bg-brand-100 text-brand-600 rounded-xl flex items-center justify-center shadow-sm">
-            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" class="w-7 h-7">
-          </div>
-          <div>
-            <h4 class="font-bold text-lg">Structured Career Roadmaps</h4>
-            <p class="text-sm text-slate-600 mt-1">Step-by-step learning paths designed for real job roles.</p>
-          </div>
-        </div>
-
-        <div class="flex gap-5 items-start">
-          <div class="w-14 h-14 bg-brand-100 text-brand-600 rounded-xl flex items-center justify-center shadow-sm">
-            <img src="https://cdn-icons-png.flaticon.com/512/1048/1048949.png" class="w-7 h-7">
-          </div>
-          <div>
-            <h4 class="font-bold text-lg">Project-Based Learning</h4>
-            <p class="text-sm text-slate-600 mt-1">Build portfolio-ready projects recruiters actually value.</p>
-          </div>
-        </div>
-
-        <div class="flex gap-5 items-start">
-          <div class="w-14 h-14 bg-brand-100 text-brand-600 rounded-xl flex items-center justify-center shadow-sm">
-            <img src="https://cdn-icons-png.flaticon.com/512/942/942748.png" class="w-7 h-7">
-          </div>
-          <div>
-            <h4 class="font-bold text-lg">Internship & Career Support</h4>
-            <p class="text-sm text-slate-600 mt-1">Mentorship, resume building, and interview preparation.</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- RIGHT VISUAL CARD -->
-    <div class="relative">
-      <div class="card-premium p-0 overflow-hidden shadow-xl">
-
-        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f"
-             class="w-full h-64 object-cover">
-
-        <div class="p-10 text-center">
-          <p class="text-sm text-slate-500 font-semibold">PLACEMENT SUPPORT</p>
-          <p class="text-5xl font-extrabold text-brand-600 mt-2">92%</p>
-          <p class="mt-3 text-slate-600 font-medium max-w-md mx-auto">
-            of active learners completed projects and improved their job opportunities.
-          </p>
-
-          <div class="mt-8 grid grid-cols-3 gap-6 text-sm font-semibold text-slate-700">
-            <div>
-              <p class="text-2xl font-extrabold text-brand-600">40+</p>
-              Domains
-            </div>
-            <div>
-              <p class="text-2xl font-extrabold text-brand-600">150+</p>
-              Projects
-            </div>
-            <div>
-              <p class="text-2xl font-extrabold text-brand-600">24/7</p>
-              Support
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ================= INTERNSHIP DOMAINS ================= -->
-<section id="internships" class="section-light py-24">
-  <div class="max-w-7xl mx-auto px-6">
-
-    <!-- Heading -->
-    <div class="text-center max-w-2xl mx-auto">
-      <h2 class="text-4xl font-extrabold">Internship Domains</h2>
-      <p class="mt-4 text-slate-600 font-medium">
-        Gain hands-on internship experience across high-demand career paths with real projects and mentorship.
-      </p>
-    </div>
-
-    <!-- Grid -->
-    <div class="mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
-
-      <!-- Card -->
-      <div class="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500">
-        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop"
-             class="w-full h-48 object-cover group-hover:scale-110 transition duration-500">
-        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
-        <div class="absolute bottom-0 p-5 text-white">
-          <h3 class="text-lg font-extrabold">Data Analytics</h3>
-          <p class="text-xs text-slate-200 mt-1">Dashboards, SQL & business insights</p>
-        </div>
-      </div>
-
-      <div class="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500">
-        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1200&auto=format&fit=crop"
-             class="w-full h-48 object-cover group-hover:scale-110 transition duration-500">
-        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
-        <div class="absolute bottom-0 p-5 text-white">
-          <h3 class="text-lg font-extrabold">AI & Automation</h3>
-          <p class="text-xs text-slate-200 mt-1">AI tools, prompts & workflows</p>
-        </div>
-      </div>
-
-      <div class="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500">
-        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop"
-             class="w-full h-48 object-cover group-hover:scale-110 transition duration-500">
-        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
-        <div class="absolute bottom-0 p-5 text-white">
-          <h3 class="text-lg font-extrabold">Web Development</h3>
-          <p class="text-xs text-slate-200 mt-1">Frontend & full-stack projects</p>
-        </div>
-      </div>
-
-      <div class="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500">
-        <img src="https://images.unsplash.com/photo-1557838923-2985c318be48?q=80&w=1200&auto=format&fit=crop"
-             class="w-full h-48 object-cover group-hover:scale-110 transition duration-500">
-        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
-        <div class="absolute bottom-0 p-5 text-white">
-          <h3 class="text-lg font-extrabold">Digital Marketing</h3>
-          <p class="text-xs text-slate-200 mt-1">SEO, ads & campaign strategy</p>
-        </div>
-      </div>
-
-      <div class="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500">
-        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1200&auto=format&fit=crop"
-             class="w-full h-48 object-cover group-hover:scale-110 transition duration-500">
-        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
-        <div class="absolute bottom-0 p-5 text-white">
-          <h3 class="text-lg font-extrabold">Graphic Design</h3>
-          <p class="text-xs text-slate-200 mt-1">Branding & visual storytelling</p>
-        </div>
-      </div>
-
-      <div class="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500">
-        <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?q=80&w=1200&auto=format&fit=crop"
-             class="w-full h-48 object-cover group-hover:scale-110 transition duration-500">
-        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
-        <div class="absolute bottom-0 p-5 text-white">
-          <h3 class="text-lg font-extrabold">Cyber Security</h3>
-          <p class="text-xs text-slate-200 mt-1">Ethical hacking & defense</p>
-        </div>
-      </div>
-
-      <div class="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500">
-        <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=1200&auto=format&fit=crop"
-             class="w-full h-48 object-cover group-hover:scale-110 transition duration-500">
-        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
-        <div class="absolute bottom-0 p-5 text-white">
-          <h3 class="text-lg font-extrabold">HR & Recruitment</h3>
-          <p class="text-xs text-slate-200 mt-1">Hiring & talent management</p>
-        </div>
-      </div>
-
-      <div class="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500">
-        <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=1200&auto=format&fit=crop"
-             class="w-full h-48 object-cover group-hover:scale-110 transition duration-500">
-        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
-        <div class="absolute bottom-0 p-5 text-white">
-          <h3 class="text-lg font-extrabold">Finance & Accounting</h3>
-          <p class="text-xs text-slate-200 mt-1">Excel, reporting & analysis</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ================= ELITE CV BUILDER SECTION ================= -->
-<section id="cvbuilder" class="py-32 bg-gradient-to-br from-slate-50 via-white to-blue-50 relative overflow-hidden">
-
-  <!-- Background Glow Effects -->
-  <div class="absolute -top-24 -left-24 w-96 h-96 bg-blue-200 rounded-full blur-3xl opacity-30"></div>
-  <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-indigo-200 rounded-full blur-3xl opacity-30"></div>
-
-  <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-24 items-center relative">
-
-    <!-- LEFT SIDE CONTENT -->
-    <div>
-      <span class="inline-block bg-blue-100 text-blue-700 text-xs font-bold px-4 py-1 rounded-full mb-6 shadow-sm">
-        🚀 Smart Resume Builder
+    <div class="text-white">
+      <span class="inline-block mb-6 text-xs font-semibold tracking-widest text-indigo-400 uppercase">
+        Career Acceleration Platform
       </span>
 
-     <h2 class="text-5xl md:text-6xl font-extrabold leading-tight">
-  Build an <span class="text-brand-600">ATS-Optimized CV</span><br>
-  That Gets You Interviews
-</h2>
+      <h1 class="text-5xl md:text-6xl font-extrabold leading-tight">
+        ATS Resume Writing That<br>
+        <span class="text-indigo-400">Gets You Hired Faster</span>
+      </h1>
 
-      <p class="mt-6 text-lg text-slate-600 leading-relaxed max-w-xl">
-        Create recruiter-approved resumes with AI guidance, modern templates,
-        and industry-ready formatting built for ATS systems.
+      <p class="mt-6 text-lg text-slate-300 max-w-xl">
+        Professional ATS-optimized resumes, LinkedIn optimization, and career
+        support designed to convert applications into interview calls.
       </p>
 
-      <!-- FEATURE POINTS -->
-      <div class="mt-12 space-y-6">
+      <div class="mt-10 flex flex-wrap gap-4">
+        <a href="ats-resume-writing.html"
+           class="px-8 py-4 rounded-xl bg-indigo-600 text-white font-bold shadow-xl hover:bg-indigo-500 transition">
+          Build My Resume
+        </a>
 
-        <div class="flex items-center gap-4">
-          <div class="w-11 h-11 bg-white rounded-lg shadow flex items-center justify-center">
-            <img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png" class="w-6 h-6">
-          </div>
-          <p class="font-semibold text-slate-700">ATS-Optimized Resume Formats</p>
-        </div>
-
-        <div class="flex items-center gap-4">
-          <div class="w-11 h-11 bg-white rounded-lg shadow flex items-center justify-center">
-            <img src="https://cdn-icons-png.flaticon.com/512/4712/4712035.png" class="w-6 h-6">
-          </div>
-          <p class="font-semibold text-slate-700">AI-Powered Writing Assistance</p>
-        </div>
-
-        <div class="flex items-center gap-4">
-          <div class="w-11 h-11 bg-white rounded-lg shadow flex items-center justify-center">
-            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" class="w-6 h-6">
-          </div>
-          <p class="font-semibold text-slate-700">Designed with Hiring Experts</p>
-        </div>
-
+        <a href="#programs"
+           class="px-8 py-4 rounded-xl border border-white/20 text-white font-semibold hover:bg-white/10 transition">
+          Explore Programs
+        </a>
       </div>
 
-      <!-- TRUST STATS -->
-      <div class="mt-14 grid grid-cols-3 gap-8 text-center max-w-md">
+      <div class="mt-14 grid grid-cols-3 gap-8 text-sm">
         <div>
-          <p class="text-3xl font-extrabold text-brand-600">1,200+</p>
-          <p class="text-xs text-slate-500 font-semibold">Resumes Built</p>
+          <p class="text-3xl font-extrabold text-indigo-400">500+</p>
+          <p class="text-slate-400 font-semibold">Learners</p>
         </div>
         <div>
-          <p class="text-3xl font-extrabold text-brand-600">85%</p>
-          <p class="text-xs text-slate-500 font-semibold">Interview Success</p>
+          <p class="text-3xl font-extrabold text-indigo-400">40+</p>
+          <p class="text-slate-400 font-semibold">Domains</p>
         </div>
         <div>
-          <p class="text-3xl font-extrabold text-brand-600">40+</p>
-          <p class="text-xs text-slate-500 font-semibold">Career Domains</p>
+          <p class="text-3xl font-extrabold text-indigo-400">120+</p>
+          <p class="text-slate-400 font-semibold">Certificates</p>
         </div>
       </div>
-
-      <!-- TESTIMONIAL -->
-      <div class="mt-12 bg-white p-5 rounded-xl shadow border">
-        <p class="text-sm text-slate-600 italic">
-          “I used the CV builder to redesign my resume and got interview calls within a week. 
-          The format really matches what recruiters expect.”
-        </p>
-        <p class="mt-3 text-xs font-bold text-slate-700">— Recent Graduate, Placed in Tech Role</p>
-      </div>
-
-      <a href="resume-builder.html"
-         class="btn-primary inline-block mt-14 text-lg px-12 py-5 rounded-xl shadow-glow">
-        Open CV Builder →
-      </a>
     </div>
 
-    <!-- RIGHT SIDE PREMIUM VISUAL LAYOUT -->
-    <div class="relative h-[560px] flex items-center justify-center">
-
-      <!-- BACK IMAGE -->
-      <div class="absolute left-0 top-14 w-[260px] rounded-2xl shadow-xl overflow-hidden hidden md:block">
-        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=800&auto=format&fit=crop"
-             class="w-full h-full object-cover">
+    <div class="hidden lg:block relative">
+      <div class="absolute -top-24 -right-24 w-[420px] h-[420px] bg-indigo-500/20 rounded-full blur-3xl"></div>
+      <div class="relative bg-white/5 backdrop-blur border border-white/10 rounded-3xl p-10 shadow-2xl">
+        <p class="text-white font-semibold mb-4">What We Deliver</p>
+        <ul class="space-y-3 text-slate-300 text-sm">
+          <li>✔ ATS-Optimized Resume Writing</li>
+          <li>✔ LinkedIn Profile Optimization</li>
+          <li>✔ Cover Letters & Portfolio Websites</li>
+          <li>✔ Interview & Career Support</li>
+        </ul>
       </div>
-
-      <!-- MAIN IMAGE -->
-      <div class="relative z-10 w-[340px] md:w-[380px] rounded-3xl shadow-2xl overflow-hidden border-4 border-white">
-        <img src="https://images.unsplash.com/photo-1586281380117-5a60ae2050cc?q=80&w=900&auto=format&fit=crop"
-             class="w-full h-[500px] object-cover">
-      </div>
-
-      <!-- FRONT IMAGE -->
-      <div class="absolute right-0 bottom-8 w-[230px] rounded-2xl shadow-xl overflow-hidden hidden md:block">
-        <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=800&auto=format&fit=crop"
-             class="w-full h-full object-cover">
-      </div>
-
-      <!-- Glow Base -->
-      <div class="absolute -z-10 w-[450px] h-[450px] bg-blue-200 rounded-full blur-3xl opacity-30"></div>
-
     </div>
 
   </div>
 </section>
-
-<!-- ================= PROJECTS YOU'LL BUILD ================= -->
-<section id="projects" class="section-light py-24">
-  <div class="max-w-7xl mx-auto px-6">
-
-    <div class="text-center max-w-2xl mx-auto">
-      <h2 class="text-4xl font-extrabold">Projects You'll Build</h2>
-      <p class="mt-4 text-slate-600 font-medium">
-        Gain real-world experience by working on practical projects that strengthen your portfolio and job readiness.
-      </p>
-    </div>
-
-    <div class="mt-16 grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-
-      <!-- Project 1 -->
-      <div class="card-premium overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71" class="w-full h-40 object-cover">
-        <div class="p-6">
-          <h3 class="font-extrabold text-brand-600">Sales Dashboard (Power BI)</h3>
-          <p class="mt-2 text-sm text-slate-600">Analyze business data and build an interactive dashboard used in real companies.</p>
-        </div>
-      </div>
-
-      <!-- Project 2 -->
-      <div class="card-premium overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1677442135136-760c813028c0" class="w-full h-40 object-cover">
-        <div class="p-6">
-          <h3 class="font-extrabold text-brand-600">AI Resume Analyzer</h3>
-          <p class="mt-2 text-sm text-slate-600">Use AI tools to evaluate resumes and suggest improvements like recruiters do.</p>
-        </div>
-      </div>
-
-      <!-- Project 3 -->
-      <div class="card-premium overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f" class="w-full h-40 object-cover">
-        <div class="p-6">
-          <h3 class="font-extrabold text-brand-600">Personal Portfolio Website</h3>
-          <p class="mt-2 text-sm text-slate-600">Design and deploy your own professional portfolio website to showcase your skills.</p>
-        </div>
-      </div>
-
-      <!-- Project 4 -->
-      <div class="card-premium overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1557838923-2985c318be48" class="w-full h-40 object-cover">
-        <div class="p-6">
-          <h3 class="font-extrabold text-brand-600">Marketing Campaign Report</h3>
-          <p class="mt-2 text-sm text-slate-600">Create a digital marketing performance report using analytics and ad campaign data.</p>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-<!-- ================= GOOGLE-STYLE RATING SUMMARY ================= -->
-<section class="py-20 bg-gradient-to-br from-white to-slate-50 border-y border-slate-200">
-  <div class="max-w-7xl mx-auto px-6">
-
-    <div class="grid lg:grid-cols-2 gap-16 items-center">
-
-      <!-- LEFT: OVERALL RATING -->
-      <div class="text-center lg:text-left">
-        <p class="text-sm font-semibold text-slate-500 uppercase tracking-wide">Learner Satisfaction</p>
-        
-        <div class="flex items-center justify-center lg:justify-start gap-4 mt-4">
-          <span class="text-6xl font-extrabold text-brand-600">4.8</span>
-          <div>
-            <div class="flex text-yellow-400 text-2xl">★★★★★</div>
-            <p class="text-sm text-slate-500 mt-1">Based on 1,200+ learner reviews</p>
-          </div>
-        </div>
-
-        <p class="mt-6 text-slate-600 max-w-md">
-          Our learners consistently rate their experience highly for practical training, 
-          real projects, and career support that helps them get interview-ready.
+  <!-- ================= PROGRAMS ================= -->
+  <section id="programs" class="section-light py-24">
+    <div class="max-w-7xl mx-auto px-6">
+  
+      <div class="text-center max-w-2xl mx-auto">
+        <h2 class="text-4xl font-extrabold">Industry-Focused Programs</h2>
+        <p class="mt-4 text-slate-600 font-medium">
+          Learn practical, job-ready skills designed with real career outcomes in mind.
         </p>
       </div>
-
-      <!-- RIGHT: RATING BREAKDOWN -->
-      <div class="space-y-4">
-
-        <!-- 5 Star -->
-        <div class="flex items-center gap-4">
-          <span class="w-12 text-sm font-semibold text-slate-600">5 ★</span>
-          <div class="flex-1 bg-slate-200 rounded-full h-3 overflow-hidden">
-            <div class="bg-yellow-400 h-full rounded-full" style="width: 72%"></div>
+  
+      <div class="mt-16 grid md:grid-cols-3 gap-10">
+  
+        <!-- Data Analytics -->
+        <div class="card-premium overflow-hidden group">
+          <div class="relative overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d"
+                 class="w-full h-44 object-cover group-hover:scale-110 transition duration-500">
+            <div class="absolute top-4 left-4 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow">
+              In Demand
+            </div>
           </div>
-          <span class="text-sm text-slate-500 w-10 text-right">72%</span>
-        </div>
-
-        <!-- 4 Star -->
-        <div class="flex items-center gap-4">
-          <span class="w-12 text-sm font-semibold text-slate-600">4 ★</span>
-          <div class="flex-1 bg-slate-200 rounded-full h-3 overflow-hidden">
-            <div class="bg-yellow-400 h-full rounded-full" style="width: 18%"></div>
-          </div>
-          <span class="text-sm text-slate-500 w-10 text-right">18%</span>
-        </div>
-
-        <!-- 3 Star -->
-        <div class="flex items-center gap-4">
-          <span class="w-12 text-sm font-semibold text-slate-600">3 ★</span>
-          <div class="flex-1 bg-slate-200 rounded-full h-3 overflow-hidden">
-            <div class="bg-yellow-400 h-full rounded-full" style="width: 6%"></div>
-          </div>
-          <span class="text-sm text-slate-500 w-10 text-right">6%</span>
-        </div>
-
-        <!-- 2 Star -->
-        <div class="flex items-center gap-4">
-          <span class="w-12 text-sm font-semibold text-slate-600">2 ★</span>
-          <div class="flex-1 bg-slate-200 rounded-full h-3 overflow-hidden">
-            <div class="bg-yellow-400 h-full rounded-full" style="width: 3%"></div>
-          </div>
-          <span class="text-sm text-slate-500 w-10 text-right">3%</span>
-        </div>
-
-        <!-- 1 Star -->
-        <div class="flex items-center gap-4">
-          <span class="w-12 text-sm font-semibold text-slate-600">1 ★</span>
-          <div class="flex-1 bg-slate-200 rounded-full h-3 overflow-hidden">
-            <div class="bg-yellow-400 h-full rounded-full" style="width: 1%"></div>
-          </div>
-          <span class="text-sm text-slate-500 w-10 text-right">1%</span>
-        </div>
-
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ================= ELITE TESTIMONIALS ================= -->
-<section class="section-light py-28">
-  <div class="max-w-7xl mx-auto px-6">
-
-    <h2 class="text-4xl font-extrabold text-center">Success Stories From Our Learners</h2>
-    <p class="text-center text-slate-600 mt-3 max-w-2xl mx-auto">
-      Real feedback from students who upgraded their skills, built strong resumes, and moved closer to their dream careers.
-    </p>
-
-    <div class="mt-16 grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-
-      <!-- 1 -->
-      <div class="card-premium p-6">
-        <div class="flex items-center gap-4">
-          <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-14 h-14 rounded-full object-cover">
-          <div>
-            <p class="font-bold">J root</p>
-            <p class="text-xs text-slate-500">Data Analytics • Ireland</p>
+  
+          <div class="p-8">
+            <h3 class="font-extrabold text-xl text-brand-600">Data Analytics</h3>
+            <p class="mt-3 text-slate-600">Excel, SQL, Power BI, dashboards and business case studies.</p>
+            <ul class="mt-5 space-y-2 text-sm font-semibold text-slate-700">
+              <li>✔ Real datasets</li>
+              <li>✔ Portfolio dashboards</li>
+              <li>✔ Interview prep</li>
+            </ul>
           </div>
         </div>
-        <div class="text-yellow-400 mt-3">★★★★★</div>
-        <p class="mt-3 text-sm text-slate-600">“The dashboard projects gave me confidence to attend real interviews.”</p>
-        <p class="text-xs text-green-600 font-semibold mt-2">Now working at: FinTech Startup</p>
-      </div>
-
-      <!-- 2 -->
-      <div class="card-premium p-6">
-        <div class="flex items-center gap-4">
-          <img src="https://randomuser.me/api/portraits/women/44.jpg" class="w-14 h-14 rounded-full object-cover">
-          <div>
-            <p class="font-bold">Aria</p>
-            <p class="text-xs text-slate-500">Digital Marketing • Ireland</p>
+  
+        <!-- AI & Automation -->
+        <div class="card-premium overflow-hidden group border-2 border-brand-600 relative">
+          <div class="relative overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1677442135136-760c813028c0"
+                 class="w-full h-44 object-cover group-hover:scale-110 transition duration-500">
+            <div class="absolute top-4 left-4 bg-purple-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow">
+              Most Popular
+            </div>
+          </div>
+  
+          <div class="p-8">
+            <h3 class="font-extrabold text-xl mt-1">AI & Automation</h3>
+            <p class="mt-3 text-slate-600">Prompt engineering, AI tools, automation workflows.</p>
+            <ul class="mt-5 space-y-2 text-sm font-semibold text-slate-700">
+              <li>✔ AI productivity tools</li>
+              <li>✔ Resume AI optimization</li>
+              <li>✔ Workflow automation</li>
+            </ul>
           </div>
         </div>
-        <div class="text-yellow-400 mt-3">★★★★★</div>
-        <p class="mt-3 text-sm text-slate-600">“Campaign case studies helped me land my first internship.”</p>
-        <p class="text-xs text-green-600 font-semibold mt-2">Placed at: Media Agency</p>
-      </div>
-
-      <!-- 3 -->
-      <div class="card-premium p-6">
-        <div class="flex items-center gap-4">
-          <img src="https://randomuser.me/api/portraits/men/75.jpg" class="w-14 h-14 rounded-full object-cover">
-          <div>
-            <p class="font-bold">Hasan Ali</p>
-            <p class="text-xs text-slate-500">Web Development • Oman</p>
+  
+        <!-- Career Accelerator -->
+        <div class="card-premium overflow-hidden group">
+          <div class="relative overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d"
+                 class="w-full h-44 object-cover group-hover:scale-110 transition duration-500">
+            <div class="absolute top-4 left-4 bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow">
+              Career Boost
+            </div>
+          </div>
+  
+          <div class="p-8">
+            <h3 class="font-extrabold text-xl text-brand-600">Career Accelerator</h3>
+            <p class="mt-3 text-slate-600">Resume, LinkedIn, mock interviews and placement support.</p>
+            <ul class="mt-5 space-y-2 text-sm font-semibold text-slate-700">
+              <li>✔ ATS resume</li>
+              <li>✔ LinkedIn branding</li>
+              <li>✔ HR mock interviews</li>
+            </ul>
           </div>
         </div>
-        <div class="text-yellow-400 mt-3">★★★★★</div>
-        <p class="mt-3 text-sm text-slate-600">“I built my portfolio and started freelancing while learning.”</p>
-      </div>
-
-      <!-- 4 -->
-      <div class="card-premium p-6">
-        <div class="flex items-center gap-4">
-          <img src="https://randomuser.me/api/portraits/women/68.jpg" class="w-14 h-14 rounded-full object-cover">
-          <div>
-            <p class="font-bold">qannat</p>
-            <p class="text-xs text-slate-500">HR Intern • Oman</p>
-          </div>
-        </div>
-        <div class="text-yellow-400 mt-3">★★★★☆</div>
-        <p class="mt-3 text-sm text-slate-600">“Resume guidance was very helpful, more mock interviews would be great.”</p>
-      </div>
-
-      <!-- 5 -->
-      <div class="card-premium p-6">
-        <div class="flex items-center gap-4">
-          <img src="https://randomuser.me/api/portraits/men/46.jpg" class="w-14 h-14 rounded-full object-cover">
-          <div>
-            <p class="font-bold">Liam Thompson</p>
-            <p class="text-xs text-slate-500">AI Automation • Canada</p>
-          </div>
-        </div>
-        <div class="text-yellow-400 mt-3">★★★★★</div>
-        <p class="mt-3 text-sm text-slate-600">“The AI tools training was practical and industry-focused.”</p>
-      </div>
-
-      <!-- 6 -->
-      <div class="card-premium p-6">
-        <div class="flex items-center gap-4">
-          <img src="https://randomuser.me/api/portraits/women/21.jpg" class="w-14 h-14 rounded-full object-cover">
-          <div>
-            <p class="font-bold">Sophie Martin</p>
-            <p class="text-xs text-slate-500">UI/UX Design • France</p>
-          </div>
-        </div>
-        <div class="text-yellow-400 mt-3">★★★★★</div>
-        <p class="mt-3 text-sm text-slate-600">“My design portfolio improved massively after this internship.”</p>
-      </div>
-
-      <!-- 7 -->
-      <div class="card-premium p-6">
-        <div class="flex items-center gap-4">
-          <img src="https://randomuser.me/api/portraits/men/18.jpg" class="w-14 h-14 rounded-full object-cover">
-          <div>
-            <p class="font-bold">Daniel Brooks</p>
-            <p class="text-xs text-slate-500">Cyber Security • USA</p>
-          </div>
-        </div>
-        <div class="text-yellow-400 mt-3">★★★★★</div>
-        <p class="mt-3 text-sm text-slate-600">“Hands-on labs made learning security tools easier.”</p>
-      </div>
-
-      <!-- 8 -->
-      <div class="card-premium p-6">
-        <div class="flex items-center gap-4">
-          <img src="https://randomuser.me/api/portraits/women/12.jpg" class="w-14 h-14 rounded-full object-cover">
-          <div>
-            <p class="font-bold">Emily Rogers</p>
-            <p class="text-xs text-slate-500">Business Analytics • UK</p>
-          </div>
-        </div>
-        <div class="text-yellow-400 mt-3">★★★★★</div>
-        <p class="mt-3 text-sm text-slate-600">“Excel and reporting modules were extremely helpful.”</p>
-      </div>
-
-      <!-- 9 -->
-      <div class="card-premium p-6">
-        <div class="flex items-center gap-4">
-          <img src="https://randomuser.me/api/portraits/men/29.jpg" class="w-14 h-14 rounded-full object-cover">
-          <div>
-            <p class="font-bold">Carlos Mendes</p>
-            <p class="text-xs text-slate-500">Finance Intern • Brazil</p>
-          </div>
-        </div>
-        <div class="text-yellow-400 mt-3">★★★★★</div>
-        <p class="mt-3 text-sm text-slate-600">“The financial analysis projects were practical and useful.”</p>
-      </div>
-
-      <!-- 10 -->
-      <div class="card-premium p-6">
-        <div class="flex items-center gap-4">
-          <img src="https://randomuser.me/api/portraits/women/55.jpg" class="w-14 h-14 rounded-full object-cover">
-          <div>
-            <p class="font-bold">Aisha Khan</p>
-            <p class="text-xs text-slate-500">Graphic Design • India</p>
-          </div>
-        </div>
-        <div class="text-yellow-400 mt-3">★★★★★</div>
-        <p class="mt-3 text-sm text-slate-600">“Creative projects helped me build a strong portfolio.”</p>
-      </div>
-
-      <!-- 11 -->
-      <div class="card-premium p-6">
-        <div class="flex items-center gap-4">
-          <img src="https://randomuser.me/api/portraits/men/60.jpg" class="w-14 h-14 rounded-full object-cover">
-          <div>
-            <p class="font-bold">Noah Williams</p>
-            <p class="text-xs text-slate-500">Marketing Intern • Australia</p>
-          </div>
-        </div>
-        <div class="text-yellow-400 mt-3">★★★★★</div>
-        <p class="mt-3 text-sm text-slate-600">“Loved the analytics-based marketing approach.”</p>
-      </div>
-
-      <!-- 12 (Mixed Feedback) -->
-      <div class="card-premium p-6">
-        <div class="flex items-center gap-4">
-          <img src="https://randomuser.me/api/portraits/women/39.jpg" class="w-14 h-14 rounded-full object-cover">
-          <div>
-            <p class="font-bold">Olivia Brown</p>
-            <p class="text-xs text-slate-500">AI Tools Learner • USA</p>
-          </div>
-        </div>
-        <div class="text-yellow-400 mt-3">★★★★☆</div>
-        <p class="mt-3 text-sm text-slate-600">“Great tools and guidance, but I wanted more advanced modules.”</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ================= ANIMATED HIRING PARTNERS ================= -->
-<section class="section-light py-20 border-t border-slate-200 overflow-hidden">
-  <div class="max-w-7xl mx-auto px-6 text-center">
-    <p class="text-sm font-semibold text-slate-500">Learners prepare for opportunities at</p>
-
-    <div class="mt-10 relative">
-      <div class="flex gap-16 animate-marquee whitespace-nowrap text-slate-400 font-extrabold text-xl">
-        <span>Google</span>
-        <span>Microsoft</span>
-        <span>Amazon</span>
-        <span>Deloitte</span>
-        <span>Accenture</span>
-        <span>Infosys</span>
-        <span>TCS</span>
-        <span>Wipro</span>
-        <span>Capgemini</span>
-        <span>Cognizant</span>
-        <!-- repeat for smooth loop -->
-        <span>Google</span>
-        <span>Microsoft</span>
-        <span>Amazon</span>
-        <span>Deloitte</span>
-        <span>Accenture</span>
-        <span>Infosys</span>
-        <span>TCS</span>
+  
       </div>
     </div>
-  </div>
-</section>
-
-<style>
-@keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-.animate-marquee {
-  animation: marquee 25s linear infinite;
-}
-</style>
-
-<!-- ================= PREMIUM CERTIFICATES ================= -->
-<section id="certificates" class="section-soft py-24">
-  <div class="max-w-7xl mx-auto px-6">
-
-    <div class="text-center max-w-2xl mx-auto">
-      <h2 class="text-4xl font-extrabold">Earn Industry-Ready Certificates</h2>
-      <p class="mt-4 text-slate-600 font-medium">
-        Showcase your verified skills with professional certificates awarded after completing real projects and internship work.
+  </section>
+  
+  <!-- ================= WHY CHOOSE US ================= -->
+  <section class="section-soft py-24">
+    <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
+  
+      <!-- LEFT CONTENT -->
+      <div>
+        <h2 class="text-4xl font-extrabold">Why Learners Choose Eduskillpath</h2>
+        <p class="mt-5 text-slate-600 font-medium leading-relaxed max-w-xl">
+          We combine structured learning, real-world practice, and career support
+          to help you transition from student to professional with confidence.
+        </p>
+  
+        <div class="mt-12 space-y-8">
+  
+          <div class="flex gap-5 items-start">
+            <div class="w-14 h-14 bg-brand-100 text-brand-600 rounded-xl flex items-center justify-center shadow-sm">
+              <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" class="w-7 h-7">
+            </div>
+            <div>
+              <h4 class="font-bold text-lg">Structured Career Roadmaps</h4>
+              <p class="text-sm text-slate-600 mt-1">Step-by-step learning paths designed for real job roles.</p>
+            </div>
+          </div>
+  
+          <div class="flex gap-5 items-start">
+            <div class="w-14 h-14 bg-brand-100 text-brand-600 rounded-xl flex items-center justify-center shadow-sm">
+              <img src="https://cdn-icons-png.flaticon.com/512/1048/1048949.png" class="w-7 h-7">
+            </div>
+            <div>
+              <h4 class="font-bold text-lg">Project-Based Learning</h4>
+              <p class="text-sm text-slate-600 mt-1">Build portfolio-ready projects recruiters actually value.</p>
+            </div>
+          </div>
+  
+          <div class="flex gap-5 items-start">
+            <div class="w-14 h-14 bg-brand-100 text-brand-600 rounded-xl flex items-center justify-center shadow-sm">
+              <img src="https://cdn-icons-png.flaticon.com/512/942/942748.png" class="w-7 h-7">
+            </div>
+            <div>
+              <h4 class="font-bold text-lg">Internship & Career Support</h4>
+              <p class="text-sm text-slate-600 mt-1">Mentorship, resume building, and interview preparation.</p>
+            </div>
+          </div>
+  
+        </div>
+      </div>
+  
+      <!-- RIGHT VISUAL CARD -->
+      <div class="relative">
+        <div class="card-premium p-0 overflow-hidden shadow-xl">
+  
+          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f"
+               class="w-full h-64 object-cover">
+  
+          <div class="p-10 text-center">
+            <p class="text-sm text-slate-500 font-semibold">PLACEMENT SUPPORT</p>
+            <p class="text-5xl font-extrabold text-brand-600 mt-2">92%</p>
+            <p class="mt-3 text-slate-600 font-medium max-w-md mx-auto">
+              of active learners completed projects and improved their job opportunities.
+            </p>
+  
+            <div class="mt-8 grid grid-cols-3 gap-6 text-sm font-semibold text-slate-700">
+              <div>
+                <p class="text-2xl font-extrabold text-brand-600">40+</p>
+                Domains
+              </div>
+              <div>
+                <p class="text-2xl font-extrabold text-brand-600">150+</p>
+                Projects
+              </div>
+              <div>
+                <p class="text-2xl font-extrabold text-brand-600">24/7</p>
+                Support
+              </div>
+            </div>
+          </div>
+  
+        </div>
+      </div>
+  
+    </div>
+  </section>
+  
+  <!-- ================= INTERNSHIP DOMAINS ================= -->
+  <section id="internships" class="section-light py-24">
+    <div class="max-w-7xl mx-auto px-6">
+  
+      <!-- Heading -->
+      <div class="text-center max-w-2xl mx-auto">
+        <h2 class="text-4xl font-extrabold">Internship Domains</h2>
+        <p class="mt-4 text-slate-600 font-medium">
+          Gain hands-on internship experience across high-demand career paths with real projects and mentorship.
+        </p>
+      </div>
+  
+      <!-- Grid -->
+      <div class="mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
+  
+        <!-- Card -->
+        <div class="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop"
+               class="w-full h-48 object-cover group-hover:scale-110 transition duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
+          <div class="absolute bottom-0 p-5 text-white">
+            <h3 class="text-lg font-extrabold">Data Analytics</h3>
+            <p class="text-xs text-slate-200 mt-1">Dashboards, SQL & business insights</p>
+          </div>
+        </div>
+  
+        <div class="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500">
+          <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1200&auto=format&fit=crop"
+               class="w-full h-48 object-cover group-hover:scale-110 transition duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
+          <div class="absolute bottom-0 p-5 text-white">
+            <h3 class="text-lg font-extrabold">AI & Automation</h3>
+            <p class="text-xs text-slate-200 mt-1">AI tools, prompts & workflows</p>
+          </div>
+        </div>
+  
+        <div class="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500">
+          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop"
+               class="w-full h-48 object-cover group-hover:scale-110 transition duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
+          <div class="absolute bottom-0 p-5 text-white">
+            <h3 class="text-lg font-extrabold">Web Development</h3>
+            <p class="text-xs text-slate-200 mt-1">Frontend & full-stack projects</p>
+          </div>
+        </div>
+  
+        <div class="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500">
+          <img src="https://images.unsplash.com/photo-1557838923-2985c318be48?q=80&w=1200&auto=format&fit=crop"
+               class="w-full h-48 object-cover group-hover:scale-110 transition duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
+          <div class="absolute bottom-0 p-5 text-white">
+            <h3 class="text-lg font-extrabold">Digital Marketing</h3>
+            <p class="text-xs text-slate-200 mt-1">SEO, ads & campaign strategy</p>
+          </div>
+        </div>
+  
+        <div class="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500">
+          <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1200&auto=format&fit=crop"
+               class="w-full h-48 object-cover group-hover:scale-110 transition duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
+          <div class="absolute bottom-0 p-5 text-white">
+            <h3 class="text-lg font-extrabold">Graphic Design</h3>
+            <p class="text-xs text-slate-200 mt-1">Branding & visual storytelling</p>
+          </div>
+        </div>
+  
+        <div class="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500">
+          <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?q=80&w=1200&auto=format&fit=crop"
+               class="w-full h-48 object-cover group-hover:scale-110 transition duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
+          <div class="absolute bottom-0 p-5 text-white">
+            <h3 class="text-lg font-extrabold">Cyber Security</h3>
+            <p class="text-xs text-slate-200 mt-1">Ethical hacking & defense</p>
+          </div>
+        </div>
+  
+        <div class="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500">
+          <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=1200&auto=format&fit=crop"
+               class="w-full h-48 object-cover group-hover:scale-110 transition duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
+          <div class="absolute bottom-0 p-5 text-white">
+            <h3 class="text-lg font-extrabold">HR & Recruitment</h3>
+            <p class="text-xs text-slate-200 mt-1">Hiring & talent management</p>
+          </div>
+        </div>
+  
+        <div class="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500">
+          <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=1200&auto=format&fit=crop"
+               class="w-full h-48 object-cover group-hover:scale-110 transition duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
+          <div class="absolute bottom-0 p-5 text-white">
+            <h3 class="text-lg font-extrabold">Finance & Accounting</h3>
+            <p class="text-xs text-slate-200 mt-1">Excel, reporting & analysis</p>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </section>
+  
+  <!-- ================= ELITE CV BUILDER SECTION ================= -->
+  <section id="cvbuilder" class="py-32 bg-gradient-to-br from-slate-50 via-white to-blue-50 relative overflow-hidden">
+  
+    <!-- Background Glow Effects -->
+    <div class="absolute -top-24 -left-24 w-96 h-96 bg-blue-200 rounded-full blur-3xl opacity-30"></div>
+    <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-indigo-200 rounded-full blur-3xl opacity-30"></div>
+  
+    <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-24 items-center relative">
+  
+      <!-- LEFT SIDE CONTENT -->
+      <div>
+        <span class="inline-block bg-blue-100 text-blue-700 text-xs font-bold px-4 py-1 rounded-full mb-6 shadow-sm">
+          🚀 Smart Resume Builder
+        </span>
+  
+       <h2 class="text-5xl md:text-6xl font-extrabold leading-tight">
+    Build an <span class="text-brand-600">ATS-Optimized CV</span><br>
+    That Gets You Interviews
+  </h2>
+  
+        <p class="mt-6 text-lg text-slate-600 leading-relaxed max-w-xl">
+          Create recruiter-approved resumes with AI guidance, modern templates,
+          and industry-ready formatting built for ATS systems.
+        </p>
+  
+        <!-- FEATURE POINTS -->
+        <div class="mt-12 space-y-6">
+  
+          <div class="flex items-center gap-4">
+            <div class="w-11 h-11 bg-white rounded-lg shadow flex items-center justify-center">
+              <img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png" class="w-6 h-6">
+            </div>
+            <p class="font-semibold text-slate-700">ATS-Optimized Resume Formats</p>
+          </div>
+  
+          <div class="flex items-center gap-4">
+            <div class="w-11 h-11 bg-white rounded-lg shadow flex items-center justify-center">
+              <img src="https://cdn-icons-png.flaticon.com/512/4712/4712035.png" class="w-6 h-6">
+            </div>
+            <p class="font-semibold text-slate-700">AI-Powered Writing Assistance</p>
+          </div>
+  
+          <div class="flex items-center gap-4">
+            <div class="w-11 h-11 bg-white rounded-lg shadow flex items-center justify-center">
+              <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" class="w-6 h-6">
+            </div>
+            <p class="font-semibold text-slate-700">Designed with Hiring Experts</p>
+          </div>
+  
+        </div>
+  
+        <!-- TRUST STATS -->
+        <div class="mt-14 grid grid-cols-3 gap-8 text-center max-w-md">
+          <div>
+            <p class="text-3xl font-extrabold text-brand-600">1,200+</p>
+            <p class="text-xs text-slate-500 font-semibold">Resumes Built</p>
+          </div>
+          <div>
+            <p class="text-3xl font-extrabold text-brand-600">85%</p>
+            <p class="text-xs text-slate-500 font-semibold">Interview Success</p>
+          </div>
+          <div>
+            <p class="text-3xl font-extrabold text-brand-600">40+</p>
+            <p class="text-xs text-slate-500 font-semibold">Career Domains</p>
+          </div>
+        </div>
+  
+        <!-- TESTIMONIAL -->
+        <div class="mt-12 bg-white p-5 rounded-xl shadow border">
+          <p class="text-sm text-slate-600 italic">
+            “I used the CV builder to redesign my resume and got interview calls within a week. 
+            The format really matches what recruiters expect.”
+          </p>
+          <p class="mt-3 text-xs font-bold text-slate-700">— Recent Graduate, Placed in Tech Role</p>
+        </div>
+  
+        <a href="resume-builder.html"
+           class="btn-primary inline-block mt-14 text-lg px-12 py-5 rounded-xl shadow-glow">
+          Open CV Builder →
+        </a>
+      </div>
+  
+      <!-- RIGHT SIDE PREMIUM VISUAL LAYOUT -->
+      <div class="relative h-[560px] flex items-center justify-center">
+  
+        <!-- BACK IMAGE -->
+        <div class="absolute left-0 top-14 w-[260px] rounded-2xl shadow-xl overflow-hidden hidden md:block">
+          <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=800&auto=format&fit=crop"
+               class="w-full h-full object-cover">
+        </div>
+  
+        <!-- MAIN IMAGE -->
+        <div class="relative z-10 w-[340px] md:w-[380px] rounded-3xl shadow-2xl overflow-hidden border-4 border-white">
+          <img src="https://images.unsplash.com/photo-1586281380117-5a60ae2050cc?q=80&w=900&auto=format&fit=crop"
+               class="w-full h-[500px] object-cover">
+        </div>
+  
+        <!-- FRONT IMAGE -->
+        <div class="absolute right-0 bottom-8 w-[230px] rounded-2xl shadow-xl overflow-hidden hidden md:block">
+          <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=800&auto=format&fit=crop"
+               class="w-full h-full object-cover">
+        </div>
+  
+        <!-- Glow Base -->
+        <div class="absolute -z-10 w-[450px] h-[450px] bg-blue-200 rounded-full blur-3xl opacity-30"></div>
+  
+      </div>
+  
+    </div>
+  </section>
+  
+  <!-- ================= PROJECTS YOU'LL BUILD ================= -->
+  <section id="projects" class="section-light py-24">
+    <div class="max-w-7xl mx-auto px-6">
+  
+      <div class="text-center max-w-2xl mx-auto">
+        <h2 class="text-4xl font-extrabold">Projects You'll Build</h2>
+        <p class="mt-4 text-slate-600 font-medium">
+          Gain real-world experience by working on practical projects that strengthen your portfolio and job readiness.
+        </p>
+      </div>
+  
+      <div class="mt-16 grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+  
+        <!-- Project 1 -->
+        <div class="card-premium overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71" class="w-full h-40 object-cover">
+          <div class="p-6">
+            <h3 class="font-extrabold text-brand-600">Sales Dashboard (Power BI)</h3>
+            <p class="mt-2 text-sm text-slate-600">Analyze business data and build an interactive dashboard used in real companies.</p>
+          </div>
+        </div>
+  
+        <!-- Project 2 -->
+        <div class="card-premium overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1677442135136-760c813028c0" class="w-full h-40 object-cover">
+          <div class="p-6">
+            <h3 class="font-extrabold text-brand-600">AI Resume Analyzer</h3>
+            <p class="mt-2 text-sm text-slate-600">Use AI tools to evaluate resumes and suggest improvements like recruiters do.</p>
+          </div>
+        </div>
+  
+        <!-- Project 3 -->
+        <div class="card-premium overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f" class="w-full h-40 object-cover">
+          <div class="p-6">
+            <h3 class="font-extrabold text-brand-600">Personal Portfolio Website</h3>
+            <p class="mt-2 text-sm text-slate-600">Design and deploy your own professional portfolio website to showcase your skills.</p>
+          </div>
+        </div>
+  
+        <!-- Project 4 -->
+        <div class="card-premium overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1557838923-2985c318be48" class="w-full h-40 object-cover">
+          <div class="p-6">
+            <h3 class="font-extrabold text-brand-600">Marketing Campaign Report</h3>
+            <p class="mt-2 text-sm text-slate-600">Create a digital marketing performance report using analytics and ad campaign data.</p>
+          </div>
+        </div>
+  
+      </div>
+  
+    </div>
+  </section>
+  <!-- ================= GOOGLE-STYLE RATING SUMMARY ================= -->
+  <section class="py-20 bg-gradient-to-br from-white to-slate-50 border-y border-slate-200">
+    <div class="max-w-7xl mx-auto px-6">
+  
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+  
+        <!-- LEFT: OVERALL RATING -->
+        <div class="text-center lg:text-left">
+          <p class="text-sm font-semibold text-slate-500 uppercase tracking-wide">Learner Satisfaction</p>
+          
+          <div class="flex items-center justify-center lg:justify-start gap-4 mt-4">
+            <span class="text-6xl font-extrabold text-brand-600">4.8</span>
+            <div>
+              <div class="flex text-yellow-400 text-2xl">★★★★★</div>
+              <p class="text-sm text-slate-500 mt-1">Based on 1,200+ learner reviews</p>
+            </div>
+          </div>
+  
+          <p class="mt-6 text-slate-600 max-w-md">
+            Our learners consistently rate their experience highly for practical training, 
+            real projects, and career support that helps them get interview-ready.
+          </p>
+        </div>
+  
+        <!-- RIGHT: RATING BREAKDOWN -->
+        <div class="space-y-4">
+  
+          <!-- 5 Star -->
+          <div class="flex items-center gap-4">
+            <span class="w-12 text-sm font-semibold text-slate-600">5 ★</span>
+            <div class="flex-1 bg-slate-200 rounded-full h-3 overflow-hidden">
+              <div class="bg-yellow-400 h-full rounded-full" style="width: 72%"></div>
+            </div>
+            <span class="text-sm text-slate-500 w-10 text-right">72%</span>
+          </div>
+  
+          <!-- 4 Star -->
+          <div class="flex items-center gap-4">
+            <span class="w-12 text-sm font-semibold text-slate-600">4 ★</span>
+            <div class="flex-1 bg-slate-200 rounded-full h-3 overflow-hidden">
+              <div class="bg-yellow-400 h-full rounded-full" style="width: 18%"></div>
+            </div>
+            <span class="text-sm text-slate-500 w-10 text-right">18%</span>
+          </div>
+  
+          <!-- 3 Star -->
+          <div class="flex items-center gap-4">
+            <span class="w-12 text-sm font-semibold text-slate-600">3 ★</span>
+            <div class="flex-1 bg-slate-200 rounded-full h-3 overflow-hidden">
+              <div class="bg-yellow-400 h-full rounded-full" style="width: 6%"></div>
+            </div>
+            <span class="text-sm text-slate-500 w-10 text-right">6%</span>
+          </div>
+  
+          <!-- 2 Star -->
+          <div class="flex items-center gap-4">
+            <span class="w-12 text-sm font-semibold text-slate-600">2 ★</span>
+            <div class="flex-1 bg-slate-200 rounded-full h-3 overflow-hidden">
+              <div class="bg-yellow-400 h-full rounded-full" style="width: 3%"></div>
+            </div>
+            <span class="text-sm text-slate-500 w-10 text-right">3%</span>
+          </div>
+  
+          <!-- 1 Star -->
+          <div class="flex items-center gap-4">
+            <span class="w-12 text-sm font-semibold text-slate-600">1 ★</span>
+            <div class="flex-1 bg-slate-200 rounded-full h-3 overflow-hidden">
+              <div class="bg-yellow-400 h-full rounded-full" style="width: 1%"></div>
+            </div>
+            <span class="text-sm text-slate-500 w-10 text-right">1%</span>
+          </div>
+  
+        </div>
+  
+      </div>
+    </div>
+  </section>
+  
+  <!-- ================= ELITE TESTIMONIALS ================= -->
+  <section class="section-light py-28">
+    <div class="max-w-7xl mx-auto px-6">
+  
+      <h2 class="text-4xl font-extrabold text-center">Success Stories From Our Learners</h2>
+      <p class="text-center text-slate-600 mt-3 max-w-2xl mx-auto">
+        Real feedback from students who upgraded their skills, built strong resumes, and moved closer to their dream careers.
       </p>
-    </div>
-
-    <div class="mt-16 grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-
-      <!-- Certificate Card -->
-      <div class="card-premium p-6 hover:shadow-xl transition">
-        <div class="bg-white border border-slate-200 rounded-xl p-4 shadow-sm">
-          <div class="h-40 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-lg flex items-center justify-center text-brand-600 font-bold text-lg">
-            Data Analytics Internship
+  
+      <div class="mt-16 grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+  
+        <!-- 1 -->
+        <div class="card-premium p-6">
+          <div class="flex items-center gap-4">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-14 h-14 rounded-full object-cover">
+            <div>
+              <p class="font-bold">J root</p>
+              <p class="text-xs text-slate-500">Data Analytics • Ireland</p>
+            </div>
           </div>
+          <div class="text-yellow-400 mt-3">★★★★★</div>
+          <p class="mt-3 text-sm text-slate-600">“The dashboard projects gave me confidence to attend real interviews.”</p>
+          <p class="text-xs text-green-600 font-semibold mt-2">Now working at: FinTech Startup</p>
         </div>
-        <div class="mt-4 flex justify-between items-center">
-          <span class="text-sm font-semibold text-slate-700">Verified Credential</span>
-          <span class="text-xs bg-green-100 text-green-700 px-3 py-1 rounded-full font-bold">✔ Verified</span>
-        </div>
-        <button onclick="openCertModal()" class="mt-4 w-full bg-brand-600 text-white py-2 rounded-lg font-semibold hover:bg-brand-700 transition">
-          View Sample Certificate
-        </button>
-      </div>
-
-      <!-- Copy this block to make more certificates -->
-      <div class="card-premium p-6 hover:shadow-xl transition">
-        <div class="bg-white border border-slate-200 rounded-xl p-4 shadow-sm">
-          <div class="h-40 bg-gradient-to-br from-purple-100 to-indigo-100 rounded-lg flex items-center justify-center text-brand-600 font-bold text-lg">
-            AI & Automation Tools
+  
+        <!-- 2 -->
+        <div class="card-premium p-6">
+          <div class="flex items-center gap-4">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" class="w-14 h-14 rounded-full object-cover">
+            <div>
+              <p class="font-bold">Aria</p>
+              <p class="text-xs text-slate-500">Digital Marketing • Ireland</p>
+            </div>
           </div>
+          <div class="text-yellow-400 mt-3">★★★★★</div>
+          <p class="mt-3 text-sm text-slate-600">“Campaign case studies helped me land my first internship.”</p>
+          <p class="text-xs text-green-600 font-semibold mt-2">Placed at: Media Agency</p>
         </div>
-        <div class="mt-4 flex justify-between items-center">
-          <span class="text-sm font-semibold text-slate-700">Project Completion</span>
-          <span class="text-xs bg-green-100 text-green-700 px-3 py-1 rounded-full font-bold">✔ Verified</span>
-        </div>
-        <button onclick="openCertModal()" class="mt-4 w-full bg-brand-600 text-white py-2 rounded-lg font-semibold hover:bg-brand-700 transition">
-          View Sample Certificate
-        </button>
-      </div>
-
-      <div class="card-premium p-6 hover:shadow-xl transition">
-        <div class="bg-white border border-slate-200 rounded-xl p-4 shadow-sm">
-          <div class="h-40 bg-gradient-to-br from-pink-100 to-rose-100 rounded-lg flex items-center justify-center text-brand-600 font-bold text-lg">
-            Digital Marketing Internship
+  
+        <!-- 3 -->
+        <div class="card-premium p-6">
+          <div class="flex items-center gap-4">
+            <img src="https://randomuser.me/api/portraits/men/75.jpg" class="w-14 h-14 rounded-full object-cover">
+            <div>
+              <p class="font-bold">Hasan Ali</p>
+              <p class="text-xs text-slate-500">Web Development • Oman</p>
+            </div>
           </div>
+          <div class="text-yellow-400 mt-3">★★★★★</div>
+          <p class="mt-3 text-sm text-slate-600">“I built my portfolio and started freelancing while learning.”</p>
         </div>
-        <div class="mt-4 flex justify-between items-center">
-          <span class="text-sm font-semibold text-slate-700">Campaign Analysis</span>
-          <span class="text-xs bg-green-100 text-green-700 px-3 py-1 rounded-full font-bold">✔ Verified</span>
+  
+        <!-- 4 -->
+        <div class="card-premium p-6">
+          <div class="flex items-center gap-4">
+            <img src="https://randomuser.me/api/portraits/women/68.jpg" class="w-14 h-14 rounded-full object-cover">
+            <div>
+              <p class="font-bold">qannat</p>
+              <p class="text-xs text-slate-500">HR Intern • Oman</p>
+            </div>
+          </div>
+          <div class="text-yellow-400 mt-3">★★★★☆</div>
+          <p class="mt-3 text-sm text-slate-600">“Resume guidance was very helpful, more mock interviews would be great.”</p>
         </div>
-        <button onclick="openCertModal()" class="mt-4 w-full bg-brand-600 text-white py-2 rounded-lg font-semibold hover:bg-brand-700 transition">
-          View Sample Certificate
-        </button>
+  
+        <!-- 5 -->
+        <div class="card-premium p-6">
+          <div class="flex items-center gap-4">
+            <img src="https://randomuser.me/api/portraits/men/46.jpg" class="w-14 h-14 rounded-full object-cover">
+            <div>
+              <p class="font-bold">Liam Thompson</p>
+              <p class="text-xs text-slate-500">AI Automation • Canada</p>
+            </div>
+          </div>
+          <div class="text-yellow-400 mt-3">★★★★★</div>
+          <p class="mt-3 text-sm text-slate-600">“The AI tools training was practical and industry-focused.”</p>
+        </div>
+  
+        <!-- 6 -->
+        <div class="card-premium p-6">
+          <div class="flex items-center gap-4">
+            <img src="https://randomuser.me/api/portraits/women/21.jpg" class="w-14 h-14 rounded-full object-cover">
+            <div>
+              <p class="font-bold">Sophie Martin</p>
+              <p class="text-xs text-slate-500">UI/UX Design • France</p>
+            </div>
+          </div>
+          <div class="text-yellow-400 mt-3">★★★★★</div>
+          <p class="mt-3 text-sm text-slate-600">“My design portfolio improved massively after this internship.”</p>
+        </div>
+  
+        <!-- 7 -->
+        <div class="card-premium p-6">
+          <div class="flex items-center gap-4">
+            <img src="https://randomuser.me/api/portraits/men/18.jpg" class="w-14 h-14 rounded-full object-cover">
+            <div>
+              <p class="font-bold">Daniel Brooks</p>
+              <p class="text-xs text-slate-500">Cyber Security • USA</p>
+            </div>
+          </div>
+          <div class="text-yellow-400 mt-3">★★★★★</div>
+          <p class="mt-3 text-sm text-slate-600">“Hands-on labs made learning security tools easier.”</p>
+        </div>
+  
+        <!-- 8 -->
+        <div class="card-premium p-6">
+          <div class="flex items-center gap-4">
+            <img src="https://randomuser.me/api/portraits/women/12.jpg" class="w-14 h-14 rounded-full object-cover">
+            <div>
+              <p class="font-bold">Emily Rogers</p>
+              <p class="text-xs text-slate-500">Business Analytics • UK</p>
+            </div>
+          </div>
+          <div class="text-yellow-400 mt-3">★★★★★</div>
+          <p class="mt-3 text-sm text-slate-600">“Excel and reporting modules were extremely helpful.”</p>
+        </div>
+  
+        <!-- 9 -->
+        <div class="card-premium p-6">
+          <div class="flex items-center gap-4">
+            <img src="https://randomuser.me/api/portraits/men/29.jpg" class="w-14 h-14 rounded-full object-cover">
+            <div>
+              <p class="font-bold">Carlos Mendes</p>
+              <p class="text-xs text-slate-500">Finance Intern • Brazil</p>
+            </div>
+          </div>
+          <div class="text-yellow-400 mt-3">★★★★★</div>
+          <p class="mt-3 text-sm text-slate-600">“The financial analysis projects were practical and useful.”</p>
+        </div>
+  
+        <!-- 10 -->
+        <div class="card-premium p-6">
+          <div class="flex items-center gap-4">
+            <img src="https://randomuser.me/api/portraits/women/55.jpg" class="w-14 h-14 rounded-full object-cover">
+            <div>
+              <p class="font-bold">Aisha Khan</p>
+              <p class="text-xs text-slate-500">Graphic Design • India</p>
+            </div>
+          </div>
+          <div class="text-yellow-400 mt-3">★★★★★</div>
+          <p class="mt-3 text-sm text-slate-600">“Creative projects helped me build a strong portfolio.”</p>
+        </div>
+  
+        <!-- 11 -->
+        <div class="card-premium p-6">
+          <div class="flex items-center gap-4">
+            <img src="https://randomuser.me/api/portraits/men/60.jpg" class="w-14 h-14 rounded-full object-cover">
+            <div>
+              <p class="font-bold">Noah Williams</p>
+              <p class="text-xs text-slate-500">Marketing Intern • Australia</p>
+            </div>
+          </div>
+          <div class="text-yellow-400 mt-3">★★★★★</div>
+          <p class="mt-3 text-sm text-slate-600">“Loved the analytics-based marketing approach.”</p>
+        </div>
+  
+        <!-- 12 (Mixed Feedback) -->
+        <div class="card-premium p-6">
+          <div class="flex items-center gap-4">
+            <img src="https://randomuser.me/api/portraits/women/39.jpg" class="w-14 h-14 rounded-full object-cover">
+            <div>
+              <p class="font-bold">Olivia Brown</p>
+              <p class="text-xs text-slate-500">AI Tools Learner • USA</p>
+            </div>
+          </div>
+          <div class="text-yellow-400 mt-3">★★★★☆</div>
+          <p class="mt-3 text-sm text-slate-600">“Great tools and guidance, but I wanted more advanced modules.”</p>
+        </div>
+  
       </div>
-
     </div>
-  </div>
-</section>
-
-<!-- ================= HIRING PARTNERS LOGO WALL ================= -->
-<section class="section-light py-20 border-t border-slate-200 overflow-hidden">
-  <div class="max-w-7xl mx-auto px-6 text-center">
-    <p class="text-sm font-semibold text-slate-500">Learners prepared for opportunities at</p>
-
-    <div class="mt-12 relative">
-      <div class="flex gap-16 items-center animate-logo-marquee whitespace-nowrap">
-
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" class="h-12 opacity-70 hover:opacity-100 transition">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" class="h-12 opacity-70 hover:opacity-100 transition">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoft/microsoft-original.svg" class="h-12 opacity-70 hover:opacity-100 transition">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" class="h-12 opacity-70 hover:opacity-100 transition">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/slack/slack-original.svg" class="h-12 opacity-70 hover:opacity-100 transition">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" class="h-12 opacity-70 hover:opacity-100 transition">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" class="h-12 opacity-70 hover:opacity-100 transition">
-
-        <!-- Repeat for smooth loop -->
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" class="h-12 opacity-70">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" class="h-12 opacity-70">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoft/microsoft-original.svg" class="h-12 opacity-70">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" class="h-12 opacity-70">
-
+  </section>
+  
+  <!-- ================= ANIMATED HIRING PARTNERS ================= -->
+  <section class="section-light py-20 border-t border-slate-200 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+      <p class="text-sm font-semibold text-slate-500">Learners prepare for opportunities at</p>
+  
+      <div class="mt-10 relative">
+        <div class="flex gap-16 animate-marquee whitespace-nowrap text-slate-400 font-extrabold text-xl">
+          <span>Google</span>
+          <span>Microsoft</span>
+          <span>Amazon</span>
+          <span>Deloitte</span>
+          <span>Accenture</span>
+          <span>Infosys</span>
+          <span>TCS</span>
+          <span>Wipro</span>
+          <span>Capgemini</span>
+          <span>Cognizant</span>
+          <!-- repeat for smooth loop -->
+          <span>Google</span>
+          <span>Microsoft</span>
+          <span>Amazon</span>
+          <span>Deloitte</span>
+          <span>Accenture</span>
+          <span>Infosys</span>
+          <span>TCS</span>
+        </div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- ================= FOOTER ================= -->
-<footer class="bg-slate-900 text-white py-16">
-  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-10 text-sm">
-    <div>
-      <h3 class="font-extrabold text-lg">Eduskillpath</h3>
-      <p class="mt-3 text-slate-400">Learn skills, build projects, and grow your career with structured training.</p>
-    </div>
-
-    <div>
-      <h4 class="font-bold mb-3">Quick Links</h4>
-      <a href="#programs" class="block text-slate-400">Programs</a>
-      <a href="#internships" class="block text-slate-400">Internships</a>
-      <a href="#cvbuilder" class="block text-slate-400">CV Builder</a>
-    </div>
-
-    <div>
-      <h4 class="font-bold mb-3">Contact</h4>
-      <p class="text-slate-400">support@eduskillpath.com</p>
-      <p class="text-slate-400">India</p>
-    </div>
-  </div>
-  <p class="text-center text-slate-500 text-xs mt-10">© 2026 Eduskillpath. All rights reserved.</p>
-</footer>
-
-<!-- ================= FIXED HERO GLOBE SCRIPT ================= -->
-<script src="https://unpkg.com/three@0.152.2/build/three.min.js"></script>
-<script src="https://unpkg.com/three-globe"></script>
-
-<script>
-const container = document.getElementById("globe-container");
-
-if (container) {
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(50, window.innerWidth/window.innerHeight, 0.1, 1000);
-  const renderer = new THREE.WebGLRenderer({ alpha:true, antialias:true });
-  renderer.setSize(window.innerWidth, window.innerHeight);
-  container.appendChild(renderer.domElement);
-
-  scene.add(new THREE.AmbientLight(0xffffff, 1.2));
-  const dirLight = new THREE.DirectionalLight(0xffffff, 1);
-  dirLight.position.set(5,3,5);
-  scene.add(dirLight);
-
-  const Globe = new ThreeGlobe()
-    .globeImageUrl("//unpkg.com/three-globe/example/img/earth-blue-marble.jpg")
-    .bumpImageUrl("//unpkg.com/three-globe/example/img/earth-topology.png")
-    .showAtmosphere(true)
-    .atmosphereColor("#1e40af")
-.atmosphereAltitude(0.12);
-
-  scene.add(Globe);
-  camera.position.z = 280;
-
-  function animate() {
-    Globe.rotation.y += 0.0015;
-    renderer.render(scene, camera);
-    requestAnimationFrame(animate);
+  </section>
+  
+  <style>
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
   }
-  animate();
-
-  window.addEventListener("resize", () => {
-    camera.aspect = window.innerWidth/window.innerHeight;
-    camera.updateProjectionMatrix();
+  .animate-marquee {
+    animation: marquee 25s linear infinite;
+  }
+  </style>
+  
+  <!-- ================= PREMIUM CERTIFICATES ================= -->
+  <section id="certificates" class="section-soft py-24">
+    <div class="max-w-7xl mx-auto px-6">
+  
+      <div class="text-center max-w-2xl mx-auto">
+        <h2 class="text-4xl font-extrabold">Earn Industry-Ready Certificates</h2>
+        <p class="mt-4 text-slate-600 font-medium">
+          Showcase your verified skills with professional certificates awarded after completing real projects and internship work.
+        </p>
+      </div>
+  
+      <div class="mt-16 grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+  
+        <!-- Certificate Card -->
+        <div class="card-premium p-6 hover:shadow-xl transition">
+          <div class="bg-white border border-slate-200 rounded-xl p-4 shadow-sm">
+            <div class="h-40 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-lg flex items-center justify-center text-brand-600 font-bold text-lg">
+              Data Analytics Internship
+            </div>
+          </div>
+          <div class="mt-4 flex justify-between items-center">
+            <span class="text-sm font-semibold text-slate-700">Verified Credential</span>
+            <span class="text-xs bg-green-100 text-green-700 px-3 py-1 rounded-full font-bold">✔ Verified</span>
+          </div>
+          <button onclick="openCertModal()" class="mt-4 w-full bg-brand-600 text-white py-2 rounded-lg font-semibold hover:bg-brand-700 transition">
+            View Sample Certificate
+          </button>
+        </div>
+  
+        <!-- Copy this block to make more certificates -->
+        <div class="card-premium p-6 hover:shadow-xl transition">
+          <div class="bg-white border border-slate-200 rounded-xl p-4 shadow-sm">
+            <div class="h-40 bg-gradient-to-br from-purple-100 to-indigo-100 rounded-lg flex items-center justify-center text-brand-600 font-bold text-lg">
+              AI & Automation Tools
+            </div>
+          </div>
+          <div class="mt-4 flex justify-between items-center">
+            <span class="text-sm font-semibold text-slate-700">Project Completion</span>
+            <span class="text-xs bg-green-100 text-green-700 px-3 py-1 rounded-full font-bold">✔ Verified</span>
+          </div>
+          <button onclick="openCertModal()" class="mt-4 w-full bg-brand-600 text-white py-2 rounded-lg font-semibold hover:bg-brand-700 transition">
+            View Sample Certificate
+          </button>
+        </div>
+  
+        <div class="card-premium p-6 hover:shadow-xl transition">
+          <div class="bg-white border border-slate-200 rounded-xl p-4 shadow-sm">
+            <div class="h-40 bg-gradient-to-br from-pink-100 to-rose-100 rounded-lg flex items-center justify-center text-brand-600 font-bold text-lg">
+              Digital Marketing Internship
+            </div>
+          </div>
+          <div class="mt-4 flex justify-between items-center">
+            <span class="text-sm font-semibold text-slate-700">Campaign Analysis</span>
+            <span class="text-xs bg-green-100 text-green-700 px-3 py-1 rounded-full font-bold">✔ Verified</span>
+          </div>
+          <button onclick="openCertModal()" class="mt-4 w-full bg-brand-600 text-white py-2 rounded-lg font-semibold hover:bg-brand-700 transition">
+            View Sample Certificate
+          </button>
+        </div>
+  
+      </div>
+    </div>
+  </section>
+  
+  <!-- ================= HIRING PARTNERS LOGO WALL ================= -->
+  <section class="section-light py-20 border-t border-slate-200 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+      <p class="text-sm font-semibold text-slate-500">Learners prepared for opportunities at</p>
+  
+      <div class="mt-12 relative">
+        <div class="flex gap-16 items-center animate-logo-marquee whitespace-nowrap">
+  
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" class="h-12 opacity-70 hover:opacity-100 transition">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" class="h-12 opacity-70 hover:opacity-100 transition">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoft/microsoft-original.svg" class="h-12 opacity-70 hover:opacity-100 transition">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" class="h-12 opacity-70 hover:opacity-100 transition">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/slack/slack-original.svg" class="h-12 opacity-70 hover:opacity-100 transition">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" class="h-12 opacity-70 hover:opacity-100 transition">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" class="h-12 opacity-70 hover:opacity-100 transition">
+  
+          <!-- Repeat for smooth loop -->
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" class="h-12 opacity-70">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" class="h-12 opacity-70">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoft/microsoft-original.svg" class="h-12 opacity-70">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" class="h-12 opacity-70">
+  
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-slate-900 text-white py-16">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-10 text-sm">
+      <div>
+        <h3 class="font-extrabold text-lg">Eduskillpath</h3>
+        <p class="mt-3 text-slate-400">Learn skills, build projects, and grow your career with structured training.</p>
+      </div>
+  
+      <div>
+        <h4 class="font-bold mb-3">Quick Links</h4>
+        <a href="#programs" class="block text-slate-400">Programs</a>
+        <a href="#internships" class="block text-slate-400">Internships</a>
+        <a href="#cvbuilder" class="block text-slate-400">CV Builder</a>
+      </div>
+  
+      <div>
+        <h4 class="font-bold mb-3">Contact</h4>
+        <p class="text-slate-400">support@eduskillpath.com</p>
+        <p class="text-slate-400">India</p>
+      </div>
+    </div>
+    <p class="text-center text-slate-500 text-xs mt-10">© 2026 Eduskillpath. All rights reserved.</p>
+  </footer>
+  
+  <!-- ================= FIXED HERO GLOBE SCRIPT ================= -->
+  <script src="https://unpkg.com/three@0.152.2/build/three.min.js"></script>
+  <script src="https://unpkg.com/three-globe"></script>
+  
+  <script>
+  const container = document.getElementById("globe-container");
+  
+  if (container) {
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(50, window.innerWidth/window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ alpha:true, antialias:true });
     renderer.setSize(window.innerWidth, window.innerHeight);
-  });
-}
-</script>
-<script>
-const counters = document.querySelectorAll('.counter');
-
-const animateCounter = (counter) => {
-  const target = +counter.getAttribute('data-target');
-  const duration = 1500;
-  const start = performance.now();
-
-  function update(now) {
-    const progress = Math.min((now - start) / duration, 1);
-    counter.innerText = Math.floor(progress * target);
-    if (progress < 1) requestAnimationFrame(update);
-    else counter.innerText = target + "+";
-  }
-
-  requestAnimationFrame(update);
-};
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      animateCounter(entry.target);
-      observer.unobserve(entry.target);
+    container.appendChild(renderer.domElement);
+  
+    scene.add(new THREE.AmbientLight(0xffffff, 1.2));
+    const dirLight = new THREE.DirectionalLight(0xffffff, 1);
+    dirLight.position.set(5,3,5);
+    scene.add(dirLight);
+  
+    const Globe = new ThreeGlobe()
+      .globeImageUrl("//unpkg.com/three-globe/example/img/earth-blue-marble.jpg")
+      .bumpImageUrl("//unpkg.com/three-globe/example/img/earth-topology.png")
+      .showAtmosphere(true)
+      .atmosphereColor("#1e40af")
+  .atmosphereAltitude(0.12);
+  
+    scene.add(Globe);
+    camera.position.z = 280;
+  
+    function animate() {
+      Globe.rotation.y += 0.0015;
+      renderer.render(scene, camera);
+      requestAnimationFrame(animate);
     }
-  });
-}, { threshold: 0.6 });
-
-counters.forEach(counter => observer.observe(counter));
-</script>
-<!-- ================= CERTIFICATE MODAL ================= -->
-<div id="certModal" class="fixed inset-0 bg-black/60 hidden items-center justify-center z-50">
-  <div class="bg-white rounded-2xl shadow-2xl max-w-3xl w-full mx-4 p-6 relative animate-fadeIn">
-
-    <button onclick="closeCertModal()" class="absolute top-4 right-4 text-slate-500 hover:text-black text-xl font-bold">&times;</button>
-
-    <h3 class="text-xl font-extrabold text-center mb-4">Sample Internship Certificate</h3>
-
-    <div id="certificateContent" class="border-4 border-slate-200 rounded-xl p-8 text-center bg-gradient-to-br from-white to-slate-50">
-
-      <div class="flex flex-col items-center">
-  <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" class="w-12 mb-2 opacity-80">
-  <h4 class="text-3xl font-extrabold tracking-wide text-brand-600">Eduskillpath</h4>
-  <p class="text-xs tracking-widest text-slate-400">PROFESSIONAL SKILL DEVELOPMENT INSTITUTE</p>
-</div>
-
-      <p class="mt-2 text-sm text-slate-500">Certificate of Completion</p>
-
-      <p class="mt-6 text-lg font-semibold">This is to certify that</p>
-      <input id="certificateStudentName"    class="text-2xl font-extrabold mt-1 text-center bg-transparent border-b-2 border-dashed border-slate-300 focus:outline-none"   value="Student Name" />
-
-      <p class="mt-4 text-slate-600 text-sm">has successfully completed the internship program in</p>
-      <p class="text-lg font-bold text-brand-600 mt-1">Data Analytics</p>
-      <p class="mt-3 text-xs text-slate-500 tracking-wide">
-  Program aligned with industry standards & tools used by companies like Google, Microsoft & Amazon
-</p>
-
-
-      <div class="mt-6 text-xs text-slate-500 flex justify-between px-6">
-        <span id="certificateID">Certificate ID: ESP-000000</span>
-        <span id="certificateDate">Issued: --/--/----</span>
-      </div>
-
-      <div class="flex justify-center mt-8">
-        <div class="relative w-24 h-24">
-          <div class="absolute inset-0 rounded-full bg-yellow-400 blur-md opacity-40"></div>
-          <div class="relative w-24 h-24 rounded-full bg-gradient-to-br from-yellow-400 via-yellow-500 to-amber-600 flex items-center justify-center shadow-lg border-4 border-yellow-300">
-            <div class="text-center text-white text-[10px] font-bold leading-tight">
-              VERIFIED<br>CERTIFICATE
+    animate();
+  
+    window.addEventListener("resize", () => {
+      camera.aspect = window.innerWidth/window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+  }
+  </script>
+  <script>
+  const counters = document.querySelectorAll('.counter');
+  
+  const animateCounter = (counter) => {
+    const target = +counter.getAttribute('data-target');
+    const duration = 1500;
+    const start = performance.now();
+  
+    function update(now) {
+      const progress = Math.min((now - start) / duration, 1);
+      counter.innerText = Math.floor(progress * target);
+      if (progress < 1) requestAnimationFrame(update);
+      else counter.innerText = target + "+";
+    }
+  
+    requestAnimationFrame(update);
+  };
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCounter(entry.target);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.6 });
+  
+  counters.forEach(counter => observer.observe(counter));
+  </script>
+  <!-- ================= CERTIFICATE MODAL ================= -->
+  <div id="certModal" class="fixed inset-0 bg-black/60 hidden items-center justify-center z-50">
+    <div class="bg-white rounded-2xl shadow-2xl max-w-3xl w-full mx-4 p-6 relative animate-fadeIn">
+  
+      <button onclick="closeCertModal()" class="absolute top-4 right-4 text-slate-500 hover:text-black text-xl font-bold">&times;</button>
+  
+      <h3 class="text-xl font-extrabold text-center mb-4">Sample Internship Certificate</h3>
+  
+      <div id="certificateContent" class="border-4 border-slate-200 rounded-xl p-8 text-center bg-gradient-to-br from-white to-slate-50">
+  
+        <div class="flex flex-col items-center">
+    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" class="w-12 mb-2 opacity-80">
+    <h4 class="text-3xl font-extrabold tracking-wide text-brand-600">Eduskillpath</h4>
+    <p class="text-xs tracking-widest text-slate-400">PROFESSIONAL SKILL DEVELOPMENT INSTITUTE</p>
+  </div>
+  
+        <p class="mt-2 text-sm text-slate-500">Certificate of Completion</p>
+  
+        <p class="mt-6 text-lg font-semibold">This is to certify that</p>
+        <input id="certificateStudentName"    class="text-2xl font-extrabold mt-1 text-center bg-transparent border-b-2 border-dashed border-slate-300 focus:outline-none"   value="Student Name" />
+  
+        <p class="mt-4 text-slate-600 text-sm">has successfully completed the internship program in</p>
+        <p class="text-lg font-bold text-brand-600 mt-1">Data Analytics</p>
+        <p class="mt-3 text-xs text-slate-500 tracking-wide">
+    Program aligned with industry standards & tools used by companies like Google, Microsoft & Amazon
+  </p>
+  
+  
+        <div class="mt-6 text-xs text-slate-500 flex justify-between px-6">
+          <span id="certificateID">Certificate ID: ESP-000000</span>
+          <span id="certificateDate">Issued: --/--/----</span>
+        </div>
+  
+        <div class="flex justify-center mt-8">
+          <div class="relative w-24 h-24">
+            <div class="absolute inset-0 rounded-full bg-yellow-400 blur-md opacity-40"></div>
+            <div class="relative w-24 h-24 rounded-full bg-gradient-to-br from-yellow-400 via-yellow-500 to-amber-600 flex items-center justify-center shadow-lg border-4 border-yellow-300">
+              <div class="text-center text-white text-[10px] font-bold leading-tight">
+                VERIFIED<br>CERTIFICATE
+              </div>
             </div>
           </div>
         </div>
-      </div>
-
-      <div class="mt-10 flex justify-between items-end px-10 text-sm">
-        <div class="text-center">
-          <span class="font-signature text-3xl text-slate-700">Afroz</span>
-<div class="border-t border-slate-400 w-44 mt-2"></div>
-<p class="mt-1 text-xs text-slate-500 font-semibold tracking-wide">
-  Director – Eduskillpath Skill Development Program
-</p>
-
-        <div class="text-center">
-          <span class="font-semibold text-slate-700">Eduskillpath</span>
-          <div class="border-t border-slate-400 w-40 mt-2"></div>
-          <p class="mt-1 text-xs text-slate-500 font-semibold">Authorized Issuer</p>
+  
+        <div class="mt-10 flex justify-between items-end px-10 text-sm">
+          <div class="text-center">
+            <span class="font-signature text-3xl text-slate-700">Afroz</span>
+  <div class="border-t border-slate-400 w-44 mt-2"></div>
+  <p class="mt-1 text-xs text-slate-500 font-semibold tracking-wide">
+    Director – Eduskillpath Skill Development Program
+  </p>
+  
+          <div class="text-center">
+            <span class="font-semibold text-slate-700">Eduskillpath</span>
+            <div class="border-t border-slate-400 w-40 mt-2"></div>
+            <p class="mt-1 text-xs text-slate-500 font-semibold">Authorized Issuer</p>
+          </div>
         </div>
-      </div>
-
-      <div class="flex justify-end mt-6 px-10">
-        <div class="text-center">
-          <img id="certificateQR" src="" class="w-20 h-20 border rounded-md shadow-sm">
-          <p class="text-[10px] text-slate-400 mt-1">Scan to verify</p>
+  
+        <div class="flex justify-end mt-6 px-10">
+          <div class="text-center">
+            <img id="certificateQR" src="" class="w-20 h-20 border rounded-md shadow-sm">
+            <p class="text-[10px] text-slate-400 mt-1">Scan to verify</p>
+          </div>
         </div>
-      </div>
-
-     <div class="mt-6 text-[11px] text-slate-400 leading-relaxed">
-  Issued by <strong>Eduskillpath</strong> • Internship & Project Program<br>
-  Registered under MSME India • Skill Development & Training Initiative<br>
-  Operating in accordance with applicable Indian education & training guidelines
-</div>
-
-    </div>
-
-    <button onclick="downloadCertificate()" class="mt-6 w-full bg-green-600 text-white py-3 rounded-lg font-bold hover:bg-green-700 transition">
-      Download Certificate (PDF)
-    </button>
-
+  
+       <div class="mt-6 text-[11px] text-slate-400 leading-relaxed">
+    Issued by <strong>Eduskillpath</strong> • Internship & Project Program<br>
+    Registered under MSME India • Skill Development & Training Initiative<br>
+    Operating in accordance with applicable Indian education & training guidelines
   </div>
-</div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<script>
-function generateCertificateID() {
-  return "ESP-" + Math.floor(100000 + Math.random() * 900000);
-}
-
-function getTodayDate() {
-  return new Date().toLocaleDateString("en-GB");
-}
-
-function openCertModal() {
-  const nameInput = document.getElementById("studentNameInput").value.trim();
-  const displayName = nameInput || "Student Name";
-  const certID = generateCertificateID();
-  const issueDate = getTodayDate();
-
-  document.getElementById("certificateStudentName").innerText = displayName;
-  document.getElementById("certificateID").innerText = "Certificate ID: " + certID;
-  document.getElementById("certificateDate").innerText = "Issued: " + issueDate;
-
-  const qrData = `Eduskillpath Certificate\nName: ${displayName}\nCertificate ID: ${certID}\nIssued: ${issueDate}`;
-  document.getElementById("certificateQR").src =
-    "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=" + encodeURIComponent(qrData);
-
-  document.getElementById("certModal").classList.remove("hidden");
-  document.getElementById("certModal").classList.add("flex");
-}
-
-function closeCertModal() {
-  document.getElementById("certModal").classList.add("hidden");
-  document.getElementById("certModal").classList.remove("flex");
-}
-
-async function downloadCertificate() {
-  const { jsPDF } = window.jspdf;
-  const cert = document.getElementById("certificateContent");
-  const canvas = await html2canvas(cert, { scale: 2 });
-  const imgData = canvas.toDataURL("image/png");
-
-  const pdf = new jsPDF({ orientation: "landscape", unit: "px", format: [canvas.width, canvas.height] });
-  pdf.addImage(imgData, "PNG", 0, 0, canvas.width, canvas.height);
-  pdf.save("Eduskillpath-Certificate.pdf");
-}
-</script>
-<!-- WhatsApp Floating Button -->
-<a href="https://wa.me/917250720874?text=Hi%20Eduskillpath,%20I%20want%20help%20with%20ATS%20resume%20writing"
-   target="_blank"
-   class="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600
-          text-white p-4 rounded-full shadow-2xl transition">
-  <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 16 16">
-    <path d="M13.601 2.326A7.86 7.86 0 008.013 0C3.58 0 0 3.58 0 8.01c0 1.41.37 2.78 1.08 3.99L0 16l4.12-1.07a8.01 8.01 0 003.89 1c4.43 0 8.01-3.58 8.01-8.01a7.96 7.96 0 00-2.42-5.59z"/>
-  </svg>
-</a>
-  <script src="whatsapp.js"></script>
-</body>
-</html>
+  
+      </div>
+  
+      <button onclick="downloadCertificate()" class="mt-6 w-full bg-green-600 text-white py-3 rounded-lg font-bold hover:bg-green-700 transition">
+        Download Certificate (PDF)
+      </button>
+  
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script>
+  function generateCertificateID() {
+    return "ESP-" + Math.floor(100000 + Math.random() * 900000);
+  }
+  
+  function getTodayDate() {
+    return new Date().toLocaleDateString("en-GB");
+  }
+  
+  function openCertModal() {
+    const nameInput = document.getElementById("studentNameInput").value.trim();
+    const displayName = nameInput || "Student Name";
+    const certID = generateCertificateID();
+    const issueDate = getTodayDate();
+  
+    document.getElementById("certificateStudentName").innerText = displayName;
+    document.getElementById("certificateID").innerText = "Certificate ID: " + certID;
+    document.getElementById("certificateDate").innerText = "Issued: " + issueDate;
+  
+    const qrData = `Eduskillpath Certificate\nName: ${displayName}\nCertificate ID: ${certID}\nIssued: ${issueDate}`;
+    document.getElementById("certificateQR").src =
+      "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=" + encodeURIComponent(qrData);
+  
+    document.getElementById("certModal").classList.remove("hidden");
+    document.getElementById("certModal").classList.add("flex");
+  }
+  
+  function closeCertModal() {
+    document.getElementById("certModal").classList.add("hidden");
+    document.getElementById("certModal").classList.remove("flex");
+  }
+  
+  async function downloadCertificate() {
+    const { jsPDF } = window.jspdf;
+    const cert = document.getElementById("certificateContent");
+    const canvas = await html2canvas(cert, { scale: 2 });
+    const imgData = canvas.toDataURL("image/png");
+  
+    const pdf = new jsPDF({ orientation: "landscape", unit: "px", format: [canvas.width, canvas.height] });
+    pdf.addImage(imgData, "PNG", 0, 0, canvas.width, canvas.height);
+    pdf.save("Eduskillpath-Certificate.pdf");
+  }
+  </script>
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/917250720874?text=Hi%20Eduskillpath,%20I%20want%20help%20with%20ATS%20resume%20writing"
+     target="_blank"
+     class="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600
+            text-white p-4 rounded-full shadow-2xl transition">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 16 16">
+      <path d="M13.601 2.326A7.86 7.86 0 008.013 0C3.58 0 0 3.58 0 8.01c0 1.41.37 2.78 1.08 3.99L0 16l4.12-1.07a8.01 8.01 0 003.89 1c4.43 0 8.01-3.58 8.01-8.01a7.96 7.96 0 00-2.42-5.59z"/>
+    </svg>
+  </a>
+    <script src="whatsapp.js"></script>
+  </body>
+  </html>
