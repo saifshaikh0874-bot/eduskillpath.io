@@ -258,7 +258,65 @@
         <a href="#cvbuilder" class="hover:text-brand-600">CV Builder</a>
       </nav>
   <!-- Right actions -->
-  <div class="flex items-center gap-2 md:gap-3">
+  <div class="flex items-center gap-2 md:gap-3 relative">
+
+  <!-- Login -->
+  <a href="login.html"
+     class="text-sm font-semibold text-slate-700 hover:text-indigo-600 transition">
+    Login
+  </a>
+
+  <!-- Sign up -->
+  <a href="signup.html"
+     class="text-sm font-bold px-4 py-2 rounded-full
+            bg-indigo-600 text-white hover:bg-indigo-500 transition">
+    Sign Up
+  </a>
+
+  <!-- THREE DOT MENU BUTTON -->
+  <button id="menuBtn"
+          onclick="toggleMenu()"
+          class="ml-2 p-2 rounded-full hover:bg-slate-100 transition">
+    <svg xmlns="http://www.w3.org/2000/svg"
+         class="w-5 h-5 text-slate-700"
+         fill="currentColor" viewBox="0 0 16 16">
+      <path d="M3 9.5a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm5 0a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm5 0a1.5 1.5 0 110-3 1.5 1.5 0 010 3z"/>
+    </svg>
+  </button>
+
+  <!-- DROPDOWN MENU -->
+  <div id="menuDropdown"
+       class="hidden absolute right-0 top-12 w-56 bg-white rounded-xl shadow-2xl border border-slate-200 z-50">
+
+    <a href="ats-checker.html" class="block px-5 py-3 text-sm font-semibold hover:bg-slate-50">
+      ATS Resume Checker
+    </a>
+
+    <a href="ats-resume-writing.html" class="block px-5 py-3 text-sm font-semibold hover:bg-slate-50">
+      Resume Writing Services
+    </a>
+
+    <a href="resume-builder.html" class="block px-5 py-3 text-sm font-semibold hover:bg-slate-50">
+      CV Builder
+    </a>
+
+    <a href="#internships" class="block px-5 py-3 text-sm font-semibold hover:bg-slate-50">
+      Internships
+    </a>
+
+    <a href="#projects" class="block px-5 py-3 text-sm font-semibold hover:bg-slate-50">
+      Projects
+    </a>
+
+    <div class="border-t border-slate-200"></div>
+
+    <a href="contact.html"
+       class="block px-5 py-3 text-sm font-semibold text-indigo-600 hover:bg-indigo-50">
+      Contact Support
+    </a>
+
+  </div>
+</div>
     
     <!-- Login -->
     <a href="login.html"
@@ -1383,5 +1441,21 @@
     </svg>
   </a>
     <script src="whatsapp.js"></script>
+    <script>
+function toggleMenu() {
+  const menu = document.getElementById("menuDropdown");
+  menu.classList.toggle("hidden");
+}
+
+/* Close menu when clicking outside */
+document.addEventListener("click", function (event) {
+  const menu = document.getElementById("menuDropdown");
+  const button = document.getElementById("menuBtn");
+
+  if (!menu.contains(event.target) && !button.contains(event.target)) {
+    menu.classList.add("hidden");
+  }
+});
+</script>
   </body>
   </html>
