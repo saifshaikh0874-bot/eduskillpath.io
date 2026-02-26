@@ -1,48 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>ATS Resume Checker | Eduskillpath</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>AI ATS Resume Checker | Eduskillpath</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Tailwind -->
-  <script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+
 </head>
 
-<body class="bg-slate-50 text-slate-900">
+<body class="bg-gradient-to-br from-slate-50 to-indigo-50 text-slate-900">
 
-<header class="bg-white shadow p-4 flex justify-between items-center">
-  <h1 class="font-extrabold text-indigo-600">Eduskillpath</h1>
-  <a href="index.html" class="text-sm font-semibold text-slate-600">
-    ← Back to Home
-  </a>
+<!-- HEADER -->
+<header class="bg-white shadow-sm sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto p-4 flex justify-between items-center">
+    <h1 class="font-extrabold text-xl text-indigo-600">Eduskillpath</h1>
+    <span class="text-sm text-slate-500">AI ATS Resume Analyzer</span>
+  </div>
 </header>
 
+<!-- MAIN -->
 <section class="max-w-4xl mx-auto mt-16 p-6">
   <h2 class="text-4xl font-extrabold text-center">
-    Simple ATS Resume Checker
+    AI-Powered ATS Resume Checker
   </h2>
-  <p class="text-center text-slate-600 mt-3">
-    Basic ATS compatibility check (no job description)
+  <p class="text-center text-slate-600 mt-4">
+    Simulates real Applicant Tracking Systems used by top companies
   </p>
 
-  <div class="bg-white mt-10 p-6 rounded-xl shadow space-y-6">
+  <!-- UPLOAD CARD -->
+  <div class="bg-white mt-12 p-8 rounded-2xl shadow-xl space-y-6">
 
     <input type="file" id="resumeFile"
-           accept=".pdf,.doc,.docx,.txt"
-           class="w-full border p-3 rounded">
+      accept=".pdf,.doc,.docx,.txt"
+      class="w-full border-2 border-dashed border-indigo-200 p-6 rounded-xl text-center">
 
     <button onclick="runATSCheck()"
-            class="w-full bg-indigo-600 text-white py-3 rounded-lg font-bold">
-      Check ATS Score
+      class="w-full bg-indigo-600 hover:bg-indigo-700 transition text-white py-4 rounded-xl font-bold text-lg">
+      Analyze Resume
     </button>
 
-    <div id="result" class="hidden mt-8">
-      <h3 class="text-2xl font-extrabold">
-        ATS Score: <span id="score" class="text-indigo-600">0</span>/100
-      </h3>
+    <!-- LOADING -->
+    <div id="loading" class="hidden space-y-4">
+      <p id="loadingText" class="text-center font-semibold text-indigo-600"></p>
+      <div class="w-full bg-slate-200 rounded-full h-3">
+        <div id="progressBar" class="bg-indigo-600 h-3 rounded-full w-0 transition-all"></div>
+      </div>
+    </div>
 
-      <ul id="feedback" class="mt-4 space-y-2 text-sm text-slate-600"></ul>
+    <!-- RESULT -->
+    <div id="result" class="hidden space-y-6">
+
+      <div class="text-center">
+        <h3 class="text-5xl font-extrabold text-indigo-600">
+          <span id="score">0</span>/100
+        </h3>
+        <p class="text-slate-500 mt-2">ATS Compatibility Score</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-slate-50 p-5 rounded-xl">
+          <h4 class="font-bold mb-3">What You Did Well</h4>
+          <ul id="positive" class="space-y-2 text-sm text-slate-600"></ul>
+        </div>
+
+        <div class="bg-slate-50 p-5 rounded-xl">
+          <h4 class="font-bold mb-3">Improvements Needed</h4>
+          <ul id="negative" class="space-y-2 text-sm text-slate-600"></ul>
+        </div>
+      </div>
+
     </div>
 
   </div>
@@ -51,81 +78,102 @@
 <script>
 function runATSCheck() {
   const file = document.getElementById("resumeFile").files[0];
-  if (!file) {
-    alert("Please upload a resume");
-    return;
+  if (!file) return alert("Upload a resume first");
+
+  document.getElementById("loading").classList.remove("hidden");
+  document.getElementById("result").classList.add("hidden");
+
+  const loadingSteps = [
+    "Uploading resume…",
+    "Parsing resume structure…",
+    "Running ATS keyword scan…",
+    "Analyzing experience & skills…",
+    "Finalizing ATS score…"
+  ];
+
+  let step = 0;
+  let progress = 0;
+
+  const interval = setInterval(() => {
+    document.getElementById("loadingText").innerText = loadingSteps[step];
+    progress += 20;
+    document.getElementById("progressBar").style.width = progress + "%";
+    step++;
+    if (step === loadingSteps.length) {
+      clearInterval(interval);
+      analyzeResume();
+    }
+  }, 700);
+
+  function analyzeResume() {
+    const reader = new FileReader();
+    reader.onload = function () {
+      const text = reader.result.toLowerCase();
+
+      let score = 0;
+      let positive = [];
+      let negative = [];
+
+      /* SECTIONS */
+      const sections = ["skills", "experience", "education", "projects"];
+      let sectionHits = sections.filter(s => text.includes(s)).length;
+      score += sectionHits * 8;
+      sectionHits >= 3 ? positive.push("Standard resume sections detected.") :
+        negative.push("Missing important ATS sections (Skills, Experience, Education).");
+
+      /* KEYWORDS */
+      const keywords = ["management","analysis","excel","communication","leadership","sql","python"];
+      let keywordHits = keywords.filter(k => text.includes(k)).length;
+      score += Math.min(keywordHits * 4, 20);
+      keywordHits >= 4 ? positive.push("Good keyword alignment.") :
+        negative.push("Add more role-specific keywords.");
+
+      /* ACTION VERBS */
+      const verbs = ["led","managed","built","improved","designed","developed","optimized"];
+      let verbHits = verbs.filter(v => text.includes(v)).length;
+      score += Math.min(verbHits * 3, 15);
+      verbHits >= 3 ? positive.push("Strong action-oriented language.") :
+        negative.push("Use more action verbs to describe achievements.");
+
+      /* EXPERIENCE DATES */
+      const years = text.match(/\b(19|20)\d{2}\b/g) || [];
+      years.length >= 2 ? (score += 15, positive.push("Clear experience timeline.")) :
+        negative.push("Experience dates may be unclear.");
+
+      /* LENGTH */
+      const wordCount = text.split(/\s+/).length;
+      if (wordCount >= 300 && wordCount <= 900) {
+        score += 15;
+        positive.push("Resume length is ATS-optimized.");
+      } else {
+        negative.push("Resume length is not ideal for ATS.");
+      }
+
+      if (file.name.endsWith(".pdf") || file.name.endsWith(".docx")) {
+        score += 10;
+        positive.push("ATS-friendly file format.");
+      } else {
+        negative.push("Use PDF or DOCX format.");
+      }
+
+      if (score > 100) score = 100;
+
+      document.getElementById("score").innerText = score;
+
+      const pos = document.getElementById("positive");
+      const neg = document.getElementById("negative");
+      pos.innerHTML = "";
+      neg.innerHTML = "";
+
+      positive.forEach(p => pos.innerHTML += `<li>✔ ${p}</li>`);
+      negative.forEach(n => neg.innerHTML += `<li>⚠ ${n}</li>`);
+
+      document.getElementById("loading").classList.add("hidden");
+      document.getElementById("result").classList.remove("hidden");
+    };
+
+    reader.readAsText(file);
   }
-
-  const reader = new FileReader();
-  reader.onload = function () {
-    const text = reader.result.toLowerCase();
-
-    let score = 0;
-    let feedback = [];
-
-    /* ===== SECTION CHECK (30) ===== */
-    const sections = ["skills", "experience", "education"];
-    let sectionHits = sections.filter(s => text.includes(s)).length;
-    score += sectionHits * 10;
-
-    if (sectionHits < 3) {
-      feedback.push("Missing or unclear standard sections (Skills, Experience, Education).");
-    } else {
-      feedback.push("All standard ATS sections detected.");
-    }
-
-    /* ===== SKILLS CHECK (20) ===== */
-    const skillWords = ["excel", "sql", "python", "analysis", "management", "communication"];
-    let skillHits = skillWords.filter(s => text.includes(s)).length;
-    score += Math.min(skillHits * 3, 20);
-
-    if (skillHits < 3) {
-      feedback.push("Skills section appears weak or too generic.");
-    }
-
-    /* ===== EXPERIENCE & DATES (20) ===== */
-    const yearMatches = text.match(/\b(19|20)\d{2}\b/g) || [];
-    if (yearMatches.length >= 2) {
-      score += 20;
-      feedback.push("Experience timeline appears clear.");
-    } else {
-      score += 10;
-      feedback.push("Experience dates may be missing or unclear.");
-    }
-
-    /* ===== ACTION VERBS (15) ===== */
-    const actionVerbs = ["led", "built", "managed", "designed", "improved", "developed"];
-    let verbHits = actionVerbs.filter(v => text.includes(v)).length;
-    score += Math.min(verbHits * 3, 15);
-
-    if (verbHits < 2) {
-      feedback.push("Use stronger action verbs to describe achievements.");
-    }
-
-    /* ===== FORMATTING (15) ===== */
-    if (file.name.endsWith(".pdf") || file.name.endsWith(".docx")) {
-      score += 15;
-      feedback.push("Resume format is ATS-friendly.");
-    } else {
-      feedback.push("Use PDF or DOCX format for best ATS results.");
-    }
-
-    if (score > 100) score = 100;
-
-    document.getElementById("score").innerText = score;
-
-    const ul = document.getElementById("feedback");
-    ul.innerHTML = "";
-    feedback.forEach(f => {
-      const li = document.createElement("li");
-      li.textContent = "• " + f;
-      ul.appendChild(li);
-    });
-
-    document.getElementById("result").classList.remove("hidden");
-  };
-
-  reader.readAsText(file);
 }
 </script>
 
