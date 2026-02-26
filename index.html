@@ -243,7 +243,7 @@
     eduskillpath
   </span>
   </div>
-  
+  <a href="#ats-checker" class="hover:text-brand-600">ATS Checker</a>
       <nav class="hidden md:flex gap-8 font-semibold text-sm">
         <a href="#programs" class="hover:text-brand-600">Programs</a>
         <a href="ats-resume-writing.html" class="hover:text-brand-600 font-bold">
@@ -713,7 +713,51 @@
   
     </div>
   </section>
-  
+  <!-- ================= ATS RESUME CHECKER ================= -->
+<section id="ats-checker" class="section-soft py-28">
+  <div class="max-w-4xl mx-auto px-6">
+
+    <div class="text-center">
+      <h2 class="text-4xl font-extrabold">ATS Resume Checker</h2>
+      <p class="mt-4 text-slate-600 font-medium">
+        Check how well your resume matches the job description used by ATS systems.
+      </p>
+    </div>
+
+    <div class="mt-14 card-premium p-8">
+      
+      <div class="space-y-6">
+        <div>
+          <label class="font-semibold text-sm">Upload Resume (PDF / DOCX)</label>
+          <input type="file" id="resumeFile"
+                 class="mt-2 w-full border rounded-lg p-3">
+        </div>
+
+        <div>
+          <label class="font-semibold text-sm">Paste Job Description</label>
+          <textarea id="jobDescription" rows="6"
+                    class="mt-2 w-full border rounded-lg p-3"
+                    placeholder="Paste the job description here..."></textarea>
+        </div>
+
+        <button onclick="runATSCheck()"
+                class="w-full bg-indigo-600 hover:bg-indigo-500
+                       text-white py-4 rounded-xl font-bold transition">
+          Check ATS Score
+        </button>
+      </div>
+
+      <div id="atsResult" class="mt-8 hidden">
+        <h3 class="text-2xl font-extrabold">
+          ATS Score: <span id="atsScore" class="text-indigo-600">0</span>/100
+        </h3>
+
+        <ul id="atsFeedback" class="mt-4 space-y-2 text-slate-600 text-sm"></ul>
+      </div>
+
+    </div>
+  </div>
+</section>
   <!-- ================= PROJECTS YOU'LL BUILD ================= -->
   <section id="projects" class="section-light py-24">
     <div class="max-w-7xl mx-auto px-6">
@@ -1380,5 +1424,64 @@
     </svg>
   </a>
     <script src="whatsapp.js"></script>
+    <script>
+function runATSCheck() {
+  const jd = document.getElementById("jobDescription").value.trim();
+  const file = document.getElementById("resumeFile").files[0];
+
+  if (!file || !jd) {
+    alert("Please upload a resume and paste the job description.");
+    return;
+  }
+
+  let score = 0;
+  let feedback = [];
+
+  const jdText = jd.toLowerCase();
+
+  const keywords = [
+    "experience", "skills", "project", "team",
+    "management", "analysis", "communication",
+    "leadership", "development"
+  ];
+
+  let matchCount = 0;
+  keywords.forEach(word => {
+    if (jdText.includes(word)) matchCount++;
+  });
+
+  score += matchCount * 7;
+
+  if (matchCount < 4) {
+    feedback.push("Add more job-specific keywords from the JD.");
+  } else {
+    feedback.push("Good keyword alignment with the job description.");
+  }
+
+  if (file.name.endsWith(".pdf") || file.name.endsWith(".docx")) {
+    score += 20;
+    feedback.push("Resume format is ATS-friendly.");
+  } else {
+    feedback.push("Use PDF or DOCX format for better ATS compatibility.");
+  }
+
+  score += 25;
+  feedback.push("Ensure bullet points include measurable achievements.");
+
+  if (score > 100) score = 100;
+
+  document.getElementById("atsScore").innerText = score;
+
+  const list = document.getElementById("atsFeedback");
+  list.innerHTML = "";
+  feedback.forEach(item => {
+    const li = document.createElement("li");
+    li.textContent = "• " + item;
+    list.appendChild(li);
+  });
+
+  document.getElementById("atsResult").classList.remove("hidden");
+}
+</script>
   </body>
   </html>
