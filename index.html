@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
   <html lang="en">
   <head>
     <meta name="description" content="Eduskillpath provides ATS-optimized resume writing, cover letters, LinkedIn profile optimization, portfolio websites, and career support to help you get hired faster.">
@@ -243,7 +243,7 @@
     eduskillpath
   </span>
   </div>
-  <a href="#ats-checker" class="hover:text-brand-600">ATS Checker</a>
+  
       <nav class="hidden md:flex gap-8 font-semibold text-sm">
         <a href="#programs" class="hover:text-brand-600">Programs</a>
         <a href="ats-resume-writing.html" class="hover:text-brand-600 font-bold">
@@ -713,73 +713,7 @@
   
     </div>
   </section>
-  <!-- ================= ATS RESUME CHECKER ================= -->
-<section id="ats-checker" class="section-soft py-28">
-  <div class="max-w-4xl mx-auto px-6">
-
-    <div class="text-center">
-      <h2 class="text-4xl font-extrabold">ATS Resume Checker</h2>
-      <p class="mt-4 text-slate-600 font-medium">
-        Check how well your resume matches the job description used by ATS systems.
-      </p>
-    </div>
-
-    <div class="mt-14 card-premium p-8">
-      
-      <div class="space-y-6">
-        <div>
-          <label class="font-semibold text-sm">Upload Resume (PDF / DOCX)</label>
-          <input type="file" id="resumeFile"
-                 class="mt-2 w-full border rounded-lg p-3">
-        </div>
-
-        <div>
-          <label class="font-semibold text-sm">Paste Job Description</label>
-          <textarea id="jobDescription" rows="6"
-                    class="mt-2 w-full border rounded-lg p-3"
-                    placeholder="Paste the job description here..."></textarea>
-        </div>
-
-        <button onclick="runATSCheck()"
-                class="w-full bg-indigo-600 hover:bg-indigo-500
-                       text-white py-4 rounded-xl font-bold transition">
-          Check ATS Score
-        </button>
-      </div>
-
-      <div id="atsResult" class="mt-8 hidden">
-       <div class="flex items-center gap-10 mt-6">
-  <div class="relative w-32 h-32">
-    <svg class="w-full h-full rotate-[-90deg]">
-      <circle cx="64" cy="64" r="56"
-        stroke="#e5e7eb" stroke-width="10" fill="none" />
-      <circle id="scoreCircle"
-        cx="64" cy="64" r="56"
-        stroke="#4f46e5" stroke-width="10"
-        fill="none"
-        stroke-linecap="round"
-        stroke-dasharray="352"
-        stroke-dashoffset="352" />
-    </svg>
-    <div class="absolute inset-0 flex items-center justify-center text-3xl font-extrabold text-indigo-600">
-      <span id="atsScore">0</span>
-    </div>
-  </div>
-
-  <div>
-    <h3 class="text-xl font-extrabold">ATS Compatibility Score</h3>
-    <p class="text-sm text-slate-500 mt-1">
-      Based on keyword match, skills, experience & formatting
-    </p>
-  </div>
-</div>
-
-        <ul id="atsFeedback" class="mt-4 space-y-2 text-slate-600 text-sm"></ul>
-      </div>
-
-    </div>
-  </div>
-</section>
+  
   <!-- ================= PROJECTS YOU'LL BUILD ================= -->
   <section id="projects" class="section-light py-24">
     <div class="max-w-7xl mx-auto px-6">
@@ -1446,106 +1380,5 @@
     </svg>
   </a>
     <script src="whatsapp.js"></script>
-    <script>
-<script>
-function runATSCheck() {
-  const jd = document.getElementById("jobDescription").value.toLowerCase();
-  const file = document.getElementById("resumeFile").files[0];
-
-  if (!file || !jd) {
-    alert("Upload resume and paste job description.");
-    return;
-  }
-
-  let score = 0;
-  let feedback = [];
-
-  // ===== Keyword Matching (35) =====
-  const keywords = [
-    "experience","skills","project","team","management",
-    "analysis","communication","leadership","development",
-    "strategy","business","data","operations"
-  ];
-
-  let keywordHits = keywords.filter(k => jd.includes(k)).length;
-  let keywordScore = Math.min(35, keywordHits * 3);
-  score += keywordScore;
-
-  feedback.push(
-    keywordScore < 20
-      ? "Low keyword match. Add more role-specific keywords from the JD."
-      : "Strong keyword alignment with the job description."
-  );
-
-  // ===== Skills Match (25) =====
-  let skillScore = jd.includes("excel") || jd.includes("python") || jd.includes("sql")
-    ? 25
-    : 12;
-
-  score += skillScore;
-
-  feedback.push(
-    skillScore < 20
-      ? "Skills section can be improved with technical tools mentioned in the JD."
-      : "Skills section aligns well with job requirements."
-  );
-
-  // ===== Experience Relevance (20) =====
-  let expScore = jd.includes("years") || jd.includes("experience") ? 20 : 10;
-  score += expScore;
-
-  feedback.push(
-    expScore < 15
-      ? "Experience details lack clarity or impact. Add measurable results."
-      : "Experience section appears relevant to the role."
-  );
-
-  // ===== Formatting & Length (10) =====
-  if (file.name.endsWith(".pdf") || file.name.endsWith(".docx")) {
-    score += 10;
-    feedback.push("Resume format is ATS-friendly.");
-  } else {
-    feedback.push("Use PDF or DOCX format for best ATS compatibility.");
-  }
-
-  // ===== Action Verbs (10) =====
-  const actionVerbs = ["managed","led","built","designed","implemented","analyzed"];
-  let verbScore = actionVerbs.some(v => jd.includes(v)) ? 10 : 5;
-  score += verbScore;
-
-  feedback.push(
-    verbScore < 10
-      ? "Use stronger action verbs to describe achievements."
-      : "Good use of action-oriented language."
-  );
-
-  if (score > 100) score = 100;
-
-  // ===== Output =====
-  document.getElementById("atsScore").innerText = score;
-  const ul = document.getElementById("atsFeedback");
-  ul.innerHTML = "";
-  feedback.forEach(item => {
-    const li = document.createElement("li");
-    li.textContent = "• " + item;
-    ul.appendChild(li);
-  });
-
-  document.getElementById("atsResult").classList.remove("hidden");
-
-  animateScore(score);
-}
-      <script>
-function animateScore(score) {
-  const circle = document.getElementById("scoreCircle");
-  const circumference = 352;
-  const offset = circumference - (score / 100) * circumference;
-
-  circle.style.transition = "stroke-dashoffset 1.2s ease";
-  circle.style.strokeDashoffset = offset;
-}
-</script>
-</script>
-</script>
   </body>
   </html>
