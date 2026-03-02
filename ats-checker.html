@@ -2,20 +2,22 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Eduskillpath — ATS Resume Builder (fixed + preview)</title>
+<title>Eduskillpath — ATS Resume Builder</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- Google Font + Tailwind -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
-<!-- Font Awesome 6 (free) for crisp CV icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 <style>
   body { font-family: Inter, sans-serif; }
-  /* subtle hover for image cards */
-  .cv-card { transition: transform 0.2s ease, box-shadow 0.2s ease; }
-  .cv-card:hover { transform: scale(1.02); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.2); }
+  .cv-card {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .cv-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 25px 40px rgba(0,0,0,0.25);
+  }
 </style>
 </head>
 
@@ -24,9 +26,7 @@
 <!-- ================= NAVBAR ================= -->
 <header class="bg-white border-b sticky top-0 z-50">
   <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-    <div class="flex items-center gap-2 text-2xl font-extrabold text-emerald-500">
-      Eduskillpath
-    </div>
+    <div class="text-2xl font-extrabold text-emerald-500">Eduskillpath</div>
     <nav class="hidden md:flex gap-6 text-sm font-medium text-slate-600">
       <a href="#">Resume</a>
       <a href="#">Cover Letter</a>
@@ -70,37 +70,34 @@
       </div>
     </div>
 
-    <!-- ========== MULTIPLE EYE‑CATCHING CV IMAGES ========== -->
+    <!-- ========== CV IMAGE PREVIEW (REAL IMAGES) ========== -->
     <div class="bg-white rounded-2xl shadow-xl p-4 md:p-6">
       <div class="grid grid-cols-2 gap-3 md:gap-4 h-[440px]">
-        <!-- card 1 -->
-        <div class="cv-card bg-gradient-to-br from-violet-500 to-indigo-600 rounded-xl flex flex-col items-center justify-center text-white shadow-lg p-2">
-          <i class="fa-regular fa-file-lines text-4xl mb-2 drop-shadow"></i>
-          <span class="font-semibold text-sm md:text-base">Modern Pro</span>
-          <span class="text-xs text-white/80">ATS‑friendly</span>
+
+        <div class="cv-card bg-white rounded-xl overflow-hidden">
+          <img src="assets/cv/modern-pro.jpg.jpeg" alt="Modern Pro Resume"
+               class="w-full h-full object-cover">
         </div>
-        <!-- card 2 -->
-        <div class="cv-card bg-gradient-to-br from-emerald-400 to-teal-600 rounded-xl flex flex-col items-center justify-center text-white shadow-lg p-2">
-          <i class="fa-regular fa-file-pdf text-4xl mb-2 drop-shadow"></i>
-          <span class="font-semibold text-sm md:text-base">Creative</span>
-          <span class="text-xs text-white/80">visual CV</span>
+
+        <div class="cv-card bg-white rounded-xl overflow-hidden">
+          <img src="assets/cv/creative.png.jpeg" alt="Creative Resume"
+               class="w-full h-full object-cover">
         </div>
-        <!-- card 3 -->
-        <div class="cv-card bg-gradient-to-br from-amber-400 to-orange-500 rounded-xl flex flex-col items-center justify-center text-white shadow-lg p-2">
-          <i class="fa-regular fa-file-word text-4xl mb-2 drop-shadow"></i>
-          <span class="font-semibold text-sm md:text-base">Executive</span>
-          <span class="text-xs text-white/80">clean layout</span>
+
+        <div class="cv-card bg-white rounded-xl overflow-hidden">
+          <img src="assets/cv/executive.png.jpeg" alt="Executive Resume"
+               class="w-full h-full object-cover">
         </div>
-        <!-- card 4 -->
-        <div class="cv-card bg-gradient-to-br from-pink-400 to-rose-500 rounded-xl flex flex-col items-center justify-center text-white shadow-lg p-2">
-          <i class="fa-regular fa-images text-4xl mb-2 drop-shadow"></i>
-          <span class="font-semibold text-sm md:text-base">Portfolio</span>
-          <span class="text-xs text-white/80">with photo</span>
+
+        <div class="cv-card bg-white rounded-xl overflow-hidden">
+          <img src="assets/cv/portfolio.png.jpeg" alt="Portfolio Resume"
+               class="w-full h-full object-cover">
         </div>
-        <!-- extra subtle text: multiple CV previews -->
+
         <div class="col-span-2 text-center text-xs text-slate-400 mt-1">
-          <i class="fa-regular fa-circle-check text-emerald-500"></i> 4 sample templates shown
+          ✔ Real resume previews · ATS-tested templates
         </div>
+
       </div>
     </div>
   </div>
@@ -144,86 +141,9 @@
     </div>
 
     <div>
-      <h3 class="text-4xl font-bold mb-4">
-        Chosen by millions worldwide
-      </h3>
+      <h3 class="text-4xl font-bold mb-4">Chosen by millions worldwide</h3>
       <p class="text-slate-600 leading-relaxed">
-        Eduskillpath is a modern resume platform built to help candidates create applications
-        with confidence, clarity, and professionalism across every step of the job search.
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- ================= ATS SECTION ================= -->
-<section class="py-24 text-white"
- style="background:linear-gradient(120deg,#1f2937,#4f46e5,#22c55e)">
-  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-14 items-center">
-    <div>
-      <h2 class="text-4xl font-bold mb-4">
-        Resumes optimized for Applicant Tracking Systems
-      </h2>
-      <p class="text-white/80 leading-relaxed">
-        All templates are tested with modern ATS software to ensure correct parsing,
-        readability, and recruiter-friendly formatting.
-      </p>
-      <button class="mt-8 px-6 py-3 bg-emerald-500 rounded-xl font-semibold">
-        Build an ATS-Friendly Resume
-      </button>
-    </div>
-
-    <div class="space-y-4">
-      <div class="bg-white/10 p-4 rounded-xl">Readable contact information</div>
-      <div class="bg-white/10 p-4 rounded-xl">Complete experience parsing</div>
-      <div class="bg-white/10 p-4 rounded-xl">Keyword compatibility</div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= AI SECTION ================= -->
-<section class="py-24 text-white"
- style="background:linear-gradient(120deg,#000,#312e81,#22c55e)">
-  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-14 items-center">
-    <div>
-      <h2 class="text-4xl font-bold mb-6">
-        Fully equipped for the age of AI
-      </h2>
-      <ul class="space-y-4 text-white/80">
-        <li>✔ AI content generation</li>
-        <li>✔ Resume parsing</li>
-        <li>✔ Skills extraction</li>
-        <li>✔ Resume translation</li>
-      </ul>
-      <a href="#" class="inline-block mt-6 underline text-emerald-400">
-        Explore Eduskillpath AI →
-      </a>
-    </div>
-
-    <div class="bg-white rounded-2xl p-6 text-slate-800 shadow-xl">
-      AI Resume Editor Preview
-    </div>
-  </div>
-</section>
-
-<!-- ================= TEAM / BLOG ================= -->
-<section class="py-24 bg-slate-900 text-white">
-  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-6">
-    <div class="p-6 border border-white/20 rounded-xl">
-      <h3 class="font-bold mb-2">Who we are</h3>
-      <p class="text-white/70">
-        Built by resume writers, designers, and hiring experts.
-      </p>
-    </div>
-    <div class="p-6 border border-white/20 rounded-xl">
-      <h3 class="font-bold mb-2">How we write</h3>
-      <p class="text-white/70">
-        Reviewed by certified professional resume specialists.
-      </p>
-    </div>
-    <div class="p-6 border border-white/20 rounded-xl">
-      <h3 class="font-bold mb-2">What you’ll find on the blog</h3>
-      <p class="text-white/70">
-        Practical advice, examples, and career research.
+        Eduskillpath helps candidates build professional resumes with confidence and clarity.
       </p>
     </div>
   </div>
@@ -234,34 +154,15 @@
   © Eduskillpath — All rights reserved
 </footer>
 
-<!-- ========== FIX: RESUME CHECKER INTERACTIVITY ========== -->
 <script>
-  (function() {
-    // "Get Your Resume Score" button fix – now shows a demo score popup
-    const scoreBtn = document.getElementById('scoreCheckerBtn');
-    if (scoreBtn) {
-      scoreBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        // simulate resume score check with a nice message
-        alert('📊 Your resume score: 84/100\n✅ ATS friendly: 91%\n💡 Tip: Add more action verbs to boost impact.');
-      });
-    }
+(function () {
+  document.getElementById('scoreCheckerBtn').onclick = () =>
+    alert('📊 Resume score: 84/100\n✅ ATS Friendly\n💡 Tip: Add action verbs');
 
-    // Bonus: "Build Your Resume" also gives a little interactive feedback
-    const buildBtn = document.getElementById('buildResumeBtn');
-    if (buildBtn) {
-      buildBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        alert('🚀 Let’s build your standout resume! (demo: choose a template from above)');
-      });
-    }
-
-    // Optional: add quick hover effect explanation (already in CSS)
-    // Also fix any potential missing pointer events
-    console.log('Eduskillpath – resume checker fixed & multiple CV images added!');
-  })();
+  document.getElementById('buildResumeBtn').onclick = () =>
+    alert('🚀 Let’s build your resume!');
+})();
 </script>
 
-<!-- ensure that any empty buttons don't cause page reload (just in case) -->
 </body>
 </html>
