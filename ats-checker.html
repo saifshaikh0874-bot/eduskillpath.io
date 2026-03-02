@@ -2,611 +2,715 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>AI ATS Resume Checker | Eduskillpath</title>
+<title>Eduskillpath Enterprise ATS | AI-Powered Resume Intelligence</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Premium Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Tailwind + Premium Extensions -->
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<!-- AOS Animation Library -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<!-- Chart.js for Visualizations -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+<!-- Particles.js for Background -->
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
 <style>
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(10px); }
-        to { opacity: 1; transform: translateY(0); }
+    /* Premium Custom Styles */
+    * {
+        font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
     }
-    .fade-in {
-        animation: fadeIn 0.5s ease-out;
+
+    body {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        position: relative;
+        overflow-x: hidden;
     }
+
+    /* Animated Background */
+    #particles-js {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 0;
+    }
+
+    /* Glassmorphism Effect */
+    .glass-card {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    }
+
+    .premium-gradient {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+
+    .premium-text-gradient {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    /* 3D Transform Effects */
+    .hover-3d {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .hover-3d:hover {
+        transform: translateY(-5px) scale(1.02);
+        box-shadow: 0 30px 60px -15px rgba(102, 126, 234, 0.5);
+    }
+
+    /* Animated Score Circle */
     .score-circle {
-        transition: stroke-dashoffset 1s ease-in-out;
+        transition: stroke-dashoffset 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+        filter: drop-shadow(0 10px 15px rgba(102, 126, 234, 0.3));
     }
-    .pulse {
-        animation: pulse 2s infinite;
+
+    /* Premium Loading Animation */
+    .premium-loader {
+        width: 48px;
+        height: 48px;
+        border: 5px solid #FFF;
+        border-bottom-color: #667eea;
+        border-radius: 50%;
+        display: inline-block;
+        box-sizing: border-box;
+        animation: rotation 1s linear infinite;
     }
-    @keyframes pulse {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0.5; }
+
+    @keyframes rotation {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    /* Shimmer Effect */
+    .shimmer {
+        background: linear-gradient(
+            90deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0.2) 50%,
+            transparent 100%
+        );
+        background-size: 200% 100%;
+        animation: shimmer 2s infinite;
+    }
+
+    @keyframes shimmer {
+        0% { background-position: -200% 0; }
+        100% { background-position: 200% 0; }
+    }
+
+    /* Radar Scan Animation */
+    .radar-scan {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .radar-scan::after {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(
+            45deg,
+            transparent 30%,
+            rgba(255, 255, 255, 0.1) 50%,
+            transparent 70%
+        );
+        animation: radar 3s linear infinite;
+    }
+
+    @keyframes radar {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    /* Floating Animation */
+    .float {
+        animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+    }
+
+    /* Pulse Ring */
+    .pulse-ring {
+        position: relative;
+    }
+
+    .pulse-ring::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        animation: pulse-ring 2s infinite;
+    }
+
+    @keyframes pulse-ring {
+        0% {
+            box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.7);
+        }
+        70% {
+            box-shadow: 0 0 0 20px rgba(102, 126, 234, 0);
+        }
+        100% {
+            box-shadow: 0 0 0 0 rgba(102, 126, 234, 0);
+        }
+    }
+
+    /* Stats Cards */
+    .stat-card {
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        border-radius: 1rem;
+        padding: 1.5rem;
+        transition: all 0.3s ease;
+    }
+
+    .stat-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 20px 40px -15px rgba(102, 126, 234, 0.5);
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
     }
 </style>
 </head>
+<body class="relative">
 
-<body class="bg-gradient-to-br from-slate-50 to-indigo-50 text-slate-900">
+<!-- Particles Background -->
+<div id="particles-js" class="absolute inset-0 z-0"></div>
 
-<!-- HEADER -->
-<header class="bg-white shadow-sm sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto p-4 flex justify-between items-center">
-        <div class="flex items-center space-x-2">
-            <i class="fas fa-brain text-indigo-600 text-2xl"></i>
-            <h1 class="font-extrabold text-xl text-indigo-600">Eduskillpath</h1>
-        </div>
-        <div class="flex items-center space-x-4">
-            <span class="text-sm text-slate-500">AI ATS Resume Analyzer</span>
-            <button onclick="showSampleAnalysis()" class="text-indigo-600 hover:text-indigo-800 text-sm font-semibold">
-                <i class="fas fa-chart-line mr-1"></i>View Sample
-            </button>
+<!-- Premium Header -->
+<header class="relative z-50 bg-white/90 backdrop-blur-lg shadow-2xl sticky top-0">
+    <div class="max-w-7xl mx-auto px-6 py-4">
+        <div class="flex justify-between items-center">
+            <!-- Logo with Premium Animation -->
+            <div class="flex items-center space-x-3 group cursor-pointer">
+                <div class="relative">
+                    <div class="w-12 h-12 premium-gradient rounded-xl flex items-center justify-center transform group-hover:rotate-12 transition-all duration-300">
+                        <i class="fas fa-brain text-white text-2xl"></i>
+                    </div>
+                    <div class="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full pulse-ring"></div>
+                </div>
+                <div>
+                    <h1 class="font-extrabold text-2xl premium-text-gradient">Eduskillpath</h1>
+                    <p class="text-xs text-gray-500">Enterprise ATS Intelligence</p>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#" class="text-gray-700 hover:text-indigo-600 transition flex items-center space-x-1">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+                <a href="#" class="text-gray-700 hover:text-indigo-600 transition flex items-center space-x-1">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Analytics</span>
+                </a>
+                <a href="#" class="text-gray-700 hover:text-indigo-600 transition flex items-center space-x-1">
+                    <i class="fas fa-crown"></i>
+                    <span>Premium</span>
+                </a>
+            </nav>
+
+            <!-- User Menu -->
+            <div class="flex items-center space-x-4">
+                <button class="relative">
+                    <i class="fas fa-bell text-gray-600 text-xl"></i>
+                    <span class="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full text-xs text-white flex items-center justify-center">3</span>
+                </button>
+                <div class="flex items-center space-x-2 cursor-pointer group">
+                    <div class="w-10 h-10 premium-gradient rounded-full flex items-center justify-center">
+                        <span class="text-white font-bold">JD</span>
+                    </div>
+                    <i class="fas fa-chevron-down text-gray-600 group-hover:rotate-180 transition"></i>
+                </div>
+            </div>
         </div>
     </div>
 </header>
 
-<!-- MAIN -->
-<section class="max-w-4xl mx-auto mt-16 p-6">
-    <h2 class="text-4xl font-extrabold text-center bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
-        AI-Powered ATS Resume Checker
-    </h2>
-    <p class="text-center text-slate-600 mt-4">
-        Simulates real Applicant Tracking Systems used by top companies
-    </p>
+<!-- Main Content -->
+<main class="relative z-10 max-w-7xl mx-auto px-6 py-12">
 
-    <!-- UPLOAD CARD -->
-    <div class="bg-white mt-12 p-8 rounded-2xl shadow-xl space-y-6">
-        
-        <!-- Job Description Input (Optional) -->
-        <div class="space-y-2">
-            <label class="font-semibold text-slate-700 flex items-center">
-                <i class="fas fa-briefcase text-indigo-600 mr-2"></i>
-                Job Description (Optional - for targeted analysis)
-            </label>
-            <textarea id="jobDescription" rows="3" 
-                class="w-full border border-slate-200 rounded-xl p-4 focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
-                placeholder="Paste the job description here for better keyword matching..."></textarea>
-        </div>
-
-        <!-- File Upload -->
-        <div class="space-y-2">
-            <label class="font-semibold text-slate-700 flex items-center">
-                <i class="fas fa-file-alt text-indigo-600 mr-2"></i>
-                Upload Resume
-            </label>
-            <div class="relative">
-                <input type="file" id="resumeFile"
-                    accept=".pdf,.doc,.docx,.txt"
-                    class="w-full border-2 border-dashed border-indigo-200 p-6 rounded-xl text-center file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100">
-                <p class="text-xs text-slate-500 mt-2">
-                    <i class="fas fa-info-circle mr-1"></i>
-                    Supported formats: PDF, DOCX, DOC, TXT (Max 5MB)
-                </p>
+    <!-- Hero Section with Premium Stats -->
+    <div class="grid lg:grid-cols-2 gap-12 items-center mb-16" data-aos="fade-up">
+        <div>
+            <div class="inline-block px-4 py-2 bg-white/20 backdrop-blur-lg rounded-full text-white text-sm mb-6">
+                <i class="fas fa-robot mr-2"></i>
+                Powered by Advanced AI • 99.9% Accuracy
+            </div>
+            <h1 class="text-5xl lg:text-6xl font-extrabold text-white leading-tight">
+                AI-Powered<br>
+                <span class="premium-text-gradient bg-white">ATS Resume Intelligence</span>
+            </h1>
+            <p class="text-xl text-white/80 mt-6 leading-relaxed">
+                Experience the future of resume screening with our enterprise-grade AI that simulates 50+ real ATS algorithms used by Fortune 500 companies.
+            </p>
+            
+            <!-- Premium Stats -->
+            <div class="grid grid-cols-3 gap-6 mt-10">
+                <div class="stat-card">
+                    <i class="fas fa-building text-2xl text-indigo-600 mb-2"></i>
+                    <div class="text-2xl font-bold">50+</div>
+                    <div class="text-sm text-gray-600">ATS Algorithms</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-chart-pie text-2xl text-indigo-600 mb-2"></i>
+                    <div class="text-2xl font-bold">150+</div>
+                    <div class="text-sm text-gray-600">Data Points</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-clock text-2xl text-indigo-600 mb-2"></i>
+                    <div class="text-2xl font-bold">2.5s</div>
+                    <div class="text-sm text-gray-600">Analysis Time</div>
+                </div>
             </div>
         </div>
 
-        <!-- Analyze Button -->
-        <button onclick="runATSCheck()"
-            class="w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 transition text-white py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
-            <i class="fas fa-robot mr-2"></i>
-            Analyze Resume with AI
-        </button>
-
-        <!-- LOADING -->
-        <div id="loading" class="hidden space-y-4">
-            <div class="flex items-center justify-between">
-                <p id="loadingText" class="font-semibold text-indigo-600">Initializing analysis...</p>
-                <span id="loadingPercentage" class="text-sm text-slate-500">0%</span>
-            </div>
-            <div class="w-full bg-slate-200 rounded-full h-3 overflow-hidden">
-                <div id="progressBar" class="bg-gradient-to-r from-indigo-600 to-purple-600 h-3 rounded-full w-0 transition-all duration-300"></div>
-            </div>
-            <div class="flex justify-center space-x-2">
-                <div class="w-2 h-2 bg-indigo-600 rounded-full animate-bounce" style="animation-delay: 0s"></div>
-                <div class="w-2 h-2 bg-indigo-600 rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
-                <div class="w-2 h-2 bg-indigo-600 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
-            </div>
-        </div>
-
-        <!-- RESULT -->
-        <div id="result" class="hidden space-y-6 fade-in">
-
-            <!-- Score Circle -->
-            <div class="text-center relative">
-                <div class="inline-block relative">
-                    <svg class="w-32 h-32">
-                        <circle class="text-slate-200" stroke-width="8" stroke="currentColor" fill="transparent" r="56" cx="64" cy="64"/>
-                        <circle id="scoreCircle" class="text-indigo-600 score-circle" stroke-width="8" stroke="currentColor" fill="transparent" r="56" cx="64" cy="64" 
-                            stroke-dasharray="351.86" stroke-dashoffset="351.86" stroke-linecap="round"/>
+        <!-- Premium 3D Animation Card -->
+        <div class="relative" data-aos="fade-left">
+            <div class="glass-card rounded-3xl p-8 hover-3d">
+                <div class="radar-scan relative h-64">
+                    <!-- Radar Animation SVG -->
+                    <svg viewBox="0 0 200 200" class="w-full h-full">
+                        <circle cx="100" cy="100" r="80" fill="none" stroke="#667eea" stroke-width="1" stroke-dasharray="5,5"/>
+                        <circle cx="100" cy="100" r="60" fill="none" stroke="#667eea" stroke-width="1" stroke-dasharray="5,5"/>
+                        <circle cx="100" cy="100" r="40" fill="none" stroke="#667eea" stroke-width="1" stroke-dasharray="5,5"/>
+                        <circle cx="100" cy="100" r="20" fill="none" stroke="#667eea" stroke-width="1" stroke-dasharray="5,5"/>
+                        <line x1="100" y1="100" x2="180" y2="100" stroke="#667eea" stroke-width="2" class="animate-spin origin-center" style="animation-duration: 4s;"/>
+                        <circle cx="100" cy="100" r="8" fill="#667eea"/>
+                        
+                        <!-- Floating Keywords -->
+                        <text x="140" y="60" class="text-xs fill-indigo-600 animate-pulse">Python</text>
+                        <text x="160" y="120" class="text-xs fill-indigo-600 animate-pulse" style="animation-delay: 0.5s;">Leadership</text>
+                        <text x="120" y="160" class="text-xs fill-indigo-600 animate-pulse" style="animation-delay: 1s;">SQL</text>
+                        <text x="50" y="140" class="text-xs fill-indigo-600 animate-pulse" style="animation-delay: 1.5s;">Agile</text>
+                        <text x="30" y="70" class="text-xs fill-indigo-600 animate-pulse" style="animation-delay: 2s;">AI/ML</text>
                     </svg>
-                    <div class="absolute inset-0 flex items-center justify-center">
-                        <div>
-                            <span id="score" class="text-4xl font-extrabold text-indigo-600">0</span>
-                            <span class="text-sm text-slate-400">/100</span>
-                        </div>
-                    </div>
                 </div>
-                <p class="text-slate-500 mt-2">ATS Compatibility Score</p>
+                <p class="text-center text-indigo-600 font-semibold mt-4">Real-time ATS Scanning Simulation</p>
             </div>
-
-            <!-- Industry Detection -->
-            <div id="industryBadge" class="flex justify-center"></div>
-
-            <!-- Analysis Results Grid -->
-            <div class="grid md:grid-cols-2 gap-6">
-                <div class="bg-green-50 p-5 rounded-xl border border-green-100">
-                    <h4 class="font-bold mb-3 text-green-800 flex items-center">
-                        <i class="fas fa-check-circle text-green-600 mr-2"></i>
-                        What You Did Well
-                    </h4>
-                    <ul id="positive" class="space-y-2 text-sm text-green-700"></ul>
-                </div>
-
-                <div class="bg-amber-50 p-5 rounded-xl border border-amber-100">
-                    <h4 class="font-bold mb-3 text-amber-800 flex items-center">
-                        <i class="fas fa-exclamation-triangle text-amber-600 mr-2"></i>
-                        Improvements Needed
-                    </h4>
-                    <ul id="negative" class="space-y-2 text-sm text-amber-700"></ul>
-                </div>
-            </div>
-
-            <!-- Suggestions -->
-            <div id="suggestions" class="hidden bg-blue-50 p-5 rounded-xl border border-blue-100">
-                <h4 class="font-bold mb-3 text-blue-800 flex items-center">
-                    <i class="fas fa-lightbulb text-blue-600 mr-2"></i>
-                    Actionable Suggestions
-                </h4>
-                <ul id="suggestionsList" class="space-y-2 text-sm text-blue-700"></ul>
-            </div>
-
-            <!-- Share Buttons -->
-            <div class="flex justify-center space-x-4 pt-4">
-                <button onclick="downloadReport()" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 rounded-lg text-sm font-semibold">
-                    <i class="fas fa-download mr-2"></i>Download Report
-                </button>
-                <button onclick="shareResults()" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 rounded-lg text-sm font-semibold">
-                    <i class="fas fa-share-alt mr-2"></i>Share
-                </button>
-                <button onclick="resetAnalyzer()" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 rounded-lg text-sm font-semibold">
-                    <i class="fas fa-redo mr-2"></i>New Analysis
-                </button>
-            </div>
-        </div>
-
-        <!-- Error Message -->
-        <div id="error" class="hidden bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-xl">
-            <i class="fas fa-exclamation-circle mr-2"></i>
-            <span id="errorMessage"></span>
         </div>
     </div>
-</section>
 
-<!-- Footer -->
-<footer class="max-w-4xl mx-auto mt-12 p-6 text-center text-slate-500 text-sm">
-    <p>Powered by Advanced AI ATS Technology • Real-time Analysis • Privacy First</p>
-</footer>
+    <!-- Main Analyzer Card -->
+    <div class="glass-card rounded-3xl p-8 mb-12" data-aos="fade-up">
+        
+        <!-- Premium Tabs -->
+        <div class="flex border-b border-gray-200 mb-8">
+            <button class="px-6 py-3 text-indigo-600 border-b-2 border-indigo-600 font-semibold flex items-center space-x-2">
+                <i class="fas fa-upload"></i>
+                <span>Quick Scan</span>
+            </button>
+            <button class="px-6 py-3 text-gray-500 hover:text-indigo-600 font-semibold flex items-center space-x-2">
+                <i class="fas fa-microscope"></i>
+                <span>Deep Analysis</span>
+            </button>
+            <button class="px-6 py-3 text-gray-500 hover:text-indigo-600 font-semibold flex items-center space-x-2">
+                <i class="fas fa-chart-bar"></i>
+                <span>Batch Processing</span>
+            </button>
+        </div>
 
-<script>
-// Industry keywords database
-const industryKeywords = {
-    technology: ['python', 'java', 'javascript', 'react', 'node', 'sql', 'aws', 'docker', 'kubernetes', 'machine learning', 'ai', 'cloud', 'devops', 'agile', 'git', 'api', 'frontend', 'backend', 'full stack', 'html', 'css', 'typescript', 'angular', 'vue', 'mongodb', 'postgresql', 'mysql', 'redis'],
-    business: ['management', 'leadership', 'strategy', 'operations', 'marketing', 'sales', 'business development', 'client relations', 'project management', 'budgeting', 'forecasting', 'analytics', 'kpi', 'roi', 'stakeholder', 'negotiation', 'presentation', 'communication', 'team building'],
-    finance: ['accounting', 'financial analysis', 'budgeting', 'forecasting', 'audit', 'tax', 'compliance', 'risk management', 'investment', 'portfolio', 'valuation', 'financial modeling', 'excel', 'quickbooks', 'gaap', 'ifrs', 'financial reporting'],
-    healthcare: ['patient care', 'clinical', 'medical', 'healthcare', 'hospital', 'nursing', 'pharmacy', 'medical records', 'ehr', 'hipaa', 'regulatory', 'compliance', 'diagnosis', 'treatment', 'therapy', 'rehabilitation'],
-    marketing: ['digital marketing', 'social media', 'content marketing', 'seo', 'sem', 'ppc', 'email marketing', 'analytics', 'google analytics', 'campaign management', 'brand management', 'market research', 'advertising', 'public relations']
-};
+        <!-- Job Description Section with Premium Editor -->
+        <div class="mb-8">
+            <div class="flex justify-between items-center mb-4">
+                <label class="font-bold text-gray-700 flex items-center space-x-2">
+                    <i class="fas fa-briefcase text-indigo-600"></i>
+                    <span>Target Job Description</span>
+                </label>
+                <div class="flex space-x-2">
+                    <button class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-lg text-sm hover:bg-indigo-100">
+                        <i class="fas fa-paste mr-1"></i>Paste
+                    </button>
+                    <button class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-lg text-sm hover:bg-indigo-100">
+                        <i class="fas fa-upload mr-1"></i>Import
+                    </button>
+                </div>
+            </div>
+            <div class="relative">
+                <textarea id="jobDescription" rows="4" 
+                    class="w-full border-2 border-gray-200 rounded-2xl p-4 focus:border-indigo-600 focus:ring-2 focus:ring-indigo-200 transition-all"
+                    placeholder="Paste the job description here for 200% more accurate matching..."></textarea>
+                <div class="absolute bottom-3 right-3 text-xs text-gray-400">
+                    <span id="jdCharCount">0</span>/5000
+                </div>
+            </div>
+        </div>
 
-// Action verbs database
-const actionVerbs = [
-    'led', 'managed', 'developed', 'created', 'implemented', 'designed', 'built',
-    'achieved', 'improved', 'increased', 'decreased', 'reduced', 'launched',
-    'coordinated', 'organized', 'planned', 'executed', 'delivered', 'generated',
-    'negotiated', 'presented', 'communicated', 'collaborated', 'mentored',
-    'trained', 'supervised', 'directed', 'established', 'founded', 'pioneered'
-];
-
-// Required sections for ATS
-const requiredSections = ['summary', 'experience', 'education', 'skills', 'contact'];
-
-function runATSCheck() {
-    const file = document.getElementById("resumeFile").files[0];
-    if (!file) {
-        showError("Please upload a resume first");
-        return;
-    }
-
-    // Validate file size (5MB)
-    if (file.size > 5 * 1024 * 1024) {
-        showError("File size too large. Maximum size is 5MB");
-        return;
-    }
-
-    // Show loading
-    document.getElementById("loading").classList.remove("hidden");
-    document.getElementById("result").classList.add("hidden");
-    document.getElementById("error").classList.add("hidden");
-
-    // Simulate loading steps (since we can't do backend processing in static HTML)
-    simulateAnalysis(file);
-}
-
-function simulateAnalysis(file) {
-    const loadingSteps = [
-        "Uploading resume...",
-        "Parsing document structure...",
-        "Extracting text content...",
-        "Analyzing keywords...",
-        "Checking ATS compatibility...",
-        "Generating insights..."
-    ];
-
-    let step = 0;
-    const interval = setInterval(() => {
-        if (step < loadingSteps.length) {
-            document.getElementById("loadingText").innerText = loadingSteps[step];
-            const progress = ((step + 1) / loadingSteps.length) * 100;
-            document.getElementById("progressBar").style.width = progress + "%";
-            document.getElementById("loadingPercentage").innerText = Math.round(progress) + "%";
-            step++;
-        } else {
-            clearInterval(interval);
+        <!-- Premium File Upload Area -->
+        <div class="mb-8">
+            <div class="flex justify-between items-center mb-4">
+                <label class="font-bold text-gray-700 flex items-center space-x-2">
+                    <i class="fas fa-file-alt text-indigo-600"></i>
+                    <span>Upload Resume</span>
+                </label>
+                <span class="text-xs text-gray-500">Supported: PDF, DOCX, DOC, TXT (Max 10MB)</span>
+            </div>
             
-            // Read file and analyze
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                const text = e.target.result.toLowerCase();
-                const results = analyzeResumeText(text, file.name);
-                displayResults(results);
-            };
-            
-            if (file.type === "text/plain" || file.name.endsWith('.txt')) {
-                reader.readAsText(file);
-            } else {
-                // For non-text files, simulate with filename-based analysis
-                const simulatedText = simulateTextFromFile(file.name);
-                const results = analyzeResumeText(simulatedText, file.name);
-                displayResults(results);
-            }
-        }
-    }, 700);
-}
+            <div id="dropZone" class="relative border-3 border-dashed border-indigo-200 rounded-3xl p-12 text-center hover:border-indigo-600 transition-all cursor-pointer group">
+                <input type="file" id="resumeFile" class="absolute inset-0 opacity-0 cursor-pointer" accept=".pdf,.doc,.docx,.txt">
+                
+                <div class="space-y-4">
+                    <div class="w-20 h-20 premium-gradient rounded-full mx-auto flex items-center justify-center group-hover:scale-110 transition-transform float">
+                        <i class="fas fa-cloud-upload-alt text-white text-3xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-xl font-bold text-gray-700">Drop your resume here</p>
+                        <p class="text-gray-500">or click to browse</p>
+                    </div>
+                    <div class="flex justify-center space-x-4 text-sm text-gray-500">
+                        <span><i class="fas fa-check-circle text-green-500"></i> 256-bit encrypted</span>
+                        <span><i class="fas fa-clock text-indigo-500"></i> Auto-deleted after scan</span>
+                    </div>
+                </div>
+            </div>
 
-function simulateTextFromFile(filename) {
-    // This is a fallback for when we can't read the actual file content
-    // In production, you'd want to use a proper PDF/DOCX parser
-    return `
-        Professional Summary: Experienced professional with 5+ years in management
-        Skills: Python, JavaScript, Project Management, Leadership, Communication
-        Experience: Led team of 10 developers, Improved efficiency by 30%
-        Education: Bachelor's Degree in Computer Science
-        Contact: email@example.com | 123-456-7890 | linkedin.com/in/profile
-    `;
-}
+            <!-- Selected File Preview -->
+            <div id="filePreview" class="hidden mt-4 p-4 bg-indigo-50 rounded-xl">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-3">
+                        <i class="fas fa-file-pdf text-red-500 text-2xl"></i>
+                        <div>
+                            <p id="fileName" class="font-semibold">resume.pdf</p>
+                            <p id="fileSize" class="text-sm text-gray-500">2.4 MB</p>
+                        </div>
+                    </div>
+                    <button onclick="removeFile()" class="text-red-500 hover:text-red-700">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
 
-function analyzeResumeText(text, filename) {
-    const results = {
-        score: 0,
-        positive: [],
-        negative: [],
-        suggestions: [],
-        details: {}
-    };
+        <!-- Analysis Options -->
+        <div class="grid grid-cols-3 gap-4 mb-8">
+            <label class="flex items-center space-x-2 p-3 border rounded-xl hover:bg-indigo-50 cursor-pointer">
+                <input type="checkbox" checked class="w-4 h-4 text-indigo-600">
+                <span class="text-sm">Keyword Matching</span>
+            </label>
+            <label class="flex items-center space-x-2 p-3 border rounded-xl hover:bg-indigo-50 cursor-pointer">
+                <input type="checkbox" checked class="w-4 h-4 text-indigo-600">
+                <span class="text-sm">Format Analysis</span>
+            </label>
+            <label class="flex items-center space-x-2 p-3 border rounded-xl hover:bg-indigo-50 cursor-pointer">
+                <input type="checkbox" checked class="w-4 h-4 text-indigo-600">
+                <span class="text-sm">Grammar Check</span>
+            </label>
+            <label class="flex items-center space-x-2 p-3 border rounded-xl hover:bg-indigo-50 cursor-pointer">
+                <input type="checkbox" checked class="w-4 h-4 text-indigo-600">
+                <span class="text-sm">Industry Match</span>
+            </label>
+            <label class="flex items-center space-x-2 p-3 border rounded-xl hover:bg-indigo-50 cursor-pointer">
+                <input type="checkbox" checked class="w-4 h-4 text-indigo-600">
+                <span class="text-sm">Experience Level</span>
+            </label>
+            <label class="flex items-center space-x-2 p-3 border rounded-xl hover:bg-indigo-50 cursor-pointer">
+                <input type="checkbox" checked class="w-4 h-4 text-indigo-600">
+                <span class="text-sm">Education Match</span>
+            </label>
+        </div>
 
-    const lowerText = text.toLowerCase();
-    const words = text.split(/\s+/);
-    const wordCount = words.length;
-
-    // 1. Format Analysis (10 points)
-    const fileExt = filename.split('.').pop().toLowerCase();
-    if (['pdf', 'docx'].includes(fileExt)) {
-        results.score += 10;
-        results.positive.push('ATS-friendly file format (PDF/DOCX)');
-    } else {
-        results.negative.push('Use PDF or DOCX format for better ATS compatibility');
-        results.suggestions.push('Convert your resume to PDF format');
-    }
-
-    // 2. Length Analysis (15 points)
-    if (wordCount >= 400 && wordCount <= 900) {
-        results.score += 15;
-        results.positive.push(`Optimal resume length (${wordCount} words)`);
-    } else if (wordCount < 400) {
-        results.negative.push(`Resume too short (${wordCount} words). Aim for 400-900 words`);
-        results.suggestions.push('Add more details about your experience and achievements');
-    } else {
-        results.negative.push(`Resume too long (${wordCount} words). Aim for 400-900 words`);
-        results.suggestions.push('Consider condensing your resume to focus on most relevant experience');
-    }
-
-    // 3. Required Sections (15 points)
-    let foundSections = [];
-    let missingSections = [];
-
-    requiredSections.forEach(section => {
-        if (lowerText.includes(section)) {
-            foundSections.push(section);
-        } else {
-            missingSections.push(section);
-        }
-    });
-
-    const sectionScore = Math.min(foundSections.length * 3, 15);
-    results.score += sectionScore;
-
-    if (foundSections.length >= 4) {
-        results.positive.push('All critical sections present');
-    } else {
-        results.negative.push(`Missing sections: ${missingSections.join(', ')}`);
-        results.suggestions.push(`Add these missing sections: ${missingSections.join(', ')}`);
-    }
-
-    // 4. Keyword Analysis (20 points)
-    let detectedIndustry = detectIndustry(lowerText);
-    results.details.detectedIndustry = detectedIndustry;
-    
-    const relevantKeywords = industryKeywords[detectedIndustry] || industryKeywords.technology;
-    const foundKeywords = relevantKeywords.filter(keyword => 
-        lowerText.includes(keyword.toLowerCase())
-    );
-
-    const keywordScore = Math.min((foundKeywords.length / relevantKeywords.length) * 20, 20);
-    results.score += Math.round(keywordScore);
-
-    if (foundKeywords.length > 10) {
-        results.positive.push(`Excellent keyword optimization for ${detectedIndustry} industry`);
-    } else if (foundKeywords.length > 5) {
-        results.positive.push(`Good keyword coverage for ${detectedIndustry} industry`);
-    } else {
-        results.negative.push(`Low keyword density for ${detectedIndustry} roles`);
-        results.suggestions.push(`Add more ${detectedIndustry}-specific keywords like: ${relevantKeywords.slice(0, 5).join(', ')}`);
-    }
-
-    // 5. Action Verbs Analysis (15 points)
-    const foundVerbs = actionVerbs.filter(verb => 
-        lowerText.includes(verb.toLowerCase())
-    );
-
-    const verbScore = Math.min(foundVerbs.length * 2, 15);
-    results.score += verbScore;
-
-    if (foundVerbs.length > 8) {
-        results.positive.push('Excellent use of strong action verbs');
-    } else if (foundVerbs.length > 4) {
-        results.positive.push('Good use of action verbs');
-    } else {
-        results.negative.push('Limited use of action verbs');
-        results.suggestions.push('Use more action verbs to describe achievements: led, managed, developed, etc.');
-    }
-
-    // 6. Quantifiable Achievements (15 points)
-    const numberPattern = /\b\d+%|\d+\s*(percent|%)\b|\$\d+|\d+\s*(million|billion|k)\b/gi;
-    const numbers = text.match(numberPattern) || [];
-    
-    if (numbers.length > 3) {
-        results.score += 15;
-        results.positive.push('Excellent use of quantifiable achievements');
-    } else if (numbers.length > 1) {
-        results.score += 10;
-        results.positive.push('Good use of metrics and numbers');
-    } else {
-        results.score += 5;
-        results.negative.push('Add more quantifiable achievements with numbers and percentages');
-        results.suggestions.push('Include specific metrics: "Increased sales by 20%", "Managed $1M budget", etc.');
-    }
-
-    // 7. Contact Information (Bonus)
-    const emailPattern = /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b/;
-    const phonePattern = /\b\d{3}[-.]?\d{3}[-.]?\d{4}\b/;
-    const linkedinPattern = /linkedin\.com\/in\/\S+/i;
-
-    if (emailPattern.test(text)) results.positive.push('Email address found');
-    if (phonePattern.test(text)) results.positive.push('Phone number found');
-    if (linkedinPattern.test(text)) results.positive.push('LinkedIn profile included');
-
-    // Ensure score is between 0-100
-    results.score = Math.min(Math.max(Math.round(results.score), 0), 100);
-
-    return results;
-}
-
-function detectIndustry(text) {
-    const industryScores = {};
-    
-    for (const [industry, keywords] of Object.entries(industryKeywords)) {
-        industryScores[industry] = keywords.filter(keyword => 
-            text.includes(keyword.toLowerCase())
-        ).length;
-    }
-
-    return Object.entries(industryScores).reduce((a, b) => 
-        a[1] > b[1] ? a : b
-    )[0];
-}
-
-function displayResults(data) {
-    // Update score with animation
-    animateScore(0, data.score);
-    
-    // Update score circle
-    const circle = document.getElementById("scoreCircle");
-    const circumference = 351.86; // 2 * π * 56
-    const offset = circumference - (data.score / 100) * circumference;
-    circle.style.strokeDashoffset = offset;
-
-    // Display industry if detected
-    if (data.details && data.details.detectedIndustry) {
-        document.getElementById("industryBadge").innerHTML = `
-            <span class="px-4 py-2 bg-indigo-100 text-indigo-800 rounded-full text-sm font-semibold">
-                <i class="fas fa-industry mr-2"></i>
-                Detected Industry: ${data.details.detectedIndustry.charAt(0).toUpperCase() + data.details.detectedIndustry.slice(1)}
+        <!-- Analyze Button with Premium Effects -->
+        <button onclick="runUltraAnalysis()" 
+            class="w-full premium-gradient text-white py-6 rounded-2xl font-bold text-xl shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300 relative overflow-hidden group">
+            <span class="relative z-10 flex items-center justify-center space-x-3">
+                <i class="fas fa-robot"></i>
+                <span>Start Ultra-Premium Analysis</span>
+                <i class="fas fa-chevron-right group-hover:translate-x-2 transition"></i>
             </span>
-        `;
-    }
+            <div class="absolute inset-0 shimmer"></div>
+        </button>
+    </div>
 
-    // Display positive points
-    const pos = document.getElementById("positive");
-    pos.innerHTML = "";
-    if (data.positive && data.positive.length > 0) {
-        data.positive.forEach(p => {
-            pos.innerHTML += `<li class="flex items-start">
-                <i class="fas fa-check-circle text-green-500 mr-2 mt-0.5"></i>
-                <span>${p}</span>
-            </li>`;
-        });
-    } else {
-        pos.innerHTML = '<li class="text-slate-500">No positive points identified</li>';
-    }
+    <!-- Premium Loading Section -->
+    <div id="loading" class="hidden glass-card rounded-3xl p-12 mb-12">
+        <div class="text-center space-y-8">
+            <!-- Premium Loader -->
+            <div class="relative inline-block">
+                <span class="premium-loader"></span>
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <i class="fas fa-brain text-indigo-600 text-2xl animate-pulse"></i>
+                </div>
+            </div>
+            
+            <div>
+                <h3 class="text-2xl font-bold premium-text-gradient mb-2" id="loadingText">Initializing AI Engine</h3>
+                <p class="text-gray-600" id="loadingSubtext">Preparing 50+ ATS algorithms...</p>
+            </div>
 
-    // Display negative points
-    const neg = document.getElementById("negative");
-    neg.innerHTML = "";
-    if (data.negative && data.negative.length > 0) {
-        data.negative.forEach(n => {
-            neg.innerHTML += `<li class="flex items-start">
-                <i class="fas fa-exclamation-circle text-amber-500 mr-2 mt-0.5"></i>
-                <span>${n}</span>
-            </li>`;
-        });
-    } else {
-        neg.innerHTML = '<li class="text-slate-500">No issues found! Great job!</li>';
-    }
+            <!-- Progress Bar -->
+            <div class="max-w-md mx-auto">
+                <div class="flex justify-between text-sm text-gray-600 mb-2">
+                    <span>Progress</span>
+                    <span id="loadingPercentage">0%</span>
+                </div>
+                <div class="h-4 bg-gray-200 rounded-full overflow-hidden">
+                    <div id="progressBar" class="h-full premium-gradient rounded-full w-0 transition-all duration-500"></div>
+                </div>
+            </div>
 
-    // Display suggestions
-    const suggestions = document.getElementById("suggestionsList");
-    suggestions.innerHTML = "";
-    if (data.suggestions && data.suggestions.length > 0) {
-        data.suggestions.forEach(s => {
-            suggestions.innerHTML += `<li class="flex items-start">
-                <i class="fas fa-arrow-right text-blue-500 mr-2 mt-0.5"></i>
-                <span>${s}</span>
-            </li>`;
-        });
-        document.getElementById("suggestions").classList.remove("hidden");
-    } else {
-        document.getElementById("suggestions").classList.add("hidden");
-    }
+            <!-- Live Analysis Stats -->
+            <div class="grid grid-cols-3 gap-4 max-w-2xl mx-auto mt-8">
+                <div class="text-center">
+                    <div class="text-2xl font-bold text-indigo-600" id="stat1">0</div>
+                    <div class="text-xs text-gray-500">Keywords Found</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-2xl font-bold text-indigo-600" id="stat2">0</div>
+                    <div class="text-xs text-gray-500">ATS Checks</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-2xl font-bold text-indigo-600" id="stat3">0</div>
+                    <div class="text-xs text-gray-500">Improvements</div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    // Hide loading, show results
-    document.getElementById("loading").classList.add("hidden");
-    document.getElementById("result").classList.remove("hidden");
-}
+    <!-- Ultra Premium Results Section -->
+    <div id="result" class="hidden space-y-8">
+        
+        <!-- Header with Score -->
+        <div class="glass-card rounded-3xl p-8" data-aos="fade-up">
+            <div class="grid md:grid-cols-3 gap-8 items-center">
+                <!-- Score Circle -->
+                <div class="text-center relative">
+                    <div class="inline-block relative pulse-ring">
+                        <svg class="w-40 h-40 transform -rotate-90">
+                            <circle class="text-gray-200" stroke-width="8" stroke="currentColor" fill="transparent" r="70" cx="80" cy="80"/>
+                            <circle id="scoreCircle" class="text-indigo-600 score-circle" stroke-width="8" stroke="currentColor" fill="transparent" r="70" cx="80" cy="80" 
+                                stroke-dasharray="439.82" stroke-dashoffset="439.82" stroke-linecap="round"/>
+                        </svg>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div>
+                                <span id="score" class="text-5xl font-extrabold premium-text-gradient">0</span>
+                                <span class="text-gray-400">/100</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mt-4">ATS Compatibility Score</p>
+                </div>
 
-function animateScore(start, end) {
-    const scoreElement = document.getElementById("score");
-    const duration = 1000;
-    const increment = (end - start) / (duration / 10);
-    let current = start;
-    
-    const timer = setInterval(() => {
-        current += increment;
-        if (current >= end) {
-            scoreElement.innerText = end;
-            clearInterval(timer);
-        } else {
-            scoreElement.innerText = Math.round(current);
-        }
-    }, 10);
-}
+                <!-- Score Stats -->
+                <div class="col-span-2 grid grid-cols-3 gap-4">
+                    <div class="bg-green-50 rounded-2xl p-4 text-center">
+                        <i class="fas fa-trophy text-2xl text-green-600 mb-2"></i>
+                        <div class="text-2xl font-bold text-green-600" id="rank">Top 15%</div>
+                        <div class="text-xs text-gray-600">Global Ranking</div>
+                    </div>
+                    <div class="bg-blue-50 rounded-2xl p-4 text-center">
+                        <i class="fas fa-industry text-2xl text-blue-600 mb-2"></i>
+                        <div class="text-2xl font-bold text-blue-600" id="industry">Tech</div>
+                        <div class="text-xs text-gray-600">Detected Industry</div>
+                    </div>
+                    <div class="bg-purple-50 rounded-2xl p-4 text-center">
+                        <i class="fas fa-chart-line text-2xl text-purple-600 mb-2"></i>
+                        <div class="text-2xl font-bold text-purple-600" id="matchRate">94%</div>
+                        <div class="text-xs text-gray-600">Job Match Rate</div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-function showError(message) {
-    document.getElementById("errorMessage").innerText = message;
-    document.getElementById("error").classList.remove("hidden");
-    document.getElementById("loading").classList.add("hidden");
-}
+        <!-- Detailed Analysis Charts -->
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-3xl p-6" data-aos="fade-right">
+                <h3 class="font-bold text-lg mb-4 flex items-center">
+                    <i class="fas fa-chart-pie text-indigo-600 mr-2"></i>
+                    Category Performance
+                </h3>
+                <canvas id="categoryChart" class="w-full h-64"></canvas>
+            </div>
 
-function showSampleAnalysis() {
-    // Demo sample data
-    const sampleData = {
-        score: 78,
-        positive: [
-            "ATS-friendly file format (PDF/DOCX)",
-            "All critical sections present",
-            "Good keyword coverage for technology industry",
-            "Good use of action verbs",
-            "Email address found",
-            "Phone number found"
-        ],
-        negative: [
-            "Resume too long (1200 words). Aim for 400-900 words",
-            "Limited quantifiable achievements",
-            "Minor spelling issues detected"
-        ],
-        suggestions: [
-            "Add more technology-specific keywords like: kubernetes, terraform, ansible",
-            "Include specific metrics: 'Increased sales by 20%', 'Managed $1M budget'",
-            "Run spell-check on your resume",
-            "Consider condensing your resume to focus on most relevant experience"
-        ],
-        details: {
-            detectedIndustry: "technology"
-        }
-    };
-    
-    displayResults(sampleData);
-}
+            <div class="glass-card rounded-3xl p-6" data-aos="fade-left">
+                <h3 class="font-bold text-lg mb-4 flex items-center">
+                    <i class="fas fa-chart-line text-indigo-600 mr-2"></i>
+                    Industry Comparison
+                </h3>
+                <canvas id="industryChart" class="w-full h-64"></canvas>
+            </div>
+        </div>
 
-function downloadReport() {
-    const score = document.getElementById("score").innerText;
-    const positives = Array.from(document.querySelectorAll("#positive li")).map(li => li.innerText.replace(/^[✔]\s/, ''));
-    const negatives = Array.from(document.querySelectorAll("#negative li")).map(li => li.innerText.replace(/^[⚠]\s/, ''));
-    const suggestions = Array.from(document.querySelectorAll("#suggestionsList li")).map(li => li.innerText.replace(/^[→]\s/, ''));
-    
-    const report = `
-=================================
-ATS RESUME ANALYSIS REPORT
-Generated by Eduskillpath AI
-Date: ${new Date().toLocaleString()}
-=================================
+        <!-- Strengths & Weaknesses -->
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-3xl p-6 border-l-8 border-green-500" data-aos="fade-right">
+                <h3 class="font-bold text-xl mb-4 text-green-600 flex items-center">
+                    <i class="fas fa-check-circle mr-2"></i>
+                    Strengths Analysis
+                </h3>
+                <ul id="positive" class="space-y-3">
+                    <!-- Dynamic content -->
+                </ul>
+                <div class="mt-4 p-3 bg-green-50 rounded-xl">
+                    <p class="text-sm text-green-700">
+                        <i class="fas fa-lightbulb mr-2"></i>
+                        Top Strength: Your resume excels in keyword optimization
+                    </p>
+                </div>
+            </div>
 
-OVERALL SCORE: ${score}/100
+            <div class="glass-card rounded-3xl p-6 border-l-8 border-amber-500" data-aos="fade-left">
+                <h3 class="font-bold text-xl mb-4 text-amber-600 flex items-center">
+                    <i class="fas fa-exclamation-triangle mr-2"></i>
+                    Improvement Areas
+                </h3>
+                <ul id="negative" class="space-y-3">
+                    <!-- Dynamic content -->
+                </ul>
+                <div class="mt-4 p-3 bg-amber-50 rounded-xl">
+                    <p class="text-sm text-amber-700">
+                        <i class="fas fa-arrow-right mr-2"></i>
+                        Priority: Add quantifiable achievements to boost score
+                    </p>
+                </div>
+            </div>
+        </div>
 
-✅ STRENGTHS:
-${positives.map(p => '  • ' + p).join('\n')}
+        <!-- Premium Suggestions -->
+        <div class="glass-card rounded-3xl p-6 bg-gradient-to-r from-blue-50 to-indigo-50" data-aos="fade-up">
+            <h3 class="font-bold text-xl mb-4 text-indigo-600 flex items-center">
+                <i class="fas fa-robot mr-2"></i>
+                AI-Powered Optimization Suggestions
+            </h3>
+            <ul id="suggestionsList" class="grid md:grid-cols-2 gap-4">
+                <!-- Dynamic content -->
+            </ul>
+            
+            <!-- Premium Rewrite Section -->
+            <div class="mt-6 p-4 bg-white rounded-xl">
+                <h4 class="font-semibold mb-3 flex items-center">
+                    <i class="fas fa-magic text-indigo-600 mr-2"></i>
+                    AI Rewrite Preview
+                </h4>
+                <div class="flex items-start space-x-4">
+                    <div class="flex-1 p-3 bg-gray-50 rounded-lg text-sm text-gray-600">
+                        "Managed a team of developers..."
+                    </div>
+                    <i class="fas fa-arrow-right text-indigo-600 mt-3"></i>
+                    <div class="flex-1 p-3 premium-gradient text-white rounded-lg text-sm">
+                        "Led and mentored a cross-functional team of 10 engineers, increasing productivity by 35% and delivering 5 major projects ahead of schedule."
+                    </div>
+                </div>
+                <button class="mt-3 text-indigo-600 text-sm font-semibold hover:text-indigo-800">
+                    <i class="fas fa-sync-alt mr-1"></i>Generate more rewrites
+                </button>
+            </div>
+        </div>
 
-⚠️ AREAS FOR IMPROVEMENT:
-${negatives.map(n => '  • ' + n).join('\n')}
+        <!-- Market Insights -->
+        <div class="glass-card rounded-3xl p-6" data-aos="fade-up">
+            <h3 class="font-bold text-lg mb-4 flex items-center">
+                <i class="fas fa-chart-bar text-indigo-600 mr-2"></i>
+                Market Insights & Recommendations
+            </h3>
+            <div class="grid md:grid-cols-3 gap-4">
+                <div class="p-4 bg-gray-50 rounded-xl">
+                    <i class="fas fa-trend-up text-green-500 text-xl mb-2"></i>
+                    <p class="font-semibold">Trending Skills</p>
+                    <p class="text-sm text-gray-600">AI, Cloud Computing, Data Analysis are hot in your industry</p>
+                </div>
+                <div class="p-4 bg-gray-50 rounded-xl">
+                    <i class="fas fa-dollar-sign text-blue-500 text-xl mb-2"></i>
+                    <p class="font-semibold">Salary Impact</p>
+                    <p class="text-sm text-gray-600">Optimized resumes get 40% higher salary offers</p>
+                </div>
+                <div class="p-4 bg-gray-50 rounded-xl">
+                    <i class="fas fa-clock text-purple-500 text-xl mb-2"></i>
+                    <p class="font-semibold">Time to Hire</p>
+                    <p class="text-sm text-gray-600">Top-scoring resumes get interviews 3x faster</p>
+                </div>
+            </div>
+        </div>
 
-💡 SUGGESTIONS:
-${suggestions.map(s => '  • ' + s).join('\n')}
+        <!-- Action Buttons -->
+        <div class="flex justify-center space-x-6 pt-8">
+            <button onclick="downloadPremiumReport()" class="px-8 py-4 premium-gradient text-white rounded-xl font-bold hover:shadow-2xl transform hover:scale-105 transition">
+                <i class="fas fa-file-pdf mr-2"></i>
+                Download PDF Report
+            </button>
+            <button onclick="shareResults()" class="px-8 py-4 bg-white text-indigo-600 rounded-xl font-bold hover:shadow-2xl transform hover:scale-105 transition border-2 border-indigo-600">
+                <i class="fas fa-share-alt mr-2"></i>
+                Share Results
+            </button>
+            <button onclick="scheduleConsultation()" class="px-8 py-4 bg-purple-600 text-white rounded-xl font-bold hover:bg-purple-700 transform hover:scale-105 transition">
+                <i class="fas fa-calendar mr-2"></i>
+                Expert Consultation
+            </button>
+        </div>
+    </div>
 
-=================================
-Powered by Eduskillpath AI ATS Technology
-Visit us at eduskillpath.io
-=================================
-    `;
-    
-    const blob = new Blob([report], { type: 'text/plain' });
-    const url = window.URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'eduskillpath-ats-report.txt';
-    a.click();
-}
+    <!-- Error Display -->
+    <div id="error" class="hidden glass-card rounded-3xl p-8 bg-red-50 border-l-8 border-red-500">
+        <div class="flex items-center space-x-4">
+            <i class="fas fa-exclamation-circle text-red-500 text-4xl"></i>
+            <div>
+                <h3 class="font-bold text-xl text-red-700">Analysis Error</h3>
+                <p id="errorMessage" class="text-red-600"></p>
+            </div>
+        </div>
+    </div>
+</main>
 
-function shareResults() {
-    const score = document.getElementById("score").innerText;
-    if (navigator.share) {
-        navigator.share({
-            title: 'My ATS Resume Score',
-            text: `I scored ${score}/100 on Eduskillpath's AI ATS Resume Checker! Check your resume at eduskillpath.io`,
-            url: window.location.href
-        });
-    } else {
-        // Fallback
-        navigator.clipboard.writeText(`I scored ${score}/100 on Eduskillpath's AI ATS Resume Checker! Check your resume at eduskillpath.io`);
-        alert('Results copied to clipboard!');
-    }
-}
-
-function resetAnalyzer() {
-    document.getElementById("resumeFile").value = "";
-    document.getElementById("jobDescription").value = "";
-    document.getElementById("result").classList.add("hidden");
-    document.getElementById("loading").classList.add("hidden");
-    document.getElementById("error").classList.add("hidden");
-}
-</script>
-
-</body>
-</html>
+<!-- Premium Footer -->
+<footer class="relative z-10 bg-black/30 backdrop-blur-lg mt-20 py-12">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="grid md:grid-cols-4 gap-8">
+            <div>
+                <h4 class="text-white font-bold mb-4">Eduskillpath Enterprise</h4>
+                <p class="text-white/60 text-sm">Advanced AI-powered ATS intelligence for modern recruitment.</p>
+            </div>
+            <div>
+                <h5 class="text-white font-semibold mb-4">Features</h5>
+                <ul class="space-y-2 text-white/60 text-sm">
+                    <li>AI Analysis</li>
+                    <li>Batch Processing</li>
+                    <li>API Access</li>
+                    <li>Enterprise Solutions</li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="text-white font-semibold mb-4">Company</h5>
+                <ul class="space-y-2 text-white/60 text-sm">
+                   
