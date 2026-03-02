@@ -1,689 +1,166 @@
+<!-- FULL REWRITTEN PREMIUM HTML INSPIRED BY ENHANCV (UI/UX LEVEL) -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Eduskillpath Enterprise ATS | AI-Powered Resume Intelligence</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eduskillpath AI Resume Analyzer</title>
 
-<!-- Premium Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-<!-- Tailwind + Premium Extensions -->
-<script src="https://cdn.tailwindcss.com"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
-<!-- AOS Animation Library -->
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
-<!-- Chart.js for Visualizations -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-
-<!-- PDF.js for Resume Parsing -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
-
-<!-- Mammoth.js for DOCX parsing -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.4.2/mammoth.browser.min.js"></script>
-
-<!-- Particles.js for Background -->
-<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-
-<style>
-    /* [Keep all your existing styles here] */
-    * {
-        font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
-    }
+  <style>
+    * { font-family: 'Inter', sans-serif; }
 
     body {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        position: relative;
-        overflow-x: hidden;
+      background: radial-gradient(circle at top left, #eef2ff, #ffffff 60%);
     }
 
-    #particles-js {
-        position: fixed;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        z-index: 0;
+    .glass {
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(0,0,0,0.05);
     }
 
-    .glass-card {
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    .gradient-text {
+      background: linear-gradient(90deg,#4f46e5,#9333ea);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
-    .premium-gradient {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    .gradient-btn {
+      background: linear-gradient(90deg,#4f46e5,#9333ea);
     }
-
-    .premium-text-gradient {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-    }
-
-    .hover-3d {
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .hover-3d:hover {
-        transform: translateY(-5px) scale(1.02);
-        box-shadow: 0 30px 60px -15px rgba(102, 126, 234, 0.5);
-    }
-
-    .score-circle {
-        transition: stroke-dashoffset 1.5s cubic-bezier(0.4, 0, 0.2, 1);
-        filter: drop-shadow(0 10px 15px rgba(102, 126, 234, 0.3));
-    }
-
-    .premium-loader {
-        width: 48px;
-        height: 48px;
-        border: 5px solid #FFF;
-        border-bottom-color: #667eea;
-        border-radius: 50%;
-        display: inline-block;
-        box-sizing: border-box;
-        animation: rotation 1s linear infinite;
-    }
-
-    @keyframes rotation {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-    }
-
-    .shimmer {
-        background: linear-gradient(
-            90deg,
-            transparent 0%,
-            rgba(255, 255, 255, 0.2) 50%,
-            transparent 100%
-        );
-        background-size: 200% 100%;
-        animation: shimmer 2s infinite;
-    }
-
-    @keyframes shimmer {
-        0% { background-position: -200% 0; }
-        100% { background-position: 200% 0; }
-    }
-
-    .radar-scan {
-        position: relative;
-        overflow: hidden;
-    }
-
-    .radar-scan::after {
-        content: '';
-        position: absolute;
-        top: -50%;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        background: linear-gradient(
-            45deg,
-            transparent 30%,
-            rgba(255, 255, 255, 0.1) 50%,
-            transparent 70%
-        );
-        animation: radar 3s linear infinite;
-    }
-
-    @keyframes radar {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-    }
-
-    .float {
-        animation: float 3s ease-in-out infinite;
-    }
-
-    @keyframes float {
-        0%, 100% { transform: translateY(0px); }
-        50% { transform: translateY(-10px); }
-    }
-
-    .pulse-ring {
-        position: relative;
-    }
-
-    .pulse-ring::before {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 100%;
-        height: 100%;
-        border-radius: 50%;
-        animation: pulse-ring 2s infinite;
-    }
-
-    @keyframes pulse-ring {
-        0% {
-            box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.7);
-        }
-        70% {
-            box-shadow: 0 0 0 20px rgba(102, 126, 234, 0);
-        }
-        100% {
-            box-shadow: 0 0 0 0 rgba(102, 126, 234, 0);
-        }
-    }
-
-    .stat-card {
-        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-        border-radius: 1rem;
-        padding: 1.5rem;
-        transition: all 0.3s ease;
-    }
-
-    .stat-card:hover {
-        transform: scale(1.05);
-        box-shadow: 0 20px 40px -15px rgba(102, 126, 234, 0.5);
-    }
-
-    ::-webkit-scrollbar {
-        width: 10px;
-    }
-
-    ::-webkit-scrollbar-track {
-        background: #f1f1f1;
-        border-radius: 10px;
-    }
-
-    ::-webkit-scrollbar-thumb {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        border-radius: 10px;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-        background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
-    }
-
-    .keyword-highlight {
-        background-color: #fef3c7;
-        padding: 2px 4px;
-        border-radius: 4px;
-        font-weight: 500;
-    }
-
-    .missing-keyword {
-        background-color: #fee2e2;
-        padding: 2px 4px;
-        border-radius: 4px;
-        font-weight: 500;
-    }
-</style>
+  </style>
 </head>
-<body class="relative">
+<body class="text-gray-800">
 
-<!-- Particles Background -->
-<div id="particles-js" class="absolute inset-0 z-0"></div>
-
-<!-- Premium Header -->
-<header class="relative z-50 bg-white/90 backdrop-blur-lg shadow-2xl sticky top-0">
-    <div class="max-w-7xl mx-auto px-6 py-4">
-        <div class="flex justify-between items-center">
-            <!-- Logo with Premium Animation -->
-            <div class="flex items-center space-x-3 group cursor-pointer">
-                <div class="relative">
-                    <div class="w-12 h-12 premium-gradient rounded-xl flex items-center justify-center transform group-hover:rotate-12 transition-all duration-300">
-                        <i class="fas fa-brain text-white text-2xl"></i>
-                    </div>
-                    <div class="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full pulse-ring"></div>
-                </div>
-                <div>
-                    <h1 class="font-extrabold text-2xl premium-text-gradient">Eduskillpath</h1>
-                    <p class="text-xs text-gray-500">Enterprise ATS Intelligence</p>
-                </div>
-            </div>
-
-            <!-- Navigation -->
-            <nav class="hidden md:flex items-center space-x-8">
-                <a href="#" class="text-gray-700 hover:text-indigo-600 transition flex items-center space-x-1">
-                    <i class="fas fa-home"></i>
-                    <span>Home</span>
-                </a>
-                <a href="#" class="text-gray-700 hover:text-indigo-600 transition flex items-center space-x-1">
-                    <i class="fas fa-chart-line"></i>
-                    <span>Analytics</span>
-                </a>
-                <a href="#" class="text-gray-700 hover:text-indigo-600 transition flex items-center space-x-1">
-                    <i class="fas fa-crown"></i>
-                    <span>Premium</span>
-                </a>
-            </nav>
-
-            <!-- User Menu -->
-            <div class="flex items-center space-x-4">
-                <button class="relative">
-                    <i class="fas fa-bell text-gray-600 text-xl"></i>
-                    <span class="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full text-xs text-white flex items-center justify-center">3</span>
-                </button>
-                <div class="flex items-center space-x-2 cursor-pointer group">
-                    <div class="w-10 h-10 premium-gradient rounded-full flex items-center justify-center">
-                        <span class="text-white font-bold">JD</span>
-                    </div>
-                    <i class="fas fa-chevron-down text-gray-600 group-hover:rotate-180 transition"></i>
-                </div>
-            </div>
-        </div>
+<!-- NAVBAR -->
+<header class="sticky top-0 z-50 glass">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-xl gradient-btn flex items-center justify-center text-white">
+        <i class="fa-solid fa-brain"></i>
+      </div>
+      <div>
+        <h1 class="font-extrabold text-xl gradient-text">Eduskillpath</h1>
+        <p class="text-xs text-gray-500">AI Resume Intelligence</p>
+      </div>
     </div>
+    <nav class="hidden md:flex gap-8 text-sm font-medium">
+      <a href="#" class="hover:text-indigo-600">Home</a>
+      <a href="#" class="hover:text-indigo-600">Resume Score</a>
+      <a href="#" class="hover:text-indigo-600">Templates</a>
+      <a href="#" class="hover:text-indigo-600">Pricing</a>
+    </nav>
+    <button class="gradient-btn text-white px-5 py-2 rounded-xl font-semibold">Get Started</button>
+  </div>
 </header>
 
-<!-- Main Content -->
-<main class="relative z-10 max-w-7xl mx-auto px-6 py-12">
+<!-- HERO -->
+<section class="max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-2 gap-16 items-center">
+  <div>
+    <span class="inline-block mb-6 px-4 py-1 rounded-full bg-indigo-50 text-indigo-600 text-sm font-semibold">Trusted by 100K+ job seekers</span>
+    <h2 class="text-5xl font-black leading-tight">
+      Beat the ATS.
+      <span class="gradient-text">Land More Interviews.</span>
+    </h2>
+    <p class="mt-6 text-lg text-gray-600">
+      Our AI simulates real ATS used by top companies and gives you a clear roadmap to reach a 90+ ATS score.
+    </p>
 
-    <!-- Hero Section with Premium Stats -->
-    <div class="grid lg:grid-cols-2 gap-12 items-center mb-16" data-aos="fade-up">
-        <div>
-            <div class="inline-block px-4 py-2 bg-white/20 backdrop-blur-lg rounded-full text-white text-sm mb-6">
-                <i class="fas fa-robot mr-2"></i>
-                Powered by Advanced AI • 99.9% Accuracy
-            </div>
-            <h1 class="text-5xl lg:text-6xl font-extrabold text-white leading-tight">
-                AI-Powered<br>
-                <span class="premium-text-gradient bg-white">ATS Resume Intelligence</span>
-            </h1>
-            <p class="text-xl text-white/80 mt-6 leading-relaxed">
-                Experience the future of resume screening with our enterprise-grade AI that simulates 50+ real ATS algorithms used by Fortune 500 companies.
-            </p>
-            
-            <!-- Premium Stats -->
-            <div class="grid grid-cols-3 gap-6 mt-10">
-                <div class="stat-card">
-                    <i class="fas fa-building text-2xl text-indigo-600 mb-2"></i>
-                    <div class="text-2xl font-bold">50+</div>
-                    <div class="text-sm text-gray-600">ATS Algorithms</div>
-                </div>
-                <div class="stat-card">
-                    <i class="fas fa-chart-pie text-2xl text-indigo-600 mb-2"></i>
-                    <div class="text-2xl font-bold">150+</div>
-                    <div class="text-sm text-gray-600">Data Points</div>
-                </div>
-                <div class="stat-card">
-                    <i class="fas fa-clock text-2xl text-indigo-600 mb-2"></i>
-                    <div class="text-2xl font-bold">2.5s</div>
-                    <div class="text-sm text-gray-600">Analysis Time</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Premium 3D Animation Card -->
-        <div class="relative" data-aos="fade-left">
-            <div class="glass-card rounded-3xl p-8 hover-3d">
-                <div class="radar-scan relative h-64">
-                    <!-- Radar Animation SVG -->
-                    <svg viewBox="0 0 200 200" class="w-full h-full">
-                        <circle cx="100" cy="100" r="80" fill="none" stroke="#667eea" stroke-width="1" stroke-dasharray="5,5"/>
-                        <circle cx="100" cy="100" r="60" fill="none" stroke="#667eea" stroke-width="1" stroke-dasharray="5,5"/>
-                        <circle cx="100" cy="100" r="40" fill="none" stroke="#667eea" stroke-width="1" stroke-dasharray="5,5"/>
-                        <circle cx="100" cy="100" r="20" fill="none" stroke="#667eea" stroke-width="1" stroke-dasharray="5,5"/>
-                        <line x1="100" y1="100" x2="180" y2="100" stroke="#667eea" stroke-width="2" class="animate-spin origin-center" style="animation-duration: 4s;"/>
-                        <circle cx="100" cy="100" r="8" fill="#667eea"/>
-                        
-                        <!-- Floating Keywords -->
-                        <text x="140" y="60" class="text-xs fill-indigo-600 animate-pulse">Python</text>
-                        <text x="160" y="120" class="text-xs fill-indigo-600 animate-pulse" style="animation-delay: 0.5s;">Leadership</text>
-                        <text x="120" y="160" class="text-xs fill-indigo-600 animate-pulse" style="animation-delay: 1s;">SQL</text>
-                        <text x="50" y="140" class="text-xs fill-indigo-600 animate-pulse" style="animation-delay: 1.5s;">Agile</text>
-                        <text x="30" y="70" class="text-xs fill-indigo-600 animate-pulse" style="animation-delay: 2s;">AI/ML</text>
-                    </svg>
-                </div>
-                <p class="text-center text-indigo-600 font-semibold mt-4">Real-time ATS Scanning Simulation</p>
-            </div>
-        </div>
+    <div class="mt-8 flex gap-4">
+      <button class="gradient-btn text-white px-8 py-4 rounded-2xl font-bold shadow-xl">
+        Analyze My Resume
+      </button>
+      <button class="px-8 py-4 rounded-2xl border font-semibold">
+        See How It Works
+      </button>
     </div>
 
-    <!-- Main Analyzer Card -->
-    <div class="glass-card rounded-3xl p-8 mb-12" data-aos="fade-up">
-        
-        <!-- Premium Tabs -->
-        <div class="flex border-b border-gray-200 mb-8">
-            <button class="px-6 py-3 text-indigo-600 border-b-2 border-indigo-600 font-semibold flex items-center space-x-2">
-                <i class="fas fa-upload"></i>
-                <span>Quick Scan</span>
-            </button>
-            <button class="px-6 py-3 text-gray-500 hover:text-indigo-600 font-semibold flex items-center space-x-2">
-                <i class="fas fa-microscope"></i>
-                <span>Deep Analysis</span>
-            </button>
-            <button class="px-6 py-3 text-gray-500 hover:text-indigo-600 font-semibold flex items-center space-x-2">
-                <i class="fas fa-chart-bar"></i>
-                <span>Batch Processing</span>
-            </button>
-        </div>
+    <div class="mt-10 flex gap-10">
+      <div>
+        <p class="text-3xl font-extrabold">95%</p>
+        <p class="text-sm text-gray-500">ATS Accuracy</p>
+      </div>
+      <div>
+        <p class="text-3xl font-extrabold">2.3s</p>
+        <p class="text-sm text-gray-500">Scan Time</p>
+      </div>
+      <div>
+        <p class="text-3xl font-extrabold">50+</p>
+        <p class="text-sm text-gray-500">ATS Models</p>
+      </div>
+    </div>
+  </div>
 
-        <!-- Job Description Section with Premium Editor -->
-        <div class="mb-8">
-            <div class="flex justify-between items-center mb-4">
-                <label class="font-bold text-gray-700 flex items-center space-x-2">
-                    <i class="fas fa-briefcase text-indigo-600"></i>
-                    <span>Target Job Description</span>
-                </label>
-                <div class="flex space-x-2">
-                    <button onclick="pasteJobDescription()" class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-lg text-sm hover:bg-indigo-100">
-                        <i class="fas fa-paste mr-1"></i>Paste
-                    </button>
-                    <button class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-lg text-sm hover:bg-indigo-100">
-                        <i class="fas fa-upload mr-1"></i>Import
-                    </button>
-                </div>
-            </div>
-            <div class="relative">
-                <textarea id="jobDescription" rows="4" 
-                    class="w-full border-2 border-gray-200 rounded-2xl p-4 focus:border-indigo-600 focus:ring-2 focus:ring-indigo-200 transition-all"
-                    placeholder="Paste the job description here for 200% more accurate matching..."></textarea>
-                <div class="absolute bottom-3 right-3 text-xs text-gray-400">
-                    <span id="jdCharCount">0</span>/5000
-                </div>
-            </div>
-        </div>
+  <!-- MOCK SCORE CARD -->
+  <div class="glass rounded-3xl p-10 shadow-2xl">
+    <h3 class="font-bold text-lg mb-4">Your Resume Score</h3>
+    <div class="flex items-center gap-6">
+      <div class="relative">
+        <svg class="w-32 h-32">
+          <circle cx="64" cy="64" r="54" stroke="#e5e7eb" stroke-width="8" fill="none" />
+          <circle cx="64" cy="64" r="54" stroke="#6366f1" stroke-width="8" fill="none" stroke-dasharray="339" stroke-dashoffset="85" stroke-linecap="round" />
+        </svg>
+        <span class="absolute inset-0 flex items-center justify-center text-3xl font-black">78</span>
+      </div>
+      <div class="space-y-2">
+        <p class="font-semibold">ATS Compatibility</p>
+        <p class="text-sm text-gray-500">Above average – improve keywords to reach 90+</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <!-- Premium File Upload Area -->
-        <div class="mb-8">
-            <div class="flex justify-between items-center mb-4">
-                <label class="font-bold text-gray-700 flex items-center space-x-2">
-                    <i class="fas fa-file-alt text-indigo-600"></i>
-                    <span>Upload Resume</span>
-                </label>
-                <span class="text-xs text-gray-500">Supported: PDF, DOCX, DOC, TXT (Max 10MB)</span>
-            </div>
-            
-            <div id="dropZone" class="relative border-3 border-dashed border-indigo-200 rounded-3xl p-12 text-center hover:border-indigo-600 transition-all cursor-pointer group">
-                <input type="file" id="resumeFile" class="absolute inset-0 opacity-0 cursor-pointer" accept=".pdf,.doc,.docx,.txt" onchange="handleFileSelect(this.files[0])">
-                
-                <div class="space-y-4">
-                    <div class="w-20 h-20 premium-gradient rounded-full mx-auto flex items-center justify-center group-hover:scale-110 transition-transform float">
-                        <i class="fas fa-cloud-upload-alt text-white text-3xl"></i>
-                    </div>
-                    <div>
-                        <p class="text-xl font-bold text-gray-700">Drop your resume here</p>
-                        <p class="text-gray-500">or click to browse</p>
-                    </div>
-                    <div class="flex justify-center space-x-4 text-sm text-gray-500">
-                        <span><i class="fas fa-check-circle text-green-500"></i> 256-bit encrypted</span>
-                        <span><i class="fas fa-clock text-indigo-500"></i> Auto-deleted after scan</span>
-                    </div>
-                </div>
-            </div>
+<!-- UPLOAD SECTION -->
+<section class="max-w-5xl mx-auto px-6 pb-24">
+  <div class="glass rounded-3xl p-10 text-center">
+    <h3 class="text-3xl font-black mb-4">Upload Your Resume</h3>
+    <p class="text-gray-600 mb-8">PDF or DOCX. We never store your data.</p>
 
-            <!-- Selected File Preview -->
-            <div id="filePreview" class="hidden mt-4 p-4 bg-indigo-50 rounded-xl">
-                <div class="flex items-center justify-between">
-                    <div class="flex items-center space-x-3">
-                        <i class="fas fa-file-pdf text-red-500 text-2xl"></i>
-                        <div>
-                            <p id="fileName" class="font-semibold">resume.pdf</p>
-                            <p id="fileSize" class="text-sm text-gray-500">2.4 MB</p>
-                        </div>
-                    </div>
-                    <button onclick="removeFile()" class="text-red-500 hover:text-red-700">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Resume Preview Section (New) -->
-        <div id="resumePreview" class="hidden mb-8 p-4 bg-gray-50 rounded-xl max-h-60 overflow-y-auto">
-            <h4 class="font-semibold mb-2 flex items-center">
-                <i class="fas fa-file-alt text-indigo-600 mr-2"></i>
-                Resume Preview
-            </h4>
-            <div id="resumeText" class="text-sm text-gray-700 whitespace-pre-wrap"></div>
-        </div>
-
-        <!-- Analysis Options -->
-        <div class="grid grid-cols-3 gap-4 mb-8">
-            <label class="flex items-center space-x-2 p-3 border rounded-xl hover:bg-indigo-50 cursor-pointer">
-                <input type="checkbox" id="keywordMatching" checked class="w-4 h-4 text-indigo-600">
-                <span class="text-sm">Keyword Matching</span>
-            </label>
-            <label class="flex items-center space-x-2 p-3 border rounded-xl hover:bg-indigo-50 cursor-pointer">
-                <input type="checkbox" id="formatAnalysis" checked class="w-4 h-4 text-indigo-600">
-                <span class="text-sm">Format Analysis</span>
-            </label>
-            <label class="flex items-center space-x-2 p-3 border rounded-xl hover:bg-indigo-50 cursor-pointer">
-                <input type="checkbox" id="grammarCheck" checked class="w-4 h-4 text-indigo-600">
-                <span class="text-sm">Grammar Check</span>
-            </label>
-            <label class="flex items-center space-x-2 p-3 border rounded-xl hover:bg-indigo-50 cursor-pointer">
-                <input type="checkbox" id="industryMatch" checked class="w-4 h-4 text-indigo-600">
-                <span class="text-sm">Industry Match</span>
-            </label>
-            <label class="flex items-center space-x-2 p-3 border rounded-xl hover:bg-indigo-50 cursor-pointer">
-                <input type="checkbox" id="experienceLevel" checked class="w-4 h-4 text-indigo-600">
-                <span class="text-sm">Experience Level</span>
-            </label>
-            <label class="flex items-center space-x-2 p-3 border rounded-xl hover:bg-indigo-50 cursor-pointer">
-                <input type="checkbox" id="educationMatch" checked class="w-4 h-4 text-indigo-600">
-                <span class="text-sm">Education Match</span>
-            </label>
-        </div>
-
-        <!-- Analyze Button with Premium Effects -->
-        <button onclick="runATSAnalysis()" 
-            class="w-full premium-gradient text-white py-6 rounded-2xl font-bold text-xl shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300 relative overflow-hidden group">
-            <span class="relative z-10 flex items-center justify-center space-x-3">
-                <i class="fas fa-robot"></i>
-                <span>Start Ultra-Premium Analysis</span>
-                <i class="fas fa-chevron-right group-hover:translate-x-2 transition"></i>
-            </span>
-            <div class="absolute inset-0 shimmer"></div>
-        </button>
+    <div class="border-2 border-dashed rounded-2xl p-12 hover:border-indigo-500 transition cursor-pointer">
+      <i class="fa-solid fa-cloud-arrow-up text-4xl text-indigo-600 mb-4"></i>
+      <p class="font-semibold">Drag & Drop or Click to Upload</p>
+      <p class="text-sm text-gray-500">Max 10MB</p>
     </div>
 
-    <!-- Premium Loading Section -->
-    <div id="loading" class="hidden glass-card rounded-3xl p-12 mb-12">
-        <div class="text-center space-y-8">
-            <!-- Premium Loader -->
-            <div class="relative inline-block">
-                <span class="premium-loader"></span>
-                <div class="absolute inset-0 flex items-center justify-center">
-                    <i class="fas fa-brain text-indigo-600 text-2xl animate-pulse"></i>
-                </div>
-            </div>
-            
-            <div>
-                <h3 class="text-2xl font-bold premium-text-gradient mb-2" id="loadingText">Initializing AI Engine</h3>
-                <p class="text-gray-600" id="loadingSubtext">Preparing 50+ ATS algorithms...</p>
-            </div>
+    <button class="mt-8 gradient-btn text-white px-10 py-4 rounded-2xl font-bold shadow-xl">
+      Analyze Resume
+    </button>
+  </div>
+</section>
 
-            <!-- Progress Bar -->
-            <div class="max-w-md mx-auto">
-                <div class="flex justify-between text-sm text-gray-600 mb-2">
-                    <span>Progress</span>
-                    <span id="loadingPercentage">0%</span>
-                </div>
-                <div class="h-4 bg-gray-200 rounded-full overflow-hidden">
-                    <div id="progressBar" class="h-full premium-gradient rounded-full w-0 transition-all duration-500"></div>
-                </div>
-            </div>
-
-            <!-- Live Analysis Stats -->
-            <div class="grid grid-cols-3 gap-4 max-w-2xl mx-auto mt-8">
-                <div class="text-center">
-                    <div class="text-2xl font-bold text-indigo-600" id="stat1">0</div>
-                    <div class="text-xs text-gray-500">Keywords Found</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-2xl font-bold text-indigo-600" id="stat2">0</div>
-                    <div class="text-xs text-gray-500">ATS Checks</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-2xl font-bold text-indigo-600" id="stat3">0</div>
-                    <div class="text-xs text-gray-500">Improvements</div>
-                </div>
-            </div>
-        </div>
+<!-- FOOTER -->
+<footer class="border-t">
+  <div class="max-w-7xl mx-auto px-6 py-10 grid md:grid-cols-3 gap-8 text-sm">
+    <div>
+      <h4 class="font-bold mb-2">Eduskillpath</h4>
+      <p class="text-gray-500">AI-powered ATS resume optimization platform.</p>
     </div>
+    <div>
+      <h4 class="font-bold mb-2">Product</h4>
+      <ul class="space-y-1 text-gray-500">
+        <li>ATS Scanner</li>
+        <li>Resume Builder</li>
+        <li>Cover Letter AI</li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-bold mb-2">Legal</h4>
+      <ul class="space-y-1 text-gray-500">
+        <li>Privacy Policy</li>
+        <li>Terms</li>
+      </ul>
+    </div>
+  </div>
+</footer>
 
-    <!-- Ultra Premium Results Section -->
-    <div id="result" class="hidden space-y-8">
-        
-        <!-- Header with Score -->
-        <div class="glass-card rounded-3xl p-8" data-aos="fade-up">
-            <div class="grid md:grid-cols-3 gap-8 items-center">
-                <!-- Score Circle -->
-                <div class="text-center relative">
-                    <div class="inline-block relative pulse-ring">
-                        <svg class="w-40 h-40 transform -rotate-90">
-                            <circle class="text-gray-200" stroke-width="8" stroke="currentColor" fill="transparent" r="70" cx="80" cy="80"/>
-                            <circle id="scoreCircle" class="text-indigo-600 score-circle" stroke-width="8" stroke="currentColor" fill="transparent" r="70" cx="80" cy="80" 
-                                stroke-dasharray="439.82" stroke-dashoffset="439.82" stroke-linecap="round"/>
-                        </svg>
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <div>
-                                <span id="score" class="text-5xl font-extrabold premium-text-gradient">0</span>
-                                <span class="text-gray-400">/100</span>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-gray-600 mt-4">ATS Compatibility Score</p>
-                </div>
-
-                <!-- Score Stats -->
-                <div class="col-span-2 grid grid-cols-3 gap-4">
-                    <div class="bg-green-50 rounded-2xl p-4 text-center">
-                        <i class="fas fa-trophy text-2xl text-green-600 mb-2"></i>
-                        <div class="text-2xl font-bold text-green-600" id="rank">Top 15%</div>
-                        <div class="text-xs text-gray-600">Global Ranking</div>
-                    </div>
-                    <div class="bg-blue-50 rounded-2xl p-4 text-center">
-                        <i class="fas fa-industry text-2xl text-blue-600 mb-2"></i>
-                        <div class="text-2xl font-bold text-blue-600" id="industry">Tech</div>
-                        <div class="text-xs text-gray-600">Detected Industry</div>
-                    </div>
-                    <div class="bg-purple-50 rounded-2xl p-4 text-center">
-                        <i class="fas fa-chart-line text-2xl text-purple-600 mb-2"></i>
-                        <div class="text-2xl font-bold text-purple-600" id="matchRate">94%</div>
-                        <div class="text-xs text-gray-600">Job Match Rate</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Keyword Analysis Section (New) -->
-        <div class="glass-card rounded-3xl p-6" data-aos="fade-up">
-            <h3 class="font-bold text-lg mb-4 flex items-center">
-                <i class="fas fa-key text-indigo-600 mr-2"></i>
-                Keyword Analysis
-            </h3>
-            <div class="grid md:grid-cols-2 gap-6">
-                <div>
-                    <h4 class="font-semibold text-green-600 mb-2">Found Keywords</h4>
-                    <div id="foundKeywords" class="flex flex-wrap gap-2"></div>
-                </div>
-                <div>
-                    <h4 class="font-semibold text-amber-600 mb-2">Missing Keywords</h4>
-                    <div id="missingKeywords" class="flex flex-wrap gap-2"></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Detailed Analysis Charts -->
-        <div class="grid md:grid-cols-2 gap-8">
-            <div class="glass-card rounded-3xl p-6" data-aos="fade-right">
-                <h3 class="font-bold text-lg mb-4 flex items-center">
-                    <i class="fas fa-chart-pie text-indigo-600 mr-2"></i>
-                    Category Performance
-                </h3>
-                <canvas id="categoryChart" class="w-full h-64"></canvas>
-            </div>
-
-            <div class="glass-card rounded-3xl p-6" data-aos="fade-left">
-                <h3 class="font-bold text-lg mb-4 flex items-center">
-                    <i class="fas fa-chart-line text-indigo-600 mr-2"></i>
-                    Industry Comparison
-                </h3>
-                <canvas id="industryChart" class="w-full h-64"></canvas>
-            </div>
-        </div>
-
-        <!-- Format Analysis (New) -->
-        <div class="glass-card rounded-3xl p-6" data-aos="fade-up">
-            <h3 class="font-bold text-lg mb-4 flex items-center">
-                <i class="fas fa-file-alt text-indigo-600 mr-2"></i>
-                Format Analysis
-            </h3>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div class="p-3 bg-gray-50 rounded-lg">
-                    <p class="text-sm text-gray-600">File Type</p>
-                    <p class="font-semibold" id="fileType">PDF</p>
-                </div>
-                <div class="p-3 bg-gray-50 rounded-lg">
-                    <p class="text-sm text-gray-600">Length</p>
-                    <p class="font-semibold" id="resumeLength">2 pages</p>
-                </div>
-                <div class="p-3 bg-gray-50 rounded-lg">
-                    <p class="text-sm text-gray-600">Format Score</p>
-                    <p class="font-semibold text-green-600" id="formatScore">85%</p>
-                </div>
-                <div class="p-3 bg-gray-50 rounded-lg">
-                    <p class="text-sm text-gray-600">Readability</p>
-                    <p class="font-semibold text-blue-600" id="readability">Good</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Strengths & Weaknesses -->
-        <div class="grid md:grid-cols-2 gap-8">
-            <div class="glass-card rounded-3xl p-6 border-l-8 border-green-500" data-aos="fade-right">
-                <h3 class="font-bold text-xl mb-4 text-green-600 flex items-center">
-                    <i class="fas fa-check-circle mr-2"></i>
-                    Strengths Analysis
-                </h3>
-                <ul id="positive" class="space-y-3">
-                    <!-- Dynamic content -->
-                </ul>
-                <div class="mt-4 p-3 bg-green-50 rounded-xl">
-                    <p class="text-sm text-green-700">
-                        <i class="fas fa-lightbulb mr-2"></i>
-                        Top Strength: Your resume excels in keyword optimization
-                    </p>
-                </div>
-            </div>
-
-            <div class="glass-card rounded-3xl p-6 border-l-8 border-amber-500" data-aos="fade-left">
-                <h3 class="font-bold text-xl mb-4 text-amber-600 flex items-center">
-                    <i class="fas fa-exclamation-triangle mr-2"></i>
-                    Improvement Areas
-                </h3>
-                <ul id="negative" class="space-y-3">
-                    <!-- Dynamic content -->
-                </ul>
-                <div class="mt-4 p-3 bg-amber-50 rounded-xl">
-                    <p class="text-sm text-amber-700">
-                        <i class="fas fa-arrow-right mr-2"></i>
-                        Priority: Add quantifiable achievements to boost score
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Premium Suggestions -->
-        <div class="glass-card rounded-3xl p-6 bg-gradient-to-r from-blue-50 to-indigo-50" data-aos="fade-up">
-            <h3 class="font-bold text-xl mb-4 text-indigo-600 flex items-center">
-                <i class="fas fa-robot mr-2"></i>
-                AI-Powered Optimization Suggestions
-            </h3>
-            <ul id="suggestionsList" class="grid md:grid-cols-2 gap-4">
-                <!-- Dynamic content -->
-            </ul>
-            
-            <!-- Premium Rewrite Section -->
-            <div class="mt-6 p-4 bg-white rounded-xl">
-                <h4 class="font-semibold mb-3 flex items-center">
-                    <i class="fas fa-magic text-indigo-600 mr-2"></i>
-                    AI Rewrite Preview
-                </h4>
-                <div id="
+</body>
+</html>
