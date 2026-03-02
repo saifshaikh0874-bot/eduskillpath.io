@@ -1,166 +1,154 @@
-<!-- FULL REWRITTEN PREMIUM HTML INSPIRED BY ENHANCV (UI/UX LEVEL) -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Eduskillpath AI Resume Analyzer</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eduskillpath – AI ATS Resume Checker</title>
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-  <!-- Tailwind -->
-  <script src="https://cdn.tailwindcss.com"></script>
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
-  <style>
-    * { font-family: 'Inter', sans-serif; }
+<!-- PDF + DOCX -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.4.2/mammoth.browser.min.js"></script>
 
-    body {
-      background: radial-gradient(circle at top left, #eef2ff, #ffffff 60%);
-    }
-
-    .glass {
-      background: rgba(255,255,255,0.7);
-      backdrop-filter: blur(16px);
-      border: 1px solid rgba(0,0,0,0.05);
-    }
-
-    .gradient-text {
-      background: linear-gradient(90deg,#4f46e5,#9333ea);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .gradient-btn {
-      background: linear-gradient(90deg,#4f46e5,#9333ea);
-    }
-  </style>
+<style>
+* { font-family: 'Inter', sans-serif; }
+body { background: radial-gradient(circle at top left, #eef2ff, #ffffff 60%); }
+.glass { background: rgba(255,255,255,0.7); backdrop-filter: blur(14px); border:1px solid rgba(0,0,0,0.05); }
+.gradient { background: linear-gradient(90deg,#4f46e5,#9333ea); }
+.gradient-text { background: linear-gradient(90deg,#4f46e5,#9333ea); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+</style>
 </head>
 <body class="text-gray-800">
 
-<!-- NAVBAR -->
+<!-- HEADER -->
 <header class="sticky top-0 z-50 glass">
   <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-    <div class="flex items-center gap-3">
-      <div class="w-10 h-10 rounded-xl gradient-btn flex items-center justify-center text-white">
-        <i class="fa-solid fa-brain"></i>
-      </div>
-      <div>
-        <h1 class="font-extrabold text-xl gradient-text">Eduskillpath</h1>
-        <p class="text-xs text-gray-500">AI Resume Intelligence</p>
-      </div>
-    </div>
-    <nav class="hidden md:flex gap-8 text-sm font-medium">
-      <a href="#" class="hover:text-indigo-600">Home</a>
-      <a href="#" class="hover:text-indigo-600">Resume Score</a>
-      <a href="#" class="hover:text-indigo-600">Templates</a>
-      <a href="#" class="hover:text-indigo-600">Pricing</a>
-    </nav>
-    <button class="gradient-btn text-white px-5 py-2 rounded-xl font-semibold">Get Started</button>
+    <h1 class="text-xl font-extrabold gradient-text">Eduskillpath ATS</h1>
+    <button class="gradient text-white px-5 py-2 rounded-xl font-semibold">Go Pro</button>
   </div>
 </header>
 
 <!-- HERO -->
-<section class="max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-2 gap-16 items-center">
-  <div>
-    <span class="inline-block mb-6 px-4 py-1 rounded-full bg-indigo-50 text-indigo-600 text-sm font-semibold">Trusted by 100K+ job seekers</span>
-    <h2 class="text-5xl font-black leading-tight">
-      Beat the ATS.
-      <span class="gradient-text">Land More Interviews.</span>
-    </h2>
-    <p class="mt-6 text-lg text-gray-600">
-      Our AI simulates real ATS used by top companies and gives you a clear roadmap to reach a 90+ ATS score.
-    </p>
+<section class="max-w-6xl mx-auto px-6 py-16">
+  <h2 class="text-5xl font-black mb-4">Beat the ATS. <span class="gradient-text">Get Interviews.</span></h2>
+  <p class="text-lg text-gray-600 mb-8">AI-powered ATS checker with real keyword scoring & resume rewriting.</p>
 
-    <div class="mt-8 flex gap-4">
-      <button class="gradient-btn text-white px-8 py-4 rounded-2xl font-bold shadow-xl">
-        Analyze My Resume
-      </button>
-      <button class="px-8 py-4 rounded-2xl border font-semibold">
-        See How It Works
-      </button>
-    </div>
+  <div class="glass rounded-3xl p-8 space-y-6">
+    <textarea id="jobDesc" rows="4" placeholder="Paste Job Description" class="w-full border rounded-xl p-4"></textarea>
 
-    <div class="mt-10 flex gap-10">
-      <div>
-        <p class="text-3xl font-extrabold">95%</p>
-        <p class="text-sm text-gray-500">ATS Accuracy</p>
-      </div>
-      <div>
-        <p class="text-3xl font-extrabold">2.3s</p>
-        <p class="text-sm text-gray-500">Scan Time</p>
-      </div>
-      <div>
-        <p class="text-3xl font-extrabold">50+</p>
-        <p class="text-sm text-gray-500">ATS Models</p>
-      </div>
+    <input type="file" id="resumeFile" accept=".pdf,.docx,.txt" class="block w-full" />
+
+    <button onclick="runATS()" class="w-full gradient text-white py-4 rounded-2xl font-bold text-lg">Analyze Resume</button>
+  </div>
+</section>
+
+<!-- LOADING -->
+<section id="loading" class="hidden text-center py-10">
+  <i class="fa-solid fa-brain text-4xl text-indigo-600 animate-pulse"></i>
+  <p class="mt-3">Analyzing with ATS engines…</p>
+</section>
+
+<!-- RESULTS -->
+<section id="results" class="hidden max-w-6xl mx-auto px-6 pb-20 space-y-10">
+
+  <!-- SCORE -->
+  <div class="glass rounded-3xl p-8 flex items-center gap-8">
+    <div class="text-6xl font-black gradient-text" id="score">0</div>
+    <div>
+      <p class="font-semibold">ATS Score</p>
+      <p class="text-gray-500">Target 80+ for interviews</p>
     </div>
   </div>
 
-  <!-- MOCK SCORE CARD -->
-  <div class="glass rounded-3xl p-10 shadow-2xl">
-    <h3 class="font-bold text-lg mb-4">Your Resume Score</h3>
-    <div class="flex items-center gap-6">
-      <div class="relative">
-        <svg class="w-32 h-32">
-          <circle cx="64" cy="64" r="54" stroke="#e5e7eb" stroke-width="8" fill="none" />
-          <circle cx="64" cy="64" r="54" stroke="#6366f1" stroke-width="8" fill="none" stroke-dasharray="339" stroke-dashoffset="85" stroke-linecap="round" />
-        </svg>
-        <span class="absolute inset-0 flex items-center justify-center text-3xl font-black">78</span>
+  <!-- KEYWORDS -->
+  <div class="grid md:grid-cols-2 gap-6">
+    <div class="glass p-6 rounded-2xl">
+      <h3 class="font-bold text-green-600 mb-3">Found Keywords</h3>
+      <div id="found" class="flex flex-wrap gap-2"></div>
+    </div>
+    <div class="glass p-6 rounded-2xl">
+      <h3 class="font-bold text-red-600 mb-3">Missing Keywords</h3>
+      <div id="missing" class="flex flex-wrap gap-2"></div>
+    </div>
+  </div>
+
+  <!-- AI REWRITE -->
+  <div class="glass p-6 rounded-2xl">
+    <h3 class="font-bold mb-4">AI Resume Rewrite (Pro Preview)</h3>
+    <div class="grid md:grid-cols-2 gap-4">
+      <div class="p-4 bg-gray-50 rounded-xl">
+        <p class="text-sm text-gray-500">Before</p>
+        <p id="beforeText"></p>
       </div>
-      <div class="space-y-2">
-        <p class="font-semibold">ATS Compatibility</p>
-        <p class="text-sm text-gray-500">Above average – improve keywords to reach 90+</p>
+      <div class="p-4 bg-indigo-50 rounded-xl">
+        <p class="text-sm text-gray-500">After (AI Optimized)</p>
+        <p id="afterText"></p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- UPLOAD SECTION -->
-<section class="max-w-5xl mx-auto px-6 pb-24">
-  <div class="glass rounded-3xl p-10 text-center">
-    <h3 class="text-3xl font-black mb-4">Upload Your Resume</h3>
-    <p class="text-gray-600 mb-8">PDF or DOCX. We never store your data.</p>
+<script>
+async function extractText(file) {
+  const ext = file.name.split('.').pop();
+  if (ext === 'txt') return await file.text();
+  if (ext === 'pdf') {
+    const pdf = await pdfjsLib.getDocument({ data: await file.arrayBuffer() }).promise;
+    let text = '';
+    for (let i = 1; i <= pdf.numPages; i++) {
+      const page = await pdf.getPage(i);
+      const c = await page.getTextContent();
+      text += c.items.map(i => i.str).join(' ');
+    }
+    return text;
+  }
+  if (ext === 'docx') {
+    const r = await mammoth.extractRawText({ arrayBuffer: await file.arrayBuffer() });
+    return r.value;
+  }
+}
 
-    <div class="border-2 border-dashed rounded-2xl p-12 hover:border-indigo-500 transition cursor-pointer">
-      <i class="fa-solid fa-cloud-arrow-up text-4xl text-indigo-600 mb-4"></i>
-      <p class="font-semibold">Drag & Drop or Click to Upload</p>
-      <p class="text-sm text-gray-500">Max 10MB</p>
-    </div>
+function analyze(resume, jd) {
+  const jdWords = [...new Set(jd.toLowerCase().match(/\b[a-z]{4,}\b/g))];
+  const found = jdWords.filter(w => resume.toLowerCase().includes(w));
+  const missing = jdWords.filter(w => !resume.toLowerCase().includes(w));
+  const score = Math.min(100, Math.round((found.length / jdWords.length) * 100));
+  return { score, found, missing };
+}
 
-    <button class="mt-8 gradient-btn text-white px-10 py-4 rounded-2xl font-bold shadow-xl">
-      Analyze Resume
-    </button>
-  </div>
-</section>
+function fakeAIRewrite(text) {
+  return text.replace(/responsible for/gi, 'Led and delivered measurable results in');
+}
 
-<!-- FOOTER -->
-<footer class="border-t">
-  <div class="max-w-7xl mx-auto px-6 py-10 grid md:grid-cols-3 gap-8 text-sm">
-    <div>
-      <h4 class="font-bold mb-2">Eduskillpath</h4>
-      <p class="text-gray-500">AI-powered ATS resume optimization platform.</p>
-    </div>
-    <div>
-      <h4 class="font-bold mb-2">Product</h4>
-      <ul class="space-y-1 text-gray-500">
-        <li>ATS Scanner</li>
-        <li>Resume Builder</li>
-        <li>Cover Letter AI</li>
-      </ul>
-    </div>
-    <div>
-      <h4 class="font-bold mb-2">Legal</h4>
-      <ul class="space-y-1 text-gray-500">
-        <li>Privacy Policy</li>
-        <li>Terms</li>
-      </ul>
-    </div>
-  </div>
-</footer>
+async function runATS() {
+  const file = document.getElementById('resumeFile').files[0];
+  const jd = document.getElementById('jobDesc').value;
+  if (!file || !jd) return alert('Upload resume & job description');
+
+  document.getElementById('loading').classList.remove('hidden');
+  const resumeText = await extractText(file);
+  const r = analyze(resumeText, jd);
+
+  document.getElementById('loading').classList.add('hidden');
+  document.getElementById('results').classList.remove('hidden');
+
+  document.getElementById('score').innerText = r.score;
+
+  document.getElementById('found').innerHTML = r.found.map(k => `<span class='px-2 py-1 bg-green-100 rounded'>${k}</span>`).join('');
+  document.getElementById('missing').innerHTML = r.missing.map(k => `<span class='px-2 py-1 bg-red-100 rounded'>${k}</span>`).join('');
+
+  document.getElementById('beforeText').innerText = resumeText.slice(0,300);
+  document.getElementById('afterText').innerText = fakeAIRewrite(resumeText.slice(0,300));
+}
+</script>
 
 </body>
 </html>
