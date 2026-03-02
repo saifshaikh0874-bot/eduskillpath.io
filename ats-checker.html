@@ -1,211 +1,130 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Eduskillpath — Billion‑Dollar ATS Resume Intelligence</title>
+// ===== Premium ATS Logic (Frontend Only) =====
 
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-<!-- Tailwind -->
-<script src="https://cdn.tailwindcss.com"></script>
-
-<!-- Icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-
-<!-- PDF & DOCX -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.4.2/mammoth.browser.min.js"></script>
-
-<style>
-:root{
- --primary:#4f46e5;--bg:#f9fafb;--text:#111827;--muted:#6b7280;
-}
-*{font-family:'Inter',sans-serif}
-body{background:var(--bg);color:var(--text)}
-.container{max-width:1200px;margin:auto}
-.card{background:#fff;border-radius:26px;box-shadow:0 25px 60px rgba(0,0,0,.06)}
-.badge{padding:.35rem .7rem;border-radius:999px;font-size:.75rem;font-weight:600}
-.fade{animation:fade .6s ease both}
-@keyframes fade{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
-
-/* Premium loader */
-.loader{width:120px;height:120px;border-radius:50%;border:6px solid #e5e7eb;border-top-color:var(--primary);animation:spin 1s linear infinite;margin:auto}
-@keyframes spin{to{transform:rotate(360deg)}}
-
-.highlight-low{background:#fef2f2;border-left:4px solid #ef4444;padding:.5rem}
-.highlight-good{background:#ecfeff;border-left:4px solid #06b6d4;padding:.5rem}
-</style>
-</head>
-<body>
-
-<!-- NAV -->
-<header class="sticky top-0 bg-white/80 backdrop-blur border-b z-50">
- <div class="container px-6 py-4 flex justify-between items-center">
-  <div class="font-black text-xl">Eduskillpath</div>
-  <button class="bg-indigo-600 text-white px-6 py-2 rounded-xl font-semibold">Upgrade</button>
- </div>
-</header>
-
-<!-- HERO -->
-<section class="container px-6 pt-20 pb-14 fade">
- <span class="badge bg-indigo-100 text-indigo-700">Enterprise ATS Simulation</span>
- <h1 class="text-5xl font-black leading-tight max-w-4xl mt-4">
-  Recruiter‑grade resume analysis. Zero guesswork.
- </h1>
- <p class="mt-6 text-lg text-gray-600 max-w-2xl">
-  We ignore headers, LinkedIn links, and fluff. We analyze only what ATS systems actually score.
- </p>
-</section>
-
-<!-- INPUT -->
-<section class="container px-6 pb-20 fade">
- <div class="card p-10 space-y-6">
-  <textarea id="jd" rows="4" placeholder="Optional: Paste job description (advanced matching)" class="w-full border rounded-xl p-4"></textarea>
-  <input type="file" id="file" accept=".pdf,.docx,.txt" />
-  <button onclick="analyzeATS()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-4 rounded-2xl font-bold text-lg">Analyze Resume</button>
-  <p class="text-sm text-gray-500">No JD needed. We run a full ATS‑grade scan by default.</p>
- </div>
-</section>
-
-<!-- PREMIUM LOADING -->
-<section id="loading" class="hidden py-24 text-center">
- <div class="loader"></div>
- <p class="mt-6 text-gray-500">Simulating enterprise ATS engines…</p>
-</section>
-
-<!-- RESULTS -->
-<section id="results" class="hidden container px-6 pb-28 space-y-14 fade">
-
- <!-- SCORE -->
- <div class="card p-10 flex items-center gap-10">
-  <div class="text-7xl font-black text-indigo-600" id="score">0</div>
-  <div>
-   <p class="font-semibold text-lg">ATS Hiring Probability</p>
-   <p class="text-gray-500">Based on content quality, not formatting tricks</p>
-  </div>
- </div>
-
- <!-- INSIGHTS -->
- <div class="grid md:grid-cols-2 gap-8">
-  <div class="card p-8">
-   <h3 class="font-semibold mb-4">High‑impact content</h3>
-   <ul id="strengths" class="space-y-3 text-sm"></ul>
-  </div>
-  <div class="card p-8">
-   <h3 class="font-semibold mb-4">Low‑impact content</h3>
-   <ul id="gaps" class="space-y-3 text-sm"></ul>
-  </div>
- </div>
-
- <!-- SENTENCE QUALITY -->
- <div class="card p-8">
-  <h3 class="font-semibold mb-6">Sentence‑level ATS Review</h3>
-  <div id="sentenceReview" class="space-y-4 text-sm"></div>
- </div>
-
- <!-- AI REWRITE -->
- <div class="card p-8">
-  <h3 class="font-semibold mb-2">AI Rewrite (Impact Upgrade)</h3>
-  <p class="text-sm text-gray-500 mb-6">We rewrite only weak sentences — not your entire resume.</p>
-  <div class="grid md:grid-cols-2 gap-6">
-   <div class="bg-gray-50 p-4 rounded-xl">
-    <p class="text-xs text-gray-500 mb-1">Original</p>
-    <pre id="before" class="text-sm whitespace-pre-wrap"></pre>
-   </div>
-   <div class="bg-indigo-50 p-4 rounded-xl">
-    <p class="text-xs text-gray-500 mb-1">Optimized</p>
-    <pre id="after" class="text-sm whitespace-pre-wrap"></pre>
-   </div>
-  </div>
-  <button onclick="rewriteWithAI()" class="mt-6 bg-indigo-600 text-white px-6 py-3 rounded-xl font-semibold">Rewrite Low‑Impact Lines</button>
- </div>
-</section>
-
-<script>
-function cleanResume(text){
- return text
-  .replace(/linkedin\.com\/[^\s]+/gi,'')
-  .replace(/email:.*|phone:.*|contact:.*|address:.*/gi,'')
-  .replace(/\n{2,}/g,'\n')
+function cleanResume(text) {
+  return text
+    .replace(/linkedin\.com\/[^\s]+/gi, "")
+    .replace(/email:.*|phone:.*|contact:.*|address:.*/gi, "")
+    .replace(/\n{2,}/g, "\n");
 }
 
-function extractSentences(text){
- return text.split(/[.!?]/).map(s=>s.trim()).filter(s=>s.length>20)
+function extractSentences(text) {
+  return text
+    .split(/[.!?]/)
+    .map(s => s.trim())
+    .filter(s => s.length > 20);
 }
 
-function scoreSentence(s){
- let score=0
- if(/\d+%?|\d+\+|₹|\$/.test(s))score+=2
- if(/led|built|improved|increased|reduced|designed|launched/i.test(s))score+=2
- if(s.split(' ').length>12 && s.split(' ').length<30)score+=1
- return score
+function scoreSentence(s) {
+  let score = 0;
+  if (/\d+%?|\d+\+|₹|\$/.test(s)) score += 2;
+  if (/led|built|improved|increased|reduced|designed|launched/i.test(s)) score += 2;
+  if (s.split(" ").length > 12 && s.split(" ").length < 30) score += 1;
+  return score;
 }
 
-async function extract(file){
- const ext=file.name.split('.').pop()
- if(ext==='txt')return await file.text()
- if(ext==='pdf'){
-  const pdf=await pdfjsLib.getDocument({data:await file.arrayBuffer()}).promise
-  let t=''
-  for(let i=1;i<=pdf.numPages;i++){
-   const p=await pdf.getPage(i);const c=await p.getTextContent();t+=c.items.map(x=>x.str).join(' ')
+async function extract(file) {
+  const ext = file.name.split(".").pop();
+  if (ext === "txt") return await file.text();
+
+  if (ext === "pdf") {
+    const pdf = await pdfjsLib.getDocument({
+      data: await file.arrayBuffer()
+    }).promise;
+
+    let text = "";
+    for (let i = 1; i <= pdf.numPages; i++) {
+      const page = await pdf.getPage(i);
+      const content = await page.getTextContent();
+      text += content.items.map(x => x.str).join(" ");
+    }
+    return text;
   }
-  return t
- }
- if(ext==='docx'){
-  const r=await mammoth.extractRawText({arrayBuffer:await file.arrayBuffer()})
-  return r.value
- }
-}
 
-async function analyzeATS(){
- const file=document.getElementById('file').files[0]
- if(!file)return alert('Upload a resume first')
-
- loading.classList.remove('hidden')
- const raw=await extract(file)
- const resume=cleanResume(raw)
- const sentences=extractSentences(resume)
-
- loading.classList.add('hidden')
- results.classList.remove('hidden')
-
- let total=0,good=0,bad=0
- sentenceReview.innerHTML=''
- strengths.innerHTML=''
- gaps.innerHTML=''
-
- sentences.forEach(s=>{
-  const sc=scoreSentence(s)
-  total+=sc
-  if(sc>=3){
-   good++;strengths.innerHTML+=`<li>${s}</li>`
-   sentenceReview.innerHTML+=`<div class='highlight-good'>${s}</div>`
-  }else{
-   bad++;gaps.innerHTML+=`<li>${s}</li>`
-   sentenceReview.innerHTML+=`<div class='highlight-low'>${s}</div>`
+  if (ext === "docx") {
+    const result = await mammoth.extractRawText({
+      arrayBuffer: await file.arrayBuffer()
+    });
+    return result.value;
   }
- })
-
- score.innerText=Math.min(100,Math.round((good/(good+bad))*100)||0)
- before.innerText=gaps.textContent.slice(0,600)
- after.innerText='Click rewrite to convert weak statements into measurable impact.'
-
- window.__weakText=before.innerText
 }
 
-async function rewriteWithAI(){
- if(!window.__weakText)return
- const apiKey='PASTE_YOUR_OPENAI_API_KEY_HERE'
- after.innerText='Rewriting low‑impact sentences…'
- const prompt=`Rewrite the following resume lines to be ATS‑optimized, quantified, and impact‑driven:\n\n${window.__weakText}`
- const res=await fetch('https://api.openai.com/v1/chat/completions',{method:'POST',headers:{'Content-Type':'application/json','Authorization':`Bearer ${apiKey}`},body:JSON.stringify({model:'gpt-4o-mini',messages:[{role:'user',content:prompt}],temperature:.4})})
- const data=await res.json()
- after.innerText=data.choices?.[0]?.message?.content||'Rewrite failed.'
-}
-</script>
+function runPremiumLoading(done) {
+  const loading = document.getElementById("loading");
+  const results = document.getElementById("results");
+  const text = loading.querySelector("p");
 
-</body>
-</html>
+  const steps = [
+    "Parsing resume content…",
+    "Ignoring headers & contact info…",
+    "Evaluating sentence impact…",
+    "Calculating ATS probability…"
+  ];
+
+  loading.classList.remove("hidden");
+  results.classList.add("hidden");
+
+  let i = 0;
+  const timer = setInterval(() => {
+    if (i >= steps.length) {
+      clearInterval(timer);
+      loading.classList.add("hidden");
+      done();
+    } else {
+      text.innerText = steps[i];
+      i++;
+    }
+  }, 800);
+}
+
+async function analyzeATS() {
+  const file = document.getElementById("file").files[0];
+  if (!file) return alert("Upload a resume first");
+
+  runPremiumLoading(async () => {
+    const raw = await extract(file);
+    const resume = cleanResume(raw);
+    const sentences = extractSentences(resume);
+
+    const strengths = document.getElementById("strengths");
+    const gaps = document.getElementById("gaps");
+    const sentenceReview = document.getElementById("sentenceReview");
+
+    strengths.innerHTML = "";
+    gaps.innerHTML = "";
+    sentenceReview.innerHTML = "";
+
+    let good = 0;
+    let bad = 0;
+
+    sentences.forEach(s => {
+      const score = scoreSentence(s);
+      if (score >= 3) {
+        good++;
+        strengths.innerHTML += `<li>${s}</li>`;
+        sentenceReview.innerHTML += `<div class="highlight-good">${s}</div>`;
+      } else {
+        bad++;
+        gaps.innerHTML += `<li>${s}</li>`;
+        sentenceReview.innerHTML += `<div class="highlight-low">${s}</div>`;
+      }
+    });
+
+    const finalScore =
+      good + bad === 0 ? 0 : Math.round((good / (good + bad)) * 100);
+
+    document.getElementById("score").innerText = finalScore;
+    document.getElementById("results").classList.remove("hidden");
+
+    document.getElementById("before").innerText =
+      gaps.textContent.slice(0, 600);
+
+    document.getElementById("after").innerText =
+      "Upgrade to rewrite low-impact sentences automatically.";
+
+    window.__weakText = gaps.textContent;
+  });
+}
+
+function rewriteWithAI() {
+  alert("AI rewrite will be enabled after backend is connected (Pro feature).");
+}
