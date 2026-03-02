@@ -20,11 +20,17 @@
 <!-- Chart.js for Visualizations -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 
+<!-- PDF.js for Resume Parsing -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+
+<!-- Mammoth.js for DOCX parsing -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.4.2/mammoth.browser.min.js"></script>
+
 <!-- Particles.js for Background -->
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
 <style>
-    /* Premium Custom Styles */
+    /* [Keep all your existing styles here] */
     * {
         font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
     }
@@ -35,7 +41,6 @@
         overflow-x: hidden;
     }
 
-    /* Animated Background */
     #particles-js {
         position: fixed;
         width: 100%;
@@ -45,7 +50,6 @@
         z-index: 0;
     }
 
-    /* Glassmorphism Effect */
     .glass-card {
         background: rgba(255, 255, 255, 0.95);
         backdrop-filter: blur(10px);
@@ -65,7 +69,6 @@
         background-clip: text;
     }
 
-    /* 3D Transform Effects */
     .hover-3d {
         transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
@@ -75,13 +78,11 @@
         box-shadow: 0 30px 60px -15px rgba(102, 126, 234, 0.5);
     }
 
-    /* Animated Score Circle */
     .score-circle {
         transition: stroke-dashoffset 1.5s cubic-bezier(0.4, 0, 0.2, 1);
         filter: drop-shadow(0 10px 15px rgba(102, 126, 234, 0.3));
     }
 
-    /* Premium Loading Animation */
     .premium-loader {
         width: 48px;
         height: 48px;
@@ -98,7 +99,6 @@
         100% { transform: rotate(360deg); }
     }
 
-    /* Shimmer Effect */
     .shimmer {
         background: linear-gradient(
             90deg,
@@ -115,7 +115,6 @@
         100% { background-position: 200% 0; }
     }
 
-    /* Radar Scan Animation */
     .radar-scan {
         position: relative;
         overflow: hidden;
@@ -142,7 +141,6 @@
         100% { transform: rotate(360deg); }
     }
 
-    /* Floating Animation */
     .float {
         animation: float 3s ease-in-out infinite;
     }
@@ -152,7 +150,6 @@
         50% { transform: translateY(-10px); }
     }
 
-    /* Pulse Ring */
     .pulse-ring {
         position: relative;
     }
@@ -181,7 +178,6 @@
         }
     }
 
-    /* Stats Cards */
     .stat-card {
         background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
         border-radius: 1rem;
@@ -194,7 +190,6 @@
         box-shadow: 0 20px 40px -15px rgba(102, 126, 234, 0.5);
     }
 
-    /* Custom Scrollbar */
     ::-webkit-scrollbar {
         width: 10px;
     }
@@ -211,6 +206,20 @@
 
     ::-webkit-scrollbar-thumb:hover {
         background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+    }
+
+    .keyword-highlight {
+        background-color: #fef3c7;
+        padding: 2px 4px;
+        border-radius: 4px;
+        font-weight: 500;
+    }
+
+    .missing-keyword {
+        background-color: #fee2e2;
+        padding: 2px 4px;
+        border-radius: 4px;
+        font-weight: 500;
     }
 </style>
 </head>
@@ -361,7 +370,7 @@
                     <span>Target Job Description</span>
                 </label>
                 <div class="flex space-x-2">
-                    <button class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-lg text-sm hover:bg-indigo-100">
+                    <button onclick="pasteJobDescription()" class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-lg text-sm hover:bg-indigo-100">
                         <i class="fas fa-paste mr-1"></i>Paste
                     </button>
                     <button class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-lg text-sm hover:bg-indigo-100">
@@ -390,7 +399,7 @@
             </div>
             
             <div id="dropZone" class="relative border-3 border-dashed border-indigo-200 rounded-3xl p-12 text-center hover:border-indigo-600 transition-all cursor-pointer group">
-                <input type="file" id="resumeFile" class="absolute inset-0 opacity-0 cursor-pointer" accept=".pdf,.doc,.docx,.txt">
+                <input type="file" id="resumeFile" class="absolute inset-0 opacity-0 cursor-pointer" accept=".pdf,.doc,.docx,.txt" onchange="handleFileSelect(this.files[0])">
                 
                 <div class="space-y-4">
                     <div class="w-20 h-20 premium-gradient rounded-full mx-auto flex items-center justify-center group-hover:scale-110 transition-transform float">
@@ -424,36 +433,45 @@
             </div>
         </div>
 
+        <!-- Resume Preview Section (New) -->
+        <div id="resumePreview" class="hidden mb-8 p-4 bg-gray-50 rounded-xl max-h-60 overflow-y-auto">
+            <h4 class="font-semibold mb-2 flex items-center">
+                <i class="fas fa-file-alt text-indigo-600 mr-2"></i>
+                Resume Preview
+            </h4>
+            <div id="resumeText" class="text-sm text-gray-700 whitespace-pre-wrap"></div>
+        </div>
+
         <!-- Analysis Options -->
         <div class="grid grid-cols-3 gap-4 mb-8">
             <label class="flex items-center space-x-2 p-3 border rounded-xl hover:bg-indigo-50 cursor-pointer">
-                <input type="checkbox" checked class="w-4 h-4 text-indigo-600">
+                <input type="checkbox" id="keywordMatching" checked class="w-4 h-4 text-indigo-600">
                 <span class="text-sm">Keyword Matching</span>
             </label>
             <label class="flex items-center space-x-2 p-3 border rounded-xl hover:bg-indigo-50 cursor-pointer">
-                <input type="checkbox" checked class="w-4 h-4 text-indigo-600">
+                <input type="checkbox" id="formatAnalysis" checked class="w-4 h-4 text-indigo-600">
                 <span class="text-sm">Format Analysis</span>
             </label>
             <label class="flex items-center space-x-2 p-3 border rounded-xl hover:bg-indigo-50 cursor-pointer">
-                <input type="checkbox" checked class="w-4 h-4 text-indigo-600">
+                <input type="checkbox" id="grammarCheck" checked class="w-4 h-4 text-indigo-600">
                 <span class="text-sm">Grammar Check</span>
             </label>
             <label class="flex items-center space-x-2 p-3 border rounded-xl hover:bg-indigo-50 cursor-pointer">
-                <input type="checkbox" checked class="w-4 h-4 text-indigo-600">
+                <input type="checkbox" id="industryMatch" checked class="w-4 h-4 text-indigo-600">
                 <span class="text-sm">Industry Match</span>
             </label>
             <label class="flex items-center space-x-2 p-3 border rounded-xl hover:bg-indigo-50 cursor-pointer">
-                <input type="checkbox" checked class="w-4 h-4 text-indigo-600">
+                <input type="checkbox" id="experienceLevel" checked class="w-4 h-4 text-indigo-600">
                 <span class="text-sm">Experience Level</span>
             </label>
             <label class="flex items-center space-x-2 p-3 border rounded-xl hover:bg-indigo-50 cursor-pointer">
-                <input type="checkbox" checked class="w-4 h-4 text-indigo-600">
+                <input type="checkbox" id="educationMatch" checked class="w-4 h-4 text-indigo-600">
                 <span class="text-sm">Education Match</span>
             </label>
         </div>
 
         <!-- Analyze Button with Premium Effects -->
-        <button onclick="runUltraAnalysis()" 
+        <button onclick="runATSAnalysis()" 
             class="w-full premium-gradient text-white py-6 rounded-2xl font-bold text-xl shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300 relative overflow-hidden group">
             <span class="relative z-10 flex items-center justify-center space-x-3">
                 <i class="fas fa-robot"></i>
@@ -554,6 +572,24 @@
             </div>
         </div>
 
+        <!-- Keyword Analysis Section (New) -->
+        <div class="glass-card rounded-3xl p-6" data-aos="fade-up">
+            <h3 class="font-bold text-lg mb-4 flex items-center">
+                <i class="fas fa-key text-indigo-600 mr-2"></i>
+                Keyword Analysis
+            </h3>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                    <h4 class="font-semibold text-green-600 mb-2">Found Keywords</h4>
+                    <div id="foundKeywords" class="flex flex-wrap gap-2"></div>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-amber-600 mb-2">Missing Keywords</h4>
+                    <div id="missingKeywords" class="flex flex-wrap gap-2"></div>
+                </div>
+            </div>
+        </div>
+
         <!-- Detailed Analysis Charts -->
         <div class="grid md:grid-cols-2 gap-8">
             <div class="glass-card rounded-3xl p-6" data-aos="fade-right">
@@ -570,6 +606,32 @@
                     Industry Comparison
                 </h3>
                 <canvas id="industryChart" class="w-full h-64"></canvas>
+            </div>
+        </div>
+
+        <!-- Format Analysis (New) -->
+        <div class="glass-card rounded-3xl p-6" data-aos="fade-up">
+            <h3 class="font-bold text-lg mb-4 flex items-center">
+                <i class="fas fa-file-alt text-indigo-600 mr-2"></i>
+                Format Analysis
+            </h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="p-3 bg-gray-50 rounded-lg">
+                    <p class="text-sm text-gray-600">File Type</p>
+                    <p class="font-semibold" id="fileType">PDF</p>
+                </div>
+                <div class="p-3 bg-gray-50 rounded-lg">
+                    <p class="text-sm text-gray-600">Length</p>
+                    <p class="font-semibold" id="resumeLength">2 pages</p>
+                </div>
+                <div class="p-3 bg-gray-50 rounded-lg">
+                    <p class="text-sm text-gray-600">Format Score</p>
+                    <p class="font-semibold text-green-600" id="formatScore">85%</p>
+                </div>
+                <div class="p-3 bg-gray-50 rounded-lg">
+                    <p class="text-sm text-gray-600">Readability</p>
+                    <p class="font-semibold text-blue-600" id="readability">Good</p>
+                </div>
             </div>
         </div>
 
@@ -624,93 +686,4 @@
                     <i class="fas fa-magic text-indigo-600 mr-2"></i>
                     AI Rewrite Preview
                 </h4>
-                <div class="flex items-start space-x-4">
-                    <div class="flex-1 p-3 bg-gray-50 rounded-lg text-sm text-gray-600">
-                        "Managed a team of developers..."
-                    </div>
-                    <i class="fas fa-arrow-right text-indigo-600 mt-3"></i>
-                    <div class="flex-1 p-3 premium-gradient text-white rounded-lg text-sm">
-                        "Led and mentored a cross-functional team of 10 engineers, increasing productivity by 35% and delivering 5 major projects ahead of schedule."
-                    </div>
-                </div>
-                <button class="mt-3 text-indigo-600 text-sm font-semibold hover:text-indigo-800">
-                    <i class="fas fa-sync-alt mr-1"></i>Generate more rewrites
-                </button>
-            </div>
-        </div>
-
-        <!-- Market Insights -->
-        <div class="glass-card rounded-3xl p-6" data-aos="fade-up">
-            <h3 class="font-bold text-lg mb-4 flex items-center">
-                <i class="fas fa-chart-bar text-indigo-600 mr-2"></i>
-                Market Insights & Recommendations
-            </h3>
-            <div class="grid md:grid-cols-3 gap-4">
-                <div class="p-4 bg-gray-50 rounded-xl">
-                    <i class="fas fa-trend-up text-green-500 text-xl mb-2"></i>
-                    <p class="font-semibold">Trending Skills</p>
-                    <p class="text-sm text-gray-600">AI, Cloud Computing, Data Analysis are hot in your industry</p>
-                </div>
-                <div class="p-4 bg-gray-50 rounded-xl">
-                    <i class="fas fa-dollar-sign text-blue-500 text-xl mb-2"></i>
-                    <p class="font-semibold">Salary Impact</p>
-                    <p class="text-sm text-gray-600">Optimized resumes get 40% higher salary offers</p>
-                </div>
-                <div class="p-4 bg-gray-50 rounded-xl">
-                    <i class="fas fa-clock text-purple-500 text-xl mb-2"></i>
-                    <p class="font-semibold">Time to Hire</p>
-                    <p class="text-sm text-gray-600">Top-scoring resumes get interviews 3x faster</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Action Buttons -->
-        <div class="flex justify-center space-x-6 pt-8">
-            <button onclick="downloadPremiumReport()" class="px-8 py-4 premium-gradient text-white rounded-xl font-bold hover:shadow-2xl transform hover:scale-105 transition">
-                <i class="fas fa-file-pdf mr-2"></i>
-                Download PDF Report
-            </button>
-            <button onclick="shareResults()" class="px-8 py-4 bg-white text-indigo-600 rounded-xl font-bold hover:shadow-2xl transform hover:scale-105 transition border-2 border-indigo-600">
-                <i class="fas fa-share-alt mr-2"></i>
-                Share Results
-            </button>
-            <button onclick="scheduleConsultation()" class="px-8 py-4 bg-purple-600 text-white rounded-xl font-bold hover:bg-purple-700 transform hover:scale-105 transition">
-                <i class="fas fa-calendar mr-2"></i>
-                Expert Consultation
-            </button>
-        </div>
-    </div>
-
-    <!-- Error Display -->
-    <div id="error" class="hidden glass-card rounded-3xl p-8 bg-red-50 border-l-8 border-red-500">
-        <div class="flex items-center space-x-4">
-            <i class="fas fa-exclamation-circle text-red-500 text-4xl"></i>
-            <div>
-                <h3 class="font-bold text-xl text-red-700">Analysis Error</h3>
-                <p id="errorMessage" class="text-red-600"></p>
-            </div>
-        </div>
-    </div>
-</main>
-
-<!-- Premium Footer -->
-<footer class="relative z-10 bg-black/30 backdrop-blur-lg mt-20 py-12">
-    <div class="max-w-7xl mx-auto px-6">
-        <div class="grid md:grid-cols-4 gap-8">
-            <div>
-                <h4 class="text-white font-bold mb-4">Eduskillpath Enterprise</h4>
-                <p class="text-white/60 text-sm">Advanced AI-powered ATS intelligence for modern recruitment.</p>
-            </div>
-            <div>
-                <h5 class="text-white font-semibold mb-4">Features</h5>
-                <ul class="space-y-2 text-white/60 text-sm">
-                    <li>AI Analysis</li>
-                    <li>Batch Processing</li>
-                    <li>API Access</li>
-                    <li>Enterprise Solutions</li>
-                </ul>
-            </div>
-            <div>
-                <h5 class="text-white font-semibold mb-4">Company</h5>
-                <ul class="space-y-2 text-white/60 text-sm">
-                   
+                <div id="
