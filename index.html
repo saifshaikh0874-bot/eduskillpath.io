@@ -255,75 +255,22 @@
         <a href="#cvbuilder" class="hover:text-brand-600">CV Builder</a>
       </nav>
   <!-- Right actions -->
-    <!-- Premium Dropdown -->
-  <div id="menuDropdown"
-       class="hidden absolute right-0 mt-4 w-80 
-              bg-white shadow-2xl rounded-2xl 
-              border border-slate-200 p-6 space-y-6 z-50">
-
-    <!-- Platform Section -->
-    <div>
-      <p class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">
-        Platform
-      </p>
-
-      <a href="#programs" class="block py-2 hover:text-indigo-600 transition font-semibold">
-        Programs
-      </a>
-
-      <a href="ats-resume-writing.html" class="block py-2 hover:text-indigo-600 transition font-semibold">
-        Resume Services
-      </a>
-
-      <a href="#internships" class="block py-2 hover:text-indigo-600 transition font-semibold">
-        Internships
-      </a>
-
-      <a href="#projects" class="block py-2 hover:text-indigo-600 transition font-semibold">
-        Projects
-      </a>
-
-      <a href="#success" class="block py-2 hover:text-indigo-600 transition font-semibold">
-        Success Stories
-      </a>
-
-      <a href="resume-builder.html" class="block py-2 hover:text-indigo-600 transition font-semibold">
-        CV Builder
-      </a>
-    </div>
-
-    <!-- Tools Section -->
-    <div class="border-t pt-4">
-      <p class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">
-        Tools
-      </p>
-
-      <a href="resume-builder.html"
-         class="block py-2 hover:text-indigo-600 transition font-semibold">
-        🚀 Resume Builder
-      </a>
-
-      <a href="ats-checker.html"
-         class="block py-2 hover:text-indigo-600 transition font-semibold">
-        📊 ATS Checker
-      </a>
-    </div>
-
-    <!-- Account Section -->
-    <div class="border-t pt-4 space-y-3">
-      <a href="login.html"
-         class="block py-2 text-slate-600 hover:text-indigo-600 transition">
-        Login
-      </a>
-
-      <a href="signup.html"
-         class="block text-center bg-indigo-600 text-white py-2 rounded-lg font-bold hover:bg-indigo-500 transition">
-        Sign Up
-      </a>
-    </div>
-
+  <div class="flex items-center gap-2 md:gap-3">
+    
+    <!-- Login -->
+    <a href="login.html"
+       class="text-sm font-semibold text-slate-700 hover:text-indigo-600 transition">
+      Login
+    </a>
+  
+    <!-- Sign up -->
+    <a href="signup.html"
+       class="text-sm font-bold px-4 py-2 rounded-full
+              bg-indigo-600 text-white hover:bg-indigo-500 transition">
+      Sign Up
+    </a>
+  
   </div>
-</div>
   </header>
   
   <!-- Spacer -->
@@ -1433,19 +1380,5 @@
     </svg>
   </a>
     <script src="whatsapp.js"></script>
-    <script>
-const menuBtn = document.getElementById("menuBtn");
-const menuDropdown = document.getElementById("menuDropdown");
-
-menuBtn.addEventListener("click", () => {
-  menuDropdown.classList.toggle("hidden");
-});
-
-document.addEventListener("click", function (e) {
-  if (!menuBtn.contains(e.target) && !menuDropdown.contains(e.target)) {
-    menuDropdown.classList.add("hidden");
-  }
-});
-</script>
   </body>
   </html>
