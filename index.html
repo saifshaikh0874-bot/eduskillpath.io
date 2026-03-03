@@ -255,22 +255,44 @@
         <a href="#cvbuilder" class="hover:text-brand-600">CV Builder</a>
       </nav>
   <!-- Right actions -->
-  <div class="flex items-center gap-2 md:gap-3">
-    
-    <!-- Login -->
+ <!-- SaaS Hamburger Menu -->
+<div class="relative">
+  <button id="menuBtn" class="p-2 rounded-lg hover:bg-slate-100 transition">
+    <svg xmlns="http://www.w3.org/2000/svg" 
+         class="w-7 h-7 text-slate-800" 
+         fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16" />
+    </svg>
+  </button>
+
+  <!-- Dropdown -->
+  <div id="menuDropdown"
+       class="hidden absolute right-0 mt-4 w-64 bg-white shadow-2xl rounded-2xl border border-slate-200 p-4 space-y-3 z-50">
+
+    <a href="resume-builder.html"
+       class="block px-4 py-2 rounded-lg hover:bg-slate-100 font-semibold">
+      🚀 Resume Builder
+    </a>
+
+    <a href="ats-checker.html"
+       class="block px-4 py-2 rounded-lg hover:bg-slate-100 font-semibold">
+      📊 ATS Checker
+    </a>
+
+    <hr>
+
     <a href="login.html"
-       class="text-sm font-semibold text-slate-700 hover:text-indigo-600 transition">
+       class="block px-4 py-2 rounded-lg hover:bg-slate-100">
       Login
     </a>
-  
-    <!-- Sign up -->
+
     <a href="signup.html"
-       class="text-sm font-bold px-4 py-2 rounded-full
-              bg-indigo-600 text-white hover:bg-indigo-500 transition">
+       class="block px-4 py-2 rounded-lg bg-indigo-600 text-white text-center font-bold hover:bg-indigo-500 transition">
       Sign Up
     </a>
-  
   </div>
+</div>
   </header>
   
   <!-- Spacer -->
