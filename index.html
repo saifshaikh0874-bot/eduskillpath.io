@@ -239,16 +239,15 @@
       <img src="logo.png" class="h-10 w-auto">
     </div>
 
-    <!-- THREE LINE BUTTON -->
-    <button
-      class="w-10 h-10 flex flex-col justify-center items-center
-             gap-1.5 rounded-lg bg-white border border-slate-300 shadow-sm">
+<button id="menuBtn"
+  class="w-10 h-10 flex flex-col justify-center items-center
+         gap-1.5 rounded-lg bg-white border border-slate-300 shadow-sm">
 
-      <span class="w-6 h-[2px] bg-slate-800 rounded"></span>
-      <span class="w-6 h-[2px] bg-slate-800 rounded"></span>
-      <span class="w-6 h-[2px] bg-slate-800 rounded"></span>
+  <span class="w-6 h-[2px] bg-slate-800 rounded"></span>
+  <span class="w-6 h-[2px] bg-slate-800 rounded"></span>
+  <span class="w-6 h-[2px] bg-slate-800 rounded"></span>
 
-    </button>
+</button>
 
   </div>
 </header>
@@ -1435,6 +1434,32 @@
     <script>
 document.getElementById("menuBtn").addEventListener("click", function() {
   alert("Clicked!");
+});
+</script>
+    <!-- ================= HAMBURGER CLICK SCRIPT ================= -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const menuBtn = document.getElementById("menuBtn");
+  const menuDropdown = document.getElementById("menuDropdown");
+
+  if (menuBtn && menuDropdown) {
+
+    // Toggle dropdown when button clicked
+    menuBtn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      menuDropdown.classList.toggle("hidden");
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener("click", function (e) {
+      if (!menuBtn.contains(e.target) && !menuDropdown.contains(e.target)) {
+        menuDropdown.classList.add("hidden");
+      }
+    });
+
+  }
+
 });
 </script>
   </body>
