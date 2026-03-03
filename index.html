@@ -244,21 +244,7 @@
   </span>
   </div>
   
-      <!-- Premium SaaS Hamburger -->
-<div class="flex items-center">
-  <button id="menuBtn"
-    class="relative w-11 h-11 flex items-center justify-center
-           rounded-xl bg-white/60 backdrop-blur
-           border border-slate-200 shadow-md
-           hover:shadow-xl transition duration-300">
-
-    <div class="space-y-1.5">
-      <span class="block w-6 h-[2px] bg-slate-800 rounded transition-all duration-300"></span>
-      <span class="block w-6 h-[2px] bg-slate-800 rounded transition-all duration-300"></span>
-      <span class="block w-6 h-[2px] bg-slate-800 rounded transition-all duration-300"></span>
-    </div>
-  </button>
-</div>
+      <nav class="hidden md:flex gap-8 font-semibold text-sm">
         <a href="#programs" class="hover:text-brand-600">Programs</a>
         <a href="ats-resume-writing.html" class="hover:text-brand-600 font-bold">
       Resume Services
@@ -269,44 +255,22 @@
         <a href="#cvbuilder" class="hover:text-brand-600">CV Builder</a>
       </nav>
   <!-- Right actions -->
- <!-- SaaS Hamburger Menu -->
-<div class="relative">
-  <button id="menuBtn" class="p-2 rounded-lg hover:bg-slate-100 transition">
-    <svg xmlns="http://www.w3.org/2000/svg" 
-         class="w-7 h-7 text-slate-800" 
-         fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M4 6h16M4 12h16M4 18h16" />
-    </svg>
-  </button>
-
-  <!-- Dropdown -->
-  <div id="menuDropdown"
-       class="hidden absolute right-0 mt-4 w-64 bg-white shadow-2xl rounded-2xl border border-slate-200 p-4 space-y-3 z-50">
-
-    <a href="resume-builder.html"
-       class="block px-4 py-2 rounded-lg hover:bg-slate-100 font-semibold">
-      🚀 Resume Builder
-    </a>
-
-    <a href="ats-checker.html"
-       class="block px-4 py-2 rounded-lg hover:bg-slate-100 font-semibold">
-      📊 ATS Checker
-    </a>
-
-    <hr>
-
+  <div class="flex items-center gap-2 md:gap-3">
+    
+    <!-- Login -->
     <a href="login.html"
-       class="block px-4 py-2 rounded-lg hover:bg-slate-100">
+       class="text-sm font-semibold text-slate-700 hover:text-indigo-600 transition">
       Login
     </a>
-
+  
+    <!-- Sign up -->
     <a href="signup.html"
-       class="block px-4 py-2 rounded-lg bg-indigo-600 text-white text-center font-bold hover:bg-indigo-500 transition">
+       class="text-sm font-bold px-4 py-2 rounded-full
+              bg-indigo-600 text-white hover:bg-indigo-500 transition">
       Sign Up
     </a>
+  
   </div>
-</div>
   </header>
   
   <!-- Spacer -->
@@ -1416,79 +1380,5 @@
     </svg>
   </a>
     <script src="whatsapp.js"></script>
-    <script>
-const menuBtn = document.getElementById("menuBtn");
-const menuDropdown = document.getElementById("menuDropdown");
-
-menuBtn.addEventListener("click", () => {
-  menuDropdown.classList.toggle("hidden");
-});
-
-// Close if click outside
-document.addEventListener("click", function (e) {
-  if (!menuBtn.contains(e.target) && !menuDropdown.contains(e.target)) {
-    menuDropdown.classList.add("hidden");
-  }
-});
-</script>
-    <!-- Premium Slide Menu -->
-<div id="menuPanel"
-     class="fixed top-0 right-0 h-full w-80 bg-white
-            shadow-2xl transform translate-x-full
-            transition-transform duration-500 z-50">
-
-  <div class="p-8">
-
-    <h3 class="text-lg font-extrabold mb-8">Explore</h3>
-
-    <nav class="space-y-5 text-sm font-semibold">
-
-      <a href="#programs" class="block hover:text-indigo-600 transition">
-        Programs
-      </a>
-
-      <a href="ats-resume-writing.html" class="block hover:text-indigo-600 transition">
-        Resume Services
-      </a>
-
-      <a href="#internships" class="block hover:text-indigo-600 transition">
-        Internships
-      </a>
-
-      <a href="#projects" class="block hover:text-indigo-600 transition">
-        Projects
-      </a>
-
-      <a href="#success" class="block hover:text-indigo-600 transition">
-        Success Stories
-      </a>
-
-      <a href="resume-builder.html" class="block hover:text-indigo-600 transition">
-        Resume Builder
-      </a>
-
-      <a href="ats-checker.html" class="block hover:text-indigo-600 transition">
-        ATS Checker
-      </a>
-
-      <div class="border-t pt-6 mt-6 space-y-4">
-        <a href="login.html" class="block text-slate-600">
-          Login
-        </a>
-
-        <a href="signup.html"
-           class="block text-center bg-indigo-600 text-white py-2 rounded-lg font-bold hover:bg-indigo-500 transition">
-          Sign Up
-        </a>
-      </div>
-
-    </nav>
-
-  </div>
-</div>
-
-<!-- Overlay -->
-<div id="menuOverlay"
-     class="fixed inset-0 bg-black/40 backdrop-blur-sm hidden z-40"></div>
   </body>
   </html>
