@@ -244,7 +244,21 @@
   </span>
   </div>
   
-      <nav class="hidden md:flex gap-8 font-semibold text-sm">
+      <!-- Premium SaaS Hamburger -->
+<div class="flex items-center">
+  <button id="menuBtn"
+    class="relative w-11 h-11 flex items-center justify-center
+           rounded-xl bg-white/60 backdrop-blur
+           border border-slate-200 shadow-md
+           hover:shadow-xl transition duration-300">
+
+    <div class="space-y-1.5">
+      <span class="block w-6 h-[2px] bg-slate-800 rounded transition-all duration-300"></span>
+      <span class="block w-6 h-[2px] bg-slate-800 rounded transition-all duration-300"></span>
+      <span class="block w-6 h-[2px] bg-slate-800 rounded transition-all duration-300"></span>
+    </div>
+  </button>
+</div>
         <a href="#programs" class="hover:text-brand-600">Programs</a>
         <a href="ats-resume-writing.html" class="hover:text-brand-600 font-bold">
       Resume Services
@@ -1417,5 +1431,64 @@ document.addEventListener("click", function (e) {
   }
 });
 </script>
+    <!-- Premium Slide Menu -->
+<div id="menuPanel"
+     class="fixed top-0 right-0 h-full w-80 bg-white
+            shadow-2xl transform translate-x-full
+            transition-transform duration-500 z-50">
+
+  <div class="p-8">
+
+    <h3 class="text-lg font-extrabold mb-8">Explore</h3>
+
+    <nav class="space-y-5 text-sm font-semibold">
+
+      <a href="#programs" class="block hover:text-indigo-600 transition">
+        Programs
+      </a>
+
+      <a href="ats-resume-writing.html" class="block hover:text-indigo-600 transition">
+        Resume Services
+      </a>
+
+      <a href="#internships" class="block hover:text-indigo-600 transition">
+        Internships
+      </a>
+
+      <a href="#projects" class="block hover:text-indigo-600 transition">
+        Projects
+      </a>
+
+      <a href="#success" class="block hover:text-indigo-600 transition">
+        Success Stories
+      </a>
+
+      <a href="resume-builder.html" class="block hover:text-indigo-600 transition">
+        Resume Builder
+      </a>
+
+      <a href="ats-checker.html" class="block hover:text-indigo-600 transition">
+        ATS Checker
+      </a>
+
+      <div class="border-t pt-6 mt-6 space-y-4">
+        <a href="login.html" class="block text-slate-600">
+          Login
+        </a>
+
+        <a href="signup.html"
+           class="block text-center bg-indigo-600 text-white py-2 rounded-lg font-bold hover:bg-indigo-500 transition">
+          Sign Up
+        </a>
+      </div>
+
+    </nav>
+
+  </div>
+</div>
+
+<!-- Overlay -->
+<div id="menuOverlay"
+     class="fixed inset-0 bg-black/40 backdrop-blur-sm hidden z-40"></div>
   </body>
   </html>
