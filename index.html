@@ -230,50 +230,54 @@
     </style>
   </head>
   <body>
-  <!-- ================= NAVBAR ================= -->
-  <header class="fixed w-full top-0 z-[9999] bg-white/80 backdrop-blur border-b border-slate-200">
-  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+  <!-- ================= SAAS NAVBAR ================= -->
+<header id="navbar"
+class="fixed top-0 left-0 w-full z-50 transition-all duration-300">
 
-    <!-- Logo -->
-    <div class="flex items-center gap-3">
-      <img src="logo.png" class="h-10 w-auto">
-    </div>
+<div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
 
-    <!-- Hamburger -->
-    <div class="relative">
-      <button id="menuBtn"
-        class="w-10 h-10 flex flex-col justify-center items-center
-               gap-1.5 rounded-lg bg-white border border-slate-300 shadow-sm">
+  <!-- LOGO -->
+  <a href="/" class="flex items-center gap-3">
+    <img src="logo.png" class="h-10 w-auto">
+    <span class="font-bold text-white text-lg hidden md:block">
+      Eduskillpath
+    </span>
+  </a>
 
-        <span class="w-6 h-[2px] bg-slate-800 rounded"></span>
-        <span class="w-6 h-[2px] bg-slate-800 rounded"></span>
-        <span class="w-6 h-[2px] bg-slate-800 rounded"></span>
-      </button>
+  <!-- MENU -->
+  <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-white">
 
-      <!-- DROPDOWN -->
-      <div id="menuDropdown"
-           class="hidden absolute right-0 mt-4 w-72 bg-white shadow-2xl rounded-xl border border-slate-200 p-4 space-y-2">
+    <a href="#programs" class="hover:text-indigo-400 transition">Programs</a>
+    <a href="ats-resume-writing.html" class="hover:text-indigo-400 transition">Resume Services</a>
+    <a href="#internships" class="hover:text-indigo-400 transition">Internships</a>
+    <a href="#projects" class="hover:text-indigo-400 transition">Projects</a>
 
-        <a href="#programs" class="block py-2 hover:text-indigo-600">Programs</a>
-        <a href="ats-resume-writing.html" class="block py-2 hover:text-indigo-600">Resume Services</a>
-        <a href="#internships" class="block py-2 hover:text-indigo-600">Internships</a>
-        <a href="#projects" class="block py-2 hover:text-indigo-600">Projects</a>
-        <a href="#success" class="block py-2 hover:text-indigo-600">Success Stories</a>
-        <a href="resume-builder.html" class="block py-2 hover:text-indigo-600">CV Builder</a>
-        <a href="ats-checker.html" class="block py-2 hover:text-indigo-600 font-semibold">
-          ATS Checker
-        </a>
+    <a href="resume-builder.html" class="hover:text-indigo-400 transition">
+      CV Builder
+    </a>
 
-        <hr class="my-2">
+    <a href="ats-checker.html" class="hover:text-indigo-400 transition">
+      ATS Checker
+    </a>
 
-        <a href="login.html" class="block py-2 hover:text-indigo-600">Login</a>
-        <a href="signup.html" class="block py-2 text-indigo-600 font-bold">Sign Up</a>
+  </nav>
 
-      </div>
+  <!-- RIGHT BUTTONS -->
+  <div class="hidden md:flex items-center gap-4">
 
-    </div>
+    <a href="login.html"
+       class="text-white font-semibold hover:text-indigo-400 transition">
+       Login
+    </a>
+
+    <a href="signup.html"
+       class="px-5 py-2 rounded-lg bg-indigo-600 text-white font-semibold shadow-lg hover:bg-indigo-500 transition">
+       Get Started
+    </a>
 
   </div>
+
+</div>
 </header>
   
   <!-- ================= HERO WITH GLOBE ================= -->
@@ -1398,6 +1402,30 @@ document.addEventListener("DOMContentLoaded", function () {
       menuDropdown.classList.add("hidden");
     }
   });
+
+});
+</script>
+const navbar = document.getElementById("navbar");
+
+window.addEventListener("scroll", () => {
+
+  if (window.scrollY > 40) {
+
+    navbar.classList.add(
+      "bg-white/80",
+      "backdrop-blur",
+      "shadow-md"
+    );
+
+  } else {
+
+    navbar.classList.remove(
+      "bg-white/80",
+      "backdrop-blur",
+      "shadow-md"
+    );
+
+  }
 
 });
 </script>
