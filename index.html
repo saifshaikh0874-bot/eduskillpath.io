@@ -413,85 +413,184 @@
 
   </div>
 </section>
-  <!-- ================= PROGRAMS ================= -->
-  <section id="programs" class="section-light py-24">
-    <div class="max-w-7xl mx-auto px-6">
-  
-      <div class="text-center max-w-2xl mx-auto">
-        <h2 class="text-4xl font-extrabold">Industry-Focused Programs</h2>
-        <p class="mt-4 text-slate-600 font-medium">
-          Learn practical, job-ready skills designed with real career outcomes in mind.
-        </p>
-      </div>
-  
-      <div class="mt-16 grid md:grid-cols-3 gap-10">
-  
-        <!-- Data Analytics -->
-        <div class="card-premium overflow-hidden group">
-          <div class="relative overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d"
-                 class="w-full h-44 object-cover group-hover:scale-110 transition duration-500">
-            <div class="absolute top-4 left-4 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow">
-              In Demand
-            </div>
-          </div>
-  
-          <div class="p-8">
-            <h3 class="font-extrabold text-xl text-brand-600">Data Analytics</h3>
-            <p class="mt-3 text-slate-600">Excel, SQL, Power BI, dashboards and business case studies.</p>
-            <ul class="mt-5 space-y-2 text-sm font-semibold text-slate-700">
-              <li>✔ Real datasets</li>
-              <li>✔ Portfolio dashboards</li>
-              <li>✔ Interview prep</li>
-            </ul>
-          </div>
-        </div>
-  
-        <!-- AI & Automation -->
-        <div class="card-premium overflow-hidden group border-2 border-brand-600 relative">
-          <div class="relative overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1677442135136-760c813028c0"
-                 class="w-full h-44 object-cover group-hover:scale-110 transition duration-500">
-            <div class="absolute top-4 left-4 bg-purple-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow">
-              Most Popular
-            </div>
-          </div>
-  
-          <div class="p-8">
-            <h3 class="font-extrabold text-xl mt-1">AI & Automation</h3>
-            <p class="mt-3 text-slate-600">Prompt engineering, AI tools, automation workflows.</p>
-            <ul class="mt-5 space-y-2 text-sm font-semibold text-slate-700">
-              <li>✔ AI productivity tools</li>
-              <li>✔ Resume AI optimization</li>
-              <li>✔ Workflow automation</li>
-            </ul>
-          </div>
-        </div>
-  
-        <!-- Career Accelerator -->
-        <div class="card-premium overflow-hidden group">
-          <div class="relative overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d"
-                 class="w-full h-44 object-cover group-hover:scale-110 transition duration-500">
-            <div class="absolute top-4 left-4 bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow">
-              Career Boost
-            </div>
-          </div>
-  
-          <div class="p-8">
-            <h3 class="font-extrabold text-xl text-brand-600">Career Accelerator</h3>
-            <p class="mt-3 text-slate-600">Resume, LinkedIn, mock interviews and placement support.</p>
-            <ul class="mt-5 space-y-2 text-sm font-semibold text-slate-700">
-              <li>✔ ATS resume</li>
-              <li>✔ LinkedIn branding</li>
-              <li>✔ HR mock interviews</li>
-            </ul>
-          </div>
-        </div>
-  
-      </div>
-    </div>
-  </section>
+<section id="programs" class="section-light py-24">
+
+<div class="max-w-7xl mx-auto px-6">
+
+<div class="text-center max-w-2xl mx-auto">
+<h2 class="text-4xl font-extrabold">
+Career Programs & Internship Certifications
+</h2>
+
+<p class="mt-4 text-slate-600 font-medium">
+Industry-ready training programs designed to help you build job-ready skills,
+create professional resumes, and secure internships.
+</p>
+</div>
+
+
+<div class="mt-16 grid md:grid-cols-3 lg:grid-cols-4 gap-10">
+
+<!-- Program Card -->
+<div onclick="openProgram('data')" 
+class="card-premium cursor-pointer overflow-hidden group">
+
+<img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71"
+class="w-full h-44 object-cover group-hover:scale-110 transition duration-500">
+
+<div class="p-6">
+
+<h3 class="font-extrabold text-xl text-brand-600">
+Data Analytics Internship
+</h3>
+
+<p class="mt-2 text-sm text-slate-600">
+Excel, SQL, Power BI and dashboard projects.
+</p>
+
+<div class="flex items-center justify-between mt-4">
+
+<span class="text-lg font-bold text-slate-900">
+₹699
+</span>
+
+<span class="text-xs bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full font-bold">
+Enroll
+</span>
+
+</div>
+
+</div>
+</div>
+
+
+<!-- AI Program -->
+<div onclick="openProgram('ai')" 
+class="card-premium cursor-pointer overflow-hidden group">
+
+<img src="https://images.unsplash.com/photo-1677442135136-760c813028c0"
+class="w-full h-44 object-cover group-hover:scale-110 transition duration-500">
+
+<div class="p-6">
+
+<h3 class="font-extrabold text-xl text-brand-600">
+AI & Automation Tools
+</h3>
+
+<p class="mt-2 text-sm text-slate-600">
+ChatGPT tools, prompts and automation workflows.
+</p>
+
+<div class="flex items-center justify-between mt-4">
+
+<span class="text-lg font-bold text-slate-900">
+₹699
+</span>
+
+<span class="text-xs bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full font-bold">
+Enroll
+</span>
+
+</div>
+
+</div>
+</div>
+
+
+<!-- Digital Marketing -->
+<div onclick="openProgram('marketing')" 
+class="card-premium cursor-pointer overflow-hidden group">
+
+<img src="https://images.unsplash.com/photo-1557838923-2985c318be48"
+class="w-full h-44 object-cover group-hover:scale-110 transition duration-500">
+
+<div class="p-6">
+
+<h3 class="font-extrabold text-xl text-brand-600">
+Digital Marketing Internship
+</h3>
+
+<p class="mt-2 text-sm text-slate-600">
+SEO, ads, analytics and marketing campaigns.
+</p>
+
+<div class="flex items-center justify-between mt-4">
+
+<span class="text-lg font-bold text-slate-900">
+₹699
+</span>
+
+<span class="text-xs bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full font-bold">
+Enroll
+</span>
+
+</div>
+
+</div>
+</div>
+
+
+<!-- Web Dev -->
+<div onclick="openProgram('web')" 
+class="card-premium cursor-pointer overflow-hidden group">
+
+<img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085"
+class="w-full h-44 object-cover group-hover:scale-110 transition duration-500">
+
+<div class="p-6">
+
+<h3 class="font-extrabold text-xl text-brand-600">
+Web Development Internship
+</h3>
+
+<p class="mt-2 text-sm text-slate-600">
+HTML, CSS, JavaScript and portfolio projects.
+</p>
+
+<div class="flex items-center justify-between mt-4">
+
+<span class="text-lg font-bold text-slate-900">
+₹699
+</span>
+
+<span class="text-xs bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full font-bold">
+Enroll
+</span>
+
+</div>
+
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- PROGRAM DETAILS MODAL -->
+<div id="programModal" class="fixed inset-0 hidden items-center justify-center bg-black/60 z-50">
+
+<div class="bg-white max-w-2xl w-full rounded-2xl p-8 relative">
+
+<button onclick="closeProgram()" 
+class="absolute top-4 right-4 text-xl font-bold">
+×
+</button>
+
+<h3 id="programTitle" class="text-2xl font-extrabold mb-4"></h3>
+
+<p id="programDesc" class="text-slate-600"></p>
+
+<ul id="programBenefits" class="mt-6 space-y-2 text-sm font-semibold"></ul>
+
+<a href="https://wa.me/917250720874"
+class="mt-8 inline-block bg-green-500 text-white px-6 py-3 rounded-xl font-bold">
+
+Contact on WhatsApp
+
+</a>
+
+</div>
+</div>
   
   <!-- ================= WHY CHOOSE US ================= -->
   <section class="section-soft py-24">
@@ -1473,6 +1572,81 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 });
+</script>
+  <script>
+
+const programs = {
+
+data:{
+title:"Data Analytics Internship Program",
+desc:"Learn Excel, SQL, Power BI and build real business dashboards.",
+benefits:[
+"✔ Real datasets projects",
+"✔ Internship certificate",
+"✔ Resume project portfolio",
+"✔ Job interview preparation"
+]
+},
+
+ai:{
+title:"AI & Automation Internship",
+desc:"Master AI tools like ChatGPT, automation workflows and productivity tools.",
+benefits:[
+"✔ Prompt engineering",
+"✔ AI automation tools",
+"✔ AI resume optimization",
+"✔ Internship certificate"
+]
+},
+
+marketing:{
+title:"Digital Marketing Internship",
+desc:"Learn SEO, Google Ads, social media marketing and analytics.",
+benefits:[
+"✔ SEO training",
+"✔ Campaign analysis",
+"✔ Marketing projects",
+"✔ Internship certificate"
+]
+},
+
+web:{
+title:"Web Development Internship",
+desc:"Learn HTML, CSS, JavaScript and build portfolio websites.",
+benefits:[
+"✔ Frontend development",
+"✔ Portfolio website",
+"✔ Internship certificate",
+"✔ Project deployment"
+]
+}
+
+}
+
+function openProgram(key){
+
+const p = programs[key]
+
+document.getElementById("programTitle").innerText = p.title
+document.getElementById("programDesc").innerText = p.desc
+
+let list=""
+
+p.benefits.forEach(b=>{
+list += `<li>${b}</li>`
+})
+
+document.getElementById("programBenefits").innerHTML = list
+
+document.getElementById("programModal").classList.remove("hidden")
+document.getElementById("programModal").classList.add("flex")
+
+}
+
+function closeProgram(){
+document.getElementById("programModal").classList.add("hidden")
+}
+
 </script>
   </body>
   </html>
