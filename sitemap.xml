@@ -1,24 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <url>
-    <loc>https://eduskillpath.info/</loc>
-    <priority>1.0</priority>
-  </url>
+<url>
+<loc>https://eduskillpath.info/</loc>
+<priority>1.00</priority>
+</url>
 
-  <url>
-    <loc>https://eduskillpath.info/#programs</loc>
-    <priority>0.8</priority>
-  </url>
+<url>
+<loc>https://eduskillpath.info/ats-resume-writing</loc>
+<priority>0.95</priority>
+</url>
 
-  <url>
-    <loc>https://eduskillpath.info/#internships</loc>
-    <priority>0.8</priority>
-  </url>
+<url>
+<loc>https://eduskillpath.info/linkedin-profile-optimization</loc>
+<priority>0.90</priority>
+</url>
 
-  <url>
-    <loc>https://eduskillpath.info/#cvbuilder</loc>
-    <priority>0.9</priority>
-  </url>
+<url>
+<loc>https://eduskillpath.info/cover-letter-writing</loc>
+<priority>0.90</priority>
+</url>
+
+<url>
+<loc>https://eduskillpath.info/resume-builder</loc>
+<priority>0.90</priority>
+</url>
+
+<url>
+<loc>https://eduskillpath.info/internships</loc>
+<priority>0.90</priority>
+</url>
+
+<url>
+<loc>https://eduskillpath.info/career-services</loc>
+<priority>0.85</priority>
+</url>
+
+<url>
+<loc>https://eduskillpath.info/portfolio-website</loc>
+<priority>0.85</priority>
+</url>
+
+<url>
+<loc>https://eduskillpath.info/projects</loc>
+<priority>0.80</priority>
+</url>
+
+<url>
+<loc>https://eduskillpath.info/courses</loc>
+<priority>0.80</priority>
+</url>
+
+<url>
+<loc>https://eduskillpath.info/login</loc>
+<priority>0.60</priority>
+</url>
+
+<url>
+<loc>https://eduskillpath.info/signup</loc>
+<priority>0.60</priority>
+</url>
+
+<url>
+<loc>https://eduskillpath.info/contact</loc>
+<priority>0.70</priority>
+</url>
 
 </urlset>
