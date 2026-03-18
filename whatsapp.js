@@ -20,7 +20,7 @@ document.body.insertAdjacentHTML("beforeend", `
      style="width:42px;height:42px;border-radius:50%;object-fit:cover;">
 
         <div>
-          <div style="font-weight:600;font-size:14px;">Ananya Sharma</div>
+          <div style="font-weight:600;font-size:14px;">lucy</div>
           <div style="font-size:12px;color:#64748b;">
           Resume Specialist • Internship Certificate Provider
           </div>
@@ -37,7 +37,7 @@ document.body.insertAdjacentHTML("beforeend", `
              style="width:42px;height:42px;border-radius:50%;object-fit:cover;">
 
         <div>
-          <div style="font-weight:600;font-size:14px;">Priya Verma</div>
+          <div style="font-weight:600;font-size:14px;">sofia</div>
           <div style="font-size:12px;color:#64748b;">
           Career Advisor • Resume & Job Support
           </div>
