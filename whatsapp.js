@@ -16,8 +16,8 @@ document.body.insertAdjacentHTML("beforeend", `
          target="_blank"
          style="display:flex;align-items:center;gap:12px;padding:10px;border-radius:10px;text-decoration:none;color:#111;">
 
-        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&h=200&fit=crop&crop=faces"
-             style="width:42px;height:42px;border-radius:50%;object-fit:cover;">
+        <img src="https://images.unsplash.com/photo-1619895862022-09114b41f16f?w=200&h=200&fit=crop&crop=faces"
+     style="width:42px;height:42px;border-radius:50%;object-fit:cover;">
 
         <div>
           <div style="font-weight:600;font-size:14px;">Ananya Sharma</div>
