@@ -1,4 +1,3 @@
-<script>
 document.body.insertAdjacentHTML("beforeend", `
 
 <div id="waWidget" style="position:fixed;bottom:24px;right:24px;z-index:9999;font-family:system-ui,Arial;">
@@ -12,37 +11,35 @@ document.body.insertAdjacentHTML("beforeend", `
 
     <div style="padding:14px;display:flex;flex-direction:column;gap:12px;">
 
-      <!-- Resume Specialist (Lucy) -->
+      <!-- Resume Specialist -->
       <a href="https://wa.me/917781976959?text=Hi%20Eduskillpath,%20I%20need%20help%20with%20ATS%20Resume%20or%20Internship%20Certificate"
          target="_blank"
          style="display:flex;align-items:center;gap:12px;padding:10px;border-radius:10px;text-decoration:none;color:#111;">
 
-        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=200&h=200&fit=crop&crop=faces"
-             style="width:42px;height:42px;border-radius:50%;object-fit:cover;"
-             alt="Lucy">
+        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&h=200&fit=crop&crop=faces"
+             style="width:42px;height:42px;border-radius:50%;object-fit:cover;">
 
         <div>
-          <div style="font-weight:600;font-size:14px;">lucy</div>
+          <div style="font-weight:600;font-size:14px;">Ananya Sharma</div>
           <div style="font-size:12px;color:#64748b;">
-            Resume Specialist • Internship Certificate Provider
+          Resume Specialist • Internship Certificate Provider
           </div>
         </div>
 
       </a>
 
-      <!-- Career Advisor (Sofia) -->
+      <!-- Career Advisor -->
       <a href="https://wa.me/917494943858?text=Hi%20Eduskillpath,%20I%20need%20career%20guidance"
          target="_blank"
          style="display:flex;align-items:center;gap:12px;padding:10px;border-radius:10px;text-decoration:none;color:#111;">
 
         <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&h=200&fit=crop&crop=faces"
-             style="width:42px;height:42px;border-radius:50%;object-fit:cover;"
-             alt="Sofia">
+             style="width:42px;height:42px;border-radius:50%;object-fit:cover;">
 
         <div>
-          <div style="font-weight:600;font-size:14px;">sofia</div>
+          <div style="font-weight:600;font-size:14px;">Priya Verma</div>
           <div style="font-size:12px;color:#64748b;">
-            Career Advisor • Resume & Job Support
+          Career Advisor • Resume & Job Support
           </div>
         </div>
 
@@ -78,4 +75,3 @@ const waBox = document.getElementById("waBox");
 waBtn.addEventListener("click", () => {
   waBox.style.display = waBox.style.display === "block" ? "none" : "block";
 });
-</script>
