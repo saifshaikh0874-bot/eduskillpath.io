@@ -16,7 +16,7 @@ document.body.insertAdjacentHTML("beforeend", `
          target="_blank"
          style="display:flex;align-items:center;gap:12px;padding:10px;border-radius:10px;text-decoration:none;color:#111;">
 
-        <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e"
+        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&h=200&fit=crop&crop=faces"
              style="width:42px;height:42px;border-radius:50%;object-fit:cover;">
 
         <div>
@@ -33,7 +33,7 @@ document.body.insertAdjacentHTML("beforeend", `
          target="_blank"
          style="display:flex;align-items:center;gap:12px;padding:10px;border-radius:10px;text-decoration:none;color:#111;">
 
-        <img src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6"
+        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&h=200&fit=crop&crop=faces"
              style="width:42px;height:42px;border-radius:50%;object-fit:cover;">
 
         <div>
@@ -49,7 +49,7 @@ document.body.insertAdjacentHTML("beforeend", `
 
   </div>
 
-  <!-- WhatsApp Floating Button -->
+  <!-- WhatsApp Button -->
   <button id="waBtn"
           style="width:58px;height:58px;border-radius:50%;background:#22c55e;border:none;color:white;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 25px rgba(0,0,0,0.25);cursor:pointer;">
 
@@ -73,11 +73,5 @@ const waBtn = document.getElementById("waBtn");
 const waBox = document.getElementById("waBox");
 
 waBtn.addEventListener("click", () => {
-
-  if (waBox.style.display === "block") {
-    waBox.style.display = "none";
-  } else {
-    waBox.style.display = "block";
-  }
-
+  waBox.style.display = waBox.style.display === "block" ? "none" : "block";
 });
