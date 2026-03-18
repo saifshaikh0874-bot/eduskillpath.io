@@ -11,32 +11,36 @@ document.body.insertAdjacentHTML("beforeend", `
 
     <div style="padding:14px;display:flex;flex-direction:column;gap:12px;">
 
-      <!-- Support Agent 1 -->
+      <!-- Resume Specialist -->
       <a href="https://wa.me/917781976959?text=Hi%20Eduskillpath,%20I%20need%20help%20with%20Resume%20Services"
          target="_blank"
-         style="display:flex;align-items:center;gap:12px;padding:10px;border-radius:10px;text-decoration:none;color:#111;transition:all .2s ease;">
+         style="display:flex;align-items:center;gap:12px;padding:10px;border-radius:10px;text-decoration:none;color:#111;">
 
-        <img src="https://randomuser.me/api/portraits/women/65.jpg"
+        <img src="https://i.pravatar.cc/150?img=47"
              style="width:42px;height:42px;border-radius:50%;object-fit:cover;">
 
         <div>
-          <div style="font-weight:600;font-size:14px;">Priya Sharma</div>
-          <div style="font-size:12px;color:#64748b;">Career Advisor • Replies in few minutes</div>
+          <div style="font-weight:600;font-size:14px;">Aisha Khan</div>
+          <div style="font-size:12px;color:#64748b;">
+          Resume Specialist • Internship Certificate Provider
+          </div>
         </div>
 
       </a>
 
-      <!-- Support Agent 2 -->
-      <a href="https://wa.me/917494943858?text=Hi%20Eduskillpath,%20I%20need%20help%20with%20Resume%20Services"
+      <!-- Career Support -->
+      <a href="https://wa.me/917494943858?text=Hi%20Eduskillpath,%20I%20need%20help%20with%20Career%20Guidance"
          target="_blank"
-         style="display:flex;align-items:center;gap:12px;padding:10px;border-radius:10px;text-decoration:none;color:#111;transition:all .2s ease;">
+         style="display:flex;align-items:center;gap:12px;padding:10px;border-radius:10px;text-decoration:none;color:#111;">
 
-        <img src="https://randomuser.me/api/portraits/women/68.jpg"
+        <img src="https://i.pravatar.cc/150?img=45"
              style="width:42px;height:42px;border-radius:50%;object-fit:cover;">
 
         <div>
-          <div style="font-weight:600;font-size:14px;">Ananya Gupta</div>
-          <div style="font-size:12px;color:#64748b;">Resume Specialist</div>
+          <div style="font-weight:600;font-size:14px;">Priya Sharma</div>
+          <div style="font-size:12px;color:#64748b;">
+          Career Advisor • Job & Resume Guidance
+          </div>
         </div>
 
       </a>
