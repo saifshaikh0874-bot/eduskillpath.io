@@ -12,15 +12,15 @@ document.body.insertAdjacentHTML("beforeend", `
     <div style="padding:14px;display:flex;flex-direction:column;gap:12px;">
 
       <!-- Resume Specialist -->
-      <a href="https://wa.me/917781976959?text=Hi%20Eduskillpath,%20I%20need%20help%20with%20Resume%20Services"
+      <a href="https://wa.me/917781976959?text=Hi%20Eduskillpath,%20I%20need%20help%20with%20ATS%20Resume%20or%20Internship%20Certificate"
          target="_blank"
          style="display:flex;align-items:center;gap:12px;padding:10px;border-radius:10px;text-decoration:none;color:#111;">
 
-        <img src="https://i.pravatar.cc/150?img=47"
+        <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e"
              style="width:42px;height:42px;border-radius:50%;object-fit:cover;">
 
         <div>
-          <div style="font-weight:600;font-size:14px;">Aisha Khan</div>
+          <div style="font-weight:600;font-size:14px;">Ananya Sharma</div>
           <div style="font-size:12px;color:#64748b;">
           Resume Specialist • Internship Certificate Provider
           </div>
@@ -28,18 +28,18 @@ document.body.insertAdjacentHTML("beforeend", `
 
       </a>
 
-      <!-- Career Support -->
-      <a href="https://wa.me/917494943858?text=Hi%20Eduskillpath,%20I%20need%20help%20with%20Career%20Guidance"
+      <!-- Career Advisor -->
+      <a href="https://wa.me/917494943858?text=Hi%20Eduskillpath,%20I%20need%20career%20guidance"
          target="_blank"
          style="display:flex;align-items:center;gap:12px;padding:10px;border-radius:10px;text-decoration:none;color:#111;">
 
-        <img src="https://i.pravatar.cc/150?img=45"
+        <img src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6"
              style="width:42px;height:42px;border-radius:50%;object-fit:cover;">
 
         <div>
-          <div style="font-weight:600;font-size:14px;">Priya Sharma</div>
+          <div style="font-weight:600;font-size:14px;">Priya Verma</div>
           <div style="font-size:12px;color:#64748b;">
-          Career Advisor • Job & Resume Guidance
+          Career Advisor • Resume & Job Support
           </div>
         </div>
 
